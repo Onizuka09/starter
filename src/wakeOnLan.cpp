@@ -24,17 +24,29 @@ void init_wol(){
   Ethernet.init(33);
   Ethernet.begin(mac);
   udp.begin(9);
-  if (Ethernet.hardwareStatus() == EthernetNoHardware) 
-    {
+  Serial.println("TEsting eth  connection  "); 
+  if (Ethernet.hardwareStatus() == EthernetNoHardware) {
       Serial.println("Ethernet shield was not found.  Sorry, can't run without hardware. :(");
       Serial.flush();
-    
     }
-  while (Ethernet.linkStatus() != LinkON) {
-        delay(500);
-        Serial.print(".");
-        Serial.flush();
+
+  EthernetLinkStatus  st ; 
+    Serial.println("TEsting Link status "); 
+    st = Ethernet.linkStatus() ; 
+    while (st != LinkON) {
+      delay(20);
+      Serial.print(".");
+      Serial.flush();
+      st = Ethernet.linkStatus() ;
+      switch (st ) {
+		    case LinkON:   Serial.println("LINK ON ");break;
+		    case Unknown:   Serial.println("UNKNOW");break;
+		    case LinkOFF:  Serial.println("LINK OFF");break;
+		    default:        Serial.println("Default ");break;
+	    }
   }
+      Serial.println("connection success  "); 
+
 }
 void wakePC(){ 
 for ( int i = 0 ; i < 10 ; i ++)

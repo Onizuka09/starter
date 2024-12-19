@@ -43,9 +43,9 @@ void IR_SEND_COMMAND(uint8_t* buff,size_t s ){
         buff[i]*= _MICROS_PER_TICK ;
     }
     sendIRData(buff, s );
-    delay(500);
-    Serial.println(F("Data sent."));
-    IrReceiver.start();
+    delay(50);
+    Serial.println(F("IR COMMAND Data sent ..."));
+    // IrReceiver.start();
 }
 // Initialize the IR receiver
 void setupReceiver() {

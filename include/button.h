@@ -8,6 +8,7 @@
 
 
 void init_btn(); 
-void handleButton() ;
-bool isLongPressed();
+void handleButton_5s() ;
+bool isLongPressed_5s();
+void TaskResetESP32(void* prameter);
 #endif 
