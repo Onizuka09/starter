@@ -1,229 +1,75 @@
-/*
- * Software Verision 0.1 , Moktar SELLAMI
- * @screen_flex
- */
 
-#include "IR_UTILS.h"
-#include "RGB_LED.h"
-#include "button.h"
-#include "mystorage.h"
-#include "program_defines.h"
-#include "wakeOnLan.h"
+
 #include <Arduino.h>
-volatile uint8_t Blinking_status = 3; // 0: Red, 1: Green, 2: Blue
-volatile bool Wake_PC_STATE = false;
-volatile bool Wake_PC_STATE_finished =false ;
-volatile bool IR_COMMAND_SEND_STATE = false;
-// pin defs
-uint16_t rawData[] = {3950, 4050, 500,  2000, 500,  2000, 500,  2000, 500,
-                      2000, 500,  1000, 500,  1000, 500,  2000, 500,  1000,
-                      500,  2000, 500,  1000, 500,  2000, 500,  1000, 500,
-                      1000, 500,  1000, 450,  1050, 450,  1050, 450,  2050,
-                      450,  2050, 450,  1050, 450,  2050, 450,  1050, 450,
-                      2050, 450,  1050, 450,  2000, 500};
-void WakePCTask(void *parameter) {
-  while ( true){ 
-  if (true == Wake_PC_STATE) {
-    wakePC();
-    Wake_PC_STATE = false;
-    Wake_PC_STATE_finished = true ;
-      vTaskDelete(NULL); 
-  }
-      vTaskDelay(100 / portTICK_PERIOD_MS);
-  }
-}
-unsigned long  btime = 0 ;  
+#include <WiFi.h>
+#include <ESPmDNS.h>
+#include <WiFiUdp.h>
+#include <Ethernet.h>
+#define OTETHERNET
+#include <ArduinoOTA.h>
+// #include "credentials.h"
+const char* ssid = "TP-Link_AP_70CA";
+const char* password = "97800903";
 
-// void
-void toggleLEDTask(void *parameter) {
-  // Set up the RGB pins as outputs
-  while (true) {
-
-    // Turn on the LED based on the currentColor variable
-    switch (Blinking_status) {
-    case 0: // green
-      setColor(0, 255, 0);
-      vTaskDelay(500 / portTICK_PERIOD_MS);
-      setColor(0, 0, 0);
-      vTaskDelay(500 / portTICK_PERIOD_MS);
-      break;
-    case 1:
-      setColor(0, 0, 255);
-      vTaskDelay(500 / portTICK_PERIOD_MS);
-      setColor(0, 0, 0);
-      vTaskDelay(500 / portTICK_PERIOD_MS);
-      break; // Blue
-    case 2:
-      setColor(255, 0, 0);
-      vTaskDelay(500 / portTICK_PERIOD_MS);
-      setColor(0, 0, 0);
-      vTaskDelay(500 / portTICK_PERIOD_MS);
-      break; // Red
-    case 3:
-      setColor(0, 0, 0);
-      vTaskDelay(500 / portTICK_PERIOD_MS);
-      setColor(0, 0, 0);
-      vTaskDelay(500 / portTICK_PERIOD_MS);
-      break; // No color
-    case 4:
-      setColor(255, 255, 0); // Yellow
-      vTaskDelay(500 / portTICK_PERIOD_MS);
-      setColor(0, 0, 0); // Off
-      vTaskDelay(500 / portTICK_PERIOD_MS);
-      break;
-
-    case 5:
-      setColor(173, 216, 230); // Light Blue
-      vTaskDelay(500 / portTICK_PERIOD_MS);
-      setColor(0, 0, 0); // Off
-      vTaskDelay(500 / portTICK_PERIOD_MS);
-      break;
-    default:
-      break ;
-    }
-
-    // vTaskDelay(500 / portTICK_PERIOD_MS); // Delay for 500ms
-  }
-}
+unsigned long previoustime=0;
+byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED }; // Replace with your W5500 MAC address
 
 void setup() {
+    Serial.begin(115200);
+      Ethernet.init(33);
+    Ethernet.begin(mac);
+    if (Ethernet.hardwareStatus() == EthernetNoHardware) {
+        Serial.println("Ethernet shield not found!");
+        while (true);
+    }
 
-  Serial.begin(115200);
-  init_littlefs();
-  delay(500);
-  Blinking_status = 1;
-  xTaskCreate(toggleLEDTask,     // Function to run as a thread
-              "Toggle LED Task", // Name of the task
-              1024,              // Stack size in words
-              NULL,              // Task input parameter
-              3,                 // Task priority
-              NULL               // Task handle (optional)
-  );
-  Serial.println("HEllo ...");
-  init_btn();
-  init_RGB();
-  setupReceiver();
-  setupSender();
-  xTaskCreate(WakePCTask, // Function to run as a thread
-              "Wake PC ", // Name of the task
-              1024,       // Stack size in words
-              NULL,       // Task input parameter
-              1,          // Task priority
-              NULL        // Task handle (optional)
-  );
+    if (Ethernet.linkStatus() == LinkOFF) {
+        Serial.println("Ethernet cable not connected!");
+    }
 
-  xTaskCreate(TaskResetESP32, // Function to run as a thread
-              "Reset ESP ", // Name of the task
-              1024,       // Stack size in words
-              NULL,       // Task input parameter
-              2,          // Task priority
-              NULL        // Task handle (optional)
-  );
-  // setup task wake PC: perform WOL
-  delay(50);
-  Serial.println("HEllo ...");
-  Blinking_status = 4;
-  init_wol();
-  Blinking_status = 1;
-
-
-  // resetFile(settings) ;
-  delay(1000);
-  Serial.println("Beginning now  ...");
-
-  Wake_PC_STATE = true;
-  // Wake_PC_STATE_Running = true ; 
-  if (isDataAvailable(settings)) {
-    Blinking_status = 5;
-
-    dump_file(settings);
-    // setColor(0,255,0);
-    delay(50);
-    uint8_t temp[255] = {0};
-    size_t size = 255;
-    readData(temp, &size, settings);
-    IR_SEND_COMMAND(temp, size);
-    //
-    // Serial.println("Waking yp PC ");
-    // wakePC();
-    // Blinking_status=5;
-
-  } else {
-    Serial.println("No data is avalaible LITTLEFS IS EMPTY, SCANNING NOW ....");
-    Blinking_status = 2;
-
-    // Perform the scanning operation
-    IR_RECEIVE_COMMAND(true);
-    Blinking_status = 5;
-    uint8_t temp[255] = {0};
-    size_t size = 255;
-    readData(temp, &size, settings);
-    IR_SEND_COMMAND(temp, size);
-    Serial.println("Waking yp PC ");
-    // wakePC();
-    // Check if 1 minute has elapsed
-    // if (millis() - startTime > 60000) { // 1 minute = 60000 milliseconds
-    //   Serial.println("1 minute elapsed. Proceeding...");
-    //   isScanning = false; // Reset the scanning status
-    //   // Add code here to handle the timeout case if needed
-    // }
-  }
-
-  Blinking_status = 0;
-  btime=millis();
-}
-void loop() {
-  // IR_RECEIVE_COMMAND();
-  // bool btn_state = !digitalRead(PIN_BTN); // Assuming active LOW button
-  //  Serial.println(btn_state);
-
-  handleButton_5s();
-  if (isLongPressed_5s()) {
-    Blinking_status = 3;
-
-    // setColor(0, 255, 0); // Green Color
-    // setColor(255, 0, 0); // Red Color
-    // delay(1000);
-    // setColor(0, 255, 0); // Green Color
-    // delay(1000);
-    // setColor(0, 0, 255); // Blue Color
-    // delay(1000);
-    // setColor(255, 255, 255); // White Color
-    // delay(1000);
-    // setColor(170, 0, 255); // Purple Color
-    // delay(1000);
-    // setColor(127, 127, 127); // Light Blue
-    // delay(100  0);
-    resetFile(settings);
-
-    Blinking_status = 2;
-    // reset the ESP32 ....
-    delay(50);
-    Serial.println("IR Code has been RESETR ... ");
-     IR_RECEIVE_COMMAND(true);
-    uint8_t temp[255] = {0};
-    size_t size = 255;
-    readData(temp, &size, settings);
-    btime = millis(); 
+    Serial.println("Ethernet connected");
+    delay(100);
+    Serial.println("Booting ESP32-1- OTA");
+  Serial.println("Ready");
+  Serial.print("IP address: ");
+  Serial.println(Ethernet.localIP());
+//   WiFi.mode(WIFI_STA);
+//   WiFi.begin(ssid, password);    // make sure to enter your wifi credentials on "credential.h"
+//   while (WiFi.waitForConnectResult() != WL_CONNECTED) {
+//     Serial.println("Connection Failed! Rebooting...");
+//     delay(500);
+//     // ESP.restart();
+//   }
     
-    // IR_SEND_COMMAND(temp, size);
-    // Serial.println("Waking yp PC ");
-    // ESP.restart();
-  }
-  if ( millis() - btime <= 3000) { 
-    Blinking_status = 0;
+  // Port defaults to 3232
+  // ArduinoOTA.setPort(3232);
+
+  // Hostname defaults to esp3232-[MAC]
+//    ArduinoOTA.setHostname("ESP32-1");
+
+  // No authentication by default
+  // ArduinoOTA.setPassword("admin");
+
+  // Password can be set with it's md5 value as well
+  // MD5(admin) = 21232f297a57a5a743894a0e4a801fc3
+  // ArduinoOTA.setPasswordHash("21232f297a57a5a743894a0e4a801fc3");
+
   
-    }else { 
-      Blinking_status=3 ; 
+  ArduinoOTA.begin();
+
+
+}
+
+void loop() {
+  ArduinoOTA.handle();
+
+ long currenttime= millis();
+  if (currenttime-previoustime >=5000) {  //Print only every 5seconds
+    previoustime=currenttime;
+    Serial.print("This is ESP32-1 updated , ");   
+    Serial.print("IP address: ");
+    Serial.println(Ethernet.localIP());
+  
   }
-
-  // Serial.println("yo ;.. ");
-  // setColor(0,  0, 255); // Green Color
-  // // yield();
-  // delay(1000);
-
-  // if (program_status == RESET_IR_COMMAND){
-  //     Reset_TV_COMMAND();
-  //     program_status=INIT;
-  // }
+ 
 }
