@@ -12,5 +12,6 @@ void IR_SEND_COMMAND(uint8_t* buff,size_t s );
 void setupReceiver();
 void setupSender();
 void Test_IR_Receive();
+void test_receive_and_send_IR();
 
 #endif 
