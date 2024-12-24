@@ -3,7 +3,7 @@
 #include <Arduino.h>
 
 
-#define IR_SEND_PIN
+#define IR_SEND_PIN                4
 #define IR_RECEIVE_PIN          16  // D15
 #define _IR_SEND_PIN              4  // D4
 
