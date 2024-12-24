@@ -10,8 +10,69 @@ static void handleDecodedData();
 static void handleErrorFlags();
 static void sendIRData(uint8_t* buff, size_t len);
 static void saveIRCommand(); 
+void Test_IR_Receive(){ 
+     IrReceiver.start();
+    // printActiveIRProtocols(&Serial);
+    if (IrReceiver.decode()) {
+    printIRResultShort(&Serial,&IrReceiver.decodedIRData,true);
+    Serial.println("------------------");
+    // Serial.println()
+    IrReceiver.printIRResultRawFormatted(&Serial,true);
+    Serial.println("DONE ");
+
+    }   
+    
+
+    IrReceiver.stop();
 
 
+}
+void test_receive_and_send_IR(){ 
+      if (IrReceiver.decode()) {
+
+        /*
+         * Print a summary of received data
+         */
+            printIRResultShort(&Serial,&IrReceiver.decodedIRData,true);
+        if (IrReceiver.decodedIRData.decodedRawData) {
+
+            Serial.println(F("Received noise or an unknown (or not yet enabled) protocol"));
+            // We have an unknown protocol here, print extended info
+            IrReceiver.printIRResultRawFormatted(&Serial, true);
+            // Serial.println(IrReceiver.decodedIRData.decodedRawData )    ;
+            Serial.println("-----------------");
+            size_t len = IrReceiver.decodedIRData.rawDataPtr->rawlen - 1 ; 
+            IRRawbufType *rawd = IrReceiver.decodedIRData.rawDataPtr->rawbuf ; 
+            uint8_t buff[len]; 
+            int j = 0 ; 
+            for (int i =1 ; i <=len ; i ++   ){     
+                Serial.print ("  "); 
+                Serial.print (rawd[i]*_MICROS_PER_TICK);
+                buff[i]=rawd[i]*_MICROS_PER_TICK;  
+                Serial.print ("  "); 
+                j ++ ; 
+                if ( j >=4 ){ 
+                    j=0 ; 
+                    Serial.println();
+                }
+            }           
+            IrReceiver.resume(); // Do it here, to preserve raw data for printing with printIRResultRawFormatted()
+            Serial.println("Sending data ... "); 
+            IrReceiver.stop(); 
+            delay(500);
+            IrSender.sendRaw(IrReceiver.decodedIRData.rawDataPtr->rawbuf,IrReceiver.decodedIRData.rawlen,38);
+            delay(500);
+            Serial.println("data sent "); 
+            IrReceiver.start();
+
+
+        /*
+         * Finally, check the received data and perform actions according to the received command
+         */
+     
+        }
+    }
+}
 void IR_RECEIVE_COMMAND(bool store_data) {
     IrReceiver.start();
     while ( true ){ 
