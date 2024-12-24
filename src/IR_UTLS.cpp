@@ -10,7 +10,23 @@ static void handleDecodedData();
 static void handleErrorFlags();
 static void sendIRData(uint8_t* buff, size_t len);
 static void saveIRCommand(); 
+void Test_IR_Receive(){ 
+     IrReceiver.start();
+    printActiveIRProtocols(&Serial);
+    if (IrReceiver.decode()) {
+    printIRResultShort(&Serial,&IrReceiver.decodedIRData,true);
+    Serial.println("------------------");
+    // Serial.println()
+    IrReceiver.printIRResultRawFormatted(&Serial,true);
+    Serial.println("DONE ");
 
+    }   
+    
+
+    IrReceiver.stop();
+
+
+}
 
 void IR_RECEIVE_COMMAND(bool store_data) {
     IrReceiver.start();

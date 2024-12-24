@@ -11,6 +11,6 @@ void IR_RECEIVE_COMMAND(bool store_data) ;
 void IR_SEND_COMMAND(uint8_t* buff,size_t s );
 void setupReceiver();
 void setupSender();
-
+void Test_IR_Receive();
 
 #endif 
