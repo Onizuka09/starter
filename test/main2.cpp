@@ -1,6 +1,6 @@
 #include <Arduino.h>
-#include <IRremote.h>
-#include "IR_PIN_DEF.h" // Define macros for input and output pin etc.
+// #include <IRremote.h>
+// #include "IR_PIN_DEF.h" // Define macros for input and output pin etc.
 
 // Define your IR pin here (adjust as needed)
 // #define IR_RECEIVE_PIN 16

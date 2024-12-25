@@ -1,4 +1,5 @@
-#include "IR_UTILS.h"
+// #include "IR_UTILS.h"
+
 #include <IRremote.hpp>
 #include "IR_PIN_DEF.h"
 #include "mystorage.h"
@@ -30,9 +31,7 @@ void Test_IR_Receive(){
 void test_receive_and_send_IR(){ 
       if (IrReceiver.decode()) {
 
-        /*
-         * Print a summary of received data
-         */
+
             printIRResultShort(&Serial,&IrReceiver.decodedIRData,true);
         if (IrReceiver.decodedIRData.decodedRawData) {
 
@@ -66,9 +65,7 @@ void test_receive_and_send_IR(){
             IrReceiver.start();
 
 
-        /*
-         * Finally, check the received data and perform actions according to the received command
-         */
+
      
         }
     }
@@ -118,7 +115,7 @@ void setupReceiver() {
 
 // Initialize the IR sender
 void setupSender() {
-    IrSender.begin(_IR_SEND_PIN);
+    IrSender.begin(IR_SEND_PIN);
     Serial.print(F("Ready to send IR signals at pin " STR(_IR_SEND_PIN)));
 }
 

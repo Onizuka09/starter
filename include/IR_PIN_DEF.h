@@ -1,11 +1,7 @@
-#ifndef IR_PIN_DEF_H
-#define IR_PIN_DEF_H
-#include <Arduino.h>
-
-
+#ifndef CONF_H
+#define CONF_H
 #define IR_SEND_PIN                4
 #define IR_RECEIVE_PIN          16  // D15
-#define _IR_SEND_PIN              4  // D4
 
 #define DECODE_NEC          // Includes Apple and Onkyo. To enable all protocols, just comment/disable this line.
 #define _MICROS_PER_TICK 50
@@ -22,5 +18,6 @@
 #define STR_HELPER(x) #x
 #define STR(x) STR_HELPER(x)
 #endif
+// Structure to hold IR data for Pulse Distance, Samsung, and LG protocols
 
 #endif
