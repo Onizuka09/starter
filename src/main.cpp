@@ -36,7 +36,7 @@ volatile uint8_t Blinking_status = 3; // 0: Red, 1: Green, 2: Blue
 volatile bool Wake_PC_STATE = false;
 volatile bool Wake_PC_STATE_finished =false ;
 volatile bool IR_COMMAND_SEND_STATE = false;
-// pin defs
+// example of raw data 
 uint16_t rawData[] = {3950, 4050, 500,  2000, 500,  2000, 500,  2000, 500,
                       2000, 500,  1000, 500,  1000, 500,  2000, 500,  1000,
                       500,  2000, 500,  1000, 500,  2000, 500,  1000, 500,
@@ -114,43 +114,39 @@ void setup() {
   init_littlefs();
   delay(500);
   Blinking_status = 1;
-//   xTaskCreate(toggleLEDTask,     // Function to run as a thread
-//               "Toggle LED Task", // Name of the task
-//               1024,              // Stack size in words
-//               NULL,              // Task input parameter
-//               3,                 // Task priority
-//               NULL               // Task handle (optional)
-//   );
-//   Serial.println("HEllo ...");
+  xTaskCreate(toggleLEDTask,     // Function to run as a thread
+              "Toggle LED Task", // Name of the task
+              1024,              // Stack size in words
+              NULL,              // Task input parameter
+              3,                 // Task priority
+              NULL               // Task handle (optional)
+  );
+  Serial.println("HEllo ...");
   init_btn();
-//   init_RGB();
+  init_RGB();
   setupReceiver();
   setupSender();
-//   xTaskCreate(WakePCTask, // Function to run as a thread
-//               "Wake PC ", // Name of the task
-//               1024,       // Stack size in words
-//               NULL,       // Task input parameter
-//               1,          // Task priority
-//               NULL        // Task handle (optional)
-//   );
+  xTaskCreate(WakePCTask, // Function to run as a thread
+              "Wake PC ", // Name of the task
+              1024,       // Stack size in words
+              NULL,       // Task input parameter
+              1,          // Task priority
+              NULL        // Task handle (optional)
+  );
 
-//   xTaskCreate(TaskResetESP32, // Function to run as a thread
-//               "Reset ESP ", // Name of the task
-//               1024,       // Stack size in words
-//               NULL,       // Task input parameter
-//               2,          // Task priority
-//               NULL        // Task handle (optional)
-//   );
+  xTaskCreate(TaskResetESP32, // Function to run as a thread
+              "Reset ESP ", // Name of the task
+              1024,       // Stack size in words
+              NULL,       // Task input parameter
+              2,          // Task priority
+              NULL        // Task handle (optional)
+  );
   // setup task wake PC: perform WOL
   delay(50);
   Serial.println("HEllo ...");
   Blinking_status = 4;
-//   init_wol();
-  Blinking_status = 1;
-
-
-  // resetFile(settings) ;
-  delay(1000);
+  init_wol();
+  Blinking_status = 1;  delay(1000);
   Serial.println("Beginning now  ...");
 
   Wake_PC_STATE = true;
@@ -159,16 +155,15 @@ void setup() {
     Blinking_status = 5;
 
     dump_file(settings);
-    // setColor(0,255,0);
     delay(50);
     uint8_t temp[255] = {0};
     size_t size = 255;
     readData(temp, &size, settings);
     IR_SEND_COMMAND(temp, size);
     //
-    // Serial.println("Waking yp PC ");
-    // wakePC();
-    // Blinking_status=5;
+    Serial.println("Waking yp PC ");
+    wakePC();
+    Blinking_status=5;
 
   } else {
     Serial.println("No data is avalaible LITTLEFS IS EMPTY, SCANNING NOW ....");
@@ -182,7 +177,7 @@ void setup() {
     readData(temp, &size, settings);
     IR_SEND_COMMAND(temp, size);
     Serial.println("Waking yp PC ");
-    // wakePC();
+    wakePC();
     // Check if 1 minute has elapsed
     // if (millis() - startTime > 60000) { // 1 minute = 60000 milliseconds
     //   Serial.println("1 minute elapsed. Proceeding...");
@@ -190,32 +185,16 @@ void setup() {
     //   // Add code here to handle the timeout case if needed
     // }
   }
-
   Blinking_status = 0;
   btime=millis();
 }
 void loop() {
-  // IR_RECEIVE_COMMAND();
-  // bool btn_state = !digitalRead(PIN_BTN); // Assuming active LOW button
-  //  Serial.println(btn_state);
+
 
   handleButton_5s();
   if (isLongPressed_5s()) {
     Blinking_status = 3;
 
-    // setColor(0, 255, 0); // Green Color
-    // setColor(255, 0, 0); // Red Color
-    // delay(1000);
-    // setColor(0, 255, 0); // Green Color
-    // delay(1000);
-    // setColor(0, 0, 255); // Blue Color
-    // delay(1000);
-    // setColor(255, 255, 255); // White Color
-    // delay(1000);
-    // setColor(170, 0, 255); // Purple Color
-    // delay(1000);
-    // setColor(127, 127, 127); // Light Blue
-    // delay(100  0);
     resetFile(settings);
 
     Blinking_status = 2;
@@ -239,13 +218,4 @@ void loop() {
       Blinking_status=3 ; 
   }
 
-  // Serial.println("yo ;.. ");
-  // setColor(0,  0, 255); // Green Color
-  // // yield();
-  // delay(1000);
-
-  // if (program_status == RESET_IR_COMMAND){
-  //     Reset_TV_COMMAND();
-  //     program_status=INIT;
-  // }
 }

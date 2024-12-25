@@ -7,7 +7,7 @@
 // Function prototypes
 bool IR_COMMAND_EXISTS(); 
 void IR_RECEIVE_COMMAND(bool store_data) ;
-// void IR_SEND_COMMAND(int8_t* buff,size_t s); 
+void IR_SEND_COMMAND(int8_t* buff,size_t s); 
 void IR_SEND_COMMAND(uint8_t* buff,size_t s );
 void setupReceiver();
 void setupSender();

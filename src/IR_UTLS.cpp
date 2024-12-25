@@ -22,16 +22,10 @@ void Test_IR_Receive(){
     Serial.println("DONE ");
 
     }   
-    
-
     IrReceiver.stop();
-
-
 }
 void test_receive_and_send_IR(){ 
       if (IrReceiver.decode()) {
-
-
             printIRResultShort(&Serial,&IrReceiver.decodedIRData,true);
         if (IrReceiver.decodedIRData.decodedRawData) {
 
@@ -63,37 +57,30 @@ void test_receive_and_send_IR(){
             delay(500);
             Serial.println("data sent "); 
             IrReceiver.start();
-
-
-
-     
         }
     }
 }
 void IR_RECEIVE_COMMAND(bool store_data) {
     IrReceiver.start();
     while ( true ){ 
-    if (IrReceiver.decode()) {
-        if (!processReceivedData()) {
-            Serial.println(F("Error in received data!"));
-        }
-        else { 
-            break ;
-        }
-
-    }   
+        if (IrReceiver.decode()) {
+            if (!processReceivedData()) {
+                Serial.println(F("Error in received data!"));
+            }
+            else { 
+                break ;
+            }
+        }   
     }
-
     IrReceiver.stop();
-
     if (store_data){ 
        Serial.println("Storing data ...."); 
        delay(1000); 
        write_file(buffer,sizeof(buffer), settings);
        Serial.println("data Stored ... "); 
-
     }
 }
+
 void IR_SEND_COMMAND(uint8_t* buff,size_t s ){ 
     IrReceiver.stop();
     delay(500);
@@ -128,13 +115,11 @@ bool processReceivedData() {
         handleErrorFlags();
         return false;
     }
-
     if (IrReceiver.decodedIRData.decodedRawData == 0) {
         Serial.println(F("Received noise or an unknown (or not yet enabled) protocol"));
         IrReceiver.printIRResultRawFormatted(&Serial, true);
         return false;
     }
-
     handleDecodedData();
     return true;
 }
@@ -145,7 +130,6 @@ void handleDecodedData() {
     IRRawbufType* rawd = IrReceiver.decodedIRData.rawDataPtr->rawbuf;
     // uint8_t buff[Buffer_size];
     int j = 0;
-
     Serial.println(F("Decoded raw data:"));
     for (int i = 1; i <= Buffer_size; i++) {
         Serial.print("  ");
@@ -158,9 +142,7 @@ void handleDecodedData() {
             Serial.println();
         }
     }
-
     Serial.println(F("\nSending data..."));
-
 }
 
 // Handle error flags
