@@ -5,26 +5,7 @@
 
 
 #include <Arduino.h>
-// #include "IR_Module.h"
-// IRHandler irHandler(IR_RECEIVE_PIN, IR_SEND_PIN);
-
-// void setup() {
-//     Serial.begin(115200);
-//     irHandler.begin();
-//     irHandler.init_littleFS(); 
-//     pinMode(12,INPUT);
-//     irHandler.dump_data_stored(f);
-// }
-
-// void loop() {
-//     irHandler.receiveIR();
-//     if (digitalRead(12) != LOW) {
-//         irHandler.sendIR(); // Send the last stored IR signal when button is pressed
-//     }
-//     delay(100);
-// }
-
-
+#include "soft_version.h"
 #include "IR_UTILS.h"
 #include "RGB_LED.h"
 #include "button.h"
@@ -111,6 +92,12 @@ void toggleLEDTask(void *parameter) {
 void setup() {
 
   Serial.begin(115200);
+
+  Serial.println("----------------------------------------");
+  Serial.printf("Runing %s with version %.1lf\n\r",PRODUCT_NAME,VERSION);
+  Serial.println("----------------------------------------");
+
+
   init_littlefs();
   delay(500);
   Blinking_status = 1;
@@ -146,7 +133,8 @@ void setup() {
   Serial.println("HEllo ...");
   Blinking_status = 4;
   init_wol();
-  Blinking_status = 1;  delay(1000);
+  Blinking_status = 1; 
+  delay(1000);
   Serial.println("Beginning now  ...");
 
   Wake_PC_STATE = true;
