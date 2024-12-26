@@ -1,14 +1,32 @@
+#include <Arduino.h>
+#include <LittleFS.h>
+#include <Update.h>
 #include <Ethernet.h>
+#include <HTTPClient.h>
+#define ETH 1  
+
+#ifdef ETH
 #include "wakeOnLan.h"
-// MAC address for your Ethernet shield (should be unique)
 byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED }; 
-//http://172.16.121.101:5000/test
-IPAddress server(172, 16, 121, 101); // Example: IP for example.com (or use a domain name)
 EthernetClient client;
-void performGET(); 
+#elif defined(WIFI)
+#include <WiFi.h>
+const char* ssid = "TT_23C0"; //"TP-Link_AP_70CA";
+const char* password = "i6q4k3b21r" ; //"97800903";
+WiFiClient client; 
+#endif 
+// MAC address for your Ethernet shield (should be unique)
+//192.168.1.14:5000// 192.168.1.14 // 172.16.121.101:5000
+IPAddress server(172, 16, 121,101); // Example: IP for example.com (or use a domain name)
+void performGET();
+void performOTAUpdate() ;
+void file_update(const char* filePath);
+void performOTAUpdateWIFI() ;
 void setup() {
   Serial.begin(115200);
-     Ethernet.init(33);
+  
+  #ifdef ETH
+  Ethernet.init(33);
   Ethernet.begin(mac);
   Serial.println("TEsting eth  connection  "); 
   if (Ethernet.hardwareStatus() == EthernetNoHardware) {
@@ -17,9 +35,9 @@ void setup() {
     }
 
   EthernetLinkStatus  st ; 
-    Serial.println("TEsting Link status "); 
-    st = Ethernet.linkStatus() ; 
-    while (st != LinkON) {
+  Serial.println("TEsting Link status "); 
+  st = Ethernet.linkStatus() ; 
+  while (st != LinkON) {
       delay(20);
       Serial.print(".");
       Serial.flush();
@@ -31,31 +49,116 @@ void setup() {
 		    default:        Serial.println("Default ");break;
 	    }
   }
-      Serial.println("ETH connection success  "); 
+    Serial.println("ETH connection success  "); 
+    delay(1000);
+    Serial.println("Ethernet initialized");
+    Serial.print("IP Address: ");
+    Serial.println(Ethernet.localIP());
+  
+  #elif defined(WIFI) 
+  
+  WiFi.mode(WIFI_STA);
+  Serial.printf("COnnecting to %s \n\r",ssid);
+  WiFi.begin(ssid, password);    // make sure to enter your wifi credentials on "credential.h"
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
 
-  // Start the Ethernet connection
+  Serial.println(); 
+  Serial.printf("COnnected to %s \n\r",ssid);
 
-
-  // Give the Ethernet shield time to initialize
-  delay(1000);
-  Serial.println("Ethernet initialized");
   Serial.print("IP Address: ");
-  Serial.println(Ethernet.localIP());
+  Serial.println(WiFi.localIP());
+  #endif
+  // Start the Ethernet connection
+ if (!LittleFS.begin()) {
+    Serial.println("LittleFS Mount Failed");
+    return;
+  }
+  Serial.println("LittleFS initialized");
+  // Give the Ethernet shield time to initialize
 
   // Make a GET request
+file_update("/settings.txt");
+Serial.println("DONE ");
+delay(3000);
+Serial.println("DONE ");
+
+      performOTAUpdate();
 
 }
 void performPost();
 
 void loop() {
   // Read the server response
-performGET(); 
-delay(3000);
-performPost();
-delay(3000);
+// performGET(); 
+// delay(3000);
+// performPost();
+// delay(3000);
 
 }
+void file_update(const char* filePath){ 
+   File file = LittleFS.open(filePath, "r");
 
+    if (!file) {
+        Serial.println("Failed to open file for reading");
+        return;
+    }
+
+    size_t fileSize = file.size();
+    Serial.printf("File size: %d bytes\n", fileSize);
+    String reqPath  ="/upload"; 
+
+    if (client.connect(server, 5000)) {
+        Serial.println("Connected to server");
+
+        // Send POST request headers
+        client.println("POST " + reqPath + " HTTP/1.1");
+        // client.println("Host: " + String(server));
+        client.println("Connection: close");
+        client.println("Content-Type: application/octet-stream");
+        client.printf("Content-Length: %d\r\n", fileSize);
+
+        // End headers
+        client.println();
+
+        // Send the file data
+        size_t bytesSent = 0;
+        uint8_t buffer[128]; // Buffer for reading file chunks
+
+        while (file.available()) {
+            size_t bytesRead = file.read(buffer, sizeof(buffer)); // Read a chunk of the file
+            client.write(buffer, bytesRead); // Send the chunk to the server
+            bytesSent += bytesRead;
+            Serial.printf("Sent %d/%d bytes\n", bytesSent, fileSize);
+        }
+
+        file.close();
+        Serial.println("File upload complete");
+
+        // Wait for server response
+        while (client.connected()) {
+            String line = client.readStringUntil('\n');
+            Serial.println(line);
+            if (line == "\r") {
+                Serial.println("Headers Received");
+                break;
+            }
+        }
+
+        Serial.println("Response Body:");
+        while (client.available()) {
+            String line = client.readStringUntil('\n');
+            Serial.println(line);
+        }
+        client.stop();
+        Serial.println("Connection closed");
+    } else {
+        Serial.println("Connection failed");
+        file.close();
+    }
+}
 void performPost(){ 
     String QuerryParams = "?key1=value1&key2=value2"; 
     String reqPath  ="/receive"; 
@@ -94,6 +197,7 @@ void performPost(){
         Serial.println("Connection closed "); 
   } else {
     Serial.println("Connection failed");
+    
     return ; 
   }
 }
@@ -110,7 +214,6 @@ void performGET() {
         // client.printf("Host: %s\n\r",server); // Use the domain name of your server
         client.println("Connection: close");
         client.println();
-
     // wait for sever response 
         while ( client.connected()){ 
             String line = client.readStringUntil('\n'); 
@@ -132,4 +235,113 @@ void performGET() {
     return ; 
   }
 
+}
+
+
+void performOTAUpdate() {
+    // EthernetClient client;
+    // String serverIP = "172.16.121.101";
+    int serverPort = 5000;
+    String firmwarePath = "/update";
+
+    // Connect to the server
+    if (client.connect(server, serverPort)) {
+        Serial.println("Connected to OTA server");
+
+        // Send HTTP GET request
+        client.println("GET " + firmwarePath + " HTTP/1.1");
+        // client.println("Host: " + server);
+        client.println("Connection: close");
+        client.println();
+
+        // Wait for the server response
+        int contentLength = -1;
+        while (client.connected()) {
+            String line = client.readStringUntil('\n');
+            Serial.println(line);
+            if (line.startsWith("Content-Length:")) {
+                contentLength = line.substring(15).toInt();
+            }
+            if (line == "\r") {
+                Serial.println("Headers received");
+                break; // End of headers
+            }
+        }
+
+        if (contentLength <= 0) {
+            Serial.println("Invalid content length. OTA update aborted.");
+            return;
+        }
+
+        Serial.printf("Starting OTA update, content length: %d bytes\n", contentLength);
+
+        // Initialize OTA update
+        if (Update.begin(contentLength)) {
+            size_t written = 0;
+            uint8_t buff[128];
+
+            while (client.connected() && written < contentLength) {
+                if (client.available()) {
+                    size_t len = client.readBytes(buff, sizeof(buff));
+                    written += Update.write(buff, len);
+
+                    Serial.printf("Written %d/%d bytes...\n\r", written, contentLength);
+                }
+            }
+
+            if (Update.end()) {
+                Serial.println("OTA Update completed successfully. Restarting...");
+                ESP.restart();
+            } else {
+                Serial.printf("OTA Update failed: %s\n", Update.errorString());
+            }
+        } else {
+            Serial.println("Not enough space for OTA update.");
+        }
+    } else {
+        Serial.println("Failed to connect to OTA server.");
+    }
+
+    client.stop();
+    Serial.println("Connection closed.");
+}
+
+
+void performOTAUpdateWIFI() {
+    HTTPClient http;
+    const char* firmwareUrl = "http://192.168.1.14:5000/update"; 
+    http.begin(firmwareUrl);  // Connect to the server
+    int httpCode = http.GET();  // Request the binary file
+
+    if (httpCode == HTTP_CODE_OK) {
+        int contentLength = http.getSize();
+        WiFiClient *stream = http.getStreamPtr();
+
+        if (contentLength > 0) {
+            Serial.printf("Starting OTA update, content length: %d bytes\n", contentLength);
+
+            if (Update.begin(contentLength)) {
+                size_t written = Update.writeStream(*stream);
+
+                if (written == contentLength) {
+                    Serial.println("OTA update successful, restarting...");
+                    if (Update.end()) {
+                        Serial.println("Update finished.");
+                        ESP.restart();
+                    } else {
+                        Serial.printf("Update failed: %s\n", Update.errorString());
+                    }
+                } else {
+                    Serial.printf("Written only %d/%d bytes. OTA update failed.\n", written, contentLength);
+                }
+            } else {
+                Serial.println("Not enough space for OTA update.");
+            }
+        } else {
+            Serial.println("Invalid content length.");
+        }
+    } else {
+        Serial.printf("HTTP GET failed, code: %d\n", httpCode);
+    }
+    http.end();
 }
