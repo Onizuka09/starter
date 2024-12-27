@@ -7,6 +7,8 @@
 
 #ifdef ETH
 #include "wakeOnLan.h"
+
+#define PORT 3500
 byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED }; 
 EthernetClient client;
 #elif defined(WIFI)
@@ -16,8 +18,8 @@ const char* password = "i6q4k3b21r" ; //"97800903";
 WiFiClient client; 
 #endif 
 // MAC address for your Ethernet shield (should be unique)
-//192.168.1.14:5000// 192.168.1.14 // 172.16.121.101:5000
-IPAddress server(172, 16, 121,101); // Example: IP for example.com (or use a domain name)
+//192.168.1.14:5000// 192.168.1.14 // 203.161.60.31:3500
+IPAddress server(203, 161, 60,31); // Example: IP for example.com (or use a domain name)
 void performGET();
 void performOTAUpdate() ;
 void file_update(const char* filePath);
@@ -80,12 +82,13 @@ void setup() {
   // Give the Ethernet shield time to initialize
 
   // Make a GET request
-file_update("/settings.txt");
+// file_update("/settings.txt");
+performGET();
 Serial.println("DONE ");
 delay(3000);
 Serial.println("DONE ");
 
-      performOTAUpdate();
+performOTAUpdate();
 
 }
 void performPost();
@@ -110,9 +113,8 @@ void file_update(const char* filePath){
     Serial.printf("File size: %d bytes\n", fileSize);
     String reqPath  ="/upload"; 
 
-    if (client.connect(server, 5000)) {
+    if (client.connect(server, PORT)) {
         Serial.println("Connected to server");
-
         // Send POST request headers
         client.println("POST " + reqPath + " HTTP/1.1");
         // client.println("Host: " + String(server));
@@ -164,7 +166,7 @@ void performPost(){
     String reqPath  ="/receive"; 
     String postData = "{\"key\":\"value\", \"number\":123}";
     String test="POST /receive HTTP/1.1";
-    if (client.connect(server, 5000)) {
+    if (client.connect(server, PORT)) {
         // send psot reques 
         Serial.println("Connected to server");
         // client.println("GET /test HTTP/1.1");
@@ -203,14 +205,18 @@ void performPost(){
 }
 
 void performGET() {
-    String QuerryParams = "?key1=value1&key2=value2"; 
-    String reqPath  ="/receive"+QuerryParams; 
-    String test="GET /receive HTTP/1.1";
-    if (client.connect(server, 5000)) {
+    // http://203.161.60.31:3500/api/v1/screenflex/box/version
+
+    // String QuerryParams = "?key1=value1&key2=value2"; 
+    String reqPath  ="/api/v1/screenflex/box/version"; // +QuerryParams; 
+    // String test="GET /receive HTTP/1.1";
+    if (client.connect(server, PORT)) {
         Serial.println("Connected to server");
         // client.println("GET /test HTTP/1.1");
         client.println("GET "+reqPath +" HTTP/1.1");
         // client.println(test);
+        client.println("Host: 203.161.60.31");
+
         // client.printf("Host: %s\n\r",server); // Use the domain name of your server
         client.println("Connection: close");
         client.println();
@@ -241,8 +247,10 @@ void performGET() {
 void performOTAUpdate() {
     // EthernetClient client;
     // String serverIP = "172.16.121.101";
-    int serverPort = 5000;
-    String firmwarePath = "/update";
+    //http://203.161.60.31:3500/screenflex/firmware.bin
+
+    int serverPort = PORT;
+    String firmwarePath = "/screenflex/firmware.bin";
 
     // Connect to the server
     if (client.connect(server, serverPort)) {
@@ -250,7 +258,7 @@ void performOTAUpdate() {
 
         // Send HTTP GET request
         client.println("GET " + firmwarePath + " HTTP/1.1");
-        // client.println("Host: " + server);
+        client.println("Host: 203.161.60.31");
         client.println("Connection: close");
         client.println();
 

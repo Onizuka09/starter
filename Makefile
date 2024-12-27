@@ -2,6 +2,8 @@ init_project:
 	pio init --board esp32doit-devkit-v1
 generate_commands_json:
 	pio run -t compiledb
+monitor:
+	pio device monitor -b 115200
 build:
 	pio run
 flash:
