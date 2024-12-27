@@ -1,4 +1,4 @@
-/*
+
 
 #ifndef MY_IR_MODULE_H_
 #define MY_IR_MODULE_H_
@@ -8,10 +8,18 @@
 #include "IR_PIN_DEF.h" 
 #include <LittleFS.h>
 #include <ArduinoJson.h>
+#include "Mylog.h"
 #define f "/settings.json"
 
  // Define macros for input and output pin etc.
 // #include "IR_PIN_DEF.h"
+typedef enum {
+ settings,
+ jsettings,
+} Files;
+
+
+String file_names[] = {"/settings.txt","/settings.json"};
 
 typedef struct {
     bool data_stored; 
@@ -34,20 +42,77 @@ public:
     void dump_data_stored(const char* filename);
     IRHandler(uint8_t receivePin, uint8_t sendPin);
     void begin();
-    void receiveIR();
-    void sendIR();
     decode_type_t identifyProtocol(MyIRData& irData);
-    void storeData(MyIRData& irData);
+    void setRecievedData(MyIRData& irData);
+    
+    bool receiveIR(bool saveData);
+    void sendIR();
     void playBackData(const MyIRData& irData);
+
+    void storeData(MyIRData& irData);
+    bool IsIRDataavailable(const char* filename); 
     bool readMyIRDataJSON(const char* filename, MyIRData& data);
     void storeMyIRDataJSON(const char* filename, const MyIRData& data);
+
+    bool DumpMyIRDataJSON(const char* filename) ;
+    void PrintMyIRData( MyIRData& data);
+    void clear_file(const char* filename);
 
 private:
     uint8_t receivePin;
     uint8_t _sendPin;
     MyIRData receivedData; // Store the last received IR data
 };
+void IRHandler::setRecievedData(MyIRData& irData){ 
+    receivedData=irData; 
+}
 
+void IRHandler::PrintMyIRData( MyIRData& data){ 
+  Serial.println("------ MyIRData ------");
+    Serial.print("Data Stored: ");
+    Serial.println(data.data_stored ? "Yes" : "No");
+    
+    Serial.print("Protocol: ");
+    Serial.println(static_cast<int>(data.protocol));
+    
+    Serial.print("Number of Bits: ");
+    Serial.println(data.numberOfBits);
+    
+    Serial.print("IR Address: ");
+    Serial.println(data.IR_Adress);
+    
+    Serial.print("IR Command: ");
+    Serial.println(data.IR_Command);
+    
+    Serial.println("Decoded Raw Data Array:");
+    for (int i = 0; i < RAW_DATA_ARRAY_SIZE; i++) {
+        Serial.print("  [");
+        Serial.print(i);
+        Serial.print("]: ");
+        Serial.println(data.DecodedRawDataArray[i]);
+    }
+    
+    Serial.println("Distance Width Timing Info:");
+    Serial.print("  Header Mark Micros: ");
+    Serial.println(data.timingInfo.HeaderMarkMicros);
+    
+    Serial.print("  Header Space Micros: ");
+    Serial.println(data.timingInfo.HeaderSpaceMicros);
+    
+    Serial.print("  One Mark Micros: ");
+    Serial.println(data.timingInfo.OneMarkMicros);
+    
+    Serial.print("  One Space Micros: ");
+    Serial.println(data.timingInfo.OneSpaceMicros);
+    
+    Serial.print("  Zero Mark Micros: ");
+    Serial.println(data.timingInfo.ZeroMarkMicros);
+    
+    Serial.print("  Zero Space Micros: ");
+    Serial.println(data.timingInfo.ZeroSpaceMicros);
+    
+    Serial.println("----------------------");
+}
 void IRHandler::dump_data_stored(const char* filename){ 
 
     File file = LittleFS.open(filename, "w");
@@ -70,8 +135,11 @@ void IRHandler::dump_data_stored(const char* filename){
 void IRHandler::init_littleFS(){ 
 
      if (!LittleFS.begin()) {
-        Serial.println("Failed to initialize LittleFS");
+        MyLog(ERROR,"Failed to initialize LittleFS");
         return ;
+    } else { 
+        MyLog(INFO,"initialize LittleFS");
+
     }
 }
 IRHandler::IRHandler(uint8_t receivePin, uint8_t _sendPin)
@@ -90,34 +158,39 @@ void IRHandler::begin() {
 }
 
 // Receive IR signal and identify protocol
-void IRHandler::receiveIR() {
-    // IrReceiver.start();
-  
-    if (IrReceiver.decode()) {
-      IrReceiver.printIRResultShort(&Serial); 
-      Serial.println(); 
-      IrReceiver.printIRResultRawFormatted(&Serial); 
-      Serial.println(); 
-        MyIRData irData;
-        irData.numberOfBits = IrReceiver.decodedIRData.numberOfBits;
-        irData.protocol = identifyProtocol(irData);
-        // if ( )
-        // Store the raw data based on the protocol
-        if (irData.protocol == PULSE_DISTANCE) {
-            memcpy(irData.DecodedRawDataArray, IrReceiver.decodedIRData.decodedRawDataArray, sizeof(irData.DecodedRawDataArray));
-            irData.timingInfo = IrReceiver.decodedIRData.DistanceWidthTimingInfo;
-            // irData.data_Read= true; 
-        } else {
-            irData.IR_Adress = IrReceiver.decodedIRData.address; 
-            irData.IR_Command = IrReceiver.decodedIRData.command;
-            // irData.data_Read= true; 
-            // Handle Samsung or LG protocol
-            // Add specific code to handle Samsung and LG data formats
+bool IRHandler::receiveIR(bool saveData) {
+    IrReceiver.start();
+    while (true){ 
+        if (IrReceiver.decode()) {
+          IrReceiver.printIRResultShort(&Serial); 
+          Serial.println(); 
+          IrReceiver.printIRResultRawFormatted(&Serial); 
+          Serial.println(); 
+            MyIRData irData;
+            irData.numberOfBits = IrReceiver.decodedIRData.numberOfBits;
+            irData.protocol = identifyProtocol(irData);
+            // if ( )
+            // Store the raw data based on the protocol
+            if (irData.protocol == PULSE_DISTANCE) {
+                memcpy(irData.DecodedRawDataArray, IrReceiver.decodedIRData.decodedRawDataArray, sizeof(irData.DecodedRawDataArray));
+                irData.timingInfo = IrReceiver.decodedIRData.DistanceWidthTimingInfo;
+                // irData.data_Read= true; 
+            } else {
+                irData.IR_Adress = IrReceiver.decodedIRData.address; 
+                irData.IR_Command = IrReceiver.decodedIRData.command;
+                // irData.data_Read= true; 
+                // Handle Samsung or LG protocol
+                // Add specific code to handle Samsung and LG data formats
+            }
+            if ( saveData){ 
+            storeData(irData);
+            MyLog(INFO,"DATA Stored ...");
+            }
+            IrReceiver.resume(); // Ready to receive next data
+            IrReceiver.stop();
+            return true;
         }
-
-        storeData(irData);
-        IrReceiver.resume(); // Ready to receive next data
-    }
+}
 }
 
 // Identify the protocol type of the received IR signal
@@ -144,6 +217,7 @@ void IRHandler::storeData(MyIRData& irData) {
     Serial.println("Stored new IR data.");
     receivedData.data_stored=true; 
     storeMyIRDataJSON(f,receivedData);
+    
 
 }
 
@@ -184,12 +258,14 @@ void IRHandler::sendIR() {
 void IRHandler::playBackData(const MyIRData& irData) {
     sendIR();
 }
+void IRHandler::clear_file(const char* filename) {
+    MyIRData d = { 0}; 
+    d.data_stored=false; 
+    storeMyIRDataJSON(filename,d);
 
+}
 void IRHandler::storeMyIRDataJSON(const char* filename, const MyIRData& data) {
-    // if (!LittleFS.begin()) {
-    //     Serial.println("Failed to initialize LittleFS");
-    //     return;
-    // }
+
 
     File file = LittleFS.open(filename, "w");
     if (!file) {
@@ -198,15 +274,38 @@ void IRHandler::storeMyIRDataJSON(const char* filename, const MyIRData& data) {
     }
 
     // Create a JSON object
-    // data.data_stored = true; 
     StaticJsonDocument<512> doc;
-    doc["stored"]=     data.data_stored ;
+    doc["stored"] = data.data_stored;
     doc["protocol"] = (int)data.protocol;
     doc["numberOfBits"] = data.numberOfBits;
-    doc["IR_Adress"] = data.IR_Adress;
-    doc["IR_Command"] = data.IR_Command;
+    doc["IR_Adress"] = (uint32_t)data.IR_Adress;
+    doc["IR_Command"] = (uint32_t)data.IR_Command;
+
+    // Add raw_data as an array
+
+    for (int i = 0 ; i<RAW_DATA_ARRAY_SIZE ; i++){ 
+        Serial.println(data.DecodedRawDataArray[i]);
+        
+    }
+    JsonArray array = doc.createNestedArray("raw_data");
+
+    for (uint64_t number : data.DecodedRawDataArray) { // Assuming DecodedRawDataArray is iterable
+
+        array.add(number);
+    }
+
+    // Add DistanceWidthTimingInfoStruct as a nested object
+    JsonObject timingInfoJson = doc.createNestedObject("timing_info");
+    timingInfoJson["HeaderMarkMicros"] = data.timingInfo.HeaderMarkMicros;
+    timingInfoJson["HeaderSpaceMicros"] = data.timingInfo.HeaderSpaceMicros;
+    timingInfoJson["OneMarkMicros"] =     data.timingInfo.OneMarkMicros;
+    timingInfoJson["OneSpaceMicros"] =    data.timingInfo.OneSpaceMicros;
+    timingInfoJson["ZeroMarkMicros"] =    data.timingInfo.ZeroMarkMicros;
+    timingInfoJson["ZeroSpaceMicros"] =   data.timingInfo.ZeroSpaceMicros;
 
     // Serialize the JSON object
+    serializeJsonPretty(doc, Serial);
+
     if (serializeJson(doc, file) == 0) {
         Serial.println("Failed to write JSON data");
     } else {
@@ -216,17 +315,14 @@ void IRHandler::storeMyIRDataJSON(const char* filename, const MyIRData& data) {
     file.close();
 }
 
-// Read JSON data and deserialize it to MyIRData
-bool IRHandler::readMyIRDataJSON(const char* filename, MyIRData& data) {
-
-
-    File file = LittleFS.open(filename, "r");
+bool IRHandler::IsIRDataavailable(const char* filename){
+         File file = LittleFS.open(filename, "r");
     if (!file) {
         Serial.println("Failed to open file for reading");
         return false;
     }
 
-    // Deserialize the JSON object
+
     StaticJsonDocument<512> doc;
     DeserializationError error = deserializeJson(doc, file);
     if (error) {
@@ -236,15 +332,103 @@ bool IRHandler::readMyIRDataJSON(const char* filename, MyIRData& data) {
         return false;
     }
 
-    // Populate the structure
-    data.protocol = (decode_type_t)doc["protocol"];
-    data.numberOfBits = doc["numberOfBits"];
-    data.IR_Adress = doc["IR_Adress"];
-    data.IR_Command = doc["IR_Command"];
+    file.close();
+    // Populate the MyIRData struct
+    bool x = doc["stored"].as<bool>();
+    if ( x){ 
+        return true ; 
+    }else{ 
+        return false ; 
+
+    }
+
+    }
+// Read JSON data and deserialize it to MyIRData
+bool IRHandler::DumpMyIRDataJSON(const char* filename) {
+
+
+    File file = LittleFS.open(filename, "r");
+    if (!file) {
+        Serial.println("Failed to open file for reading");
+        return false;
+    }
+
+
+    String s =""; 
+     Serial.println("- read from file:");
+  
+    // Deserialize the JSON object
+    StaticJsonDocument<512> doc;
+    DeserializationError error = deserializeJson(doc, file);
+    if (error) {
+        Serial.print("Failed to parse JSON data: ");
+        Serial.println(error.c_str());
+        file.close();
+        return false;
+    }
+    serializeJsonPretty(doc, Serial);
+
+    // Populate the structur
 
     file.close();
     Serial.println("JSON data read successfully.");
     return true;
 }
+
+
+bool IRHandler::readMyIRDataJSON(const char* filename, MyIRData& data) {
+    File file = LittleFS.open(filename, "r");
+    if (!file) {
+        Serial.println("Failed to open file for reading");
+        return false;
+    }
+
+    StaticJsonDocument<512> doc;
+    DeserializationError error = deserializeJson(doc, file);
+    if (error) {
+        Serial.print("Failed to parse JSON data: ");
+        Serial.println(error.c_str());
+        file.close();
+        return false;
+    }
+
+    // Populate the MyIRData struct
+    data.data_stored = doc["stored"].as<bool>();
+    if ( !data.data_stored ){
+        Serial.print("NO  JSON data stored ");
+        file.close();
+        return false; 
+     }
+    data.protocol = static_cast<decode_type_t>(doc["protocol"].as<int>());
+    data.numberOfBits = doc["numberOfBits"].as<uint8_t>();
+    data.IR_Adress = doc["IR_Adress"].as<uint16_t>();
+    data.IR_Command = doc["IR_Command"].as<uint16_t>();
+
+    // Parse raw_data array
+    JsonArray rawDataArray = doc["raw_data"];
+    int i = 0;
+    for (uint64_t value : rawDataArray) {
+        if (i < RAW_DATA_ARRAY_SIZE) {
+            data.DecodedRawDataArray[i++] = value;
+        } else {
+            break;  // Prevent overflow
+        }
+    }
+
+    // Parse timing_info object
+    JsonObject timingInfoJson = doc["timing_info"];
+    data.timingInfo.HeaderMarkMicros = timingInfoJson["HeaderMarkMicros"].as<uint16_t>();
+    data.timingInfo.HeaderSpaceMicros = timingInfoJson["HeaderSpaceMicros"].as<uint16_t>();
+    data.timingInfo.OneMarkMicros = timingInfoJson["OneMarkMicros"].as<uint16_t>();
+    data.timingInfo.OneSpaceMicros = timingInfoJson["OneSpaceMicros"].as<uint16_t>();
+    data.timingInfo.ZeroMarkMicros = timingInfoJson["ZeroMarkMicros"].as<uint16_t>();
+    data.timingInfo.ZeroSpaceMicros = timingInfoJson["ZeroSpaceMicros"].as<uint16_t>();
+
+    Serial.println("Data successfully read from JSON file:");
+    serializeJsonPretty(doc, Serial);
+
+    file.close();
+    return true;
+}
+
 #endif 
-*/
