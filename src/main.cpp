@@ -15,6 +15,7 @@
 #include "program_defines.h"
 #include "wakeOnLan.h"
 #include "Mylog.h"
+#include "soft_version.h"
 #include <Arduino.h>
 typedef enum{ 
 GREEN_COLOR_STATUS=0,
@@ -128,9 +129,12 @@ void init_tasks(){
 }
 void setup() {
   Serial.begin(115200);
-  MyLog(INFO,"Booting into STARTER ESP32 Version 2..."); 
-  MyLog(INFO,""); 
-  MyLog(INFO,""); 
+  MyLog(INFO,"----------------------------------------");
+  MyLogF(INFO,"Runing %s with version %.1lf",PRODUCT_NAME,VERSION);
+  MyLog(INFO,"----------------------------------------");
+
+  // MyLog(INFO,""); 
+  // MyLog(INFO,""); 
 
 
   Blinking_status = (int)BLUE_COLOR_STATUS;  
