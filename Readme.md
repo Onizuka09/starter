@@ -1,10 +1,18 @@
-# PlatformIO Template in NEOVIM
-- In state Machine :
-    - Wait point state 
-    - SPLIT PATH state 
-    - transition from state to state 
-- BLEUTOOTH CONTROL for PID VALUES 
-- Conception electronique & power management 
-- CREATE A macket 
+# AutoAdStation
 
-First step is to test the PID and make the Robot follow the Line & create a macket 
+## Description:
+**AutoAdStation**: is a smart automation system designed for publicity stations. The system ensures seamless startup  of a marketing stand by automating the following processes:
+- TV Control via IR: Automatically powers on the TV to begin displaying content without user intervention (Remote control).
+- PC Wake-Up via Ethernet (Wake-on-LAN): Wakes the connected PC to run the publicity application as soon as power is restored.
+
+
+
+### Lib depends 
+```
+|-- Ethernet @ 2.0.2
+|-- SPI @ 2.0.0
+|-- ArduinoJson @ 6.20.1
+|-- IRremote @ 4.4.1
+|-- LittleFS @ 2.0.0
+|-- FS @ 2.0.0
+```
