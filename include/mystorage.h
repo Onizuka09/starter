@@ -24,24 +24,19 @@
 #include <Arduino.h>
 #include <FS.h>
 
-typedef enum {
- settings,
-} Files;
 
 
 
+// void init_littlefs();
+// bool isDataAvailable(Files f);
+// void dump_file2(Files f); 
+// bool write_file(uint8_t* data, size_t size, Files f) ;
+// bool readData(uint8_t* buffer,size_t* size,Files f) ;
+// void stop_littlefs();
+// void resetFile(Files f) ;
 
-extern String file_names[];
-
-
-void init_littlefs();
-bool isDataAvailable(Files f);
-void dump_file(Files f); 
-bool write_file(uint8_t* data, size_t size, Files f) ;
-bool readData(uint8_t* buffer,size_t* size,Files f) ;
-void stop_littlefs();
-void resetFile(Files f) ;
-
+void listDir(fs::FS &fs, const char *dirname, uint8_t levels) ;
+void Dump_file(fs::FS &fs, const char *path) ;
 
 
 

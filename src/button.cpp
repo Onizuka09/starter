@@ -51,7 +51,7 @@ void TaskResetESP32(void* prameter){
     // static bool long_pressed_d11etected = false;
     static unsigned long period = 0;
     while (1){ 
-        if ( Wake_PC_STATE_finished){
+        
             // Serial.println("task running ....");
             bool btn_state = digitalRead(PIN_BTN);//! // Assuming active LOW button
             /* Serial.println(btn_state); */
@@ -74,7 +74,7 @@ void TaskResetESP32(void* prameter){
             }
               vTaskDelay(50 / portTICK_PERIOD_MS);
 
-            }
+            
     }
     
 }

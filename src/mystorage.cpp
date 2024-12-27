@@ -19,9 +19,8 @@
 #include "mystorage.h"
 
 
-String file_names[] = {"/settings.txt"};
 
-
+/*
 
 void init_littlefs(){
 
@@ -140,8 +139,56 @@ bool readData(uint8_t* buffer,size_t* size,Files f) {
 //     return true;
 // }
 
+*/
+void listDir(fs::FS &fs, const char *dirname, uint8_t levels) {
+  Serial.printf("Listing directory: %s\r\n", dirname);
 
-void dump_file(Files f ) {
+  File root = fs.open(dirname);
+  if (!root) {
+    Serial.println("- failed to open directory");
+    return;
+  }
+  if (!root.isDirectory()) {
+    Serial.println(" - not a directory");
+    return;
+  }
+
+  File file = root.openNextFile();
+  while (file) {
+    if (file.isDirectory()) {
+      Serial.print("  DIR : ");
+      Serial.println(file.name());
+      if (levels) {
+        listDir(fs, file.path(), levels - 1);
+      }
+    } else {
+      Serial.print("  FILE: ");
+      Serial.print(file.name());
+      Serial.print("\tSIZE: ");
+      Serial.println(file.size());
+    }
+    file = root.openNextFile();
+  }
+}
+
+void Dump_file(fs::FS &fs, const char *path) {
+  Serial.printf("Reading file: %s\r\n", path);
+
+  File file = fs.open(path);
+  if (!file || file.isDirectory()) {
+    Serial.println("- failed to open file for reading");
+    return;
+  }
+
+  Serial.println("- read from file:");
+  while (file.available()) {
+    Serial.write(file.read());
+    Serial.println(); 
+  }
+  file.close();
+}
+/*
+void dump_file_IR(Files f ) {
   Serial.println("Dumping data...");
 
   uint8_t temp[255] = {0};
@@ -169,14 +216,6 @@ void dump_file(Files f ) {
  
 }
 
-void resetFile(Files f) {
-    File file = LittleFS.open(file_names[f], "w"); // Open in write mode to clear content
-    if (file) {
-        file.close(); // Closing immediately clears the file content
-        Serial.println("File reset successfully.");
-    } else {
-        Serial.println("Failed to reset the file.");
-    }
-}
 
 
+*/

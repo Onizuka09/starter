@@ -2,19 +2,22 @@
 #include <SPI.h>
 #include <Ethernet.h>
 #include <EthernetUdp.h>
+#include "Mylog.h"
 /*DEFAULT SPI PIN ESP32
-MOSI 
-MISO 
-VCC
+MOSI 23
+MISO 19
+SCLK 18
 SC 33
-SCLK 
+VCC
 GND 
 
 */
 EthernetUDP udp;
 IPAddress broadcastIP(255, 255, 255, 255);            // Replace with your network broadcast IP
 byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED }; // Replace with your W5500 MAC address
-byte targetMAC[] = { 0x00, 0xe0, 0x4c, 0x3a, 0x3f, 0x6a }; // Replace with target MAC address
+// byte targetMAC[] = { 0x00, 0xe0, 0x4c, 0x3a, 0x3f, 0x6a }; //GREEN NOC
+byte targetMAC[] = { 0x00, 0xe0, 0x4c, 0x38, 0xcd, 0xc2 }; //BLACK
+char macString[18] =""; //BLACK
 
 
 static void sendMagicPacket(byte *mac); 
@@ -28,6 +31,7 @@ void init_wol(){
   if (Ethernet.hardwareStatus() == EthernetNoHardware) {
       Serial.println("Ethernet shield was not found.  Sorry, can't run without hardware. :(");
       Serial.flush();
+      ESP.restart();
     }
 
   EthernetLinkStatus  st ; 
@@ -46,9 +50,15 @@ void init_wol(){
 	    }
   }
       Serial.println("connection success  "); 
-
+  // 17 characters for MAC address + null terminator
+snprintf(macString, sizeof(macString), "%02X:%02X:%02X:%02X:%02X:%02X", targetMAC[0], targetMAC[1], targetMAC[2], targetMAC[3], targetMAC[4], targetMAC[5]);
+Serial.println("-------------------------------------------------");
+Serial.printf("MAC ADDRESS : %s \n\r",macString);
+Serial.println("-------------------------------------------------");
 }
 void wakePC(){ 
+
+
 for ( int i = 0 ; i < 10 ; i ++)
 {       
     sendMagicPacket(targetMAC);
