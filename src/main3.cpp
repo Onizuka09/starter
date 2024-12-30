@@ -3,12 +3,12 @@
 #include <Update.h>
 #include <Ethernet.h>
 #include <HTTPClient.h>
-#define ETH 1  
+#define WIFI 1  
+#define PORT 3500
 
 #ifdef ETH
 #include "wakeOnLan.h"
 
-#define PORT 3500
 byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED }; 
 EthernetClient client;
 #elif defined(WIFI)
@@ -20,10 +20,13 @@ WiFiClient client;
 // MAC address for your Ethernet shield (should be unique)
 //192.168.1.14:5000// 192.168.1.14 // 203.161.60.31:3500
 IPAddress server(203, 161, 60,31); // Example: IP for example.com (or use a domain name)
+
+// function defines 
 void performGET();
 void performOTAUpdate() ;
 void file_update(const char* filePath);
 void performOTAUpdateWIFI() ;
+
 void setup() {
   Serial.begin(115200);
   
@@ -80,15 +83,16 @@ void setup() {
   }
   Serial.println("LittleFS initialized");
   // Give the Ethernet shield time to initialize
-
+  bool state= Update.canRollBack(); 
+Serial.println(state == true ?"We can rollback ":  "cannot rollback "); 
   // Make a GET request
 // file_update("/settings.txt");
-performGET();
+// performGET();
 Serial.println("DONE ");
 delay(3000);
 Serial.println("DONE ");
 
-performOTAUpdate();
+performOTAUpdateWIFI();
 
 }
 void performPost();
@@ -335,6 +339,9 @@ void performOTAUpdateWIFI() {
                     Serial.println("OTA update successful, restarting...");
                     if (Update.end()) {
                         Serial.println("Update finished.");
+                        bool x = Update.rollBack();
+                        Serial.println(x== true ? "ROLLBACK enabled ": "Rollback not enabled");
+                        delay(1000);
                         ESP.restart();
                     } else {
                         Serial.printf("Update failed: %s\n", Update.errorString());
