@@ -130,7 +130,7 @@ void init_tasks(){
 void setup() {
   Serial.begin(115200);
   MyLog(INFO,"----------------------------------------");
-  MyLogF(INFO,"Runing %s with version %.1lf",PRODUCT_NAME,VERSION);
+  MyLogF(INFO,"Runing %s with version %.1lf",PRODUCT_NAME,FIRMWARE_VERSION);
   MyLog(INFO,"----------------------------------------");
 
   // MyLog(INFO,""); 
