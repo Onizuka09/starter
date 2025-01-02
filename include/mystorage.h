@@ -24,6 +24,9 @@
 #include <Arduino.h>
 #include <FS.h>
 
+// typedef enum {
+//  settings,
+// } Files;
 
 
 
