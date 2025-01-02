@@ -9,7 +9,7 @@
 // MACROS FOR TESTING COMPILATION 
 #define DISABLE_ETHERNET 1
 #define ENABLE_WIFI 1
-#define MyServ      1
+#define MyServ      0
 
 // macors conditions 
 /*
@@ -28,7 +28,7 @@ public:
     // initializes both the Ethernet and wifi module 
     void setServerIp(IPAddress ip){serverIP=ip ; }
     void setSercerPort(int port ){ServerPort=port;}
-    void configureWiFi(const char *ssid = "", const char *passwd = ""); 
+    void configureWiFi(const char *ssid , const char *passwd ); 
     void configureOTA(bool Enable);// this if true will enable OTA and Rollback  
     void InitModule();
     // OTA SHIT
@@ -43,7 +43,7 @@ public:
     
     
     // WOL SHIT 
-    void WakeOnLan(const uint8_t TagrgetMac[], int repetition=6);   
+    void WakeOnLan(const uint8_t TagrgetMac[], int repetition);   
         
 
     // SETINGS SHIT 

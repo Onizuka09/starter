@@ -4,28 +4,24 @@
 
 NetworkStack::NetworkStack() : MyMacAddr{0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED}
 {
-   
 }
-void NetworkStack::configureWiFi(const char *ssid = "", const char *passwd = ""){
+void NetworkStack::configureWiFi(const char *ssid = "", const char *passwd = "")
+{
 
     this->ssid = ssid;
     this->passwd = passwd;
 }
-void NetworkStack::configureOTA(bool enable){
-    if (enable ){ 
-        MyLog(INFO,"OTA Enabled ");
-        isOTAEnabled=true; 
-        if (Update.canRollBack()){ 
-            MyLog(INFO,"Rollback enabled "); 
-            Update.rollBack();
-        }else { 
-            MyLog(ERROR,"enabled To enable rollback "); 
-        }
-
-    }else { 
-        MyLog(INFO,"OTA Disabled");
-        MyLog(INFO,"Rollback Disabled");
-
+void NetworkStack::configureOTA(bool enable)
+{
+    if (enable)
+    {
+        MyLog(INFO, "OTA Enabled ");
+        isOTAEnabled = true;
+    }
+    else
+    {
+        MyLog(INFO, "OTA Disabled");
+        MyLog(INFO, "Rollback Disabled");
     }
 }
 void NetworkStack::InitModule()
@@ -231,11 +227,13 @@ const String NetworkStack::GetFirmwareVersion()
 {
     MyLogF(INFO, "Requsting Firmware version form Server %s", serverIP.toString());
 #if (MyServ == 1)
-    String response = HTTPGET("/update");
+    String response = HTTPGET("/version");
+    Serial.println(response);
 #else
-    String reposnse = HTTPGET("/api/v1/screenflex/box/version");
+    String response = HTTPGET("/api/v1/screenflex/box/version");
 #endif
-    StaticJsonDocument<64> doc;
+    // TODO: Check if response is empty
+    StaticJsonDocument<96> doc;
 
     DeserializationError error = deserializeJson(doc, response);
 
@@ -259,7 +257,7 @@ bool NetworkStack::OTA()
 {
     if (!isOTAEnabled)
     {
-        return;
+        return false;
     }
     const String newSoftV = GetFirmwareVersion();
     if (newSoftV != TEST_SOFTWARE_VERSION)
@@ -276,17 +274,17 @@ bool NetworkStack::OTA()
         {
             // MyLogF(ERROR,"ERROR %d , Error Requesting OTA ...",FirmwareSize );
             return false;
-        }
-        else
-        {
+        }else{
             int state = UpdateFirmware(FirmwareSize);
-            if (state < 0)
-            {
+            if (state < 0){
                 return false;
-            }
-            else
-            {
+            }else{
                 MyLog(INFO, "Ready to update, just restart ...");
+                if (Update.canRollBack()){
+                    MyLog(INFO, "Rollback enabled ");
+                }else{
+                    MyLog(ERROR, "enabled To enable rollback ");
+                }
                 return true;
             }
         }
@@ -353,13 +351,16 @@ int NetworkStack::UpdateFirmware(int FirmwareSize)
     MyLogF(DEBUG, "New Firmware size %d", FirmwareSize);
 
     // Initialize OTA update
-    if (Update.begin(FirmwareSize)){
+    if (Update.begin(FirmwareSize))
+    {
         size_t written = 0;
         uint8_t buff[128];
         unsigned long timeout = millis();
         int i = 0;
-        while ((client.connected() || client.available()) && written < FirmwareSize){
-            if (client.available()){
+        while ((client.connected() || client.available()) && written < FirmwareSize)
+        {
+            if (client.available())
+            {
                 size_t len = client.readBytes(buff, sizeof(buff));
                 if (len > 0)
                 {
@@ -372,20 +373,28 @@ int NetworkStack::UpdateFirmware(int FirmwareSize)
                 }
             }
         }
-        if (written == FirmwareSize){
-            if (Update.end()){
-                MyLog(INFO,"OTA Update completed successfully.");
-                return 1; 
-            }else{
-                MyLogF(ERROR,"OTA Update failed: %s\n", Update.errorString());
-                return -1; 
-            }   
-        }else{
-            MyLogF(ERROR,"OTA Update failed: Incomplete data received. %s", Update.errorString());
-            Update.abort();
-            return -1 ; 
+        if (written == FirmwareSize)
+        {
+            if (Update.end())
+            {
+                MyLog(INFO, "OTA Update completed successfully.");
+                return 1;
+            }
+            else
+            {
+                MyLogF(ERROR, "OTA Update failed: %s\n", Update.errorString());
+                return -1;
+            }
         }
-    }else{
+        else
+        {
+            MyLogF(ERROR, "OTA Update failed: Incomplete data received. %s", Update.errorString());
+            Update.abort();
+            return -1;
+        }
+    }
+    else
+    {
         MyLog(ERROR, "Not enough space for OTA update.");
         MyLog(DEBUG, "closing connection.");
         client.stop();
