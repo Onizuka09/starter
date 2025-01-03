@@ -125,62 +125,26 @@ void setup() {
 
     irHandler.sendIR();
     MyLog(INFO,"Finished Sending IR data ..."); 
-    // IR_RECEIVE_COMMAND(true);
-    // Blinking_status = 5;
-    // uint8_t temp[255] = {0};
-    // size_t size = 255;
-    // readData(temp, &size, settings);
-    // IR_SEND_COMMAND(temp, size);
-    // Serial.println("Waking yp PC ");
-    // wakePC();
-    // Check if 1 minute has elapsed
-    // if (millis() - startTime > 60000) { // 1 minute = 60000 milliseconds
-    //   Serial.println("1 minute elapsed. Proceeding...");
-    //   isScanning = false; // Reset the scanning status
-    //   // Add code here to handle the timeout case if needed
-    // }
+
   }
 
   rgb.setBlinkingStatus(GREEN_COLOR_STATUS);
   btime=millis();
 }
 void loop() {
-  // IR_RECEIVE_COMMAND();
-  // bool btn_state = !digitalRead(PIN_BTN); // Assuming active LOW button
-  //  Serial.println(btn_state);
-
   handleButton_5s();
   if (isLongPressed_5s()) {
     MyLog(ERROR,"BUtton PRESSD for more than 5s ....");
     rgb.setBlinkingStatus(RED_COLOR_STATUS);
+    // clearr the json file that holds the IR data 
     irHandler.clear_file(f);
 
-
-    // Perform the scanning operation
-    
-    while (!irHandler.receiveIR(true)){ //TODO: FIX THIS CHANANIGIN
-      rgb.setBlinkingStatus(RED_COLOR_STATUS);
-
-    }
-    rgb.setBlinkingStatus(GREEN_COLOR_STATUS);
-    // RESET FILE 
-    // resetFile(settings);
-    rgb.setBlinkingStatus(RED_COLOR_STATUS);
-    
     irHandler.receiveIR(true);
     rgb.setBlinkingStatus(GREEN_COLOR_STATUS);
     
-    // rRead new IR COMMAND
-    // delay(50);
-    // Serial.println("IR Code has been RESETR ... ");
-    // //  IR_RECEIVE_COMMAND(true);
-    // uint8_t temp[255] = {0};
-    // size_t size = 255;
-    // readData(temp, &size, settings);
     btime = millis(); 
     
-    // IR_SEND_COMMAND(temp, size);
-    // Serial.println("Waking yp PC ");
+    // OPT restart the ESP
     // ESP.restart();
   }
   if ( millis() - btime <= 3000) { 
