@@ -35,12 +35,6 @@ volatile bool Wake_PC_STATE = false;
 volatile bool Wake_PC_STATE_finished =false ;
 volatile bool IR_COMMAND_SEND_STATE = false;
 // pin defs
-uint16_t rawData[] = {3950, 4050, 500,  2000, 500,  2000, 500,  2000, 500,
-                      2000, 500,  1000, 500,  1000, 500,  2000, 500,  1000,
-                      500,  2000, 500,  1000, 500,  2000, 500,  1000, 500,
-                      1000, 500,  1000, 450,  1050, 450,  1050, 450,  2050,
-                      450,  2050, 450,  1050, 450,  2050, 450,  1050, 450,
-                      2050, 450,  1050, 450,  2000, 500};
 
 void WakePCTask(void *parameter) {
   while ( true){ 
