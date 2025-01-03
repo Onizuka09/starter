@@ -1,0 +1,17 @@
+#ifndef HARDWARE_H
+#define HARDWARE_H
+#include "IR_PIN_DEF.h"
+
+#define PIN_BTN  12
+
+#define IR_SEND_PIN_                4
+#define IR_RECEIVE_PIN          16  // D15
+
+
+
+#define RGB_RED_PIN 27
+#define RGB_GREEN_PIN 26
+#define RGB_BLUE_PIN 25
+
+
+#endif 

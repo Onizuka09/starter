@@ -1,14 +1,27 @@
-
-
 #ifndef MY_IR_MODULE_H_
 #define MY_IR_MODULE_H_
+
+
+
 #include <Arduino.h>
 #include <IRremote.hpp>
 #include <IRProtocol.h>
-#include "IR_PIN_DEF.h" 
+// #include "IR_PIN_DEF.h" 
 #include <LittleFS.h>
 #include <ArduinoJson.h>
 #include "Mylog.h"
+#define IR_SEND_PIN
+
+#define DECODE_NEC          // Includes Apple and Onkyo. To enable all protocols, just comment/disable this line.
+#define _MICROS_PER_TICK 50
+#define SEND_PWM_BY_TIMER // We do not have pin restrictions for this CPU's, so lets use the hardware PWM for send carrier signal generation
+
+#if !defined(STR_HELPER)
+#define STR_HELPER(x) #x
+#define STR(x) STR_HELPER(x)
+#endif
+
+
 #define f "/settings.json"
 
  // Define macros for input and output pin etc.
@@ -40,7 +53,7 @@ class IRHandler {
 public:
     void init_littleFS(); 
     void dump_data_stored(const char* filename);
-    IRHandler(uint8_t receivePin, uint8_t sendPin);
+    IRHandler(uint8_t receivePin, uint8_t _sendPin);
     void begin();
     decode_type_t identifyProtocol(MyIRData& irData);
     void setRecievedData(MyIRData& irData);

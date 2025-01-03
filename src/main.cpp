@@ -8,28 +8,19 @@
 
 
 // #include "IR_UTILS.h"
-#include "RGB_LED.h"
+#include "soft_version.h"
+#include "Hardware.h"
+#include "RGBModule.h"
 #include "button.h"
-#include "IR_Module.h"
-#include "mystorage.h"
+#include "IR_Module.h" 
 #include "program_defines.h"
 #include "wakeOnLan.h"
 #include "Mylog.h"
-#include "soft_version.h"
 #include <Arduino.h>
-typedef enum{ 
-GREEN_COLOR_STATUS=0,
-BLUE_COLOR_STATUS,
-RED_COLOR_STATUS,
-NO_COLOR_STATUS,
-YELLOW_COLOR_STATUS,
-LIGHT_BLUE_COLOR_STATUS,
-// GREEN_COLOR_STATUS,
-// GREEN_COLOR_STATUS,
-// GREEN_COLOR_STATUS,
-}LED_STATUS_COLOR;
-IRHandler irHandler(IR_RECEIVE_PIN, IR_SEND_PIN);
 
+IRHandler irHandler(IR_RECEIVE_PIN, IR_SEND_PIN_);
+
+RGBModule rgb(RGB_RED_PIN,RGB_GREEN_PIN,RGB_BLUE_PIN); 
 volatile uint8_t Blinking_status = BLUE_COLOR_STATUS; // 0: Red, 1: Green, 2: Blue
 volatile bool Wake_PC_STATE = false;
 volatile bool Wake_PC_STATE_finished =false ;
@@ -51,67 +42,10 @@ void WakePCTask(void *parameter) {
 unsigned long  btime = 0 ;  
 
 // void
-void toggleLEDTask(void *parameter) {
-  // Set up the RGB pins as outputs
-    MyLog(INFO,"TOOGLE TASK Started ..."); 
 
-  while (true) {
-
-    // Turn on the LED based on the currentColor variable
-    switch (Blinking_status) {
-    case 0: // green
-      setColor(0, 255, 0);
-      vTaskDelay(500 / portTICK_PERIOD_MS);
-      setColor(0, 0, 0);
-      vTaskDelay(500 / portTICK_PERIOD_MS);
-      break;
-    case 1:
-      setColor(0, 0, 255);
-      vTaskDelay(500 / portTICK_PERIOD_MS);
-      setColor(0, 0, 0);
-      vTaskDelay(500 / portTICK_PERIOD_MS);
-      break; // Blue
-    case 2:
-      setColor(255, 0, 0);
-      vTaskDelay(500 / portTICK_PERIOD_MS);
-      setColor(0, 0, 0);
-      vTaskDelay(500 / portTICK_PERIOD_MS);
-      break; // Red
-    case 3:
-      setColor(0, 0, 0);
-      vTaskDelay(500 / portTICK_PERIOD_MS);
-      setColor(0, 0, 0);
-      vTaskDelay(500 / portTICK_PERIOD_MS);
-      break; // No color
-    case 4:
-      setColor(255, 255, 0); // Yellow
-      vTaskDelay(500 / portTICK_PERIOD_MS);
-      setColor(0, 0, 0); // Off
-      vTaskDelay(500 / portTICK_PERIOD_MS);
-      break;
-
-    case 5:
-      setColor(173, 216, 230); // Light Blue
-      vTaskDelay(500 / portTICK_PERIOD_MS);
-      setColor(0, 0, 0); // Off
-      vTaskDelay(500 / portTICK_PERIOD_MS);
-      break;
-    default:
-      break ;
-    }
-
-    // vTaskDelay(500 / portTICK_PERIOD_MS); // Delay for 500ms
-  }
-}
 void init_tasks(){ 
   // task To toggle LED 
-  xTaskCreate(toggleLEDTask,     // Function to run as a thread
-              "Toggle LED Task", // Name of the task
-              1024,              // Stack size in words
-              NULL,              // Task input parameter
-              3,                 // Task priority
-              NULL               // Task handle (optional)
-  );
+
   // TASK to RESET program when button pressed for more than10s 
   xTaskCreate(TaskResetESP32, // Function to run as a thread
               "Reset ESP ", // Name of the task
@@ -124,30 +58,28 @@ void init_tasks(){
 void setup() {
   Serial.begin(115200);
   MyLog(INFO,"----------------------------------------");
-  MyLogF(INFO,"Runing %s with version %.1lf",PRODUCT_NAME,FIRMWARE_VERSION);
+  MyLogF(INFO,"Runing %s with version %s",PRODUCT_NAME,FIRMWARE_VERSION);
   MyLog(INFO,"----------------------------------------");
 
-  // MyLog(INFO,""); 
-  // MyLog(INFO,""); 
 
-
-  Blinking_status = (int)BLUE_COLOR_STATUS;  
   // init storege and RGB LED 
   irHandler.begin();
-  irHandler.init_littleFS();
-  // CLEARs json file  
-  // MyLogF(INFO,"Clearing the %s file ",f); 
-  // irHandler.clear_file(f);
+  irHandler.init_littleFS(); // TODO: add option to clear FS 
+ 
   // init RGB 
-  init_RGB(); 
+  rgb.RGBInit();
+  rgb.setBlinkingStatus(BLUE_COLOR_STATUS);  
+  // init_RGB(); 
   // init Button 12 
   init_btn();
   // init tasks  
-  init_tasks();
+  rgb.runRGBTask(); 
+  // init_tasks();
   // init WOL
-  Blinking_status = (int)YELLOW_COLOR_STATUS;
-  init_wol();
-  Blinking_status = (int)BLUE_COLOR_STATUS;
+  rgb.setBlinkingStatus(YELLOW_COLOR_STATUS);
+  // init_wol();
+  delay(1000);
+  rgb.setBlinkingStatus(BLUE_COLOR_STATUS);
   // task to send WOL PACKETS ( wake PC)
   xTaskCreate(WakePCTask, // Function to run as a thread
               "Wake PC ", // Name of the task
@@ -157,30 +89,26 @@ void setup() {
               NULL        // Task handle (optional)
   );
  
-  MyLog(INFO,"Finished Initializing ..."); 
-  
-  delay(50);
-
-  // setup task wake PC: perform WOL
-  
+  MyLog(INFO,"Finished Initializing all the Modules  ..."); 
   MyLog(INFO,"Starting Now ..."); 
-  MyLog(DEBUG,"STARTING WOL  ..."); 
-  Wake_PC_STATE = true;
+
+  delay(50);
+  MyLog(DEBUG,"STARTING WOL TASK ..."); 
+  Wake_PC_STATE = false;
   MyLog(DEBUG,"STARTING IR  ..."); 
 
 
   bool state = irHandler.IsIRDataavailable(f);
   if (state ){//isDataAvailable(settings)) {
-    Blinking_status = LIGHT_BLUE_COLOR_STATUS;
+    rgb.setBlinkingStatus(LIGHT_BLUE_COLOR_STATUS);
     MyLog(DEBUG,"COMMAND FOUND  ..."); 
     // irHandler.dump_data_stored(f); 
     MyIRData data; 
     MyLog(DEBUG,"Reading data from json file ..."); 
-
-    irHandler.DumpMyIRDataJSON(f); 
+    // irHandler.DumpMyIRDataJSON(f); 
     irHandler.readMyIRDataJSON(f,data);
-    MyLog(DEBUG,"Printing data  ..."); 
-    irHandler.PrintMyIRData(data); 
+    // MyLog(DEBUG,"Printing data  ..."); 
+    // irHandler.PrintMyIRData(data); 
     irHandler.setRecievedData(data); 
     irHandler.sendIR(); 
 
@@ -190,10 +118,10 @@ void setup() {
     MyLog(ERROR,"No data is avalaible LITTLEFS IS EMPTY, SCANNING NOW ....");
 
     // Perform the scanning operation
-    Blinking_status=(int)RED_COLOR_STATUS;
+   rgb.setBlinkingStatus(RED_COLOR_STATUS);
     
     irHandler.receiveIR(true);
-    Blinking_status = LIGHT_BLUE_COLOR_STATUS;
+    rgb.setBlinkingStatus(LIGHT_BLUE_COLOR_STATUS);
 
     irHandler.sendIR();
     MyLog(INFO,"Finished Sending IR data ..."); 
@@ -213,7 +141,7 @@ void setup() {
     // }
   }
 
-  Blinking_status = (int)GREEN_COLOR_STATUS;
+  rgb.setBlinkingStatus(GREEN_COLOR_STATUS);
   btime=millis();
 }
 void loop() {
@@ -223,24 +151,24 @@ void loop() {
 
   handleButton_5s();
   if (isLongPressed_5s()) {
-     MyLog(ERROR,"BUtton PRESSD for more than 5s ....");
-    Blinking_status = (int)RED_COLOR_STATUS;
+    MyLog(ERROR,"BUtton PRESSD for more than 5s ....");
+    rgb.setBlinkingStatus(RED_COLOR_STATUS);
     irHandler.clear_file(f);
 
 
     // Perform the scanning operation
     
-    while (!irHandler.receiveIR(true)){ 
-      Blinking_status = RED_COLOR_STATUS;
+    while (!irHandler.receiveIR(true)){ //TODO: FIX THIS CHANANIGIN
+      rgb.setBlinkingStatus(RED_COLOR_STATUS);
 
     }
-    Blinking_status = (int)GREEN_COLOR_STATUS;
+    rgb.setBlinkingStatus(GREEN_COLOR_STATUS);
     // RESET FILE 
     // resetFile(settings);
-    Blinking_status=(int)RED_COLOR_STATUS;
+    rgb.setBlinkingStatus(RED_COLOR_STATUS);
     
     irHandler.receiveIR(true);
-    Blinking_status=(int)GREEN_COLOR_STATUS;
+    rgb.setBlinkingStatus(GREEN_COLOR_STATUS);
     
     // rRead new IR COMMAND
     // delay(50);
@@ -257,9 +185,10 @@ void loop() {
   }
   if ( millis() - btime <= 3000) { 
     Blinking_status = 0;
+    rgb.setBlinkingStatus(GREEN_COLOR_STATUS);
   
     }else { 
-      Blinking_status=3 ; 
+      rgb.setBlinkingStatus(NO_COLOR_STATUS);
   }
 
 
