@@ -1,9 +1,9 @@
 #include "network_stack.h"
 #include "Mylog.h"
 #include <ArduinoJson.h>
-
 NetworkStack::NetworkStack() : MyMacAddr{0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED}
 {
+    WoLRepetion=10 ;
 }
 void NetworkStack::configureWiFi(const char *ssid = "", const char *passwd = "")
 {
@@ -24,9 +24,13 @@ void NetworkStack::configureOTA(bool enable)
         MyLog(INFO, "Rollback Disabled");
     }
 }
-void NetworkStack::InitModule()
-{
-#if (ENABLE_WIFI == 1)
+void NetworkStack::MacArrayToString(const uint8_t* arr,char* macString,size_t _sizeMacString){
+// char* macString[18]; 
+snprintf(macString, _sizeMacString, "%02X:%02X:%02X:%02X:%02X:%02X", arr[0], arr[1], arr[2], arr[3], arr[4], arr[5]);
+// return macString;
+}
+void NetworkStack::InitWifiModule(){ 
+    #if (ENABLE_WIFI == 1)
     /*
     We are Enabling the WiFi module for server communication,
     This macro is used also to speed up testing process when we don't need wifi
@@ -50,9 +54,12 @@ void NetworkStack::InitModule()
     MyLogF(INFO, "Local IP Address %s", LocalIP.toString());
 
 #endif
+}
+void NetworkStack::InitEthernetModule(uint8_t cs_pin){ 
+    #if (DISABLE_ETHERNET == 1)
+    MyLog(INFO, "Ethernet Module is Disabled");
+    /*    
 
-#if (DISABLE_ETHERNET == 1)
-    /*
         This macro is only for testing purposes when we don't need to test the WoL
         to speed up the testing process
     */
@@ -60,7 +67,7 @@ void NetworkStack::InitModule()
 #else
     MyLog(INFO, "Enabling the Ethernet Module");
 
-    Ethernet.init(33);
+    Ethernet.init(cs_pin);
     Ethernet.begin(MyMacAddr);
     Serial.println("Testing eth  connection  ");
     if (Ethernet.hardwareStatus() == EthernetNoHardware)
@@ -111,6 +118,7 @@ for both WoL and server communication.
     MyLogF(INFO, "Local IP Address %s", LocalIP.toString());
 #endif
 }
+
 uint8_t *NetworkStack::GetMacaddr()
 {
 
@@ -197,6 +205,7 @@ void NetworkStack::enableOTA(bool state)
 {
     isOTAEnabled = state;
 }
+
 void NetworkStack::WakeOnLan(const uint8_t TargetMac[], int repetition = 6)
 {
 

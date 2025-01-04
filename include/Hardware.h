@@ -13,5 +13,6 @@
 #define RGB_GREEN_PIN 26
 #define RGB_BLUE_PIN 25
 
+#define W5500_CS 33
 
 #endif 

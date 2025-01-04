@@ -8,37 +8,27 @@
 
 
 // #include "IR_UTILS.h"
+#include "conf.h"
 #include "soft_version.h"
+#include "network_stack.h"
 #include "Hardware.h"
 #include "RGBModule.h"
 #include "ButtonModule.h"
 #include "IR_Module.h" 
-#include "program_defines.h"
-#include "wakeOnLan.h"
+// #include "program_defines.h"
 #include "Mylog.h"
 #include <Arduino.h>
 
 IRHandler irHandler(IR_RECEIVE_PIN, IR_SEND_PIN_);
 ButtonModule btn(PIN_BTN);
 RGBModule rgb(RGB_RED_PIN,RGB_GREEN_PIN,RGB_BLUE_PIN); 
+NetworkStack network; 
 volatile uint8_t Blinking_status = BLUE_COLOR_STATUS; // 0: Red, 1: Green, 2: Blue
 volatile bool Wake_PC_STATE = false;
 volatile bool Wake_PC_STATE_finished =false ;
-volatile bool IR_COMMAND_SEND_STATE = false;
 // pin defs
 
-void WakePCTask(void *parameter) {
-  while ( true){ 
-  if (true == Wake_PC_STATE) {
-    wakePC();
-    Wake_PC_STATE = false;
-    Wake_PC_STATE_finished = true ;
-    vTaskDelete(NULL); 
-    MyLog(DEBUG,"WAKING PC FINISHED");
-  }
-      vTaskDelay(100 / portTICK_PERIOD_MS);
-  }
-}
+
 unsigned long  btime = 0 ;  
 
 void setup() {
@@ -62,17 +52,9 @@ void setup() {
   rgb.runRGBTask(); 
   // initize the ethernet Module
   rgb.setBlinkingStatus(YELLOW_COLOR_STATUS);
-  // init_wol();
-  delay(1000);
+ 
+  network.InitEthernetModule(W5500_CS);
   rgb.setBlinkingStatus(BLUE_COLOR_STATUS);
-  // task to send WOL PACKETS ( wake PC)
-  xTaskCreate(WakePCTask, // Function to run as a thread
-              "Wake PC ", // Name of the task
-              1024,       // Stack size in words
-              NULL,       // Task input parameter
-              1,          // Task priority
-              NULL        // Task handle (optional)
-  );
  
   MyLog(INFO,"Finished Initializing all the Modules  ..."); 
   MyLog(INFO,"Starting Now ..."); 
@@ -80,6 +62,8 @@ void setup() {
   delay(50);
   MyLog(DEBUG,"STARTING WOL TASK ..."); 
   Wake_PC_STATE = false;
+  network.initTaskWol();
+  
   MyLog(DEBUG,"STARTING IR  ..."); 
 
 
