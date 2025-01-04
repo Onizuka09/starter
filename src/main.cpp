@@ -96,9 +96,9 @@ void setup()
   btime = millis();
   // OTA handlin ...
 #if (ENABLE_OTA == 1)
-  network.setSercerPort(SCREE_FLEX_SERV_PORT);
-  IPAddress ip SCREE_FLEX_SERV_IP;
+  IPAddress ip SERVER_IP;
   network.setServerIp(ip);
+  network.setSercerPort(SERVER_PORT);
   network.configureWiFi(WIFI_SSID, WIFI_PASSWD);
   network.InitWifiModule();
   MyLog(INFO, "Performing OTA ");
