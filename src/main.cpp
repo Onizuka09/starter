@@ -11,7 +11,7 @@
 #include "soft_version.h"
 #include "Hardware.h"
 #include "RGBModule.h"
-#include "button.h"
+#include "ButtonModule.h"
 #include "IR_Module.h" 
 #include "program_defines.h"
 #include "wakeOnLan.h"
@@ -19,7 +19,7 @@
 #include <Arduino.h>
 
 IRHandler irHandler(IR_RECEIVE_PIN, IR_SEND_PIN_);
-
+ButtonModule btn(PIN_BTN);
 RGBModule rgb(RGB_RED_PIN,RGB_GREEN_PIN,RGB_BLUE_PIN); 
 volatile uint8_t Blinking_status = BLUE_COLOR_STATUS; // 0: Red, 1: Green, 2: Blue
 volatile bool Wake_PC_STATE = false;
@@ -41,20 +41,6 @@ void WakePCTask(void *parameter) {
 }
 unsigned long  btime = 0 ;  
 
-// void
-
-void init_tasks(){ 
-  // task To toggle LED 
-
-  // TASK to RESET program when button pressed for more than10s 
-  xTaskCreate(TaskResetESP32, // Function to run as a thread
-              "Reset ESP ", // Name of the task
-              1024,       // Stack size in words
-              NULL,       // Task input parameter
-              2,          // Task priority
-              NULL        // Task handle (optional)
-  );
-}
 void setup() {
   Serial.begin(115200);
   MyLog(INFO,"----------------------------------------");
@@ -71,11 +57,10 @@ void setup() {
   rgb.setBlinkingStatus(BLUE_COLOR_STATUS);  
   // init_RGB(); 
   // init Button 12 
-  init_btn();
+  btn.InitButton();
   // init tasks  
   rgb.runRGBTask(); 
-  // init_tasks();
-  // init WOL
+  // initize the ethernet Module
   rgb.setBlinkingStatus(YELLOW_COLOR_STATUS);
   // init_wol();
   delay(1000);
@@ -132,8 +117,8 @@ void setup() {
   btime=millis();
 }
 void loop() {
-  handleButton_5s();
-  if (isLongPressed_5s()) {
+  btn.HandleButton_5s();
+  if (btn.isLongPressed_5s()) {
     MyLog(ERROR,"BUtton PRESSD for more than 5s ....");
     rgb.setBlinkingStatus(RED_COLOR_STATUS);
     // clearr the json file that holds the IR data 
