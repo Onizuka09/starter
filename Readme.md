@@ -7,7 +7,8 @@
 
 ## Features 
 - WOL 
-- Reads and sends the IR command 
+- NEW IR Module ( NEC, SUMSUNG, LG , PulseDistance Protocoles) 
+- Logging Module 
 - NO OTA 
 
 ### Lib depends 
