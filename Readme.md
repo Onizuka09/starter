@@ -5,7 +5,10 @@
 - TV Control via IR: Automatically powers on the TV to begin displaying content without user intervention (Remote control).
 - PC Wake-Up via Ethernet (Wake-on-LAN): Wakes the connected PC to run the publicity application as soon as power is restored.
 
-
+## Features 
+- WOL 
+- Reads and sends the IR command 
+- NO OTA 
 
 ### Lib depends 
 ```
