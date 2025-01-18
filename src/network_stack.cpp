@@ -7,10 +7,12 @@ NetworkStack::NetworkStack() : MyMacAddr{0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED}
 }
 void NetworkStack::configureWiFi(const char *ssid = "", const char *passwd = "")
 {
-
+    #if ( OTA_WIFI_ETH == 1   )
     this->ssid = ssid;
     this->passwd = passwd;
-}
+    #endif
+    }
+
 void NetworkStack::configureOTA(bool enable)
 {
     if (enable)
@@ -269,7 +271,7 @@ bool NetworkStack::OTA()
         return false;
     }
     const String newSoftV = GetFirmwareVersion();
-    if (newSoftV != TEST_SOFTWARE_VERSION)
+    if ( !( strcmp(newSoftV.c_str()  , TEST_SOFTWARE_VERSION) == 0 ) )
     { // TODO enhance comaprison
         MyLogF(INFO, "Detected a new version from sevrer %s with version %s", serverIP.toString(), newSoftV);
         MyLog(INFO, "Perfroming OTA, Dowloading Frimware now ...");

@@ -68,7 +68,7 @@ private:
     bool isOTAEnabled;
     uint8_t WoLRepetion; 
 
-#ifdef USE_ETH
+#if (OTA_WIFI_ETH == 0 )
     EthernetClient client;
 #else
     WiFiClient client;
