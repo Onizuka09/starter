@@ -15,7 +15,7 @@
 #include "Mylog.h"
 #include <Arduino.h>
 
-IRHandler irHandler(IR_RECEIVE_PIN, IR_SEND_PIN_);
+IRHandler irHandler(IR_RECEIVE_PIN, IR_SEND_PIN_,TV_STATUS_PIN);
 ButtonModule btn(PIN_BTN);
 RGBModule rgb(RGB_RED_PIN, RGB_GREEN_PIN, RGB_BLUE_PIN);
 NetworkStack network;

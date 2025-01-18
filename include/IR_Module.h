@@ -53,7 +53,7 @@ class IRHandler {
 public:
     void init_littleFS(); 
     void dump_data_stored(const char* filename);
-    IRHandler(uint8_t receivePin, uint8_t _sendPin);
+    IRHandler(uint8_t receivePin, uint8_t _sendPin, uint8_t tvpin);
     void begin();
     decode_type_t identifyProtocol(MyIRData& irData);
     void setRecievedData(MyIRData& irData);
@@ -61,12 +61,12 @@ public:
     bool receiveIR(bool saveData);
     void sendIR();
     void playBackData(const MyIRData& irData);
+    uint8_t getTVStatus(uint16_t delay);// this funtion performs a liitle delay and returns the TV status  
 
     void storeData(MyIRData& irData);
     bool IsIRDataavailable(const char* filename); 
     bool readMyIRDataJSON(const char* filename, MyIRData& data);
     void storeMyIRDataJSON(const char* filename, const MyIRData& data);
-
     bool DumpMyIRDataJSON(const char* filename) ;
     void PrintMyIRData( MyIRData& data);
     void clear_file(const char* filename);
@@ -74,10 +74,16 @@ public:
 private:
     uint8_t receivePin;
     uint8_t _sendPin;
+    uint8_t _tvpin;
+
     MyIRData receivedData; // Store the last received IR data
 };
 void IRHandler::setRecievedData(MyIRData& irData){ 
     receivedData=irData; 
+}
+uint8_t IRHandler::getTVStatus(uint16_t _delay){ 
+    delay(_delay); 
+    return digitalRead(_tvpin); 
 }
 
 void IRHandler::PrintMyIRData( MyIRData& data){ 
@@ -155,8 +161,8 @@ void IRHandler::init_littleFS(){
 
     }
 }
-IRHandler::IRHandler(uint8_t receivePin, uint8_t _sendPin)
-    : receivePin(receivePin), _sendPin(_sendPin) {
+IRHandler::IRHandler(uint8_t receivePin, uint8_t _sendPin,uint8_t tvpin)
+    : receivePin(receivePin), _sendPin(_sendPin), _tvpin(tvpin){
     // Initialize pins
     // pinMode(receivePin, INPUT);
     // pinMode(sendPin, OUTPUT);
