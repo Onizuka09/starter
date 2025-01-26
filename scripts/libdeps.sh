@@ -12,7 +12,7 @@ arr=(
 # Check if the 'lib' directory exists, and if not, create it
 if [ ! -d "../lib" ]; then
   echo "Creating ./lib directory"
-  mkdir ./lib
+  mkdir ../lib
 fi
 
 # Change to the 'lib' directory
