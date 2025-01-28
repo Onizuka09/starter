@@ -1,7 +1,7 @@
 #include <Arduino.h>
 #include "RTC_module.h"
-
-RTC_Module rtc;
+#include "Hardware.h"
+RTC_Module rtc(RTC_DAT,RTC_RST,RTC_CLK);
 RtcDateTime now ;
 
 RtcDateTime beginTime(2025, 1, 24, 16, 14, 0);  

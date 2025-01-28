@@ -2,11 +2,28 @@
 #include "HardwareSerial.h"
 #include "RtcDateTime.h"
 
-#define DAT 21
-#define CLK 22
-#define RST 14
-ThreeWire wire(DAT, CLK, RST);
-RtcDS1302<ThreeWire> Rtc(wire);
+// ThreeWire wire(DAT, CLK, RST);
+// RtcDS1302<ThreeWire> Rtc(wire);
+
+RTC_Module::RTC_Module(uint8_t dpin, uint8_t clkpin, uint8_t rstpin)
+    : _datapin(dpin), _clkpin(clkpin), _rstpin(rstpin), // Initialize pin variables
+      wire(_datapin, _clkpin, _rstpin),                 // Initialize ThreeWire object
+      Rtc(wire),                                        // Initialize RtcDS1302 object
+      start_min(0), prev_min(0), time_func(false)
+{              // Initialize other members
+  Rtc.Begin(); // Start the RTC
+}
+
+
+void RTC_Module::set_beginTime(RtcDateTime s)
+{
+  beginTime = s;
+}
+
+void RTC_Module::set_endTime(RtcDateTime s)
+{
+  endTime = s;
+}
 
 void RTC_Module::RTC_Module_init()
 {

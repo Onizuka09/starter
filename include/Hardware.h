@@ -15,4 +15,7 @@
 
 #define W5500_CS 33
 
+#define RTC_DAT 21
+#define RTC_CLK 22
+#define RTC_RST 14
 #endif 
