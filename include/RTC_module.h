@@ -20,10 +20,8 @@ private:
   RtcDateTime start_time;
   uint32_t duration_seconds;
   bool time_func;
-
   RtcDateTime beginTime;
   RtcDateTime endTime;
-
   uint8_t _datapin, _clkpin, _rstpin;
   ThreeWire wire;
   RtcDS1302<ThreeWire> Rtc;
