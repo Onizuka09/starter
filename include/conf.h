@@ -10,6 +10,8 @@ const uint8_t targetMAC[] = {0x00, 0xe0, 0x4c, 0x38, 0xcd, 0xc2}; // BLACK
 #define DISABLE_ETHERNET 0
 #define ENABLE_WIFI 0
 #define MyServ      0
+
+
 #define OTA_WIFI_ETH 0 // 1 WIFI , O ETHERNET  
 #define WIFI_PASSWD "i6q4k3b21r" //"97800903";
 #define WIFI_SSID  "TT_23C0"        //"TP-Link_AP_70CA";
