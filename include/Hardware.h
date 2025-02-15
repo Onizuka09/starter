@@ -1,6 +1,5 @@
 #ifndef HARDWARE_H
 #define HARDWARE_H
-#include "IR_PIN_DEF.h"
 
 #define PIN_BTN  12
 
@@ -15,4 +14,12 @@
 
 #define W5500_CS 33
 
+/*DEFAULT SPI PIN ESP32
+MOSI 23
+MISO 19
+SCLK 18
+SC 33
+VCC
+GND 
+*/
 #endif 

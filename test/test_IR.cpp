@@ -46,7 +46,8 @@
  */
 #include <Arduino.h>
 #include <IRremote.h>
-#include "IR_PIN_DEF.h" // Define macros for input and output pin etc.
+#include "Hardware.h"
+// Define macros for input and output pin etc.
 #if !defined(IR_SEND_PIN)
 #define IR_SEND_PIN         4
 #endif
