@@ -1,0 +1,11 @@
+on: [push]
+jobs: 
+  build:
+      runs-on: ubuntu-latest
+      container:
+        image: onizuka09/starter-container:latest
+      steps:
+        - name: Checkout the repository 
+          uses: actions/checkout@v3
+        - run: make build
+          
