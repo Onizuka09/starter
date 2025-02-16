@@ -1,0 +1,33 @@
+\hypertarget{structARDUINOJSON__NAMESPACE_1_1IsCharOrVoid}{}\doxysection{ARDUINOJSON\+\_\+\+NAMESPACE\+::Is\+Char\+Or\+Void$<$ T $>$ Struct Template Reference}
+\label{structARDUINOJSON__NAMESPACE_1_1IsCharOrVoid}\index{ARDUINOJSON\_NAMESPACE::IsCharOrVoid$<$ T $>$@{ARDUINOJSON\_NAMESPACE::IsCharOrVoid$<$ T $>$}}
+
+
+Inheritance diagram for ARDUINOJSON\+\_\+\+NAMESPACE\+::Is\+Char\+Or\+Void$<$ T $>$\+:
+% FIG 0
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const bool {\bfseries value}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structARDUINOJSON__NAMESPACE_1_1IsCharOrVoid_adad59eb442f679b4a54fccd74a087f1d}\label{structARDUINOJSON__NAMESPACE_1_1IsCharOrVoid_adad59eb442f679b4a54fccd74a087f1d}} 
+\index{ARDUINOJSON\_NAMESPACE::IsCharOrVoid$<$ T $>$@{ARDUINOJSON\_NAMESPACE::IsCharOrVoid$<$ T $>$}!value@{value}}
+\index{value@{value}!ARDUINOJSON\_NAMESPACE::IsCharOrVoid$<$ T $>$@{ARDUINOJSON\_NAMESPACE::IsCharOrVoid$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{value}{value}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+const bool \mbox{\hyperlink{structARDUINOJSON__NAMESPACE_1_1IsCharOrVoid}{ARDUINOJSON\+\_\+\+NAMESPACE\+::\+Is\+Char\+Or\+Void}}$<$ T $>$\+::value\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{      is\_same<T, void>::value || is\_same<T, char>::value ||}
+\DoxyCodeLine{      is\_same<T, unsigned char>::value || is\_same<T, signed char>::value}
+
+\end{DoxyCode}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+Arduino\+Json/src/\+Arduino\+Json/\+Deserialization/\+Readers/Ram\+Reader.\+hpp\end{DoxyCompactItemize}

@@ -1,0 +1,8 @@
+digraph "Graphical Class Hierarchy"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node0 [label="ARDUINOJSON_NAMESPACE\l::StringAdapter\< std\l::basic_string\< char,\l TCharTraits, TAllocator\l \>, void \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structARDUINOJSON__NAMESPACE_1_1StringAdapter_3_01std_1_1basic__string_3_01char_00_01TCharTraits34d7b3bc9a507b809e63f713d0cb07a7.html",tooltip=" "];
+}

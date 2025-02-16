@@ -1,0 +1,70 @@
+\hypertarget{classARDUINOJSON__NAMESPACE_1_1JsonSerializer}{}\doxysection{ARDUINOJSON\+\_\+\+NAMESPACE\+::Json\+Serializer$<$ TWriter $>$ Class Template Reference}
+\label{classARDUINOJSON__NAMESPACE_1_1JsonSerializer}\index{ARDUINOJSON\_NAMESPACE::JsonSerializer$<$ TWriter $>$@{ARDUINOJSON\_NAMESPACE::JsonSerializer$<$ TWriter $>$}}
+
+
+Inheritance diagram for ARDUINOJSON\+\_\+\+NAMESPACE\+::Json\+Serializer$<$ TWriter $>$\+:
+% FIG 0
+
+
+Collaboration diagram for ARDUINOJSON\+\_\+\+NAMESPACE\+::Json\+Serializer$<$ TWriter $>$\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classARDUINOJSON__NAMESPACE_1_1JsonSerializer_a2d8dcb2af666a19c079c48d0a40b916a}\label{classARDUINOJSON__NAMESPACE_1_1JsonSerializer_a2d8dcb2af666a19c079c48d0a40b916a}} 
+{\bfseries Json\+Serializer} (TWriter writer)
+\item 
+\mbox{\Hypertarget{classARDUINOJSON__NAMESPACE_1_1JsonSerializer_afe1f46ced076c690e503826c887da8f7}\label{classARDUINOJSON__NAMESPACE_1_1JsonSerializer_afe1f46ced076c690e503826c887da8f7}} 
+FORCE\+\_\+\+INLINE size\+\_\+t {\bfseries visit\+Array} (const \mbox{\hyperlink{classARDUINOJSON__NAMESPACE_1_1CollectionData}{Collection\+Data}} \&array)
+\item 
+\mbox{\Hypertarget{classARDUINOJSON__NAMESPACE_1_1JsonSerializer_a779f4776e86c2009bb3e1468e9fc6a58}\label{classARDUINOJSON__NAMESPACE_1_1JsonSerializer_a779f4776e86c2009bb3e1468e9fc6a58}} 
+size\+\_\+t {\bfseries visit\+Object} (const \mbox{\hyperlink{classARDUINOJSON__NAMESPACE_1_1CollectionData}{Collection\+Data}} \&object)
+\item 
+\mbox{\Hypertarget{classARDUINOJSON__NAMESPACE_1_1JsonSerializer_a013f59e2622c09da8ff4c094e151f8f2}\label{classARDUINOJSON__NAMESPACE_1_1JsonSerializer_a013f59e2622c09da8ff4c094e151f8f2}} 
+size\+\_\+t {\bfseries visit\+Float} (Json\+Float value)
+\item 
+\mbox{\Hypertarget{classARDUINOJSON__NAMESPACE_1_1JsonSerializer_a1d545a5c836a9ea6d78f520fd2dca0c7}\label{classARDUINOJSON__NAMESPACE_1_1JsonSerializer_a1d545a5c836a9ea6d78f520fd2dca0c7}} 
+size\+\_\+t {\bfseries visit\+String} (const char $\ast$value)
+\item 
+\mbox{\Hypertarget{classARDUINOJSON__NAMESPACE_1_1JsonSerializer_a26991344a5dbeb4b9c0fad0602bef52b}\label{classARDUINOJSON__NAMESPACE_1_1JsonSerializer_a26991344a5dbeb4b9c0fad0602bef52b}} 
+size\+\_\+t {\bfseries visit\+String} (const char $\ast$value, size\+\_\+t n)
+\item 
+\mbox{\Hypertarget{classARDUINOJSON__NAMESPACE_1_1JsonSerializer_adbd66a638a5281380174fb9e8757e742}\label{classARDUINOJSON__NAMESPACE_1_1JsonSerializer_adbd66a638a5281380174fb9e8757e742}} 
+size\+\_\+t {\bfseries visit\+Raw\+Json} (const char $\ast$data, size\+\_\+t n)
+\item 
+\mbox{\Hypertarget{classARDUINOJSON__NAMESPACE_1_1JsonSerializer_a28adf0598ab3ad3471385c2853d9cc93}\label{classARDUINOJSON__NAMESPACE_1_1JsonSerializer_a28adf0598ab3ad3471385c2853d9cc93}} 
+size\+\_\+t {\bfseries visit\+Signed\+Integer} (Json\+Integer value)
+\item 
+\mbox{\Hypertarget{classARDUINOJSON__NAMESPACE_1_1JsonSerializer_a9d542df5d4fcca1582603d1ac0f65505}\label{classARDUINOJSON__NAMESPACE_1_1JsonSerializer_a9d542df5d4fcca1582603d1ac0f65505}} 
+size\+\_\+t {\bfseries visit\+Unsigned\+Integer} (Json\+UInt value)
+\item 
+\mbox{\Hypertarget{classARDUINOJSON__NAMESPACE_1_1JsonSerializer_a35148451c8a5dc7c2acffc61afa110b9}\label{classARDUINOJSON__NAMESPACE_1_1JsonSerializer_a35148451c8a5dc7c2acffc61afa110b9}} 
+size\+\_\+t {\bfseries visit\+Boolean} (bool value)
+\item 
+\mbox{\Hypertarget{classARDUINOJSON__NAMESPACE_1_1JsonSerializer_a87897ab26b2bcdc321c7c2947685653c}\label{classARDUINOJSON__NAMESPACE_1_1JsonSerializer_a87897ab26b2bcdc321c7c2947685653c}} 
+size\+\_\+t {\bfseries visit\+Null} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classARDUINOJSON__NAMESPACE_1_1JsonSerializer_a6ef27d7612c3792052bb894957209928}\label{classARDUINOJSON__NAMESPACE_1_1JsonSerializer_a6ef27d7612c3792052bb894957209928}} 
+static const bool {\bfseries produces\+Text} = true
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classARDUINOJSON__NAMESPACE_1_1JsonSerializer_a9d52fd1fd5b44784c9a71d56259dd630}\label{classARDUINOJSON__NAMESPACE_1_1JsonSerializer_a9d52fd1fd5b44784c9a71d56259dd630}} 
+size\+\_\+t {\bfseries bytes\+Written} () const
+\item 
+\mbox{\Hypertarget{classARDUINOJSON__NAMESPACE_1_1JsonSerializer_aee78868dff4336f516b4b272fb7d850e}\label{classARDUINOJSON__NAMESPACE_1_1JsonSerializer_aee78868dff4336f516b4b272fb7d850e}} 
+void {\bfseries write} (char c)
+\item 
+\mbox{\Hypertarget{classARDUINOJSON__NAMESPACE_1_1JsonSerializer_a5de2c8711000d2cfa505b3b8313444d6}\label{classARDUINOJSON__NAMESPACE_1_1JsonSerializer_a5de2c8711000d2cfa505b3b8313444d6}} 
+void {\bfseries write} (const char $\ast$s)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+Arduino\+Json/src/\+Arduino\+Json/\+Json/Json\+Serializer.\+hpp\end{DoxyCompactItemize}

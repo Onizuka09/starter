@@ -1,0 +1,291 @@
+\hypertarget{classIRsend}{}\doxysection{IRsend Class Reference}
+\label{classIRsend}\index{IRsend@{IRsend}}
+
+
+{\ttfamily \#include $<$IRremote\+Int.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries IRsend} (uint\+\_\+fast8\+\_\+t a\+Send\+Pin)
+\item 
+void \mbox{\hyperlink{group__Sending_ga170701fb079d24717aded137dee808e7}{begin}} (uint\+\_\+fast8\+\_\+t a\+Send\+Pin)
+\item 
+void {\bfseries set\+Send\+Pin} (uint\+\_\+fast8\+\_\+t a\+Send\+Pin)
+\item 
+void \mbox{\hyperlink{group__Sending_gac7abd96c6c4adb907dcc3adec54ebe77}{begin}} (uint\+\_\+fast8\+\_\+t a\+Send\+Pin, bool a\+Enable\+LEDFeedback, uint\+\_\+fast8\+\_\+t a\+Feedback\+LEDPin)
+\item 
+size\+\_\+t \mbox{\hyperlink{group__Sending_ga7954d4b7ff55e43b69fbf6e483f422b2}{write}} (\mbox{\hyperlink{structIRData}{IRData}} $\ast$a\+IRSend\+Data, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats=\mbox{\hyperlink{IRremoteInt_8h_a5d35fb37031b53f0083f8b88ae3cf2c2}{NO\+\_\+\+REPEATS}})
+\item 
+size\+\_\+t \mbox{\hyperlink{group__Sending_gaafdc6909c8794dc65aa702b84230ea7d}{write}} (\mbox{\hyperlink{IRProtocol_8h_ad5b287a488a8c1b7b8661f029ab56fad}{decode\+\_\+type\+\_\+t}} a\+Protocol, uint16\+\_\+t a\+Address, uint16\+\_\+t a\+Command, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats=\mbox{\hyperlink{IRremoteInt_8h_a5d35fb37031b53f0083f8b88ae3cf2c2}{NO\+\_\+\+REPEATS}})
+\item 
+void \mbox{\hyperlink{group__Sending_ga30b1c8f6029a2f72b4dee0eeb2fb7f15}{enable\+IROut}} (uint\+\_\+fast8\+\_\+t a\+Frequency\+KHz)
+\item 
+void {\bfseries send\+Pulse\+Distance\+Width\+From\+Array} (uint\+\_\+fast8\+\_\+t a\+Frequency\+KHz, uint16\+\_\+t a\+Header\+Mark\+Micros, uint16\+\_\+t a\+Header\+Space\+Micros, uint16\+\_\+t a\+One\+Mark\+Micros, uint16\+\_\+t a\+One\+Space\+Micros, uint16\+\_\+t a\+Zero\+Mark\+Micros, uint16\+\_\+t a\+Zero\+Space\+Micros, IRRaw\+Data\+Type $\ast$a\+Decoded\+Raw\+Data\+Array, uint16\+\_\+t a\+Number\+Of\+Bits, uint8\+\_\+t a\+Flags, uint16\+\_\+t a\+Repeat\+Period\+Millis, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats)
+\item 
+void \mbox{\hyperlink{group__Sending_ga9dc397d1e45a668433a06ee69ed37c11}{send\+Pulse\+Distance\+Width\+From\+Array}} (\mbox{\hyperlink{structPulseDistanceWidthProtocolConstants}{Pulse\+Distance\+Width\+Protocol\+Constants}} $\ast$a\+Protocol\+Constants, IRRaw\+Data\+Type $\ast$a\+Decoded\+Raw\+Data\+Array, uint16\+\_\+t a\+Number\+Of\+Bits, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats)
+\item 
+void \mbox{\hyperlink{group__Sending_gae3184d665eabcaca813d4cab9227e691}{send\+Pulse\+Distance\+Width\+From\+Array}} (uint\+\_\+fast8\+\_\+t a\+Frequency\+KHz, \mbox{\hyperlink{structDistanceWidthTimingInfoStruct}{Distance\+Width\+Timing\+Info\+Struct}} $\ast$a\+Distance\+Width\+Timing\+Info, IRRaw\+Data\+Type $\ast$a\+Decoded\+Raw\+Data\+Array, uint16\+\_\+t a\+Number\+Of\+Bits, uint8\+\_\+t a\+Flags, uint16\+\_\+t a\+Repeat\+Period\+Millis, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats)
+\item 
+void \mbox{\hyperlink{group__Sending_gacc820b71185ccb9571fcfaba9af6803f}{send\+Pulse\+Distance\+Width}} (\mbox{\hyperlink{structPulseDistanceWidthProtocolConstants}{Pulse\+Distance\+Width\+Protocol\+Constants}} $\ast$a\+Protocol\+Constants, IRRaw\+Data\+Type a\+Data, uint\+\_\+fast8\+\_\+t a\+Number\+Of\+Bits, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats)
+\item 
+void \mbox{\hyperlink{group__Sending_ga0e697969acd5ea115afd45d0c08a03db}{send\+Pulse\+Distance\+Width\+Data}} (\mbox{\hyperlink{structPulseDistanceWidthProtocolConstants}{Pulse\+Distance\+Width\+Protocol\+Constants}} $\ast$a\+Protocol\+Constants, IRRaw\+Data\+Type a\+Data, uint\+\_\+fast8\+\_\+t a\+Number\+Of\+Bits)
+\item 
+void \mbox{\hyperlink{group__Sending_gadadb64cdb5e3b94c854cc75b4a6ef303}{send\+Pulse\+Distance\+Width}} (uint\+\_\+fast8\+\_\+t a\+Frequency\+KHz, uint16\+\_\+t a\+Header\+Mark\+Micros, uint16\+\_\+t a\+Header\+Space\+Micros, uint16\+\_\+t a\+One\+Mark\+Micros, uint16\+\_\+t a\+One\+Space\+Micros, uint16\+\_\+t a\+Zero\+Mark\+Micros, uint16\+\_\+t a\+Zero\+Space\+Micros, IRRaw\+Data\+Type a\+Data, uint\+\_\+fast8\+\_\+t a\+Number\+Of\+Bits, uint8\+\_\+t a\+Flags, uint16\+\_\+t a\+Repeat\+Period\+Millis, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats, void($\ast$a\+Special\+Send\+Repeat\+Function)()=NULL)
+\item 
+\mbox{\Hypertarget{classIRsend_a1c4f40b43e89e225e8a557f68c555c61}\label{classIRsend_a1c4f40b43e89e225e8a557f68c555c61}} 
+void {\bfseries send\+Pulse\+Distance\+Width} (uint\+\_\+fast8\+\_\+t a\+Frequency\+KHz, uint16\+\_\+t a\+Header\+Mark\+Micros, uint16\+\_\+t a\+Header\+Space\+Micros, uint16\+\_\+t a\+One\+Mark\+Micros, uint16\+\_\+t a\+One\+Space\+Micros, uint16\+\_\+t a\+Zero\+Mark\+Micros, uint16\+\_\+t a\+Zero\+Space\+Micros, IRRaw\+Data\+Type a\+Data, uint\+\_\+fast8\+\_\+t a\+Number\+Of\+Bits, bool a\+MSBFirst, bool a\+Send\+Stop\+Bit, uint16\+\_\+t a\+Repeat\+Period\+Millis, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats, void($\ast$a\+Special\+Send\+Repeat\+Function)()=NULL) \+\_\+\+\_\+attribute\+\_\+\+\_\+((deprecated(\char`\"{}Since version 4.\+1.\+0 parameter a\+Send\+Stop\+Bit is not longer required.\char`\"{})))
+\item 
+void \mbox{\hyperlink{group__Sending_ga2259444b98a657c6ca6274dc2ef64ef3}{send\+Pulse\+Distance\+Width\+Data}} (uint16\+\_\+t a\+One\+Mark\+Micros, uint16\+\_\+t a\+One\+Space\+Micros, uint16\+\_\+t a\+Zero\+Mark\+Micros, uint16\+\_\+t a\+Zero\+Space\+Micros, IRRaw\+Data\+Type a\+Data, uint\+\_\+fast8\+\_\+t a\+Number\+Of\+Bits, uint8\+\_\+t a\+Flags)
+\item 
+void \mbox{\hyperlink{group__Sending_gab58ccb971822a22552d4bb5d46b4693e}{send\+Biphase\+Data}} (uint16\+\_\+t a\+Biphase\+Time\+Unit, uint32\+\_\+t a\+Data, uint\+\_\+fast8\+\_\+t a\+Number\+Of\+Bits)
+\item 
+void \mbox{\hyperlink{group__Sending_ga71a76987183f83b366fa59660e80253b}{mark}} (uint16\+\_\+t a\+Mark\+Micros)
+\item 
+void \mbox{\hyperlink{group__Sending_ga5242741b8da4fbfaae237eee2b279dd0}{IRLed\+Off}} ()
+\item 
+void \mbox{\hyperlink{group__Sending_gae1aebf8a1c14c25bd21da343411bd441}{send\+Raw}} (const uint8\+\_\+t a\+Buffer\+With\+Ticks\mbox{[}$\,$\mbox{]}, uint\+\_\+fast16\+\_\+t a\+Length\+Of\+Buffer, uint\+\_\+fast8\+\_\+t a\+IRFrequency\+Kilohertz)
+\item 
+void \mbox{\hyperlink{group__Sending_ga4fc6a1201b9af5884856fc411d47c087}{send\+Raw\+\_\+P}} (const uint8\+\_\+t a\+Buffer\+With\+Ticks\mbox{[}$\,$\mbox{]}, uint\+\_\+fast16\+\_\+t a\+Length\+Of\+Buffer, uint\+\_\+fast8\+\_\+t a\+IRFrequency\+Kilohertz)
+\item 
+void \mbox{\hyperlink{group__Sending_ga875f514d9cf039cbad7f781595247952}{send\+Raw}} (const uint16\+\_\+t a\+Buffer\+With\+Microseconds\mbox{[}$\,$\mbox{]}, uint\+\_\+fast16\+\_\+t a\+Length\+Of\+Buffer, uint\+\_\+fast8\+\_\+t a\+IRFrequency\+Kilohertz)
+\item 
+void \mbox{\hyperlink{group__Sending_ga9fb09e73b62fcca2229b982877922b1f}{send\+Raw\+\_\+P}} (const uint16\+\_\+t a\+Buffer\+With\+Microseconds\mbox{[}$\,$\mbox{]}, uint\+\_\+fast16\+\_\+t a\+Length\+Of\+Buffer, uint\+\_\+fast8\+\_\+t a\+IRFrequency\+Kilohertz)
+\item 
+\mbox{\Hypertarget{classIRsend_afc39200973383b94811ac59f29c56efb}\label{classIRsend_afc39200973383b94811ac59f29c56efb}} 
+void {\bfseries send\+Bang\+Olufsen} (uint16\+\_\+t a\+Header, uint8\+\_\+t a\+Data, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats=\mbox{\hyperlink{IRremoteInt_8h_a5d35fb37031b53f0083f8b88ae3cf2c2}{NO\+\_\+\+REPEATS}}, int8\+\_\+t a\+Number\+Of\+Header\+Bits=8)
+\item 
+\mbox{\Hypertarget{classIRsend_a97581e3c4d1df5e63d221df687655aaf}\label{classIRsend_a97581e3c4d1df5e63d221df687655aaf}} 
+void {\bfseries send\+Bang\+Olufsen\+Data\+Link} (uint32\+\_\+t a\+Header, uint8\+\_\+t a\+Data, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats=\mbox{\hyperlink{IRremoteInt_8h_a5d35fb37031b53f0083f8b88ae3cf2c2}{NO\+\_\+\+REPEATS}}, int8\+\_\+t a\+Number\+Of\+Header\+Bits=8)
+\item 
+\mbox{\Hypertarget{classIRsend_a9f0668c744fa5f27401d1089a1b42c8c}\label{classIRsend_a9f0668c744fa5f27401d1089a1b42c8c}} 
+void {\bfseries send\+Bang\+Olufsen\+Raw} (uint32\+\_\+t a\+Raw\+Data, int\+\_\+fast8\+\_\+t a\+Bits, bool a\+Back\+To\+Back=false)
+\item 
+\mbox{\Hypertarget{classIRsend_a01622320e53e93b0695b2cece65a724f}\label{classIRsend_a01622320e53e93b0695b2cece65a724f}} 
+void {\bfseries send\+Bang\+Olufsen\+Raw\+Data\+Link} (uint64\+\_\+t a\+Raw\+Data, int\+\_\+fast8\+\_\+t a\+Bits, bool a\+Back\+To\+Back=false, bool a\+Use\+Datalink\+Timing=false)
+\item 
+void {\bfseries send\+Bose\+Wave} (uint8\+\_\+t a\+Command, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats=\mbox{\hyperlink{IRremoteInt_8h_a5d35fb37031b53f0083f8b88ae3cf2c2}{NO\+\_\+\+REPEATS}})
+\item 
+void {\bfseries send\+Denon} (uint8\+\_\+t a\+Address, uint8\+\_\+t a\+Command, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats, bool a\+Send\+Sharp=false)
+\item 
+void {\bfseries send\+Denon\+Raw} (uint16\+\_\+t a\+Raw\+Data, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats=\mbox{\hyperlink{IRremoteInt_8h_a5d35fb37031b53f0083f8b88ae3cf2c2}{NO\+\_\+\+REPEATS}}) \+\_\+\+\_\+attribute\+\_\+\+\_\+((deprecated(\char`\"{}Please use send\+Denon(a\+Address
+\item 
+void \mbox{\hyperlink{group__Decoder_ga39702704a52a99d8cb7d118d8a9e0251}{send\+FAST}} (uint8\+\_\+t a\+Command, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats)
+\item 
+void \mbox{\hyperlink{group__Decoder_gaa10da0665ac4d44b06dba845420ab7f1}{send\+JVC}} (uint8\+\_\+t a\+Address, uint8\+\_\+t a\+Command, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats)
+\item 
+void {\bfseries send\+LG2\+Repeat} ()
+\item 
+uint32\+\_\+t {\bfseries compute\+LGRaw\+Data\+And\+Checksum} (uint8\+\_\+t a\+Address, uint16\+\_\+t a\+Command)
+\item 
+void \mbox{\hyperlink{group__Decoder_gab0200ca785ce3be24c4ad2efc95f37f7}{send\+LG}} (uint8\+\_\+t a\+Address, uint16\+\_\+t a\+Command, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats)
+\item 
+void \mbox{\hyperlink{group__Decoder_gad8b3a7ce5ae5adb098ca0dc004b7b71b}{send\+LG2}} (uint8\+\_\+t a\+Address, uint16\+\_\+t a\+Command, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats)
+\item 
+void \mbox{\hyperlink{group__Decoder_ga4a616180179201f4f863ee709d844dd7}{send\+LGRaw}} (uint32\+\_\+t a\+Raw\+Data, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats=\mbox{\hyperlink{IRremoteInt_8h_a5d35fb37031b53f0083f8b88ae3cf2c2}{NO\+\_\+\+REPEATS}})
+\item 
+void \mbox{\hyperlink{group__Decoder_gae8fff4f1d8703ca18ea85a15289dc44c}{send\+NECRepeat}} ()
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group__Decoder_ga4cec214f3ebfd28867697ebaac4de74b}{compute\+NECRaw\+Data\+And\+Checksum}} (uint16\+\_\+t a\+Address, uint16\+\_\+t a\+Command)
+\item 
+void \mbox{\hyperlink{group__Decoder_ga3dc9ab05c90197b056c226dcc187cc3a}{send\+NEC}} (uint16\+\_\+t a\+Address, uint16\+\_\+t a\+Command, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats)
+\item 
+void \mbox{\hyperlink{group__Decoder_gabf1692bf9eb21e6e27989d5be05c9c11}{send\+NEC2}} (uint16\+\_\+t a\+Address, uint16\+\_\+t a\+Command, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats)
+\item 
+void \mbox{\hyperlink{group__Decoder_ga0cd187952518c5df1a4596aeec33cc9f}{send\+NECRaw}} (uint32\+\_\+t a\+Raw\+Data, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats=\mbox{\hyperlink{IRremoteInt_8h_a5d35fb37031b53f0083f8b88ae3cf2c2}{NO\+\_\+\+REPEATS}})
+\item 
+void \mbox{\hyperlink{group__Decoder_ga5a1e296f0350dc379cb925d13ca59d87}{send\+Onkyo}} (uint16\+\_\+t a\+Address, uint16\+\_\+t a\+Command, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats)
+\item 
+void \mbox{\hyperlink{group__Decoder_ga101c9bd6ac69748f27ec4abe65b04803}{send\+Apple}} (uint8\+\_\+t a\+Address, uint8\+\_\+t a\+Command, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats)
+\item 
+void \mbox{\hyperlink{group__Decoder_gada6382d5c398922c22ace404179a5744}{send\+Kaseikyo}} (uint16\+\_\+t a\+Address, uint8\+\_\+t a\+Data, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats, uint16\+\_\+t a\+Vendor\+Code)
+\item 
+void \mbox{\hyperlink{group__Decoder_gaf720308fa32a1f182ff17772c32c3cea}{send\+Panasonic}} (uint16\+\_\+t a\+Address, uint8\+\_\+t a\+Data, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats)
+\item 
+void \mbox{\hyperlink{group__Decoder_ga266389f19755fdef8f6dc0155191bf3b}{send\+Kaseikyo\+\_\+\+Denon}} (uint16\+\_\+t a\+Address, uint8\+\_\+t a\+Data, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats)
+\item 
+void \mbox{\hyperlink{group__Decoder_ga8853de09de0669d147a40e8344ee2dc4}{send\+Kaseikyo\+\_\+\+Mitsubishi}} (uint16\+\_\+t a\+Address, uint8\+\_\+t a\+Data, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats)
+\item 
+void \mbox{\hyperlink{group__Decoder_gaf60a31544006d2e18eb25b3b0205a261}{send\+Kaseikyo\+\_\+\+Sharp}} (uint16\+\_\+t a\+Address, uint8\+\_\+t a\+Data, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats)
+\item 
+void \mbox{\hyperlink{group__Decoder_ga87a6a2163f2608a0c90014586bb04cfa}{send\+Kaseikyo\+\_\+\+JVC}} (uint16\+\_\+t a\+Address, uint8\+\_\+t a\+Data, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats)
+\item 
+void \mbox{\hyperlink{group__Decoder_gacce74f70ce85c35d92bb3f1af08e6ff4}{send\+RC5}} (uint8\+\_\+t a\+Address, uint8\+\_\+t a\+Command, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats, bool a\+Enable\+Automatic\+Toggle=true)
+\item 
+void \mbox{\hyperlink{group__Decoder_gaff709569cc91804f55dd6c50a9df6c6b}{send\+RC6}} (uint8\+\_\+t a\+Address, uint8\+\_\+t a\+Command, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats, bool a\+Enable\+Automatic\+Toggle=true)
+\item 
+void \mbox{\hyperlink{group__Decoder_gaf6543af3a39c51ed70a6ce90da00c05a}{send\+RC6A}} (uint8\+\_\+t a\+Address, uint8\+\_\+t a\+Command, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats, uint16\+\_\+t a\+Customer, bool a\+Enable\+Automatic\+Toggle=true)
+\item 
+void \mbox{\hyperlink{group__Decoder_ga395b9e2ded40a5ad085fa11938422b21}{send\+Samsung\+LGRepeat}} ()
+\item 
+void \mbox{\hyperlink{group__Decoder_ga6e694626edcde10e0d5a4e6a2bc6b915}{send\+Samsung}} (uint16\+\_\+t a\+Address, uint16\+\_\+t a\+Command, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats)
+\item 
+void \mbox{\hyperlink{group__Decoder_ga43974eababba83296f3d3c5a18f89819}{send\+Samsung16\+Bit\+Address\+And8\+Bit\+Command}} (uint16\+\_\+t a\+Address, uint8\+\_\+t a\+Command, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats)
+\item 
+void \mbox{\hyperlink{group__Decoder_ga78ab8efbaf556541c6c6be6c89281309}{send\+Samsung16\+Bit\+Address\+And\+Command}} (uint16\+\_\+t a\+Address, uint16\+\_\+t a\+Command, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats)
+\item 
+void \mbox{\hyperlink{group__Decoder_gaa72ec4013c647400e0dc43a4ede328e4}{send\+Samsung48}} (uint16\+\_\+t a\+Address, uint32\+\_\+t a\+Command, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats)
+\item 
+void {\bfseries send\+Samsung\+LG} (uint16\+\_\+t a\+Address, uint16\+\_\+t a\+Command, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats)
+\item 
+void {\bfseries send\+Sharp} (uint8\+\_\+t a\+Address, uint8\+\_\+t a\+Command, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats)
+\item 
+void \mbox{\hyperlink{group__Decoder_gafef2381435874c06374a40c6f06aa92b}{send\+Sony}} (uint16\+\_\+t a\+Address, uint8\+\_\+t a\+Command, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats, uint8\+\_\+t number\+Of\+Bits=12)
+\item 
+void {\bfseries send\+Lego\+Power\+Functions} (uint8\+\_\+t a\+Channel, uint8\+\_\+t t\+Command, uint8\+\_\+t a\+Mode, bool a\+Do\+Send5\+Times=true)
+\item 
+void {\bfseries send\+Lego\+Power\+Functions} (uint16\+\_\+t a\+Raw\+Data, bool a\+Do\+Send5\+Times=true)
+\item 
+void {\bfseries send\+Lego\+Power\+Functions} (uint16\+\_\+t a\+Raw\+Data, uint8\+\_\+t a\+Channel, bool a\+Do\+Send5\+Times=true)
+\item 
+void \mbox{\hyperlink{classIRsend_a71e0a4a000f5dcb541ca889be34442ce}{send\+Magi\+Quest}} (uint32\+\_\+t a\+Wand\+Id, uint16\+\_\+t a\+Magnitude)
+\item 
+void {\bfseries send\+Pronto} (const \+\_\+\+\_\+\+Flash\+String\+Helper $\ast$str, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats=\mbox{\hyperlink{IRremoteInt_8h_a5d35fb37031b53f0083f8b88ae3cf2c2}{NO\+\_\+\+REPEATS}})
+\item 
+void \mbox{\hyperlink{group__Decoder_gae58b0eca1937aca61ee9c609f0396827}{send\+Pronto}} (const char $\ast$pronto\+Hex\+String, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats=\mbox{\hyperlink{IRremoteInt_8h_a5d35fb37031b53f0083f8b88ae3cf2c2}{NO\+\_\+\+REPEATS}})
+\item 
+void {\bfseries send\+Pronto} (const uint16\+\_\+t $\ast$data, uint16\+\_\+t length, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats=\mbox{\hyperlink{IRremoteInt_8h_a5d35fb37031b53f0083f8b88ae3cf2c2}{NO\+\_\+\+REPEATS}})
+\item 
+\mbox{\Hypertarget{classIRsend_abc8631cb8ce32816e6cc504a1a01744f}\label{classIRsend_abc8631cb8ce32816e6cc504a1a01744f}} 
+void {\bfseries send\+Shuzu} (uint16\+\_\+t a\+Address, uint8\+\_\+t a\+Command, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats)
+\item 
+void {\bfseries send\+Denon} (unsigned long data, int nbits) \+\_\+\+\_\+attribute\+\_\+\+\_\+((deprecated(\char`\"{}The function send\+Denon(data
+\item 
+\mbox{\Hypertarget{classIRsend_a7b4082fe8b366d6346877850aabd3b56}\label{classIRsend_a7b4082fe8b366d6346877850aabd3b56}} 
+void nbits is deprecated and may not work as expected ! Use {\bfseries send\+Denon\+Raw} (data, Number\+Of\+Repeats) or better send\+Denon(Address
+\item 
+void {\bfseries send\+Dish} (uint16\+\_\+t a\+Data)
+\item 
+\mbox{\Hypertarget{classIRsend_a623ebe3659a8600fd09ccd4391a632af}\label{classIRsend_a623ebe3659a8600fd09ccd4391a632af}} 
+void {\bfseries send\+JVC} (unsigned long data, int nbits, bool repeat) \+\_\+\+\_\+attribute\+\_\+\+\_\+((deprecated(\char`\"{}This old function sends MSB first! Please use send\+JVC(a\+Address
+\item 
+void \mbox{\hyperlink{group__Decoder_gae3ffaf23301bec85ca0c2c7499f484a3}{send\+JVCMSB}} (unsigned long data, int nbits, bool repeat=false)
+\item 
+void {\bfseries send\+LG} (unsigned long data, int nbits) \+\_\+\+\_\+attribute\+\_\+\+\_\+((deprecated(\char`\"{}The function send\+LG(data
+\item 
+\mbox{\Hypertarget{classIRsend_aaaa225dbec4cbb69af5e448fc0d35c44}\label{classIRsend_aaaa225dbec4cbb69af5e448fc0d35c44}} 
+void nbits is deprecated and may not work as expected ! Use {\bfseries send\+LGRaw} (data, Number\+Of\+Repeats) or better \mbox{\hyperlink{group__Decoder_gab0200ca785ce3be24c4ad2efc95f37f7}{send\+LG}}(Address
+\item 
+\mbox{\Hypertarget{classIRsend_a540e86b4ba238175930b1d4fd8845c15}\label{classIRsend_a540e86b4ba238175930b1d4fd8845c15}} 
+void {\bfseries send\+NEC} (uint32\+\_\+t a\+Raw\+Data, uint8\+\_\+t nbits) \+\_\+\+\_\+attribute\+\_\+\+\_\+((deprecated(\char`\"{}This old function sends MSB first! Please use \mbox{\hyperlink{group__Decoder_ga0184d3edbfe2659b12fc157c3be0cd63}{send\+NECMSB}}() or send\+NEC(a\+Address
+\item 
+void \mbox{\hyperlink{group__Decoder_ga0184d3edbfe2659b12fc157c3be0cd63}{send\+NECMSB}} (uint32\+\_\+t data, uint8\+\_\+t nbits, bool repeat=false)
+\item 
+void \mbox{\hyperlink{group__Decoder_ga6168e3ad4e47c657c9f3de0e5d7590b3}{send\+RC5}} (uint32\+\_\+t data, uint8\+\_\+t nbits)
+\item 
+void {\bfseries send\+RC5ext} (uint8\+\_\+t addr, uint8\+\_\+t cmd, bool toggle)
+\item 
+void {\bfseries send\+RC6\+Raw} (uint32\+\_\+t data, uint8\+\_\+t nbits)
+\item 
+void \mbox{\hyperlink{group__Decoder_gafbba909b7fa7ef0f4770dc124e2c4804}{send\+RC6}} (uint32\+\_\+t data, uint8\+\_\+t nbits) \+\_\+\+\_\+attribute\+\_\+\+\_\+((deprecated(\char`\"{}Please use send\+RC6\+Raw().\char`\"{})))
+\item 
+void {\bfseries send\+RC6\+Raw} (uint64\+\_\+t data, uint8\+\_\+t nbits)
+\item 
+void \mbox{\hyperlink{group__Decoder_gad4338783d4c245c2756db5b00845fed7}{send\+RC6}} (uint64\+\_\+t data, uint8\+\_\+t nbits) \+\_\+\+\_\+attribute\+\_\+\+\_\+((deprecated(\char`\"{}Please use send\+RC6\+Raw().\char`\"{})))
+\item 
+\mbox{\Hypertarget{classIRsend_a50067887a95c401e98362e0c6f721f71}\label{classIRsend_a50067887a95c401e98362e0c6f721f71}} 
+void {\bfseries send\+Sharp\+Raw} (unsigned long data, int nbits)
+\item 
+void {\bfseries send\+Sharp} (uint16\+\_\+t address, uint16\+\_\+t command)
+\item 
+void {\bfseries send\+SAMSUNG} (unsigned long data, int nbits)
+\item 
+\mbox{\Hypertarget{classIRsend_a47ef75994f6381a6bfe8a715a6b8cdd5}\label{classIRsend_a47ef75994f6381a6bfe8a715a6b8cdd5}} 
+{\bfseries \+\_\+\+\_\+attribute\+\_\+\+\_\+} ((deprecated(\char`\"{}This old function sends MSB first! Please use \mbox{\hyperlink{group__Decoder_ga6e694626edcde10e0d5a4e6a2bc6b915}{send\+Samsung}}().\char`\"{})))
+\item 
+void {\bfseries send\+Samsung\+MSB} (unsigned long data, int nbits)
+\item 
+void \mbox{\hyperlink{group__Decoder_ga4c99ff67282a3b58eb42c9f4d4ba5bb3}{send\+Sony\+MSB}} (unsigned long data, int nbits)
+\item 
+void {\bfseries send\+Sony} (unsigned long data, int nbits) \+\_\+\+\_\+attribute\+\_\+\+\_\+((deprecated(\char`\"{}This old function sends MSB first! Please use send\+Sony(a\+Address
+\item 
+void {\bfseries send\+Whynter} (uint32\+\_\+t a\+Data, uint8\+\_\+t a\+Number\+Of\+Bits\+To\+Send)
+\item 
+uint16\+\_\+t {\bfseries get\+Pulse\+Correction\+Nanos} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{group__Sending_ga914d45f08addaf1142e167a8ebf7d5a4}{space}} (uint16\+\_\+t a\+Space\+Micros)
+\item 
+static void \mbox{\hyperlink{group__Sending_ga78e52089f1ee53b3d080db7d8c25f798}{custom\+Delay\+Microseconds}} (unsigned long a\+Microseconds)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIRsend_a5f5d819c72ce2f74395d14166e77c7cc}\label{classIRsend_a5f5d819c72ce2f74395d14166e77c7cc}} 
+void {\bfseries a\+Command}
+\item 
+void {\bfseries a\+Number\+Of\+Repeats}
+\item 
+\mbox{\Hypertarget{classIRsend_ae7c94e763aed8525c6574cfc6ba0b502}\label{classIRsend_ae7c94e763aed8525c6574cfc6ba0b502}} 
+void nbits is deprecated and may not work as expected ! Use {\bfseries Command}
+\item 
+\mbox{\Hypertarget{classIRsend_abc8c3c52fc4cffa5314b8f13b99f4a23}\label{classIRsend_abc8c3c52fc4cffa5314b8f13b99f4a23}} 
+void nbits is deprecated and may not work as expected ! Use {\bfseries Number\+Of\+Repeats}
+\item 
+\mbox{\Hypertarget{classIRsend_a39f9782dd884b804bcf0034ab71ac202}\label{classIRsend_a39f9782dd884b804bcf0034ab71ac202}} 
+uint8\+\_\+t {\bfseries send\+Pin}
+\item 
+\mbox{\Hypertarget{classIRsend_a812c94b460a1646b5972a9a420ceff78}\label{classIRsend_a812c94b460a1646b5972a9a420ceff78}} 
+uint16\+\_\+t {\bfseries period\+Time\+Micros}
+\item 
+\mbox{\Hypertarget{classIRsend_a361f25ef6d623761783ed17046a244b6}\label{classIRsend_a361f25ef6d623761783ed17046a244b6}} 
+uint16\+\_\+t {\bfseries period\+On\+Time\+Micros}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Main class for sending IR signals 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classIRsend_a71e0a4a000f5dcb541ca889be34442ce}\label{classIRsend_a71e0a4a000f5dcb541ca889be34442ce}} 
+\index{IRsend@{IRsend}!sendMagiQuest@{sendMagiQuest}}
+\index{sendMagiQuest@{sendMagiQuest}!IRsend@{IRsend}}
+\doxysubsubsection{\texorpdfstring{sendMagiQuest()}{sendMagiQuest()}}
+{\footnotesize\ttfamily void IRsend\+::send\+Magi\+Quest (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{a\+Wand\+Id,  }\item[{uint16\+\_\+t}]{a\+Magnitude }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\+Wand\+Id} & 31 bit ID \\
+\hline
+{\em a\+Magnitude} & 9 bit Magnitude \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classIRsend_aff233b57d2382a713926797ce5da0fd3}\label{classIRsend_aff233b57d2382a713926797ce5da0fd3}} 
+\index{IRsend@{IRsend}!aNumberOfRepeats@{aNumberOfRepeats}}
+\index{aNumberOfRepeats@{aNumberOfRepeats}!IRsend@{IRsend}}
+\doxysubsubsection{\texorpdfstring{aNumberOfRepeats}{aNumberOfRepeats}}
+{\footnotesize\ttfamily void IRsend\+::a\+Number\+Of\+Repeats}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{        \mbox{\hyperlink{group__Decoder_gae3ffaf23301bec85ca0c2c7499f484a3}{sendJVCMSB}}(data, nbits, repeat)}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+Arduino-\/\+IRremote/src/\mbox{\hyperlink{IRremoteInt_8h}{IRremote\+Int.\+h}}\item 
+lib/\+Arduino-\/\+IRremote/src/ir\+\_\+\+Bang\+Olufsen.\+hpp\item 
+lib/\+Arduino-\/\+IRremote/src/ir\+\_\+\+Bose\+Wave.\+hpp\item 
+lib/\+Arduino-\/\+IRremote/src/ir\+\_\+\+Denon.\+hpp\item 
+lib/\+Arduino-\/\+IRremote/src/ir\+\_\+\+FAST.\+hpp\item 
+lib/\+Arduino-\/\+IRremote/src/ir\+\_\+\+JVC.\+hpp\item 
+lib/\+Arduino-\/\+IRremote/src/ir\+\_\+\+Kaseikyo.\+hpp\item 
+lib/\+Arduino-\/\+IRremote/src/ir\+\_\+\+Lego.\+hpp\item 
+lib/\+Arduino-\/\+IRremote/src/ir\+\_\+\+LG.\+hpp\item 
+lib/\+Arduino-\/\+IRremote/src/ir\+\_\+\+Magi\+Quest.\+hpp\item 
+lib/\+Arduino-\/\+IRremote/src/ir\+\_\+\+NEC.\+hpp\item 
+lib/\+Arduino-\/\+IRremote/src/ir\+\_\+\+Others.\+hpp\item 
+lib/\+Arduino-\/\+IRremote/src/ir\+\_\+\+Pronto.\+hpp\item 
+lib/\+Arduino-\/\+IRremote/src/ir\+\_\+\+RC5\+\_\+\+RC6.\+hpp\item 
+lib/\+Arduino-\/\+IRremote/src/ir\+\_\+\+Samsung.\+hpp\item 
+lib/\+Arduino-\/\+IRremote/src/ir\+\_\+\+Sony.\+hpp\item 
+lib/\+Arduino-\/\+IRremote/src/ir\+\_\+\+Template.\+hpp\item 
+lib/\+Arduino-\/\+IRremote/src/IRSend.\+hpp\end{DoxyCompactItemize}

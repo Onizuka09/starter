@@ -3,7 +3,6 @@
 //  * @screen_flex
 //  */
 
-// #include "IR_UTILS.h"
 #include "conf.h"
 #include "soft_version.h"
 #include "network_stack.h"
@@ -11,7 +10,6 @@
 #include "RGBModule.h"
 #include "ButtonModule.h"
 #include "IR_Module.h"
-// #include "program_defines.h"
 #include "Mylog.h"
 #include <Arduino.h>
 

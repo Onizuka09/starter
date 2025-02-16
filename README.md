@@ -22,7 +22,19 @@ The system ensures seamless startup  of a marketing stand by automating the foll
 ---
 
 ## Architecture & design 
+- **Design**: 
 
+<div style="display: flex; justify-content: center;">
+  <img src="Images/Design.png" alt="Image 2" style="width: 45%;"/>
+</div>
+<!-- ![Design ](Images/Design.png) -->
+
+- **Arhitecture**: 
+
+<div style="display: flex; justify-content: center;">
+  <img src="Images/Architecture.png" alt="Image 2" style="width: 45%;"/>
+</div>
+<!-- ![Architecture](./Images/Architecture.png) -->
 
 ---
 
@@ -30,7 +42,7 @@ The system ensures seamless startup  of a marketing stand by automating the foll
 
 - ESP32 dev module 
 - RTC module: DS1302
-- SPI Ethernet module: W3300
+- SPI Ethernet module: W5500
 - RGB LED 
 - Button  
 - IR reciever and emitter 
@@ -40,7 +52,7 @@ The system ensures seamless startup  of a marketing stand by automating the foll
 ## Project structure 
 **- Include Folder**: 
 - conf.h : contains build flags that are use at compile time to enable & dispable certain modules <br>
-- Hadrware.h: contains Pins defetions   <br>
+- Hardware.h: contains Pins defetions   <br>
 - ButtonModule.h : provides APIs to control button  <br> 
 - IR_Module.h : provides APis to control IR send and Receive <br>
 - Mylog.h: interface for intituitive logging functionalities <br>

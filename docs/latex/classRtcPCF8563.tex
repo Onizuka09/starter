@@ -1,0 +1,64 @@
+\hypertarget{classRtcPCF8563}{}\doxysection{Rtc\+PCF8563$<$ T\+\_\+\+WIRE\+\_\+\+METHOD $>$ Class Template Reference}
+\label{classRtcPCF8563}\index{RtcPCF8563$<$ T\_WIRE\_METHOD $>$@{RtcPCF8563$<$ T\_WIRE\_METHOD $>$}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRtcPCF8563_acb51fb82f86c9de44ea4c114464d332e}\label{classRtcPCF8563_acb51fb82f86c9de44ea4c114464d332e}} 
+{\bfseries Rtc\+PCF8563} (T\+\_\+\+WIRE\+\_\+\+METHOD \&wire)
+\item 
+\mbox{\Hypertarget{classRtcPCF8563_aeddbf0dbe242244fa25f9f895b24e9e0}\label{classRtcPCF8563_aeddbf0dbe242244fa25f9f895b24e9e0}} 
+void {\bfseries Begin} ()
+\item 
+\mbox{\Hypertarget{classRtcPCF8563_ae8d6ca4966ce9934bf53a9ebc01c7d5f}\label{classRtcPCF8563_ae8d6ca4966ce9934bf53a9ebc01c7d5f}} 
+void {\bfseries Begin} (int sda, int scl)
+\item 
+\mbox{\Hypertarget{classRtcPCF8563_addb9fb6357b31cb17645e6772462d4a5}\label{classRtcPCF8563_addb9fb6357b31cb17645e6772462d4a5}} 
+uint8\+\_\+t {\bfseries Last\+Error} ()
+\item 
+\mbox{\Hypertarget{classRtcPCF8563_a837841115c45d90b4caed7d9cdfcdf7e}\label{classRtcPCF8563_a837841115c45d90b4caed7d9cdfcdf7e}} 
+bool {\bfseries Is\+Date\+Time\+Valid} ()
+\item 
+\mbox{\Hypertarget{classRtcPCF8563_a9cedf40fa500e17fbee55fc549507382}\label{classRtcPCF8563_a9cedf40fa500e17fbee55fc549507382}} 
+bool {\bfseries Get\+Is\+Running} ()
+\item 
+\mbox{\Hypertarget{classRtcPCF8563_aaaa671c08c84a7fb279c6d3e313850f7}\label{classRtcPCF8563_aaaa671c08c84a7fb279c6d3e313850f7}} 
+void {\bfseries Set\+Is\+Running} (bool is\+Running)
+\item 
+\mbox{\Hypertarget{classRtcPCF8563_a90ab106d01d52356c5b9df14435c93f6}\label{classRtcPCF8563_a90ab106d01d52356c5b9df14435c93f6}} 
+void {\bfseries Set\+Date\+Time} (const \mbox{\hyperlink{classRtcDateTime}{Rtc\+Date\+Time}} \&dt)
+\item 
+\mbox{\Hypertarget{classRtcPCF8563_a5796afea163c3a0cfd837f805dae6c62}\label{classRtcPCF8563_a5796afea163c3a0cfd837f805dae6c62}} 
+\mbox{\hyperlink{classRtcDateTime}{Rtc\+Date\+Time}} {\bfseries Get\+Date\+Time} ()
+\item 
+\mbox{\Hypertarget{classRtcPCF8563_a38be0a35a62304f7efd29134f5dc6250}\label{classRtcPCF8563_a38be0a35a62304f7efd29134f5dc6250}} 
+void {\bfseries Set\+Square\+Wave\+Pin} (PCF8563\+Square\+Wave\+Pin\+Mode pin\+Mode)
+\item 
+\mbox{\Hypertarget{classRtcPCF8563_a3874fc85e024db598353a82602043f05}\label{classRtcPCF8563_a3874fc85e024db598353a82602043f05}} 
+void {\bfseries Set\+Alarm} (const \mbox{\hyperlink{classPCF8563Alarm}{PCF8563\+Alarm}} \&alarm)
+\item 
+\mbox{\Hypertarget{classRtcPCF8563_a2f44c8bba265e88cef71324e39a38cc6}\label{classRtcPCF8563_a2f44c8bba265e88cef71324e39a38cc6}} 
+void {\bfseries Stop\+Alarm} ()
+\item 
+\mbox{\Hypertarget{classRtcPCF8563_ac13164ecc247785f04169096c651751b}\label{classRtcPCF8563_ac13164ecc247785f04169096c651751b}} 
+void {\bfseries Set\+Timer} (PCF8563\+Timer\+Mode mode, uint8\+\_\+t time)
+\item 
+\mbox{\Hypertarget{classRtcPCF8563_a19a691702de409641ac598a5cc102d1a}\label{classRtcPCF8563_a19a691702de409641ac598a5cc102d1a}} 
+void {\bfseries Stop\+Timer} ()
+\item 
+\mbox{\Hypertarget{classRtcPCF8563_a3eab448b46dfce8e0b61b23d8adf00bc}\label{classRtcPCF8563_a3eab448b46dfce8e0b61b23d8adf00bc}} 
+bool {\bfseries Latch\+Alarm\+Triggered\+Flag} ()
+\item 
+\mbox{\Hypertarget{classRtcPCF8563_ad04f1cce0d8a25a3d4ec217b2a8fba64}\label{classRtcPCF8563_ad04f1cce0d8a25a3d4ec217b2a8fba64}} 
+bool {\bfseries Latch\+Timer\+Triggered\+Flag} ()
+\item 
+\mbox{\Hypertarget{classRtcPCF8563_a024284c0926799a01d63b022dfe7dbf9}\label{classRtcPCF8563_a024284c0926799a01d63b022dfe7dbf9}} 
+bool {\bfseries Get\+Alarm\+Triggered} ()
+\item 
+\mbox{\Hypertarget{classRtcPCF8563_ac6f36df4e224a65c9c0369d3267c427b}\label{classRtcPCF8563_ac6f36df4e224a65c9c0369d3267c427b}} 
+bool {\bfseries Get\+Timer\+Triggered} ()
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+Rtc/src/Rtc\+PCF8563.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,50 @@
+\hypertarget{classWakeOnLan}{}\doxysection{Wake\+On\+Lan Class Reference}
+\label{classWakeOnLan}\index{WakeOnLan@{WakeOnLan}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classWakeOnLan_a42f9e110a2b761f2141ae4539a2bd83e}\label{classWakeOnLan_a42f9e110a2b761f2141ae4539a2bd83e}} 
+{\bfseries Wake\+On\+Lan} (UDP \&\+\_\+udp\+Sock)
+\item 
+\mbox{\Hypertarget{classWakeOnLan_a1448dbcf3bfc634385131ed765f20446}\label{classWakeOnLan_a1448dbcf3bfc634385131ed765f20446}} 
+void {\bfseries set\+Broadcast\+Address} (IPAddress \+\_\+broadcast\+Address)
+\item 
+\mbox{\Hypertarget{classWakeOnLan_a27c9d5c5980b4a086d80427949ec1f7b}\label{classWakeOnLan_a27c9d5c5980b4a086d80427949ec1f7b}} 
+void {\bfseries set\+Repeat} (uint8\+\_\+t \+\_\+repeat\+Packet, unsigned long \+\_\+delay\+Packet)
+\item 
+\mbox{\Hypertarget{classWakeOnLan_aa3c701222e0957bd8a87730183e8b934}\label{classWakeOnLan_aa3c701222e0957bd8a87730183e8b934}} 
+IPAddress {\bfseries calculate\+Broadcast\+Address} (IPAddress \+\_\+ip\+Address, IPAddress \+\_\+subnet\+Mask)
+\item 
+\mbox{\Hypertarget{classWakeOnLan_a6771726d272591f6fd315e6683b92d11}\label{classWakeOnLan_a6771726d272591f6fd315e6683b92d11}} 
+bool {\bfseries string\+To\+Array} (uint8\+\_\+t $\ast$\+\_\+mac\+Address, const char $\ast$\+\_\+mac\+String)
+\item 
+\mbox{\Hypertarget{classWakeOnLan_a699a42e7a5ac509621d9ac428c667ea6}\label{classWakeOnLan_a699a42e7a5ac509621d9ac428c667ea6}} 
+bool {\bfseries send\+Magic\+Packet} (\mbox{\hyperlink{classString}{String}} \+\_\+mac\+String, uint16\+\_\+t \+\_\+port\+Num=9)
+\item 
+\mbox{\Hypertarget{classWakeOnLan_a59df3e610fe981e39802ab6fdea49de1}\label{classWakeOnLan_a59df3e610fe981e39802ab6fdea49de1}} 
+bool {\bfseries send\+Secure\+Magic\+Packet} (\mbox{\hyperlink{classString}{String}} \+\_\+mac\+String, \mbox{\hyperlink{classString}{String}} \+\_\+secure\+On, uint16\+\_\+t \+\_\+port\+Num=9)
+\item 
+\mbox{\Hypertarget{classWakeOnLan_a4d8e3f7378d3df6c158fd972a6fa5b31}\label{classWakeOnLan_a4d8e3f7378d3df6c158fd972a6fa5b31}} 
+bool {\bfseries send\+Magic\+Packet} (const char $\ast$\+\_\+mac\+Address, uint16\+\_\+t \+\_\+port\+Num=9)
+\item 
+\mbox{\Hypertarget{classWakeOnLan_a3a5f4b8a3d9138d07f8ca76eac2769c0}\label{classWakeOnLan_a3a5f4b8a3d9138d07f8ca76eac2769c0}} 
+bool {\bfseries send\+Secure\+Magic\+Packet} (const char $\ast$\+\_\+mac\+Address, const char $\ast$\+\_\+secure\+On, uint16\+\_\+t \+\_\+port\+Num=9)
+\item 
+\mbox{\Hypertarget{classWakeOnLan_a6372b33afe6dd4b0b75d94c4a4df390f}\label{classWakeOnLan_a6372b33afe6dd4b0b75d94c4a4df390f}} 
+bool {\bfseries send\+Magic\+Packet} (uint8\+\_\+t $\ast$p\+Mac\+Address, size\+\_\+t size\+Of\+Mac\+Address, uint16\+\_\+t port\+Num=9)
+\item 
+\mbox{\Hypertarget{classWakeOnLan_a2daf02c3daf241f12411a9acd63090f2}\label{classWakeOnLan_a2daf02c3daf241f12411a9acd63090f2}} 
+bool {\bfseries send\+Secure\+Magic\+Packet} (uint8\+\_\+t $\ast$p\+Mac\+Address, size\+\_\+t size\+Of\+Mac\+Address, uint8\+\_\+t $\ast$p\+Secure\+On, size\+\_\+t size\+Of\+Secure\+On, uint16\+\_\+t port\+Num=9)
+\item 
+\mbox{\Hypertarget{classWakeOnLan_a0513431fb754d92a725de0fcff7ae544}\label{classWakeOnLan_a0513431fb754d92a725de0fcff7ae544}} 
+void {\bfseries generate\+Magic\+Packet} (uint8\+\_\+t $\ast$\&p\+Magic\+Packet, size\+\_\+t \&size\+Of\+Magic\+Packet, uint8\+\_\+t $\ast$p\+Mac\+Address, size\+\_\+t size\+Of\+Mac\+Address)
+\item 
+\mbox{\Hypertarget{classWakeOnLan_aed0816592637c4009f74cbfa16c4341e}\label{classWakeOnLan_aed0816592637c4009f74cbfa16c4341e}} 
+void {\bfseries generate\+Secure\+Magic\+Packet} (uint8\+\_\+t $\ast$\&p\+Magic\+Packet, size\+\_\+t \&size\+Of\+Magic\+Packet, uint8\+\_\+t $\ast$p\+Mac\+Address, size\+\_\+t size\+Of\+Mac\+Address, uint8\+\_\+t $\ast$p\+Secure\+On, size\+\_\+t size\+Of\+Secure\+On)
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+Wake\+On\+Lan/src/Wake\+On\+Lan.\+h\item 
+lib/\+Wake\+On\+Lan/src/Wake\+On\+Lan.\+cpp\end{DoxyCompactItemize}

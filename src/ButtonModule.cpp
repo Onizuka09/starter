@@ -3,9 +3,10 @@
 
 extern volatile bool Wake_PC_STATE_finished;
 static unsigned long pressStart;
-static bool longPressed_5s ;
+static bool longPressed_5s;
 static bool longPressed_10s;
-ButtonModule::ButtonModule(uint8_t _pinbtn){
+ButtonModule::ButtonModule(uint8_t _pinbtn)
+{
     pinbtn = _pinbtn;
     pressStart = 0;
     longPressed_5s = false;
@@ -36,7 +37,6 @@ void ButtonModule::HandleButton_5s()
             Serial.println("btn pressed for more than 5s");
             longPressed_5s = true;
             btn_pressed = false; // Reset for new detection
-          
         }
         // if ( millis() - period >= 10000){
         //     Serial.println("Reseting ESP32 NOW ..... ");
@@ -46,8 +46,9 @@ void ButtonModule::HandleButton_5s()
         //     return ;
         // }
     }
-    else{                        
-        btn_pressed = false; // Reset press state
+    else
+    {
+        btn_pressed = false;    // Reset press state
         longPressed_5s = false; // Allow new long press detection
         period = 0;             // Reset the timer
         // program_status = INIT;
@@ -58,7 +59,7 @@ void ButtonModule::HandleButton_5s()
 
 void ButtonModule::TaskResetESP32(void *prameter)
 {
-    // TODO 
+    // TODO
     // static bool btn_pressed = false;
     // // static bool long_pressed_d11etected = false;
     // static unsigned long period = 0;
@@ -98,12 +99,13 @@ bool ButtonModule::isLongPressed_5s()
 {
     return longPressed_5s;
 }
-void ButtonModule::runResetESP32Task(){ // TODO
-//       xTaskCreate(TaskResetESP32, // Function to run as a thread
-//               "Reset ESP ", // Name of the task
-//               1024,       // Stack size in words
-//               NULL,       // Task input parameter
-//               2,          // Task priority
-//               NULL        // Task handle (optional)
-//   );
+void ButtonModule::runResetESP32Task()
+{ // TODO
+    //       xTaskCreate(TaskResetESP32, // Function to run as a thread
+    //               "Reset ESP ", // Name of the task
+    //               1024,       // Stack size in words
+    //               NULL,       // Task input parameter
+    //               2,          // Task priority
+    //               NULL        // Task handle (optional)
+    //   );
 }

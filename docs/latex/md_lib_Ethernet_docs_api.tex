@@ -1,0 +1,2241 @@
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md245}{}\doxysection{Ethernet Class}\label{md_lib_Ethernet_docs_api_autotoc_md245}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md246}{}\doxysubsection{$<$tt$>$\+Ethernet.\+begin()$<$/tt$>$}\label{md_lib_Ethernet_docs_api_autotoc_md246}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md247}{}\doxysubsubsection{Description}\label{md_lib_Ethernet_docs_api_autotoc_md247}
+Initializes the Ethernet library and network settings.
+
+With version 1.\+0, the library supports DHCP. Using Ethernet.\+begin(mac) with the proper network setup, the Ethernet shield will automatically obtain an IP address. This increases the sketch size significantly. To make sure the DHCP lease is properly renewed when needed, be sure to call Ethernet.\+maintain() regularly.\hypertarget{md_lib_Ethernet_docs_api_autotoc_md248}{}\doxysubsubsection{Syntax}\label{md_lib_Ethernet_docs_api_autotoc_md248}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Ethernet.begin(mac);}
+\DoxyCodeLine{Ethernet.begin(mac, ip);}
+\DoxyCodeLine{Ethernet.begin(mac, ip, dns);}
+\DoxyCodeLine{Ethernet.begin(mac, ip, dns, gateway);}
+\DoxyCodeLine{Ethernet.begin(mac, ip, dns, gateway, subnet);}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md249}{}\doxysubsubsection{Parameters}\label{md_lib_Ethernet_docs_api_autotoc_md249}
+
+\begin{DoxyItemize}
+\item mac\+: the MAC (Media access control) address for the device (array of 6 bytes). this is the Ethernet hardware address of your shield. Newer Arduino Ethernet Shields include a sticker with the device\textquotesingle{}s MAC address. For older shields, choose your own.
+\item ip\+: the IP address of the device (array of 4 bytes)
+\item dns\+: the IP address of the DNS server (array of 4 bytes). optional\+: defaults to the device IP address with the last octet set to 1
+\item gateway\+: the IP address of the network gateway (array of 4 bytes). optional\+: defaults to the device IP address with the last octet set to 1
+\item subnet\+: the subnet mask of the network (array of 4 bytes). optional\+: defaults to 255.\+255.\+255.\+0
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md250}{}\doxysubsubsection{Returns}\label{md_lib_Ethernet_docs_api_autotoc_md250}
+
+\begin{DoxyItemize}
+\item The DHCP version of this function, Ethernet.\+begin(mac), returns an int\+: 1 on a successful DHCP connection, 0 on failure.
+\item The other versions don\textquotesingle{}t return anything.
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md251}{}\doxysubsubsection{Example}\label{md_lib_Ethernet_docs_api_autotoc_md251}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#include <SPI.h>}
+\DoxyCodeLine{\#include <Ethernet.h>}
+\DoxyCodeLine{}
+\DoxyCodeLine{// the media access control (ethernet hardware) address for the shield:}
+\DoxyCodeLine{byte mac[] = \{ 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED \};  }
+\DoxyCodeLine{//the IP address for the shield:}
+\DoxyCodeLine{byte ip[] = \{ 10, 0, 0, 177 \};    }
+\DoxyCodeLine{}
+\DoxyCodeLine{void setup()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  Ethernet.begin(mac, ip);}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{void loop () \{\}}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md252}{}\doxysubsection{$<$tt$>$\+Ethernet.\+dns\+Server\+IP()$<$/tt$>$}\label{md_lib_Ethernet_docs_api_autotoc_md252}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md253}{}\doxysubsubsection{Description}\label{md_lib_Ethernet_docs_api_autotoc_md253}
+Returns the DNS server IP address for the device.\hypertarget{md_lib_Ethernet_docs_api_autotoc_md254}{}\doxysubsubsection{Syntax}\label{md_lib_Ethernet_docs_api_autotoc_md254}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Ethernet.dnsServerIP()}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md255}{}\doxysubsubsection{Parameters}\label{md_lib_Ethernet_docs_api_autotoc_md255}
+none\hypertarget{md_lib_Ethernet_docs_api_autotoc_md256}{}\doxysubsubsection{Returns}\label{md_lib_Ethernet_docs_api_autotoc_md256}
+
+\begin{DoxyItemize}
+\item the DNS server IP address for the device (IPAddress).
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md257}{}\doxysubsubsection{Example}\label{md_lib_Ethernet_docs_api_autotoc_md257}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#include <SPI.h>}
+\DoxyCodeLine{\#include <Ethernet.h>}
+\DoxyCodeLine{}
+\DoxyCodeLine{byte mac[] = \{0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED\};}
+\DoxyCodeLine{IPAddress ip(10, 0, 0, 177);}
+\DoxyCodeLine{}
+\DoxyCodeLine{void setup() \{}
+\DoxyCodeLine{  Serial.begin(9600);}
+\DoxyCodeLine{  while (!Serial) \{}
+\DoxyCodeLine{    ; // wait for serial port to connect. Needed for native USB port only}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{  Ethernet.begin(mac, ip);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  Serial.print("{}The DNS server IP address is: "{});}
+\DoxyCodeLine{  Serial.println(Ethernet.dnsServerIP());}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{void loop () \{\}}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md258}{}\doxysubsection{$<$tt$>$\+Ethernet.\+gateway\+IP()$<$/tt$>$}\label{md_lib_Ethernet_docs_api_autotoc_md258}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md259}{}\doxysubsubsection{Description}\label{md_lib_Ethernet_docs_api_autotoc_md259}
+Returns the gateway IP address for the device.\hypertarget{md_lib_Ethernet_docs_api_autotoc_md260}{}\doxysubsubsection{Syntax}\label{md_lib_Ethernet_docs_api_autotoc_md260}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Ethernet.gatewayIP()}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md261}{}\doxysubsubsection{Parameters}\label{md_lib_Ethernet_docs_api_autotoc_md261}
+none\hypertarget{md_lib_Ethernet_docs_api_autotoc_md262}{}\doxysubsubsection{Returns}\label{md_lib_Ethernet_docs_api_autotoc_md262}
+
+\begin{DoxyItemize}
+\item the gateway IP address for the device (IPAddress).
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md263}{}\doxysubsubsection{Example}\label{md_lib_Ethernet_docs_api_autotoc_md263}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#include <SPI.h>}
+\DoxyCodeLine{\#include <Ethernet.h>}
+\DoxyCodeLine{}
+\DoxyCodeLine{byte mac[] = \{0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED\};}
+\DoxyCodeLine{IPAddress ip(10, 0, 0, 177);}
+\DoxyCodeLine{}
+\DoxyCodeLine{void setup() \{}
+\DoxyCodeLine{  Serial.begin(9600);}
+\DoxyCodeLine{  while (!Serial) \{}
+\DoxyCodeLine{    ; // wait for serial port to connect. Needed for native USB port only}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{  Ethernet.begin(mac, ip);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  Serial.print("{}The gateway IP address is: "{});}
+\DoxyCodeLine{  Serial.println(Ethernet.gatewayIP());}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{void loop () \{\}}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md264}{}\doxysubsection{$<$tt$>$\+Ethernet.\+hardware\+Status()$<$/tt$>$}\label{md_lib_Ethernet_docs_api_autotoc_md264}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md265}{}\doxysubsubsection{Description}\label{md_lib_Ethernet_docs_api_autotoc_md265}
+Ethernet.\+hardware\+Status() tells you which WIZnet Ethernet controller chip was detected during Ethernet.\+begin(), if any. This can be used for troubleshooting. If no Ethernet controller was detected then there is likely a hardware problem.\hypertarget{md_lib_Ethernet_docs_api_autotoc_md266}{}\doxysubsubsection{Syntax}\label{md_lib_Ethernet_docs_api_autotoc_md266}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Ethernet.hardwareStatus()}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md267}{}\doxysubsubsection{Parameters}\label{md_lib_Ethernet_docs_api_autotoc_md267}
+none\hypertarget{md_lib_Ethernet_docs_api_autotoc_md268}{}\doxysubsubsection{Returns}\label{md_lib_Ethernet_docs_api_autotoc_md268}
+
+\begin{DoxyItemize}
+\item which WIZnet Ethernet controller chip was detected during Ethernet.\+begin() (Ethernet\+Hardware\+Status)\+:
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{EthernetNoHardware}
+\DoxyCodeLine{EthernetW5100}
+\DoxyCodeLine{EthernetW5200}
+\DoxyCodeLine{EthernetW5500}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md269}{}\doxysubsubsection{Example}\label{md_lib_Ethernet_docs_api_autotoc_md269}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#include <SPI.h>}
+\DoxyCodeLine{\#include <Ethernet.h>}
+\DoxyCodeLine{}
+\DoxyCodeLine{byte mac[] = \{0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED\};}
+\DoxyCodeLine{IPAddress ip(10, 0, 0, 177);}
+\DoxyCodeLine{}
+\DoxyCodeLine{void setup() \{}
+\DoxyCodeLine{  // Open serial communications and wait for port to open:}
+\DoxyCodeLine{  Serial.begin(9600);}
+\DoxyCodeLine{  while (!Serial) \{}
+\DoxyCodeLine{    ; // wait for serial port to connect. Needed for native USB port only}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{  Ethernet.begin(mac, ip);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  if (Ethernet.hardwareStatus() == EthernetNoHardware) \{}
+\DoxyCodeLine{    Serial.println("{}Ethernet shield was not found."{});}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{  else if (Ethernet.hardwareStatus() == EthernetW5100) \{}
+\DoxyCodeLine{    Serial.println("{}W5100 Ethernet controller detected."{});}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{  else if (Ethernet.hardwareStatus() == EthernetW5200) \{}
+\DoxyCodeLine{    Serial.println("{}W5200 Ethernet controller detected."{});}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{  else if (Ethernet.hardwareStatus() == EthernetW5500) \{}
+\DoxyCodeLine{    Serial.println("{}W5500 Ethernet controller detected."{});}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{void loop () \{\}}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md270}{}\doxysubsection{$<$tt$>$\+Ethernet.\+init()$<$/tt$>$}\label{md_lib_Ethernet_docs_api_autotoc_md270}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md271}{}\doxysubsubsection{Description}\label{md_lib_Ethernet_docs_api_autotoc_md271}
+Used to configure the CS (chip select) pin for the Ethernet controller chip. The Ethernet library has a default CS pin, which is usually correct, but with some non-\/standard Ethernet hardware you might need to use a different CS pin.\hypertarget{md_lib_Ethernet_docs_api_autotoc_md272}{}\doxysubsubsection{Syntax}\label{md_lib_Ethernet_docs_api_autotoc_md272}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Ethernet.init(sspin)}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md273}{}\doxysubsubsection{Parameters}\label{md_lib_Ethernet_docs_api_autotoc_md273}
+
+\begin{DoxyItemize}
+\item sspin\+: the pin number to use for CS (byte)
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md274}{}\doxysubsubsection{Returns}\label{md_lib_Ethernet_docs_api_autotoc_md274}
+Nothing\hypertarget{md_lib_Ethernet_docs_api_autotoc_md275}{}\doxysubsubsection{Example}\label{md_lib_Ethernet_docs_api_autotoc_md275}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#include <SPI.h>}
+\DoxyCodeLine{\#include <Ethernet.h>}
+\DoxyCodeLine{}
+\DoxyCodeLine{byte mac[] = \{0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED\};}
+\DoxyCodeLine{IPAddress ip(10, 0, 0, 177);}
+\DoxyCodeLine{}
+\DoxyCodeLine{void setup() \{}
+\DoxyCodeLine{  Ethernet.init(53);  // use pin 53 for Ethernet CS}
+\DoxyCodeLine{  Ethernet.begin(mac, ip);}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{void loop () \{\}}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md276}{}\doxysubsection{$<$tt$>$\+Ethernet.\+link\+Status()$<$/tt$>$}\label{md_lib_Ethernet_docs_api_autotoc_md276}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md277}{}\doxysubsubsection{Description}\label{md_lib_Ethernet_docs_api_autotoc_md277}
+Tells you whether the link is active. Link\+OFF could indicate the Ethernet cable is unplugged or defective. This feature is only available when using the W5200 and W5500 Ethernet controller chips.\hypertarget{md_lib_Ethernet_docs_api_autotoc_md278}{}\doxysubsubsection{Syntax}\label{md_lib_Ethernet_docs_api_autotoc_md278}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Ethernet.linkStatus()}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md279}{}\doxysubsubsection{Parameters}\label{md_lib_Ethernet_docs_api_autotoc_md279}
+none\hypertarget{md_lib_Ethernet_docs_api_autotoc_md280}{}\doxysubsubsection{Returns}\label{md_lib_Ethernet_docs_api_autotoc_md280}
+
+\begin{DoxyItemize}
+\item the link status (Ethernet\+Link\+Status)\+:
+\item Unknown
+\item Link\+ON
+\item Link\+OFF
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md281}{}\doxysubsubsection{Example}\label{md_lib_Ethernet_docs_api_autotoc_md281}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#include <SPI.h>}
+\DoxyCodeLine{\#include <Ethernet.h>}
+\DoxyCodeLine{}
+\DoxyCodeLine{void setup() \{}
+\DoxyCodeLine{  // Open serial communications and wait for port to open:}
+\DoxyCodeLine{  Serial.begin(9600);}
+\DoxyCodeLine{  while (!Serial) \{}
+\DoxyCodeLine{    ; // wait for serial port to connect. Needed for native USB port only}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{void loop () \{}
+\DoxyCodeLine{  if (Ethernet.linkStatus() == Unknown) \{}
+\DoxyCodeLine{    Serial.println("{}Link status unknown. Link status detection is only available with W5200 and W5500."{});}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{  else if (Ethernet.linkStatus() == LinkON) \{}
+\DoxyCodeLine{    Serial.println("{}Link status: On"{});}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{  else if (Ethernet.linkStatus() == LinkOFF) \{}
+\DoxyCodeLine{    Serial.println("{}Link status: Off"{});}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md282}{}\doxysubsection{$<$tt$>$\+Ethernet.\+local\+IP()$<$/tt$>$}\label{md_lib_Ethernet_docs_api_autotoc_md282}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md283}{}\doxysubsubsection{Description}\label{md_lib_Ethernet_docs_api_autotoc_md283}
+Obtains the IP address of the Ethernet shield. Useful when the address is auto assigned through DHCP.\hypertarget{md_lib_Ethernet_docs_api_autotoc_md284}{}\doxysubsubsection{Syntax}\label{md_lib_Ethernet_docs_api_autotoc_md284}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Ethernet.localIP();}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md285}{}\doxysubsubsection{Parameters}\label{md_lib_Ethernet_docs_api_autotoc_md285}
+none\hypertarget{md_lib_Ethernet_docs_api_autotoc_md286}{}\doxysubsubsection{Returns}\label{md_lib_Ethernet_docs_api_autotoc_md286}
+
+\begin{DoxyItemize}
+\item the IP address
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md287}{}\doxysubsubsection{Example}\label{md_lib_Ethernet_docs_api_autotoc_md287}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#include <SPI.h>}
+\DoxyCodeLine{\#include <Ethernet.h>}
+\DoxyCodeLine{}
+\DoxyCodeLine{// Enter a MAC address for your controller below.}
+\DoxyCodeLine{// Newer Ethernet shields have a MAC address printed on a sticker on the shield}
+\DoxyCodeLine{byte mac[] = \{  }
+\DoxyCodeLine{  0x00, 0xAA, 0xBB, 0xCC, 0xDE, 0x02 \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{// Initialize the Ethernet client library}
+\DoxyCodeLine{// with the IP address and port of the server}
+\DoxyCodeLine{// that you want to connect to (port 80 is default for HTTP):}
+\DoxyCodeLine{EthernetClient client;}
+\DoxyCodeLine{}
+\DoxyCodeLine{void setup() \{}
+\DoxyCodeLine{  // start the serial library:}
+\DoxyCodeLine{  Serial.begin(9600);}
+\DoxyCodeLine{  // start the Ethernet connection:}
+\DoxyCodeLine{  if (Ethernet.begin(mac) == 0) \{}
+\DoxyCodeLine{    Serial.println("{}Failed to configure Ethernet using DHCP"{});}
+\DoxyCodeLine{    // no point in carrying on, so do nothing forevermore:}
+\DoxyCodeLine{    for(;;)}
+\DoxyCodeLine{      ;}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{  // print your local IP address:}
+\DoxyCodeLine{  Serial.println(Ethernet.localIP());}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{void loop() \{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md288}{}\doxysubsection{$<$tt$>$\+Ethernet.\+MACAddress()$<$/tt$>$}\label{md_lib_Ethernet_docs_api_autotoc_md288}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md289}{}\doxysubsubsection{Description}\label{md_lib_Ethernet_docs_api_autotoc_md289}
+Fills the supplied buffer with the MAC address of the device.\hypertarget{md_lib_Ethernet_docs_api_autotoc_md290}{}\doxysubsubsection{Syntax}\label{md_lib_Ethernet_docs_api_autotoc_md290}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Ethernet.MACAddress(mac\_address)}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md291}{}\doxysubsubsection{Parameters}\label{md_lib_Ethernet_docs_api_autotoc_md291}
+
+\begin{DoxyItemize}
+\item mac\+\_\+address\+: buffer to receive the MAC address (array of 6 bytes)
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md292}{}\doxysubsubsection{Returns}\label{md_lib_Ethernet_docs_api_autotoc_md292}
+Nothing\hypertarget{md_lib_Ethernet_docs_api_autotoc_md293}{}\doxysubsubsection{Example}\label{md_lib_Ethernet_docs_api_autotoc_md293}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#include <SPI.h>}
+\DoxyCodeLine{\#include <Ethernet.h>}
+\DoxyCodeLine{}
+\DoxyCodeLine{byte mac[] = \{0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED\};}
+\DoxyCodeLine{IPAddress ip(10, 0, 0, 177);}
+\DoxyCodeLine{}
+\DoxyCodeLine{void setup() \{}
+\DoxyCodeLine{  Serial.begin(9600);}
+\DoxyCodeLine{  while (!Serial) \{}
+\DoxyCodeLine{    ; // wait for serial port to connect. Needed for native USB port only}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{  Ethernet.begin(mac, ip);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  byte macBuffer[6];  // create a buffer to hold the MAC address}
+\DoxyCodeLine{  Ethernet.MACAddress(macBuffer); // fill the buffer}
+\DoxyCodeLine{  Serial.print("{}The MAC address is: "{});}
+\DoxyCodeLine{  for (byte octet = 0; octet < 6; octet++) \{}
+\DoxyCodeLine{    Serial.print(macBuffer[octet], HEX);}
+\DoxyCodeLine{    if (octet < 5) \{}
+\DoxyCodeLine{      Serial.print('-\/');}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{void loop () \{\}}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md294}{}\doxysubsection{$<$tt$>$\+Ethernet.\+maintain()$<$/tt$>$}\label{md_lib_Ethernet_docs_api_autotoc_md294}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md295}{}\doxysubsubsection{Description}\label{md_lib_Ethernet_docs_api_autotoc_md295}
+Allows for the renewal of DHCP leases. When assigned an IP address via DHCP, ethernet devices are given a lease on the address for an amount of time. With Ethernet.\+maintain(), it is possible to request a renewal from the DHCP server. Depending on the server\textquotesingle{}s configuration, you may receive the same address, a new one, or none at all.
+
+You can call this function as often as you want, it will only re-\/request a DHCP lease when needed (returning 0 in all other cases). The easiest way is to just call it on every loop() invocation, but less often is also fine. Not calling this function (or calling it significantly less then once per second) will prevent the lease to be renewed when the DHCP protocol requires this, continuing to use the expired lease instead (which will not directly break connectivity, but if the DHCP server leases the same address to someone else, things will likely break).
+
+Ethernet.\+maintain() was added to Arduino 1.\+0.\+1.\hypertarget{md_lib_Ethernet_docs_api_autotoc_md296}{}\doxysubsubsection{Syntax}\label{md_lib_Ethernet_docs_api_autotoc_md296}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Ethernet.maintain();}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md297}{}\doxysubsubsection{Parameters}\label{md_lib_Ethernet_docs_api_autotoc_md297}
+none\hypertarget{md_lib_Ethernet_docs_api_autotoc_md298}{}\doxysubsubsection{Returns}\label{md_lib_Ethernet_docs_api_autotoc_md298}
+byte\+:
+
+
+\begin{DoxyItemize}
+\item 0\+: nothing happened
+\item 1\+: renew failed
+\item 2\+: renew success
+\item 3\+: rebind fail
+\item 4\+: rebind success
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md299}{}\doxysubsection{$<$tt$>$\+Ethernet.\+set\+Dns\+Server\+IP()$<$/tt$>$}\label{md_lib_Ethernet_docs_api_autotoc_md299}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md300}{}\doxysubsubsection{Description}\label{md_lib_Ethernet_docs_api_autotoc_md300}
+Set the IP address of the DNS server. Not for use with DHCP.\hypertarget{md_lib_Ethernet_docs_api_autotoc_md301}{}\doxysubsubsection{Syntax}\label{md_lib_Ethernet_docs_api_autotoc_md301}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Ethernet.setDnsServerIP(dns\_server)}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md302}{}\doxysubsubsection{Parameters}\label{md_lib_Ethernet_docs_api_autotoc_md302}
+
+\begin{DoxyItemize}
+\item dns\+\_\+server\+: the IP address of the DNS server (IPAddress)
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md303}{}\doxysubsubsection{Returns}\label{md_lib_Ethernet_docs_api_autotoc_md303}
+Nothing\hypertarget{md_lib_Ethernet_docs_api_autotoc_md304}{}\doxysubsubsection{Example}\label{md_lib_Ethernet_docs_api_autotoc_md304}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#include <SPI.h>}
+\DoxyCodeLine{\#include <Ethernet.h>}
+\DoxyCodeLine{}
+\DoxyCodeLine{byte mac[] = \{0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED\};}
+\DoxyCodeLine{IPAddress ip(10, 0, 0, 177);}
+\DoxyCodeLine{IPAddress myDns(192, 168, 1, 1);}
+\DoxyCodeLine{}
+\DoxyCodeLine{void setup() \{}
+\DoxyCodeLine{  Ethernet.begin(mac, ip, myDns);}
+\DoxyCodeLine{  IPAddress newDns(192, 168, 1, 1);}
+\DoxyCodeLine{  Ethernet.setDnsServerIP(newDns);  // change the DNS server IP address}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{void loop () \{\}}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md305}{}\doxysubsection{$<$tt$>$\+Ethernet.\+set\+Gateway\+IP()$<$/tt$>$}\label{md_lib_Ethernet_docs_api_autotoc_md305}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md306}{}\doxysubsubsection{Description}\label{md_lib_Ethernet_docs_api_autotoc_md306}
+Set the IP address of the network gateway. Not for use with DHCP.\hypertarget{md_lib_Ethernet_docs_api_autotoc_md307}{}\doxysubsubsection{Syntax}\label{md_lib_Ethernet_docs_api_autotoc_md307}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Ethernet.setGatewayIP(gateway)}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md308}{}\doxysubsubsection{Parameters}\label{md_lib_Ethernet_docs_api_autotoc_md308}
+
+\begin{DoxyItemize}
+\item gateway\+: the IP address of the network gateway (IPAddress)
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md309}{}\doxysubsubsection{Returns}\label{md_lib_Ethernet_docs_api_autotoc_md309}
+Nothing\hypertarget{md_lib_Ethernet_docs_api_autotoc_md310}{}\doxysubsubsection{Example}\label{md_lib_Ethernet_docs_api_autotoc_md310}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#include <SPI.h>}
+\DoxyCodeLine{\#include <Ethernet.h>}
+\DoxyCodeLine{}
+\DoxyCodeLine{byte mac[] = \{0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED\};}
+\DoxyCodeLine{IPAddress ip(10, 0, 0, 177);}
+\DoxyCodeLine{IPAddress myDns(192, 168, 1, 1);}
+\DoxyCodeLine{IPAddress gateway(192, 168, 1, 1);}
+\DoxyCodeLine{}
+\DoxyCodeLine{void setup() \{}
+\DoxyCodeLine{  Ethernet.begin(mac, ip, myDns, gateway);}
+\DoxyCodeLine{  IPAddress newGateway(192, 168, 100, 1);}
+\DoxyCodeLine{  Ethernet.setGatewayIP(newGateway);  // change the gateway IP address}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{void loop () \{\}}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md311}{}\doxysubsection{$<$tt$>$\+Ethernet.\+set\+Local\+IP()$<$/tt$>$}\label{md_lib_Ethernet_docs_api_autotoc_md311}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md312}{}\doxysubsubsection{Description}\label{md_lib_Ethernet_docs_api_autotoc_md312}
+Set the IP address of the device. Not for use with DHCP.\hypertarget{md_lib_Ethernet_docs_api_autotoc_md313}{}\doxysubsubsection{Syntax}\label{md_lib_Ethernet_docs_api_autotoc_md313}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Ethernet.setLocalIP(local\_ip)}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md314}{}\doxysubsubsection{Parameters}\label{md_lib_Ethernet_docs_api_autotoc_md314}
+
+\begin{DoxyItemize}
+\item local\+\_\+ip\+: the IP address to use (IPAddress)
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md315}{}\doxysubsubsection{Returns}\label{md_lib_Ethernet_docs_api_autotoc_md315}
+Nothing\hypertarget{md_lib_Ethernet_docs_api_autotoc_md316}{}\doxysubsubsection{Example}\label{md_lib_Ethernet_docs_api_autotoc_md316}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#include <SPI.h>}
+\DoxyCodeLine{\#include <Ethernet.h>}
+\DoxyCodeLine{}
+\DoxyCodeLine{byte mac[] = \{0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED\};}
+\DoxyCodeLine{IPAddress ip(10, 0, 0, 177);}
+\DoxyCodeLine{}
+\DoxyCodeLine{void setup() \{}
+\DoxyCodeLine{  Ethernet.begin(mac, ip);}
+\DoxyCodeLine{  IPAddress newIp(10, 0, 0, 178);}
+\DoxyCodeLine{  Ethernet.setLocalIP(newIp);  // change the IP address}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{void loop () \{\}}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md317}{}\doxysubsection{$<$tt$>$\+Ethernet.\+set\+MACAddress()$<$/tt$>$}\label{md_lib_Ethernet_docs_api_autotoc_md317}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md318}{}\doxysubsubsection{Description}\label{md_lib_Ethernet_docs_api_autotoc_md318}
+Set the MAC address. Not for use with DHCP.\hypertarget{md_lib_Ethernet_docs_api_autotoc_md319}{}\doxysubsubsection{Syntax}\label{md_lib_Ethernet_docs_api_autotoc_md319}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Ethernet.setMACAddress(mac)}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md320}{}\doxysubsubsection{Parameters}\label{md_lib_Ethernet_docs_api_autotoc_md320}
+
+\begin{DoxyItemize}
+\item mac\+: the MAC address to use (array of 6 bytes)
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md321}{}\doxysubsubsection{Returns}\label{md_lib_Ethernet_docs_api_autotoc_md321}
+Nothing\hypertarget{md_lib_Ethernet_docs_api_autotoc_md322}{}\doxysubsubsection{Example}\label{md_lib_Ethernet_docs_api_autotoc_md322}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#include <SPI.h>}
+\DoxyCodeLine{\#include <Ethernet.h>}
+\DoxyCodeLine{}
+\DoxyCodeLine{byte mac[] = \{0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED\};}
+\DoxyCodeLine{IPAddress ip(10, 0, 0, 177);}
+\DoxyCodeLine{}
+\DoxyCodeLine{void setup() \{}
+\DoxyCodeLine{  Ethernet.begin(mac, ip);}
+\DoxyCodeLine{  byte newMac[] = \{0x00, 0xAA, 0xBB, 0xCC, 0xDE, 0x02\};}
+\DoxyCodeLine{  Ethernet.setMACAddress(newMac);  // change the MAC address}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{void loop () \{\}}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md323}{}\doxysubsection{$<$tt$>$\+Ethernet.\+set\+Retransmission\+Count()$<$/tt$>$}\label{md_lib_Ethernet_docs_api_autotoc_md323}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md324}{}\doxysubsubsection{Description}\label{md_lib_Ethernet_docs_api_autotoc_md324}
+Set the number of transmission attempts the Ethernet controller will make before giving up. The initial value is 8. 8 transmission attempts times the 200 ms default timeout equals a blocking delay of 1600 ms during a communications failure. You might prefer to set a lower number to make your program more responsive in the event something goes wrong with communications. Despite the name, this sets the total number of transmission attempts (not the number of retries after the first attempt fails) so the minimum value you would ever want to set is 1.\hypertarget{md_lib_Ethernet_docs_api_autotoc_md325}{}\doxysubsubsection{Syntax}\label{md_lib_Ethernet_docs_api_autotoc_md325}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Ethernet.setRetransmissionCount(number)}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md326}{}\doxysubsubsection{Parameters}\label{md_lib_Ethernet_docs_api_autotoc_md326}
+
+\begin{DoxyItemize}
+\item number\+: number of transmission attempts the Ethernet controller should make before giving up (byte)
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md327}{}\doxysubsubsection{Returns}\label{md_lib_Ethernet_docs_api_autotoc_md327}
+Nothing\hypertarget{md_lib_Ethernet_docs_api_autotoc_md328}{}\doxysubsubsection{Example}\label{md_lib_Ethernet_docs_api_autotoc_md328}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#include <SPI.h>}
+\DoxyCodeLine{\#include <Ethernet.h>}
+\DoxyCodeLine{}
+\DoxyCodeLine{byte mac[] = \{0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED\};}
+\DoxyCodeLine{IPAddress ip(10, 0, 0, 177);}
+\DoxyCodeLine{}
+\DoxyCodeLine{void setup() \{}
+\DoxyCodeLine{  Ethernet.begin(mac, ip);}
+\DoxyCodeLine{  Ethernet.setRetransmissionCount(1);  // configure the Ethernet controller to only attempt one transmission before giving up}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{void loop () \{\}}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md329}{}\doxysubsection{$<$tt$>$\+Ethernet.\+set\+Retransmission\+Timeout()$<$/tt$>$}\label{md_lib_Ethernet_docs_api_autotoc_md329}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md330}{}\doxysubsubsection{Description}\label{md_lib_Ethernet_docs_api_autotoc_md330}
+Set the Ethernet controller\textquotesingle{}s timeout. The initial value is 200 ms. A 200 ms timeout times the default of 8 attempts equals a blocking delay of 1600 ms during a communications failure. You might prefer to set a shorter timeout to make your program more responsive in the event something goes wrong with communications. You will need to do some experimentation to determine an appropriate value for your specific application.\hypertarget{md_lib_Ethernet_docs_api_autotoc_md331}{}\doxysubsubsection{Syntax}\label{md_lib_Ethernet_docs_api_autotoc_md331}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Ethernet.setRetransmissionTimeout(milliseconds)}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md332}{}\doxysubsubsection{Parameters}\label{md_lib_Ethernet_docs_api_autotoc_md332}
+
+\begin{DoxyItemize}
+\item milliseconds\+: the timeout duration (uint16\+\_\+t)
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md333}{}\doxysubsubsection{Returns}\label{md_lib_Ethernet_docs_api_autotoc_md333}
+Nothing\hypertarget{md_lib_Ethernet_docs_api_autotoc_md334}{}\doxysubsubsection{Example}\label{md_lib_Ethernet_docs_api_autotoc_md334}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#include <SPI.h>}
+\DoxyCodeLine{\#include <Ethernet.h>}
+\DoxyCodeLine{}
+\DoxyCodeLine{byte mac[] = \{0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED\};}
+\DoxyCodeLine{IPAddress ip(10, 0, 0, 177);}
+\DoxyCodeLine{}
+\DoxyCodeLine{void setup() \{}
+\DoxyCodeLine{  Ethernet.begin(mac, ip);}
+\DoxyCodeLine{  Ethernet.setRetransmissionTimeout(50);  // set the Ethernet controller's timeout to 50 ms}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{void loop () \{\}}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md335}{}\doxysubsection{$<$tt$>$\+Ethernet.\+set\+Subnet\+Mask()$<$/tt$>$}\label{md_lib_Ethernet_docs_api_autotoc_md335}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md336}{}\doxysubsubsection{Description}\label{md_lib_Ethernet_docs_api_autotoc_md336}
+Set the subnet mask of the network. Not for use with DHCP.\hypertarget{md_lib_Ethernet_docs_api_autotoc_md337}{}\doxysubsubsection{Syntax}\label{md_lib_Ethernet_docs_api_autotoc_md337}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Ethernet.setSubnetMask(subnet)}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md338}{}\doxysubsubsection{Parameters}\label{md_lib_Ethernet_docs_api_autotoc_md338}
+
+\begin{DoxyItemize}
+\item subnet\+: the subnet mask of the network (IPAddress)
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md339}{}\doxysubsubsection{Returns}\label{md_lib_Ethernet_docs_api_autotoc_md339}
+Nothing\hypertarget{md_lib_Ethernet_docs_api_autotoc_md340}{}\doxysubsubsection{Example}\label{md_lib_Ethernet_docs_api_autotoc_md340}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#include <SPI.h>}
+\DoxyCodeLine{\#include <Ethernet.h>}
+\DoxyCodeLine{}
+\DoxyCodeLine{byte mac[] = \{0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED\};}
+\DoxyCodeLine{IPAddress ip(10, 0, 0, 177);}
+\DoxyCodeLine{IPAddress myDns(192, 168, 1, 1);}
+\DoxyCodeLine{IPAddress gateway(192, 168, 1, 1);}
+\DoxyCodeLine{IPAddress subnet(255, 255, 0, 0);}
+\DoxyCodeLine{}
+\DoxyCodeLine{void setup() \{}
+\DoxyCodeLine{  Ethernet.begin(mac, ip, myDns, gateway, subnet);}
+\DoxyCodeLine{  IPAddress newSubnet(255, 255, 255, 0);}
+\DoxyCodeLine{  Ethernet.setSubnetMask(newSubnet);  // change the subnet mask}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{void loop () \{\}}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md341}{}\doxysubsection{$<$tt$>$\+Ethernet.\+subnet\+Mask()$<$/tt$>$}\label{md_lib_Ethernet_docs_api_autotoc_md341}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md342}{}\doxysubsubsection{Description}\label{md_lib_Ethernet_docs_api_autotoc_md342}
+Returns the subnet mask of the device.\hypertarget{md_lib_Ethernet_docs_api_autotoc_md343}{}\doxysubsubsection{Syntax}\label{md_lib_Ethernet_docs_api_autotoc_md343}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Ethernet.subnetMask()}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md344}{}\doxysubsubsection{Parameters}\label{md_lib_Ethernet_docs_api_autotoc_md344}
+none\hypertarget{md_lib_Ethernet_docs_api_autotoc_md345}{}\doxysubsubsection{Returns}\label{md_lib_Ethernet_docs_api_autotoc_md345}
+
+\begin{DoxyItemize}
+\item the subnet mask of the device (IPAddress)
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md346}{}\doxysubsubsection{Example}\label{md_lib_Ethernet_docs_api_autotoc_md346}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#include <SPI.h>}
+\DoxyCodeLine{\#include <Ethernet.h>}
+\DoxyCodeLine{}
+\DoxyCodeLine{byte mac[] = \{0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED\};}
+\DoxyCodeLine{IPAddress ip(10, 0, 0, 177);}
+\DoxyCodeLine{}
+\DoxyCodeLine{void setup() \{}
+\DoxyCodeLine{  Serial.begin(9600);}
+\DoxyCodeLine{  while (!Serial) \{}
+\DoxyCodeLine{    ; // wait for serial port to connect. Needed for native USB port only}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{  Ethernet.begin(mac, ip);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  Serial.print("{}The subnet mask is: "{});}
+\DoxyCodeLine{  Serial.println(Ethernet.subnetMask());}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{void loop () \{\}}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md347}{}\doxysection{IPAddress Class}\label{md_lib_Ethernet_docs_api_autotoc_md347}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md348}{}\doxysubsection{$<$tt$>$\+IPAddress()$<$/tt$>$}\label{md_lib_Ethernet_docs_api_autotoc_md348}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md349}{}\doxysubsubsection{Description}\label{md_lib_Ethernet_docs_api_autotoc_md349}
+Defines an IP address. It can be used to declare both local and remote addresses.\hypertarget{md_lib_Ethernet_docs_api_autotoc_md350}{}\doxysubsubsection{Syntax}\label{md_lib_Ethernet_docs_api_autotoc_md350}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{IPAddress(address);}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md351}{}\doxysubsubsection{Parameters}\label{md_lib_Ethernet_docs_api_autotoc_md351}
+
+\begin{DoxyItemize}
+\item address\+: a comma delimited list representing the address (4 bytes, ex. 192, 168, 1, 1)
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md352}{}\doxysubsubsection{Returns}\label{md_lib_Ethernet_docs_api_autotoc_md352}
+None\hypertarget{md_lib_Ethernet_docs_api_autotoc_md353}{}\doxysubsubsection{Example}\label{md_lib_Ethernet_docs_api_autotoc_md353}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#include <SPI.h>}
+\DoxyCodeLine{\#include <Ethernet.h>}
+\DoxyCodeLine{}
+\DoxyCodeLine{// network configuration. dns server, gateway and subnet are optional.}
+\DoxyCodeLine{}
+\DoxyCodeLine{ // the media access control (ethernet hardware) address for the shield:}
+\DoxyCodeLine{byte mac[] = \{ 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED \};  }
+\DoxyCodeLine{}
+\DoxyCodeLine{// the dns server ip}
+\DoxyCodeLine{IPAddress dnServer(192, 168, 0, 1);}
+\DoxyCodeLine{// the router's gateway address:}
+\DoxyCodeLine{IPAddress gateway(192, 168, 0, 1);}
+\DoxyCodeLine{// the subnet:}
+\DoxyCodeLine{IPAddress subnet(255, 255, 255, 0);}
+\DoxyCodeLine{}
+\DoxyCodeLine{//the IP address is dependent on your network}
+\DoxyCodeLine{IPAddress ip(192, 168, 0, 2);}
+\DoxyCodeLine{}
+\DoxyCodeLine{void setup() \{}
+\DoxyCodeLine{  Serial.begin(9600);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  // initialize the ethernet device}
+\DoxyCodeLine{  Ethernet.begin(mac, ip, dnServer, gateway, subnet);}
+\DoxyCodeLine{  //print out the IP address}
+\DoxyCodeLine{  Serial.print("{}IP = "{});}
+\DoxyCodeLine{  Serial.println(Ethernet.localIP());}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{void loop() \{}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md354}{}\doxysection{Server Class}\label{md_lib_Ethernet_docs_api_autotoc_md354}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md355}{}\doxysubsection{$<$tt$>$\+Server$<$/tt$>$}\label{md_lib_Ethernet_docs_api_autotoc_md355}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md356}{}\doxysubsubsection{Description}\label{md_lib_Ethernet_docs_api_autotoc_md356}
+Server is the base class for all Ethernet server based calls. It is not called directly, but invoked whenever you use a function that relies on it.\hypertarget{md_lib_Ethernet_docs_api_autotoc_md357}{}\doxysubsection{$<$tt$>$\+Ethernet\+Server()$<$/tt$>$}\label{md_lib_Ethernet_docs_api_autotoc_md357}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md358}{}\doxysubsubsection{Description}\label{md_lib_Ethernet_docs_api_autotoc_md358}
+Create a server that listens for incoming connections on the specified port.\hypertarget{md_lib_Ethernet_docs_api_autotoc_md359}{}\doxysubsubsection{Syntax}\label{md_lib_Ethernet_docs_api_autotoc_md359}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Server(port);}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md360}{}\doxysubsubsection{Parameters}\label{md_lib_Ethernet_docs_api_autotoc_md360}
+
+\begin{DoxyItemize}
+\item port\+: the port to listen on (int)
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md361}{}\doxysubsubsection{Returns}\label{md_lib_Ethernet_docs_api_autotoc_md361}
+None\hypertarget{md_lib_Ethernet_docs_api_autotoc_md362}{}\doxysubsubsection{Example}\label{md_lib_Ethernet_docs_api_autotoc_md362}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#include <SPI.h>}
+\DoxyCodeLine{\#include <Ethernet.h>}
+\DoxyCodeLine{}
+\DoxyCodeLine{// network configuration.  gateway and subnet are optional.}
+\DoxyCodeLine{}
+\DoxyCodeLine{ // the media access control (ethernet hardware) address for the shield:}
+\DoxyCodeLine{byte mac[] = \{ 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED \};  }
+\DoxyCodeLine{//the IP address for the shield:}
+\DoxyCodeLine{byte ip[] = \{ 10, 0, 0, 177 \};    }
+\DoxyCodeLine{// the router's gateway address:}
+\DoxyCodeLine{byte gateway[] = \{ 10, 0, 0, 1 \};}
+\DoxyCodeLine{// the subnet:}
+\DoxyCodeLine{byte subnet[] = \{ 255, 255, 0, 0 \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{// telnet defaults to port 23}
+\DoxyCodeLine{EthernetServer server = EthernetServer(23);}
+\DoxyCodeLine{}
+\DoxyCodeLine{void setup()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  // initialize the ethernet device}
+\DoxyCodeLine{  Ethernet.begin(mac, ip, gateway, subnet);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  // start listening for clients}
+\DoxyCodeLine{  server.begin();}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{void loop()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  // if an incoming client connects, there will be bytes available to read:}
+\DoxyCodeLine{  EthernetClient client = server.available();}
+\DoxyCodeLine{  if (client == true) \{}
+\DoxyCodeLine{    // read bytes from the incoming client and write them back}
+\DoxyCodeLine{    // to any clients connected to the server:}
+\DoxyCodeLine{    server.write(client.read());}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md363}{}\doxysubsection{$<$tt$>$server.\+begin()$<$/tt$>$}\label{md_lib_Ethernet_docs_api_autotoc_md363}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md364}{}\doxysubsubsection{Description}\label{md_lib_Ethernet_docs_api_autotoc_md364}
+Tells the server to begin listening for incoming connections.\hypertarget{md_lib_Ethernet_docs_api_autotoc_md365}{}\doxysubsubsection{Syntax}\label{md_lib_Ethernet_docs_api_autotoc_md365}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{server.begin()}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md366}{}\doxysubsubsection{Parameters}\label{md_lib_Ethernet_docs_api_autotoc_md366}
+None\hypertarget{md_lib_Ethernet_docs_api_autotoc_md367}{}\doxysubsubsection{Returns}\label{md_lib_Ethernet_docs_api_autotoc_md367}
+None\hypertarget{md_lib_Ethernet_docs_api_autotoc_md368}{}\doxysubsubsection{Example}\label{md_lib_Ethernet_docs_api_autotoc_md368}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#include <SPI.h>}
+\DoxyCodeLine{\#include <Ethernet.h>}
+\DoxyCodeLine{}
+\DoxyCodeLine{// the media access control (ethernet hardware) address for the shield:}
+\DoxyCodeLine{byte mac[] = \{ 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED \};  }
+\DoxyCodeLine{//the IP address for the shield:}
+\DoxyCodeLine{byte ip[] = \{ 10, 0, 0, 177 \};    }
+\DoxyCodeLine{// the router's gateway address:}
+\DoxyCodeLine{byte gateway[] = \{ 10, 0, 0, 1 \};}
+\DoxyCodeLine{// the subnet:}
+\DoxyCodeLine{byte subnet[] = \{ 255, 255, 0, 0 \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{// telnet defaults to port 23}
+\DoxyCodeLine{EthernetServer server = EthernetServer(23);}
+\DoxyCodeLine{}
+\DoxyCodeLine{void setup()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  // initialize the ethernet device}
+\DoxyCodeLine{  Ethernet.begin(mac, ip, gateway, subnet);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  // start listening for clients}
+\DoxyCodeLine{  server.begin();}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{void loop()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  // if an incoming client connects, there will be bytes available to read:}
+\DoxyCodeLine{  EthernetClient client = server.available();}
+\DoxyCodeLine{  if (client == true) \{}
+\DoxyCodeLine{    // read bytes from the incoming client and write them back}
+\DoxyCodeLine{    // to any clients connected to the server:}
+\DoxyCodeLine{    server.write(client.read());}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md369}{}\doxysubsection{$<$tt$>$server.\+accept()$<$/tt$>$}\label{md_lib_Ethernet_docs_api_autotoc_md369}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md370}{}\doxysubsubsection{Description}\label{md_lib_Ethernet_docs_api_autotoc_md370}
+The traditional server.\+available() function would only tell you of a new client after it sent data, which makes some protocols like FTP impossible to properly implement.
+
+The intention is programs will use either available() or accept(), but not both. With available(), the client connection continues to be managed by \mbox{\hyperlink{classEthernetServer}{Ethernet\+Server}}. You don’t need to keep a client object, since calling available() will give you whatever client has sent data. Simple servers can be written with very little code using available().
+
+With accept(), \mbox{\hyperlink{classEthernetServer}{Ethernet\+Server}} gives you the client only once, regardless of whether it has sent any data. You must keep track of the connected clients. This requires more code, but you gain more control.\hypertarget{md_lib_Ethernet_docs_api_autotoc_md371}{}\doxysubsubsection{Syntax}\label{md_lib_Ethernet_docs_api_autotoc_md371}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{server.accept()}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md372}{}\doxysubsubsection{Parameters}\label{md_lib_Ethernet_docs_api_autotoc_md372}
+none\hypertarget{md_lib_Ethernet_docs_api_autotoc_md373}{}\doxysubsubsection{Returns}\label{md_lib_Ethernet_docs_api_autotoc_md373}
+
+\begin{DoxyItemize}
+\item a Client object. If no client has data available for reading, this object will evaluate to false in an if-\/statement. (\mbox{\hyperlink{classEthernetClient}{Ethernet\+Client}}).
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md374}{}\doxysubsubsection{Example}\label{md_lib_Ethernet_docs_api_autotoc_md374}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#include <SPI.h>}
+\DoxyCodeLine{\#include <Ethernet.h>}
+\DoxyCodeLine{}
+\DoxyCodeLine{byte mac[] = \{0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED\};}
+\DoxyCodeLine{IPAddress ip(192, 168, 69, 104);}
+\DoxyCodeLine{}
+\DoxyCodeLine{// telnet defaults to port 23}
+\DoxyCodeLine{EthernetServer server(23);}
+\DoxyCodeLine{}
+\DoxyCodeLine{EthernetClient clients[8];}
+\DoxyCodeLine{}
+\DoxyCodeLine{void setup() \{}
+\DoxyCodeLine{  Ethernet.begin(mac, ip);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  // Open serial communications and wait for port to open:}
+\DoxyCodeLine{  Serial.begin(9600);}
+\DoxyCodeLine{  while (!Serial) \{}
+\DoxyCodeLine{    ; // wait for serial port to connect. Needed for native USB port only}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{  // start listening for clients}
+\DoxyCodeLine{  server.begin();}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{void loop() \{}
+\DoxyCodeLine{  // check for any new client connecting, and say hello (before any incoming data)}
+\DoxyCodeLine{  EthernetClient newClient = server.accept();}
+\DoxyCodeLine{  if (newClient) \{}
+\DoxyCodeLine{    for (byte i = 0; i < 8; i++) \{}
+\DoxyCodeLine{      if (!clients[i]) \{}
+\DoxyCodeLine{        newClient.print("{}Hello, client number: "{});}
+\DoxyCodeLine{        newClient.println(i);}
+\DoxyCodeLine{        // Once we "{}accept"{}, the client is no longer tracked by EthernetServer}
+\DoxyCodeLine{        // so we must store it into our list of clients}
+\DoxyCodeLine{        clients[i] = newClient;}
+\DoxyCodeLine{        break;}
+\DoxyCodeLine{      \}}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{  // check for incoming data from all clients}
+\DoxyCodeLine{  for (byte i = 0; i < 8; i++) \{}
+\DoxyCodeLine{    while (clients[i] \&\& clients[i].available() > 0) \{}
+\DoxyCodeLine{      // read incoming data from the client}
+\DoxyCodeLine{      Serial.write(clients[i].read());}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{  // stop any clients which disconnect}
+\DoxyCodeLine{  for (byte i = 0; i < 8; i++) \{}
+\DoxyCodeLine{    if (clients[i] \&\& !clients[i].connected()) \{}
+\DoxyCodeLine{      clients[i].stop();}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md375}{}\doxysubsection{$<$tt$>$server.\+available()$<$/tt$>$}\label{md_lib_Ethernet_docs_api_autotoc_md375}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md376}{}\doxysubsubsection{Description}\label{md_lib_Ethernet_docs_api_autotoc_md376}
+Gets a client that is connected to the server and has data available for reading. The connection persists when the returned client object goes out of scope; you can close it by calling client.\+stop().\hypertarget{md_lib_Ethernet_docs_api_autotoc_md377}{}\doxysubsubsection{Syntax}\label{md_lib_Ethernet_docs_api_autotoc_md377}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{server.available()}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md378}{}\doxysubsubsection{Parameters}\label{md_lib_Ethernet_docs_api_autotoc_md378}
+None\hypertarget{md_lib_Ethernet_docs_api_autotoc_md379}{}\doxysubsubsection{Returns}\label{md_lib_Ethernet_docs_api_autotoc_md379}
+
+\begin{DoxyItemize}
+\item a Client object; if no Client has data available for reading, this object will evaluate to false in an if-\/statement (see the example below)
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md380}{}\doxysubsubsection{Example}\label{md_lib_Ethernet_docs_api_autotoc_md380}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#include <Ethernet.h>}
+\DoxyCodeLine{\#include <SPI.h>}
+\DoxyCodeLine{}
+\DoxyCodeLine{// the media access control (ethernet hardware) address for the shield:}
+\DoxyCodeLine{byte mac[] = \{ 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED \};  }
+\DoxyCodeLine{//the IP address for the shield:}
+\DoxyCodeLine{byte ip[] = \{ 10, 0, 0, 177 \};    }
+\DoxyCodeLine{// the router's gateway address:}
+\DoxyCodeLine{byte gateway[] = \{ 10, 0, 0, 1 \};}
+\DoxyCodeLine{// the subnet:}
+\DoxyCodeLine{byte subnet[] = \{ 255, 255, 0, 0 \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{// telnet defaults to port 23}
+\DoxyCodeLine{EthernetServer server = EthernetServer(23);}
+\DoxyCodeLine{}
+\DoxyCodeLine{void setup()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  // initialize the ethernet device}
+\DoxyCodeLine{  Ethernet.begin(mac, ip, gateway, subnet);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  // start listening for clients}
+\DoxyCodeLine{  server.begin();}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{void loop()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  // if an incoming client connects, there will be bytes available to read:}
+\DoxyCodeLine{  EthernetClient client = server.available();}
+\DoxyCodeLine{  if (client) \{}
+\DoxyCodeLine{    // read bytes from the incoming client and write them back}
+\DoxyCodeLine{    // to any clients connected to the server:}
+\DoxyCodeLine{    server.write(client.read());}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md381}{}\doxysubsection{$<$tt$>$if(server)$<$/tt$>$}\label{md_lib_Ethernet_docs_api_autotoc_md381}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md382}{}\doxysubsubsection{Description}\label{md_lib_Ethernet_docs_api_autotoc_md382}
+Indicates whether the server is listening for new clients. You can use this to detect whether server.\+begin() was successful. It can also tell you when no more sockets are available to listen for more clients, because the maximum number have connected.\hypertarget{md_lib_Ethernet_docs_api_autotoc_md383}{}\doxysubsubsection{Syntax}\label{md_lib_Ethernet_docs_api_autotoc_md383}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{if(server)}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md384}{}\doxysubsubsection{Parameters}\label{md_lib_Ethernet_docs_api_autotoc_md384}
+none\hypertarget{md_lib_Ethernet_docs_api_autotoc_md385}{}\doxysubsubsection{Returns}\label{md_lib_Ethernet_docs_api_autotoc_md385}
+
+\begin{DoxyItemize}
+\item whether the server is listening for new clients (bool).
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md386}{}\doxysubsubsection{Example}\label{md_lib_Ethernet_docs_api_autotoc_md386}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#include <Ethernet.h>}
+\DoxyCodeLine{\#include <SPI.h>}
+\DoxyCodeLine{}
+\DoxyCodeLine{byte mac[] = \{0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED\};}
+\DoxyCodeLine{IPAddress ip(10, 0, 0, 177);}
+\DoxyCodeLine{}
+\DoxyCodeLine{// telnet defaults to port 23}
+\DoxyCodeLine{EthernetServer server = EthernetServer(23);}
+\DoxyCodeLine{}
+\DoxyCodeLine{void setup() \{}
+\DoxyCodeLine{  // Open serial communications and wait for port to open:}
+\DoxyCodeLine{  Serial.begin(9600);}
+\DoxyCodeLine{  while (!Serial) \{}
+\DoxyCodeLine{    ; // wait for serial port to connect. Needed for native USB port only}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{  // initialize the Ethernet device}
+\DoxyCodeLine{  Ethernet.begin(mac, ip);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  // start listening for clients}
+\DoxyCodeLine{  server.begin();}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{void loop() \{}
+\DoxyCodeLine{  if (server) \{}
+\DoxyCodeLine{    Serial.println("{}Server is listening"{});}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{  else \{}
+\DoxyCodeLine{    Serial.println("{}Server is not listening"{});}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md387}{}\doxysubsection{$<$tt$>$server.\+write()$<$/tt$>$}\label{md_lib_Ethernet_docs_api_autotoc_md387}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md388}{}\doxysubsubsection{Description}\label{md_lib_Ethernet_docs_api_autotoc_md388}
+Write data to all the clients connected to a server. This data is sent as a byte or series of bytes.\hypertarget{md_lib_Ethernet_docs_api_autotoc_md389}{}\doxysubsubsection{Syntax}\label{md_lib_Ethernet_docs_api_autotoc_md389}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{server.write(val)}
+\DoxyCodeLine{server.write(buf, len)}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md390}{}\doxysubsubsection{Parameters}\label{md_lib_Ethernet_docs_api_autotoc_md390}
+
+\begin{DoxyItemize}
+\item val\+: a value to send as a single byte (byte or char)
+\item buf\+: an array to send as a series of bytes (byte or char)
+\item len\+: the length of the buffer
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md391}{}\doxysubsubsection{Returns}\label{md_lib_Ethernet_docs_api_autotoc_md391}
+
+\begin{DoxyItemize}
+\item byte
+\item write() returns the number of bytes written. It is not necessary to read this.
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md392}{}\doxysubsubsection{Example}\label{md_lib_Ethernet_docs_api_autotoc_md392}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#include <SPI.h>}
+\DoxyCodeLine{\#include <Ethernet.h>}
+\DoxyCodeLine{}
+\DoxyCodeLine{// network configuration.  gateway and subnet are optional.}
+\DoxyCodeLine{}
+\DoxyCodeLine{ // the media access control (ethernet hardware) address for the shield:}
+\DoxyCodeLine{byte mac[] = \{ 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED \};  }
+\DoxyCodeLine{//the IP address for the shield:}
+\DoxyCodeLine{byte ip[] = \{ 10, 0, 0, 177 \};    }
+\DoxyCodeLine{// the router's gateway address:}
+\DoxyCodeLine{byte gateway[] = \{ 10, 0, 0, 1 \};}
+\DoxyCodeLine{// the subnet:}
+\DoxyCodeLine{byte subnet[] = \{ 255, 255, 0, 0 \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{// telnet defaults to port 23}
+\DoxyCodeLine{EthernetServer server = EthernetServer(23);}
+\DoxyCodeLine{}
+\DoxyCodeLine{void setup()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  // initialize the ethernet device}
+\DoxyCodeLine{  Ethernet.begin(mac, ip, gateway, subnet);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  // start listening for clients}
+\DoxyCodeLine{  server.begin();}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{void loop()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  // if an incoming client connects, there will be bytes available to read:}
+\DoxyCodeLine{  EthernetClient client = server.available();}
+\DoxyCodeLine{  if (client == true) \{}
+\DoxyCodeLine{    // read bytes from the incoming client and write them back}
+\DoxyCodeLine{    // to any clients connected to the server:}
+\DoxyCodeLine{    server.write(client.read());}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md393}{}\doxysubsection{$<$tt$>$server.\+print()$<$/tt$>$}\label{md_lib_Ethernet_docs_api_autotoc_md393}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md394}{}\doxysubsubsection{Description}\label{md_lib_Ethernet_docs_api_autotoc_md394}
+\mbox{\hyperlink{classPrint}{Print}} data to all the clients connected to a server. Prints numbers as a sequence of digits, each an ASCII character (e.\+g. the number 123 is sent as the three characters \textquotesingle{}1\textquotesingle{}, \textquotesingle{}2\textquotesingle{}, \textquotesingle{}3\textquotesingle{}).\hypertarget{md_lib_Ethernet_docs_api_autotoc_md395}{}\doxysubsubsection{Syntax}\label{md_lib_Ethernet_docs_api_autotoc_md395}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{server.print(data)}
+\DoxyCodeLine{server.print(data, BASE)}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md396}{}\doxysubsubsection{Parameters}\label{md_lib_Ethernet_docs_api_autotoc_md396}
+
+\begin{DoxyItemize}
+\item data\+: the data to print (char, byte, int, long, or string)
+\item BASE (optional)\+: the base in which to print numbers\+: BIN for binary (base 2), DEC for decimal (base 10), OCT for octal (base 8), HEX for hexadecimal (base 16).
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md397}{}\doxysubsubsection{Returns}\label{md_lib_Ethernet_docs_api_autotoc_md397}
+
+\begin{DoxyItemize}
+\item byte
+\item print() will return the number of bytes written, though reading that number is optional
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md398}{}\doxysubsection{$<$tt$>$server.\+println()$<$/tt$>$}\label{md_lib_Ethernet_docs_api_autotoc_md398}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md399}{}\doxysubsubsection{Description}\label{md_lib_Ethernet_docs_api_autotoc_md399}
+\mbox{\hyperlink{classPrint}{Print}} data, followed by a newline, to all the clients connected to a server. Prints numbers as a sequence of digits, each an ASCII character (e.\+g. the number 123 is sent as the three characters \textquotesingle{}1\textquotesingle{}, \textquotesingle{}2\textquotesingle{}, \textquotesingle{}3\textquotesingle{}).\hypertarget{md_lib_Ethernet_docs_api_autotoc_md400}{}\doxysubsubsection{Syntax}\label{md_lib_Ethernet_docs_api_autotoc_md400}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{server.println()}
+\DoxyCodeLine{server.println(data)}
+\DoxyCodeLine{server.println(data, BASE)}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md401}{}\doxysubsubsection{Parameters}\label{md_lib_Ethernet_docs_api_autotoc_md401}
+
+\begin{DoxyItemize}
+\item data (optional)\+: the data to print (char, byte, int, long, or string)
+\item BASE (optional)\+: the base in which to print numbers\+: BIN for binary (base 2), DEC for decimal (base 10), OCT for octal (base 8), HEX for hexadecimal (base 16).
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md402}{}\doxysubsubsection{Returns}\label{md_lib_Ethernet_docs_api_autotoc_md402}
+
+\begin{DoxyItemize}
+\item byte
+\item println() will return the number of bytes written, though reading that number is optional
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md403}{}\doxysection{Client Class}\label{md_lib_Ethernet_docs_api_autotoc_md403}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md404}{}\doxysubsection{$<$tt$>$\+Client$<$/tt$>$}\label{md_lib_Ethernet_docs_api_autotoc_md404}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md405}{}\doxysubsubsection{Description}\label{md_lib_Ethernet_docs_api_autotoc_md405}
+Client is the base class for all Ethernet client based calls. It is not called directly, but invoked whenever you use a function that relies on it.\hypertarget{md_lib_Ethernet_docs_api_autotoc_md406}{}\doxysubsection{$<$tt$>$\+Ethernet\+Client()$<$/tt$>$}\label{md_lib_Ethernet_docs_api_autotoc_md406}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md407}{}\doxysubsubsection{Description}\label{md_lib_Ethernet_docs_api_autotoc_md407}
+Creates a client which can connect to a specified internet IP address and port (defined in the client.\+connect() function).\hypertarget{md_lib_Ethernet_docs_api_autotoc_md408}{}\doxysubsubsection{Syntax}\label{md_lib_Ethernet_docs_api_autotoc_md408}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{EthernetClient()}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md409}{}\doxysubsubsection{Parameters}\label{md_lib_Ethernet_docs_api_autotoc_md409}
+None\hypertarget{md_lib_Ethernet_docs_api_autotoc_md410}{}\doxysubsubsection{Example}\label{md_lib_Ethernet_docs_api_autotoc_md410}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#include <Ethernet.h>}
+\DoxyCodeLine{\#include <SPI.h>}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{byte mac[] = \{ 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED \};}
+\DoxyCodeLine{byte ip[] = \{ 10, 0, 0, 177 \};}
+\DoxyCodeLine{byte server[] = \{ 64, 233, 187, 99 \}; // Google}
+\DoxyCodeLine{}
+\DoxyCodeLine{EthernetClient client;}
+\DoxyCodeLine{}
+\DoxyCodeLine{void setup()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  Ethernet.begin(mac, ip);}
+\DoxyCodeLine{  Serial.begin(9600);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  delay(1000);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  Serial.println("{}connecting..."{});}
+\DoxyCodeLine{}
+\DoxyCodeLine{  if (client.connect(server, 80)) \{}
+\DoxyCodeLine{    Serial.println("{}connected"{});}
+\DoxyCodeLine{    client.println("{}GET /search?q=arduino HTTP/1.0"{});}
+\DoxyCodeLine{    client.println();}
+\DoxyCodeLine{  \} else \{}
+\DoxyCodeLine{    Serial.println("{}connection failed"{});}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{void loop()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  if (client.available()) \{}
+\DoxyCodeLine{    char c = client.read();}
+\DoxyCodeLine{    Serial.print(c);}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{  if (!client.connected()) \{}
+\DoxyCodeLine{    Serial.println();}
+\DoxyCodeLine{    Serial.println("{}disconnecting."{});}
+\DoxyCodeLine{    client.stop();}
+\DoxyCodeLine{    for(;;)}
+\DoxyCodeLine{      ;}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md411}{}\doxysubsection{$<$tt$>$if (\+Ethernet\+Client)$<$/tt$>$}\label{md_lib_Ethernet_docs_api_autotoc_md411}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md412}{}\doxysubsubsection{Description}\label{md_lib_Ethernet_docs_api_autotoc_md412}
+Indicates if the specified Ethernet client is ready.\hypertarget{md_lib_Ethernet_docs_api_autotoc_md413}{}\doxysubsubsection{Syntax}\label{md_lib_Ethernet_docs_api_autotoc_md413}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{if (client)}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md414}{}\doxysubsubsection{Parameters}\label{md_lib_Ethernet_docs_api_autotoc_md414}
+none\hypertarget{md_lib_Ethernet_docs_api_autotoc_md415}{}\doxysubsubsection{Returns}\label{md_lib_Ethernet_docs_api_autotoc_md415}
+
+\begin{DoxyItemize}
+\item boolean \+: returns true if the specified client is available.
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md416}{}\doxysubsubsection{Example}\label{md_lib_Ethernet_docs_api_autotoc_md416}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#include <Ethernet.h>}
+\DoxyCodeLine{\#include <SPI.h>}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{byte mac[] = \{ 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED \};}
+\DoxyCodeLine{byte ip[] = \{ 10, 0, 0, 177 \};}
+\DoxyCodeLine{byte server[] = \{ 64, 233, 187, 99 \}; // Google}
+\DoxyCodeLine{}
+\DoxyCodeLine{EthernetClient client;}
+\DoxyCodeLine{}
+\DoxyCodeLine{void setup()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  Ethernet.begin(mac, ip);}
+\DoxyCodeLine{  Serial.begin(9600);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  delay(1000);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  Serial.println("{}connecting..."{});}
+\DoxyCodeLine{  while(!client)\{}
+\DoxyCodeLine{    ; // wait until there is a client connected to proceed}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{  if (client.connect(server, 80)) \{}
+\DoxyCodeLine{    Serial.println("{}connected"{});}
+\DoxyCodeLine{    client.println("{}GET /search?q=arduino HTTP/1.0"{});}
+\DoxyCodeLine{    client.println();}
+\DoxyCodeLine{  \} else \{}
+\DoxyCodeLine{    Serial.println("{}connection failed"{});}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{void loop()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  if (client.available()) \{}
+\DoxyCodeLine{    char c = client.read();}
+\DoxyCodeLine{    Serial.print(c);}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{  if (!client.connected()) \{}
+\DoxyCodeLine{    Serial.println();}
+\DoxyCodeLine{    Serial.println("{}disconnecting."{});}
+\DoxyCodeLine{    client.stop();}
+\DoxyCodeLine{    for(;;)}
+\DoxyCodeLine{      ;}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md417}{}\doxysubsection{$<$tt$>$client.\+connected()$<$/tt$>$}\label{md_lib_Ethernet_docs_api_autotoc_md417}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md418}{}\doxysubsubsection{Description}\label{md_lib_Ethernet_docs_api_autotoc_md418}
+Whether or not the client is connected. Note that a client is considered connected if the connection has been closed but there is still unread data.\hypertarget{md_lib_Ethernet_docs_api_autotoc_md419}{}\doxysubsubsection{Syntax}\label{md_lib_Ethernet_docs_api_autotoc_md419}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{client.connected()}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md420}{}\doxysubsubsection{Parameters}\label{md_lib_Ethernet_docs_api_autotoc_md420}
+none\hypertarget{md_lib_Ethernet_docs_api_autotoc_md421}{}\doxysubsubsection{Returns}\label{md_lib_Ethernet_docs_api_autotoc_md421}
+
+\begin{DoxyItemize}
+\item Returns true if the client is connected, false if not.
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md422}{}\doxysubsubsection{Example}\label{md_lib_Ethernet_docs_api_autotoc_md422}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#include <Ethernet.h>}
+\DoxyCodeLine{\#include <SPI.h>}
+\DoxyCodeLine{}
+\DoxyCodeLine{byte mac[] = \{ 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED \};}
+\DoxyCodeLine{byte ip[] = \{ 10, 0, 0, 177 \};}
+\DoxyCodeLine{byte server[] = \{ 64, 233, 187, 99 \}; // Google}
+\DoxyCodeLine{}
+\DoxyCodeLine{EthernetClient client;}
+\DoxyCodeLine{}
+\DoxyCodeLine{void setup()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  Ethernet.begin(mac, ip);}
+\DoxyCodeLine{  Serial.begin(9600);}
+\DoxyCodeLine{  client.connect(server, 80);}
+\DoxyCodeLine{  delay(1000);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  Serial.println("{}connecting..."{});}
+\DoxyCodeLine{}
+\DoxyCodeLine{  if (client.connected()) \{}
+\DoxyCodeLine{    Serial.println("{}connected"{});}
+\DoxyCodeLine{    client.println("{}GET /search?q=arduino HTTP/1.0"{});}
+\DoxyCodeLine{    client.println();}
+\DoxyCodeLine{  \} else \{}
+\DoxyCodeLine{    Serial.println("{}connection failed"{});}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{void loop()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  if (client.available()) \{}
+\DoxyCodeLine{    char c = client.read();}
+\DoxyCodeLine{    Serial.print(c);}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{  if (!client.connected()) \{}
+\DoxyCodeLine{    Serial.println();}
+\DoxyCodeLine{    Serial.println("{}disconnecting."{});}
+\DoxyCodeLine{    client.stop();}
+\DoxyCodeLine{    for(;;)}
+\DoxyCodeLine{      ;}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md423}{}\doxysubsection{$<$tt$>$client.\+connect()$<$/tt$>$}\label{md_lib_Ethernet_docs_api_autotoc_md423}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md424}{}\doxysubsubsection{Description}\label{md_lib_Ethernet_docs_api_autotoc_md424}
+Connects to a specified IP address and port. The return value indicates success or failure. Also supports DNS lookups when using a domain name.\hypertarget{md_lib_Ethernet_docs_api_autotoc_md425}{}\doxysubsubsection{Syntax}\label{md_lib_Ethernet_docs_api_autotoc_md425}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{client.connect(ip, port)}
+\DoxyCodeLine{client.connect(servername, port)}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md426}{}\doxysubsubsection{Parameters}\label{md_lib_Ethernet_docs_api_autotoc_md426}
+
+\begin{DoxyItemize}
+\item ip\+: the IP address that the client will connect to (array of 4 bytes)
+\item servername\+: the domain name the client will connect to (string, ex.\+:\char`\"{}arduino.\+cc\char`\"{})
+\item port\+: the port that the client will connect to (int)
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md427}{}\doxysubsubsection{Returns}\label{md_lib_Ethernet_docs_api_autotoc_md427}
+
+\begin{DoxyItemize}
+\item Returns true if the connection succeeds, false if not.
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md428}{}\doxysubsubsection{Example}\label{md_lib_Ethernet_docs_api_autotoc_md428}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#include <Ethernet.h>}
+\DoxyCodeLine{\#include <SPI.h>}
+\DoxyCodeLine{}
+\DoxyCodeLine{byte mac[] = \{ 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED \};}
+\DoxyCodeLine{byte ip[] = \{ 10, 0, 0, 177 \};}
+\DoxyCodeLine{byte server[] = \{ 64, 233, 187, 99 \}; // Google}
+\DoxyCodeLine{}
+\DoxyCodeLine{EthernetClient client;}
+\DoxyCodeLine{}
+\DoxyCodeLine{void setup()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  Ethernet.begin(mac, ip);}
+\DoxyCodeLine{  Serial.begin(9600);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  delay(1000);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  Serial.println("{}connecting..."{});}
+\DoxyCodeLine{}
+\DoxyCodeLine{  if (client.connect(server, 80)) \{}
+\DoxyCodeLine{    Serial.println("{}connected"{});}
+\DoxyCodeLine{    client.println("{}GET /search?q=arduino HTTP/1.0"{});}
+\DoxyCodeLine{    client.println();}
+\DoxyCodeLine{  \} else \{}
+\DoxyCodeLine{    Serial.println("{}connection failed"{});}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{void loop()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  if (client.available()) \{}
+\DoxyCodeLine{    char c = client.read();}
+\DoxyCodeLine{    Serial.print(c);}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{  if (!client.connected()) \{}
+\DoxyCodeLine{    Serial.println();}
+\DoxyCodeLine{    Serial.println("{}disconnecting."{});}
+\DoxyCodeLine{    client.stop();}
+\DoxyCodeLine{    for(;;)}
+\DoxyCodeLine{      ;}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md429}{}\doxysubsection{$<$tt$>$client.\+local\+Port()$<$/tt$>$}\label{md_lib_Ethernet_docs_api_autotoc_md429}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md430}{}\doxysubsubsection{Description}\label{md_lib_Ethernet_docs_api_autotoc_md430}
+Returns the local port number the client is connected to.\hypertarget{md_lib_Ethernet_docs_api_autotoc_md431}{}\doxysubsubsection{Syntax}\label{md_lib_Ethernet_docs_api_autotoc_md431}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{client.localPort}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md432}{}\doxysubsubsection{Parameters}\label{md_lib_Ethernet_docs_api_autotoc_md432}
+none\hypertarget{md_lib_Ethernet_docs_api_autotoc_md433}{}\doxysubsubsection{Returns}\label{md_lib_Ethernet_docs_api_autotoc_md433}
+
+\begin{DoxyItemize}
+\item the local port number the client is connected to (uint16\+\_\+t).
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md434}{}\doxysubsubsection{Example}\label{md_lib_Ethernet_docs_api_autotoc_md434}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#include <Ethernet.h>}
+\DoxyCodeLine{\#include <SPI.h>}
+\DoxyCodeLine{}
+\DoxyCodeLine{byte mac[] = \{0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED\};}
+\DoxyCodeLine{IPAddress ip(10, 0, 0, 177);}
+\DoxyCodeLine{}
+\DoxyCodeLine{// telnet defaults to port 23}
+\DoxyCodeLine{EthernetServer server = EthernetServer(23);}
+\DoxyCodeLine{}
+\DoxyCodeLine{void setup() \{}
+\DoxyCodeLine{  // Open serial communications and wait for port to open:}
+\DoxyCodeLine{  Serial.begin(9600);}
+\DoxyCodeLine{  while (!Serial) \{}
+\DoxyCodeLine{    ; // wait for serial port to connect. Needed for native USB port only}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{  // initialize the Ethernet device}
+\DoxyCodeLine{  Ethernet.begin(mac, ip);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  // start listening for clients}
+\DoxyCodeLine{  server.begin();}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{void loop() \{}
+\DoxyCodeLine{  // if an incoming client connects, there will be bytes available to read:}
+\DoxyCodeLine{  EthernetClient client = server.available();}
+\DoxyCodeLine{  if (client) \{}
+\DoxyCodeLine{    Serial.print("{}Client is connected on port: "{});}
+\DoxyCodeLine{    Serial.println(client.localPort());}
+\DoxyCodeLine{    client.stop();}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md435}{}\doxysubsection{$<$tt$>$client.\+remote\+IP()$<$/tt$>$}\label{md_lib_Ethernet_docs_api_autotoc_md435}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md436}{}\doxysubsubsection{Description}\label{md_lib_Ethernet_docs_api_autotoc_md436}
+Returns the IP address of the client.\hypertarget{md_lib_Ethernet_docs_api_autotoc_md437}{}\doxysubsubsection{Syntax}\label{md_lib_Ethernet_docs_api_autotoc_md437}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{client.remoteIP()}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md438}{}\doxysubsubsection{Parameters}\label{md_lib_Ethernet_docs_api_autotoc_md438}
+none\hypertarget{md_lib_Ethernet_docs_api_autotoc_md439}{}\doxysubsubsection{Returns}\label{md_lib_Ethernet_docs_api_autotoc_md439}
+
+\begin{DoxyItemize}
+\item the client\textquotesingle{}s IP address (IPAddress).
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md440}{}\doxysubsubsection{Example}\label{md_lib_Ethernet_docs_api_autotoc_md440}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#include <Ethernet.h>}
+\DoxyCodeLine{\#include <SPI.h>}
+\DoxyCodeLine{}
+\DoxyCodeLine{byte mac[] = \{0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED\};}
+\DoxyCodeLine{IPAddress ip(10, 0, 0, 177);}
+\DoxyCodeLine{}
+\DoxyCodeLine{// telnet defaults to port 23}
+\DoxyCodeLine{EthernetServer server = EthernetServer(23);}
+\DoxyCodeLine{}
+\DoxyCodeLine{void setup() \{}
+\DoxyCodeLine{  // Open serial communications and wait for port to open:}
+\DoxyCodeLine{  Serial.begin(9600);}
+\DoxyCodeLine{  while (!Serial) \{}
+\DoxyCodeLine{    ; // wait for serial port to connect. Needed for native USB port only}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{  // initialize the Ethernet device}
+\DoxyCodeLine{  Ethernet.begin(mac, ip);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  // start listening for clients}
+\DoxyCodeLine{  server.begin();}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{void loop() \{}
+\DoxyCodeLine{  // if an incoming client connects, there will be bytes available to read:}
+\DoxyCodeLine{  EthernetClient client = server.available();}
+\DoxyCodeLine{  if (client) \{}
+\DoxyCodeLine{    Serial.print("{}Remote IP address: "{});}
+\DoxyCodeLine{    Serial.println(client.remoteIP());}
+\DoxyCodeLine{    client.stop();}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md441}{}\doxysubsection{$<$tt$>$client.\+remote\+Port()$<$/tt$>$}\label{md_lib_Ethernet_docs_api_autotoc_md441}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md442}{}\doxysubsubsection{Description}\label{md_lib_Ethernet_docs_api_autotoc_md442}
+Returns the port of the host that sent the current incoming packet.\hypertarget{md_lib_Ethernet_docs_api_autotoc_md443}{}\doxysubsubsection{Syntax}\label{md_lib_Ethernet_docs_api_autotoc_md443}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{client.remotePort()}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md444}{}\doxysubsubsection{Parameters}\label{md_lib_Ethernet_docs_api_autotoc_md444}
+none\hypertarget{md_lib_Ethernet_docs_api_autotoc_md445}{}\doxysubsubsection{Returns}\label{md_lib_Ethernet_docs_api_autotoc_md445}
+
+\begin{DoxyItemize}
+\item the port of the host that sent the current incoming packet (uint16\+\_\+t).
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md446}{}\doxysubsubsection{Example}\label{md_lib_Ethernet_docs_api_autotoc_md446}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#include <Ethernet.h>}
+\DoxyCodeLine{\#include <SPI.h>}
+\DoxyCodeLine{}
+\DoxyCodeLine{byte mac[] = \{0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED\};}
+\DoxyCodeLine{IPAddress ip(10, 0, 0, 177);}
+\DoxyCodeLine{}
+\DoxyCodeLine{// telnet defaults to port 23}
+\DoxyCodeLine{EthernetServer server = EthernetServer(23);}
+\DoxyCodeLine{}
+\DoxyCodeLine{void setup() \{}
+\DoxyCodeLine{  // Open serial communications and wait for port to open:}
+\DoxyCodeLine{  Serial.begin(9600);}
+\DoxyCodeLine{  while (!Serial) \{}
+\DoxyCodeLine{    ; // wait for serial port to connect. Needed for native USB port only}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{  // initialize the Ethernet device}
+\DoxyCodeLine{  Ethernet.begin(mac, ip);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  // start listening for clients}
+\DoxyCodeLine{  server.begin();}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{void loop() \{}
+\DoxyCodeLine{  // if an incoming client connects, there will be bytes available to read:}
+\DoxyCodeLine{  EthernetClient client = server.available();}
+\DoxyCodeLine{  if (client) \{}
+\DoxyCodeLine{    Serial.print("{}Remote port: "{});}
+\DoxyCodeLine{    Serial.println(client.remotePort());}
+\DoxyCodeLine{    client.stop();}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md447}{}\doxysubsection{$<$tt$>$client.\+set\+Connection\+Timeout()$<$/tt$>$}\label{md_lib_Ethernet_docs_api_autotoc_md447}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md448}{}\doxysubsubsection{Description}\label{md_lib_Ethernet_docs_api_autotoc_md448}
+Set the timeout for client.\+connect() and client.\+stop(). The initial value is 1000 ms. You might prefer to set a lower timeout value to make your program more responsive in the event something goes wrong.\hypertarget{md_lib_Ethernet_docs_api_autotoc_md449}{}\doxysubsubsection{Syntax}\label{md_lib_Ethernet_docs_api_autotoc_md449}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{client.setConnectionTimeout(milliseconds)}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md450}{}\doxysubsubsection{Parameters}\label{md_lib_Ethernet_docs_api_autotoc_md450}
+
+\begin{DoxyItemize}
+\item milliseconds\+: the timeout duration for client.\+connect() and client.\+stop() (uint16\+\_\+t)
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md451}{}\doxysubsubsection{Returns}\label{md_lib_Ethernet_docs_api_autotoc_md451}
+Nothing\hypertarget{md_lib_Ethernet_docs_api_autotoc_md452}{}\doxysubsubsection{Example}\label{md_lib_Ethernet_docs_api_autotoc_md452}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#include <Ethernet.h>}
+\DoxyCodeLine{\#include <SPI.h>}
+\DoxyCodeLine{}
+\DoxyCodeLine{byte mac[] = \{0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED\};}
+\DoxyCodeLine{IPAddress ip(10, 0, 0, 177);}
+\DoxyCodeLine{}
+\DoxyCodeLine{// telnet defaults to port 23}
+\DoxyCodeLine{EthernetServer server = EthernetServer(23);}
+\DoxyCodeLine{}
+\DoxyCodeLine{void setup() \{}
+\DoxyCodeLine{  // Open serial communications and wait for port to open:}
+\DoxyCodeLine{  Serial.begin(9600);}
+\DoxyCodeLine{  while (!Serial) \{}
+\DoxyCodeLine{    ; // wait for serial port to connect. Needed for native USB port only}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{  // initialize the Ethernet device}
+\DoxyCodeLine{  Ethernet.begin(mac, ip);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  // start listening for clients}
+\DoxyCodeLine{  server.begin();}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{void loop() \{}
+\DoxyCodeLine{  // if an incoming client connects, there will be bytes available to read:}
+\DoxyCodeLine{  EthernetClient client = server.available();}
+\DoxyCodeLine{  if (client) \{}
+\DoxyCodeLine{    client.setConnectionTimeout(100);  // set the timeout duration for client.connect() and client.stop()}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md453}{}\doxysubsection{$<$tt$>$client.\+write()$<$/tt$>$}\label{md_lib_Ethernet_docs_api_autotoc_md453}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md454}{}\doxysubsubsection{Description}\label{md_lib_Ethernet_docs_api_autotoc_md454}
+Write data to the server the client is connected to. This data is sent as a byte or series of bytes.\hypertarget{md_lib_Ethernet_docs_api_autotoc_md455}{}\doxysubsubsection{Syntax}\label{md_lib_Ethernet_docs_api_autotoc_md455}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{client.write(val)}
+\DoxyCodeLine{client.write(buf, len)}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md456}{}\doxysubsubsection{Parameters}\label{md_lib_Ethernet_docs_api_autotoc_md456}
+
+\begin{DoxyItemize}
+\item val\+: a value to send as a single byte (byte or char)
+\item buf\+: an array to send as a series of bytes (byte or char)
+\item len\+: the length of the buffer
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md457}{}\doxysubsubsection{Returns}\label{md_lib_Ethernet_docs_api_autotoc_md457}
+byte\+:
+\begin{DoxyItemize}
+\item write() returns the number of bytes written. It is not necessary to read this value.
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md458}{}\doxysubsection{$<$tt$>$print()$<$/tt$>$}\label{md_lib_Ethernet_docs_api_autotoc_md458}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md459}{}\doxysubsubsection{Description}\label{md_lib_Ethernet_docs_api_autotoc_md459}
+\mbox{\hyperlink{classPrint}{Print}} data to the server that a client is connected to. Prints numbers as a sequence of digits, each an ASCII character (e.\+g. the number 123 is sent as the three characters \textquotesingle{}1\textquotesingle{}, \textquotesingle{}2\textquotesingle{}, \textquotesingle{}3\textquotesingle{}).\hypertarget{md_lib_Ethernet_docs_api_autotoc_md460}{}\doxysubsubsection{Syntax}\label{md_lib_Ethernet_docs_api_autotoc_md460}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{client.print(data)}
+\DoxyCodeLine{client.print(data, BASE)}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md461}{}\doxysubsubsection{Parameters}\label{md_lib_Ethernet_docs_api_autotoc_md461}
+
+\begin{DoxyItemize}
+\item data\+: the data to print (char, byte, int, long, or string)
+\item BASE (optional)\+: the base in which to print numbers\+: DEC for decimal (base 10), OCT for octal (base 8), HEX for hexadecimal (base 16). 
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md462}{}\doxysubsubsection{Returns}\label{md_lib_Ethernet_docs_api_autotoc_md462}
+
+\begin{DoxyItemize}
+\item byte\+: returns the number of bytes written, though reading that number is optional
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md463}{}\doxysubsection{$<$tt$>$client.\+println()$<$/tt$>$}\label{md_lib_Ethernet_docs_api_autotoc_md463}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md464}{}\doxysubsubsection{Description}\label{md_lib_Ethernet_docs_api_autotoc_md464}
+\mbox{\hyperlink{classPrint}{Print}} data, followed by a carriage return and newline, to the server a client is connected to. Prints numbers as a sequence of digits, each an ASCII character (e.\+g. the number 123 is sent as the three characters \textquotesingle{}1\textquotesingle{}, \textquotesingle{}2\textquotesingle{}, \textquotesingle{}3\textquotesingle{}).\hypertarget{md_lib_Ethernet_docs_api_autotoc_md465}{}\doxysubsubsection{Syntax}\label{md_lib_Ethernet_docs_api_autotoc_md465}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{client.println()}
+\DoxyCodeLine{client.println(data)}
+\DoxyCodeLine{client.print(data, BASE)}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md466}{}\doxysubsubsection{Parameters}\label{md_lib_Ethernet_docs_api_autotoc_md466}
+
+\begin{DoxyItemize}
+\item data (optional)\+: the data to print (char, byte, int, long, or string)
+\item BASE (optional)\+: the base in which to print numbers\+: DEC for decimal (base 10), OCT for octal (base 8), HEX for hexadecimal (base 16).
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md467}{}\doxysubsubsection{Returns}\label{md_lib_Ethernet_docs_api_autotoc_md467}
+
+\begin{DoxyItemize}
+\item byte\+: return the number of bytes written, though reading that number is optional
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md468}{}\doxysubsection{$<$tt$>$client.\+available()$<$/tt$>$}\label{md_lib_Ethernet_docs_api_autotoc_md468}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md469}{}\doxysubsubsection{Description}\label{md_lib_Ethernet_docs_api_autotoc_md469}
+Returns the number of bytes available for reading (that is, the amount of data that has been written to the client by the server it is connected to).
+
+available() inherits from the \mbox{\hyperlink{structStream}{Stream}} utility class.\hypertarget{md_lib_Ethernet_docs_api_autotoc_md470}{}\doxysubsubsection{Syntax}\label{md_lib_Ethernet_docs_api_autotoc_md470}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{client.available()}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md471}{}\doxysubsubsection{Parameters}\label{md_lib_Ethernet_docs_api_autotoc_md471}
+none\hypertarget{md_lib_Ethernet_docs_api_autotoc_md472}{}\doxysubsubsection{Returns}\label{md_lib_Ethernet_docs_api_autotoc_md472}
+
+\begin{DoxyItemize}
+\item The number of bytes available.
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md473}{}\doxysubsubsection{Example}\label{md_lib_Ethernet_docs_api_autotoc_md473}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#include <Ethernet.h>}
+\DoxyCodeLine{\#include <SPI.h>}
+\DoxyCodeLine{}
+\DoxyCodeLine{byte mac[] = \{ 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED \};}
+\DoxyCodeLine{byte ip[] = \{ 10, 0, 0, 177 \};}
+\DoxyCodeLine{byte server[] = \{ 64, 233, 187, 99 \}; // Google}
+\DoxyCodeLine{}
+\DoxyCodeLine{EthernetClient client;}
+\DoxyCodeLine{}
+\DoxyCodeLine{void setup()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  Ethernet.begin(mac, ip);}
+\DoxyCodeLine{  Serial.begin(9600);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  delay(1000);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  Serial.println("{}connecting..."{});}
+\DoxyCodeLine{}
+\DoxyCodeLine{  if (client.connect(server, 80)) \{}
+\DoxyCodeLine{    Serial.println("{}connected"{});}
+\DoxyCodeLine{    client.println("{}GET /search?q=arduino HTTP/1.0"{});}
+\DoxyCodeLine{    client.println();}
+\DoxyCodeLine{  \} else \{}
+\DoxyCodeLine{    Serial.println("{}connection failed"{});}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{void loop()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  if (client.available()) \{}
+\DoxyCodeLine{    char c = client.read();}
+\DoxyCodeLine{    Serial.print(c);}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{  if (!client.connected()) \{}
+\DoxyCodeLine{    Serial.println();}
+\DoxyCodeLine{    Serial.println("{}disconnecting."{});}
+\DoxyCodeLine{    client.stop();}
+\DoxyCodeLine{    for(;;)}
+\DoxyCodeLine{      ;}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md474}{}\doxysubsection{$<$tt$>$client.\+read()$<$/tt$>$}\label{md_lib_Ethernet_docs_api_autotoc_md474}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md475}{}\doxysubsubsection{Description}\label{md_lib_Ethernet_docs_api_autotoc_md475}
+Read the next byte received from the server the client is connected to (after the last call to read()).
+
+read() inherits from the \mbox{\hyperlink{structStream}{Stream}} utility class.\hypertarget{md_lib_Ethernet_docs_api_autotoc_md476}{}\doxysubsubsection{Syntax}\label{md_lib_Ethernet_docs_api_autotoc_md476}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{client.read()}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md477}{}\doxysubsubsection{Parameters}\label{md_lib_Ethernet_docs_api_autotoc_md477}
+none\hypertarget{md_lib_Ethernet_docs_api_autotoc_md478}{}\doxysubsubsection{Returns}\label{md_lib_Ethernet_docs_api_autotoc_md478}
+
+\begin{DoxyItemize}
+\item The next byte (or character), or -\/1 if none is available.
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md479}{}\doxysubsection{$<$tt$>$client.\+flush()$<$/tt$>$}\label{md_lib_Ethernet_docs_api_autotoc_md479}
+Waits until all outgoing characters in buffer have been sent.
+
+flush() inherits from the \mbox{\hyperlink{structStream}{Stream}} utility class.\hypertarget{md_lib_Ethernet_docs_api_autotoc_md480}{}\doxysubsubsection{Syntax}\label{md_lib_Ethernet_docs_api_autotoc_md480}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{client.flush()}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md481}{}\doxysubsubsection{Parameters}\label{md_lib_Ethernet_docs_api_autotoc_md481}
+none\hypertarget{md_lib_Ethernet_docs_api_autotoc_md482}{}\doxysubsubsection{Returns}\label{md_lib_Ethernet_docs_api_autotoc_md482}
+none\hypertarget{md_lib_Ethernet_docs_api_autotoc_md483}{}\doxysubsection{$<$tt$>$client.\+stop()$<$/tt$>$}\label{md_lib_Ethernet_docs_api_autotoc_md483}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md484}{}\doxysubsubsection{Description}\label{md_lib_Ethernet_docs_api_autotoc_md484}
+Disconnect from the server.\hypertarget{md_lib_Ethernet_docs_api_autotoc_md485}{}\doxysubsubsection{Syntax}\label{md_lib_Ethernet_docs_api_autotoc_md485}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{client.stop()}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md486}{}\doxysubsubsection{Parameters}\label{md_lib_Ethernet_docs_api_autotoc_md486}
+none\hypertarget{md_lib_Ethernet_docs_api_autotoc_md487}{}\doxysubsubsection{Returns}\label{md_lib_Ethernet_docs_api_autotoc_md487}
+none\hypertarget{md_lib_Ethernet_docs_api_autotoc_md488}{}\doxysection{Ethernet\+UDP Class}\label{md_lib_Ethernet_docs_api_autotoc_md488}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md489}{}\doxysubsection{$<$tt$>$\+Ethernet\+UDP.\+begin()$<$/tt$>$}\label{md_lib_Ethernet_docs_api_autotoc_md489}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md490}{}\doxysubsubsection{Description}\label{md_lib_Ethernet_docs_api_autotoc_md490}
+Initializes the ethernet UDP library and network settings.\hypertarget{md_lib_Ethernet_docs_api_autotoc_md491}{}\doxysubsubsection{Syntax}\label{md_lib_Ethernet_docs_api_autotoc_md491}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{EthernetUDP.begin(localPort);}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md492}{}\doxysubsubsection{Parameters}\label{md_lib_Ethernet_docs_api_autotoc_md492}
+
+\begin{DoxyItemize}
+\item local\+Port\+: the local port to listen on (int)
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md493}{}\doxysubsubsection{Returns}\label{md_lib_Ethernet_docs_api_autotoc_md493}
+
+\begin{DoxyItemize}
+\item 1 if successful, 0 if there are no sockets available to use.
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md494}{}\doxysubsubsection{Example}\label{md_lib_Ethernet_docs_api_autotoc_md494}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#include <SPI.h>        }
+\DoxyCodeLine{}
+\DoxyCodeLine{\#include <Ethernet.h>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#include <EthernetUdp.h>}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{// Enter a MAC address and IP address for your controller below.}
+\DoxyCodeLine{}
+\DoxyCodeLine{// The IP address will be dependent on your local network:}
+\DoxyCodeLine{}
+\DoxyCodeLine{byte mac[] = \{  }
+\DoxyCodeLine{}
+\DoxyCodeLine{  0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{IPAddress ip(192, 168, 1, 177);}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{unsigned int localPort = 8888;      // local port to listen on}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{// An EthernetUDP instance to let us send and receive packets over UDP}
+\DoxyCodeLine{}
+\DoxyCodeLine{EthernetUDP Udp;}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{void setup() \{}
+\DoxyCodeLine{}
+\DoxyCodeLine{  // start the Ethernet and UDP:}
+\DoxyCodeLine{}
+\DoxyCodeLine{  Ethernet.begin(mac,ip);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  Udp.begin(localPort);}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{void loop() \{}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md495}{}\doxysubsection{$<$tt$>$\+Ethernet\+UDP.\+read()$<$/tt$>$}\label{md_lib_Ethernet_docs_api_autotoc_md495}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md496}{}\doxysubsubsection{Description}\label{md_lib_Ethernet_docs_api_autotoc_md496}
+Reads UDP data from the specified buffer. If no arguments are given, it will return the next character in the buffer.
+
+This function can only be successfully called after UDP.\+parse\+Packet().\hypertarget{md_lib_Ethernet_docs_api_autotoc_md497}{}\doxysubsubsection{Syntax}\label{md_lib_Ethernet_docs_api_autotoc_md497}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{EthernetUDP.read();}
+\DoxyCodeLine{EthernetUDP.read(packetBuffer, MaxSize);}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md498}{}\doxysubsubsection{Parameters}\label{md_lib_Ethernet_docs_api_autotoc_md498}
+
+\begin{DoxyItemize}
+\item packet\+Buffer\+: buffer to hold incoming packets (char)
+\item Max\+Size\+: maximum size of the buffer (int)
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md499}{}\doxysubsubsection{Returns}\label{md_lib_Ethernet_docs_api_autotoc_md499}
+
+\begin{DoxyItemize}
+\item char \+: returns the characters in the buffer
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md500}{}\doxysubsubsection{Example}\label{md_lib_Ethernet_docs_api_autotoc_md500}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#include <SPI.h>        }
+\DoxyCodeLine{\#include <Ethernet.h>}
+\DoxyCodeLine{\#include <EthernetUdp.h>}
+\DoxyCodeLine{}
+\DoxyCodeLine{// Enter a MAC address and IP address for your controller below.}
+\DoxyCodeLine{// The IP address will be dependent on your local network:}
+\DoxyCodeLine{byte mac[] = \{  }
+\DoxyCodeLine{  0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED \};}
+\DoxyCodeLine{IPAddress ip(192, 168, 1, 177);}
+\DoxyCodeLine{}
+\DoxyCodeLine{unsigned int localPort = 8888;      // local port to listen on}
+\DoxyCodeLine{}
+\DoxyCodeLine{// An EthernetUDP instance to let us send and receive packets over UDP}
+\DoxyCodeLine{EthernetUDP Udp;}
+\DoxyCodeLine{}
+\DoxyCodeLine{char packetBuffer[UDP\_TX\_PACKET\_MAX\_SIZE]; //buffer to hold incoming packet,}
+\DoxyCodeLine{}
+\DoxyCodeLine{void setup() \{}
+\DoxyCodeLine{  // start the Ethernet and UDP:}
+\DoxyCodeLine{  Ethernet.begin(mac,ip);}
+\DoxyCodeLine{  Udp.begin(localPort);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{void loop() \{}
+\DoxyCodeLine{}
+\DoxyCodeLine{  int packetSize = Udp.parsePacket();}
+\DoxyCodeLine{  if(packetSize)}
+\DoxyCodeLine{  \{}
+\DoxyCodeLine{    Serial.print("{}Received packet of size "{});}
+\DoxyCodeLine{    Serial.println(packetSize);}
+\DoxyCodeLine{    Serial.print("{}From "{});}
+\DoxyCodeLine{    IPAddress remote = Udp.remoteIP();}
+\DoxyCodeLine{    for (int i =0; i < 4; i++)}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{      Serial.print(remote[i], DEC);}
+\DoxyCodeLine{      if (i < 3)}
+\DoxyCodeLine{      \{}
+\DoxyCodeLine{        Serial.print("{}."{});}
+\DoxyCodeLine{      \}}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    Serial.print("{}, port "{});}
+\DoxyCodeLine{    Serial.println(Udp.remotePort());}
+\DoxyCodeLine{}
+\DoxyCodeLine{    // read the packet into packetBuffer}
+\DoxyCodeLine{    Udp.read(packetBuffer,UDP\_TX\_PACKET\_MAX\_SIZE);}
+\DoxyCodeLine{    Serial.println("{}Contents:"{});}
+\DoxyCodeLine{    Serial.println(packetBuffer);}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md501}{}\doxysubsection{$<$tt$>$\+Ethernet\+UDP.\+write()$<$/tt$>$}\label{md_lib_Ethernet_docs_api_autotoc_md501}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md502}{}\doxysubsubsection{Description}\label{md_lib_Ethernet_docs_api_autotoc_md502}
+Writes UDP data to the remote connection. Must be wrapped between begin\+Packet() and end\+Packet(). begin\+Packet() initializes the packet of data, it is not sent until end\+Packet() is called.\hypertarget{md_lib_Ethernet_docs_api_autotoc_md503}{}\doxysubsubsection{Syntax}\label{md_lib_Ethernet_docs_api_autotoc_md503}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{EthernetUDP.write(message);}
+\DoxyCodeLine{EthernetUDP.write(buffer, size);}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md504}{}\doxysubsubsection{Parameters}\label{md_lib_Ethernet_docs_api_autotoc_md504}
+
+\begin{DoxyItemize}
+\item message\+: the outgoing message (char)
+\item buffer\+: an array to send as a series of bytes (byte or char)
+\item size\+: the length of the buffer
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md505}{}\doxysubsubsection{Returns}\label{md_lib_Ethernet_docs_api_autotoc_md505}
+
+\begin{DoxyItemize}
+\item byte \+: returns the number of characters sent. This does not have to be read
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md506}{}\doxysubsubsection{Example}\label{md_lib_Ethernet_docs_api_autotoc_md506}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#include <SPI.h>        }
+\DoxyCodeLine{}
+\DoxyCodeLine{\#include <Ethernet.h>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#include <EthernetUdp.h>}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{// Enter a MAC address and IP address for your controller below.}
+\DoxyCodeLine{}
+\DoxyCodeLine{// The IP address will be dependent on your local network:}
+\DoxyCodeLine{}
+\DoxyCodeLine{byte mac[] = \{ 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{IPAddress ip(192, 168, 1, 177);}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{unsigned int localPort = 8888;      // local port to listen on}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{// An EthernetUDP instance to let us send and receive packets over UDP}
+\DoxyCodeLine{}
+\DoxyCodeLine{EthernetUDP Udp;}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{void setup() \{}
+\DoxyCodeLine{}
+\DoxyCodeLine{  // start the Ethernet and UDP:}
+\DoxyCodeLine{}
+\DoxyCodeLine{  Ethernet.begin(mac,ip);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  Udp.begin(localPort);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{void loop() \{}
+\DoxyCodeLine{}
+\DoxyCodeLine{  Udp.beginPacket(Udp.remoteIP(), Udp.remotePort());}
+\DoxyCodeLine{}
+\DoxyCodeLine{    Udp.write("{}hello"{});}
+\DoxyCodeLine{}
+\DoxyCodeLine{    Udp.endPacket();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md507}{}\doxysubsection{$<$tt$>$\+Ethernet\+UDP.\+begin\+Packet()$<$/tt$>$}\label{md_lib_Ethernet_docs_api_autotoc_md507}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md508}{}\doxysubsubsection{Description}\label{md_lib_Ethernet_docs_api_autotoc_md508}
+Starts a connection to write UDP data to the remote connection\hypertarget{md_lib_Ethernet_docs_api_autotoc_md509}{}\doxysubsubsection{Syntax}\label{md_lib_Ethernet_docs_api_autotoc_md509}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{EthernetUDP.beginPacket(remoteIP, remotePort);}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md510}{}\doxysubsubsection{Parameters}\label{md_lib_Ethernet_docs_api_autotoc_md510}
+
+\begin{DoxyItemize}
+\item remote\+IP\+: the IP address of the remote connection (4 bytes)
+\item remote\+Port\+: the port of the remote connection (int) 
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md511}{}\doxysubsubsection{Returns}\label{md_lib_Ethernet_docs_api_autotoc_md511}
+
+\begin{DoxyItemize}
+\item Returns an int\+: 1 if successful, 0 if there was a problem resolving the hostname or port.
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md512}{}\doxysubsubsection{Example}\label{md_lib_Ethernet_docs_api_autotoc_md512}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#include <SPI.h>        }
+\DoxyCodeLine{\#include <Ethernet.h>}
+\DoxyCodeLine{\#include <EthernetUdp.h>}
+\DoxyCodeLine{}
+\DoxyCodeLine{// Enter a MAC address and IP address for your controller below.}
+\DoxyCodeLine{// The IP address will be dependent on your local network:}
+\DoxyCodeLine{byte mac[] = \{  }
+\DoxyCodeLine{  0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED \};}
+\DoxyCodeLine{IPAddress ip(192, 168, 1, 177);}
+\DoxyCodeLine{}
+\DoxyCodeLine{unsigned int localPort = 8888;      // local port to listen on}
+\DoxyCodeLine{}
+\DoxyCodeLine{// An EthernetUDP instance to let us send and receive packets over UDP}
+\DoxyCodeLine{EthernetUDP Udp;}
+\DoxyCodeLine{}
+\DoxyCodeLine{void setup() \{}
+\DoxyCodeLine{  // start the Ethernet and UDP:}
+\DoxyCodeLine{  Ethernet.begin(mac,ip);}
+\DoxyCodeLine{  Udp.begin(localPort);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{void loop() \{}
+\DoxyCodeLine{}
+\DoxyCodeLine{  Udp.beginPacket(Udp.remoteIP(), Udp.remotePort());}
+\DoxyCodeLine{    Udp.write("{}hello"{});}
+\DoxyCodeLine{    Udp.endPacket();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md513}{}\doxysubsection{$<$tt$>$\+Ethernet\+UDP.\+end\+Packet()$<$/tt$>$}\label{md_lib_Ethernet_docs_api_autotoc_md513}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md514}{}\doxysubsubsection{Description}\label{md_lib_Ethernet_docs_api_autotoc_md514}
+Called after writing UDP data to the remote connection.\hypertarget{md_lib_Ethernet_docs_api_autotoc_md515}{}\doxysubsubsection{Syntax}\label{md_lib_Ethernet_docs_api_autotoc_md515}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{EthernetUDP.endPacket();}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md516}{}\doxysubsubsection{Parameters}\label{md_lib_Ethernet_docs_api_autotoc_md516}
+None\hypertarget{md_lib_Ethernet_docs_api_autotoc_md517}{}\doxysubsubsection{Returns}\label{md_lib_Ethernet_docs_api_autotoc_md517}
+
+\begin{DoxyItemize}
+\item Returns an int\+: 1 if the packet was sent successfully, 0 if there was an error
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md518}{}\doxysubsubsection{Example}\label{md_lib_Ethernet_docs_api_autotoc_md518}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#include <SPI.h>        }
+\DoxyCodeLine{\#include <Ethernet.h>}
+\DoxyCodeLine{\#include <EthernetUdp.h>}
+\DoxyCodeLine{}
+\DoxyCodeLine{// Enter a MAC address and IP address for your controller below.}
+\DoxyCodeLine{// The IP address will be dependent on your local network:}
+\DoxyCodeLine{byte mac[] = \{  }
+\DoxyCodeLine{  0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED \};}
+\DoxyCodeLine{IPAddress ip(192, 168, 1, 177);}
+\DoxyCodeLine{}
+\DoxyCodeLine{unsigned int localPort = 8888;      // local port to listen on}
+\DoxyCodeLine{}
+\DoxyCodeLine{// An EthernetUDP instance to let us send and receive packets over UDP}
+\DoxyCodeLine{EthernetUDP Udp;}
+\DoxyCodeLine{}
+\DoxyCodeLine{void setup() \{}
+\DoxyCodeLine{  // start the Ethernet and UDP:}
+\DoxyCodeLine{  Ethernet.begin(mac,ip);}
+\DoxyCodeLine{  Udp.begin(localPort);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{void loop() \{}
+\DoxyCodeLine{}
+\DoxyCodeLine{  Udp.beginPacket(Udp.remoteIP(), Udp.remotePort());}
+\DoxyCodeLine{    Udp.write("{}hello"{});}
+\DoxyCodeLine{    Udp.endPacket();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md519}{}\doxysubsection{$<$tt$>$\+Ethernet\+UDP.\+parse\+Packet()$<$/tt$>$}\label{md_lib_Ethernet_docs_api_autotoc_md519}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md520}{}\doxysubsubsection{Description}\label{md_lib_Ethernet_docs_api_autotoc_md520}
+Checks for the presence of a UDP packet, and reports the size. parse\+Packet() must be called before reading the buffer with UDP.\+read().\hypertarget{md_lib_Ethernet_docs_api_autotoc_md521}{}\doxysubsubsection{Syntax}\label{md_lib_Ethernet_docs_api_autotoc_md521}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{EthernetUDP.parsePacket();}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md522}{}\doxysubsubsection{Parameters}\label{md_lib_Ethernet_docs_api_autotoc_md522}
+None\hypertarget{md_lib_Ethernet_docs_api_autotoc_md523}{}\doxysubsubsection{Returns}\label{md_lib_Ethernet_docs_api_autotoc_md523}
+
+\begin{DoxyItemize}
+\item int\+: the size of a received UDP packet
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md524}{}\doxysubsubsection{Example}\label{md_lib_Ethernet_docs_api_autotoc_md524}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#include <SPI.h>         // needed for Arduino versions later than 0018}
+\DoxyCodeLine{\#include <Ethernet.h>}
+\DoxyCodeLine{\#include <EthernetUdp.h>         // UDP library from: bjoern@cs.stanford.edu 12/30/2008}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{// Enter a MAC address and IP address for your controller below.}
+\DoxyCodeLine{// The IP address will be dependent on your local network:}
+\DoxyCodeLine{byte mac[] = \{  }
+\DoxyCodeLine{  0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED \};}
+\DoxyCodeLine{IPAddress ip(192, 168, 1, 177);}
+\DoxyCodeLine{}
+\DoxyCodeLine{unsigned int localPort = 8888;      // local port to listen on}
+\DoxyCodeLine{}
+\DoxyCodeLine{// An EthernetUDP instance to let us send and receive packets over UDP}
+\DoxyCodeLine{EthernetUDP Udp;}
+\DoxyCodeLine{}
+\DoxyCodeLine{void setup() \{}
+\DoxyCodeLine{  // start the Ethernet and UDP:}
+\DoxyCodeLine{  Ethernet.begin(mac,ip);}
+\DoxyCodeLine{  Udp.begin(localPort);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  Serial.begin(9600);}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{void loop() \{}
+\DoxyCodeLine{  // if there's data available, read a packet}
+\DoxyCodeLine{  int packetSize = Udp.parsePacket();}
+\DoxyCodeLine{  if(packetSize)}
+\DoxyCodeLine{  \{}
+\DoxyCodeLine{    Serial.print("{}Received packet of size "{});}
+\DoxyCodeLine{    Serial.println(packetSize);}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{  delay(10);}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md525}{}\doxysubsection{$<$tt$>$\+Ethernet\+UDP.\+available()$<$/tt$>$}\label{md_lib_Ethernet_docs_api_autotoc_md525}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md526}{}\doxysubsubsection{Description}\label{md_lib_Ethernet_docs_api_autotoc_md526}
+Get the number of bytes (characters) available for reading from the buffer. This is data that\textquotesingle{}s already arrived.
+
+This function can only be successfully called after UDP.\+parse\+Packet().
+
+available() inherits from the \mbox{\hyperlink{structStream}{Stream}} utility class.\hypertarget{md_lib_Ethernet_docs_api_autotoc_md527}{}\doxysubsubsection{Syntax}\label{md_lib_Ethernet_docs_api_autotoc_md527}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{EthernetUDP.available()}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md528}{}\doxysubsubsection{Parameters}\label{md_lib_Ethernet_docs_api_autotoc_md528}
+None\hypertarget{md_lib_Ethernet_docs_api_autotoc_md529}{}\doxysubsubsection{Returns}\label{md_lib_Ethernet_docs_api_autotoc_md529}
+
+\begin{DoxyItemize}
+\item the number of bytes available to read
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md530}{}\doxysubsubsection{Example}\label{md_lib_Ethernet_docs_api_autotoc_md530}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#include <SPI.h>        }
+\DoxyCodeLine{\#include <Ethernet.h>}
+\DoxyCodeLine{\#include <EthernetUdp.h>}
+\DoxyCodeLine{}
+\DoxyCodeLine{// Enter a MAC address and IP address for your controller below.}
+\DoxyCodeLine{// The IP address will be dependent on your local network:}
+\DoxyCodeLine{byte mac[] = \{  }
+\DoxyCodeLine{  0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED \};}
+\DoxyCodeLine{IPAddress ip(192, 168, 1, 177);}
+\DoxyCodeLine{}
+\DoxyCodeLine{unsigned int localPort = 8888;      // local port to listen on}
+\DoxyCodeLine{}
+\DoxyCodeLine{// An EthernetUDP instance to let us send and receive packets over UDP}
+\DoxyCodeLine{EthernetUDP Udp;}
+\DoxyCodeLine{}
+\DoxyCodeLine{char packetBuffer[UDP\_TX\_PACKET\_MAX\_SIZE]; //buffer to hold incoming packet,}
+\DoxyCodeLine{}
+\DoxyCodeLine{void setup() \{}
+\DoxyCodeLine{  // start the Ethernet and UDP:}
+\DoxyCodeLine{  Ethernet.begin(mac,ip);}
+\DoxyCodeLine{  Udp.begin(localPort);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{void loop() \{}
+\DoxyCodeLine{}
+\DoxyCodeLine{  int packetSize = Udp.parsePacket();}
+\DoxyCodeLine{  if(Udp.available())}
+\DoxyCodeLine{  \{}
+\DoxyCodeLine{    Serial.print("{}Received packet of size "{});}
+\DoxyCodeLine{    Serial.println(packetSize);}
+\DoxyCodeLine{    Serial.print("{}From "{});}
+\DoxyCodeLine{    IPAddress remote = Udp.remoteIP();}
+\DoxyCodeLine{    for (int i =0; i < 4; i++)}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{      Serial.print(remote[i], DEC);}
+\DoxyCodeLine{      if (i < 3)}
+\DoxyCodeLine{      \{}
+\DoxyCodeLine{        Serial.print("{}."{});}
+\DoxyCodeLine{      \}}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    Serial.print("{}, port "{});}
+\DoxyCodeLine{    Serial.println(Udp.remotePort());}
+\DoxyCodeLine{}
+\DoxyCodeLine{    // read the packet into packetBuffer}
+\DoxyCodeLine{    Udp.read(packetBuffer,UDP\_TX\_PACKET\_MAX\_SIZE);}
+\DoxyCodeLine{    Serial.println("{}Contents:"{});}
+\DoxyCodeLine{    Serial.println(packetBuffer);}
+\DoxyCodeLine{ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md531}{}\doxysection{UDP class}\label{md_lib_Ethernet_docs_api_autotoc_md531}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md532}{}\doxysubsection{$<$tt$>$\+UDP.\+stop()$<$/tt$>$}\label{md_lib_Ethernet_docs_api_autotoc_md532}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md533}{}\doxysubsubsection{Description}\label{md_lib_Ethernet_docs_api_autotoc_md533}
+Disconnect from the server. Release any resource being used during the UDP session.\hypertarget{md_lib_Ethernet_docs_api_autotoc_md534}{}\doxysubsubsection{Syntax}\label{md_lib_Ethernet_docs_api_autotoc_md534}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{UDP.stop()}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md535}{}\doxysubsubsection{Parameters}\label{md_lib_Ethernet_docs_api_autotoc_md535}
+none\hypertarget{md_lib_Ethernet_docs_api_autotoc_md536}{}\doxysubsubsection{Returns}\label{md_lib_Ethernet_docs_api_autotoc_md536}
+none\hypertarget{md_lib_Ethernet_docs_api_autotoc_md537}{}\doxysubsection{$<$tt$>$\+UDP.\+remote\+IP()$<$/tt$>$}\label{md_lib_Ethernet_docs_api_autotoc_md537}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md538}{}\doxysubsubsection{Description}\label{md_lib_Ethernet_docs_api_autotoc_md538}
+Gets the IP address of the remote connection.
+
+This function must be called after UDP.\+parse\+Packet().\hypertarget{md_lib_Ethernet_docs_api_autotoc_md539}{}\doxysubsubsection{Syntax}\label{md_lib_Ethernet_docs_api_autotoc_md539}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{UDP.remoteIP();}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md540}{}\doxysubsubsection{Parameters}\label{md_lib_Ethernet_docs_api_autotoc_md540}
+None\hypertarget{md_lib_Ethernet_docs_api_autotoc_md541}{}\doxysubsubsection{Returns}\label{md_lib_Ethernet_docs_api_autotoc_md541}
+
+\begin{DoxyItemize}
+\item 4 bytes \+: the IP address of the remote connection
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md542}{}\doxysubsubsection{Example}\label{md_lib_Ethernet_docs_api_autotoc_md542}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#include <SPI.h>        }
+\DoxyCodeLine{\#include <Ethernet.h>}
+\DoxyCodeLine{\#include <EthernetUdp.h>}
+\DoxyCodeLine{}
+\DoxyCodeLine{// Enter a MAC address and IP address for your controller below.}
+\DoxyCodeLine{// The IP address will be dependent on your local network:}
+\DoxyCodeLine{byte mac[] = \{  }
+\DoxyCodeLine{  0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED \};}
+\DoxyCodeLine{IPAddress ip(192, 168, 1, 177);}
+\DoxyCodeLine{}
+\DoxyCodeLine{unsigned int localPort = 8888;      // local port to listen on}
+\DoxyCodeLine{}
+\DoxyCodeLine{// An EthernetUDP instance to let us send and receive packets over UDP}
+\DoxyCodeLine{EthernetUDP Udp;}
+\DoxyCodeLine{}
+\DoxyCodeLine{void setup() \{}
+\DoxyCodeLine{  // start the Ethernet and UDP:}
+\DoxyCodeLine{  Ethernet.begin(mac,ip);}
+\DoxyCodeLine{  Udp.begin(localPort);}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{void loop() \{}
+\DoxyCodeLine{}
+\DoxyCodeLine{  int packetSize = Udp.parsePacket();}
+\DoxyCodeLine{  if(packetSize)}
+\DoxyCodeLine{  \{}
+\DoxyCodeLine{    Serial.print("{}Received packet of size "{});}
+\DoxyCodeLine{    Serial.println(packetSize);}
+\DoxyCodeLine{    Serial.print("{}From IP : "{});}
+\DoxyCodeLine{}
+\DoxyCodeLine{    IPAddress remote = Udp.remoteIP();}
+\DoxyCodeLine{    //print out the remote connection's IP address}
+\DoxyCodeLine{    Serial.print(remote);}
+\DoxyCodeLine{}
+\DoxyCodeLine{    Serial.print("{} on port : "{});}
+\DoxyCodeLine{    //print out the remote connection's port}
+\DoxyCodeLine{    Serial.println(Udp.remotePort());}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md543}{}\doxysubsection{$<$tt$>$\+UDP.\+remote\+Port()$<$/tt$>$}\label{md_lib_Ethernet_docs_api_autotoc_md543}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md544}{}\doxysubsubsection{Description}\label{md_lib_Ethernet_docs_api_autotoc_md544}
+Gets the port of the remote UDP connection.
+
+This function must be called after UDP.\+parse\+Packet().\hypertarget{md_lib_Ethernet_docs_api_autotoc_md545}{}\doxysubsubsection{Syntax}\label{md_lib_Ethernet_docs_api_autotoc_md545}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{UDP.remotePort();}
+
+\end{DoxyCode}
+\hypertarget{md_lib_Ethernet_docs_api_autotoc_md546}{}\doxysubsubsection{Parameters}\label{md_lib_Ethernet_docs_api_autotoc_md546}
+None\hypertarget{md_lib_Ethernet_docs_api_autotoc_md547}{}\doxysubsubsection{Returns}\label{md_lib_Ethernet_docs_api_autotoc_md547}
+
+\begin{DoxyItemize}
+\item int \+: the port of the UDP connection to a remote host
+\end{DoxyItemize}\hypertarget{md_lib_Ethernet_docs_api_autotoc_md548}{}\doxysubsubsection{Example}\label{md_lib_Ethernet_docs_api_autotoc_md548}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#include <SPI.h>        }
+\DoxyCodeLine{\#include <Ethernet.h>}
+\DoxyCodeLine{\#include <EthernetUdp.h>}
+\DoxyCodeLine{}
+\DoxyCodeLine{// Enter a MAC address and IP address for your controller below.}
+\DoxyCodeLine{// The IP address will be dependent on your local network:}
+\DoxyCodeLine{byte mac[] = \{  }
+\DoxyCodeLine{  0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED \};}
+\DoxyCodeLine{IPAddress ip(192, 168, 1, 177);}
+\DoxyCodeLine{}
+\DoxyCodeLine{unsigned int localPort = 8888;      // local port to listen on}
+\DoxyCodeLine{}
+\DoxyCodeLine{// An EthernetUDP instance to let us send and receive packets over UDP}
+\DoxyCodeLine{EthernetUDP Udp;}
+\DoxyCodeLine{}
+\DoxyCodeLine{char packetBuffer[UDP\_TX\_PACKET\_MAX\_SIZE]; //buffer to hold incoming packet,}
+\DoxyCodeLine{}
+\DoxyCodeLine{void setup() \{}
+\DoxyCodeLine{  // start the Ethernet and UDP:}
+\DoxyCodeLine{  Ethernet.begin(mac,ip);}
+\DoxyCodeLine{  Udp.begin(localPort);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{void loop() \{}
+\DoxyCodeLine{}
+\DoxyCodeLine{  int packetSize = Udp.parsePacket();}
+\DoxyCodeLine{  if(packetSize)}
+\DoxyCodeLine{  \{}
+\DoxyCodeLine{    Serial.print("{}Received packet of size "{});}
+\DoxyCodeLine{    Serial.println(packetSize);}
+\DoxyCodeLine{    Serial.print("{}From "{});}
+\DoxyCodeLine{    IPAddress remote = Udp.remoteIP();}
+\DoxyCodeLine{    for (int i =0; i < 4; i++)}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{      Serial.print(remote[i], DEC);}
+\DoxyCodeLine{      if (i < 3)}
+\DoxyCodeLine{      \{}
+\DoxyCodeLine{        Serial.print("{}."{});}
+\DoxyCodeLine{      \}}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    Serial.print("{}, port "{});}
+\DoxyCodeLine{    Serial.println(Udp.remotePort());}
+\DoxyCodeLine{}
+\DoxyCodeLine{    // read the packet into packetBuffer}
+\DoxyCodeLine{    Udp.read(packetBuffer,UDP\_TX\_PACKET\_MAX\_SIZE);}
+\DoxyCodeLine{    Serial.println("{}Contents:"{});}
+\DoxyCodeLine{    Serial.println(packetBuffer);}
+\DoxyCodeLine{ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ 

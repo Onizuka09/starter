@@ -1,0 +1,16 @@
+digraph "Graphical Class Hierarchy"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node0 [label="Print",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classPrint.html",tooltip=" "];
+  Node0 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 [label="EthernetServer",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classEthernetServer.html",tooltip=" "];
+  Node0 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="LiquidCrystal",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLiquidCrystal.html",tooltip=" "];
+  Node0 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="LiquidCrystal_I2C",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLiquidCrystal__I2C.html",tooltip=" "];
+  Node284 [label="Server",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node284 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+}

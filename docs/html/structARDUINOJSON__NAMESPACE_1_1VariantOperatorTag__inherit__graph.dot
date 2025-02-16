@@ -1,0 +1,50 @@
+digraph "ARDUINOJSON_NAMESPACE::VariantOperatorTag"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="ARDUINOJSON_NAMESPACE\l::VariantOperatorTag",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="ARDUINOJSON_NAMESPACE\l::VariantOperators\< MemberProxy\l\< TUpstream, TStringRef \> \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structARDUINOJSON__NAMESPACE_1_1VariantOperators.html",tooltip=" "];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="ARDUINOJSON_NAMESPACE\l::MemberProxy\< TUpstream,\l TStringRef \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classARDUINOJSON__NAMESPACE_1_1MemberProxy.html",tooltip=" "];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="ARDUINOJSON_NAMESPACE\l::VariantOperators\< JsonArray\lConst \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structARDUINOJSON__NAMESPACE_1_1VariantOperators.html",tooltip=" "];
+  Node4 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="ARDUINOJSON_NAMESPACE\l::JsonArrayConst",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classARDUINOJSON__NAMESPACE_1_1JsonArrayConst.html",tooltip=" "];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="ARDUINOJSON_NAMESPACE\l::VariantOperators\< JsonVariant \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structARDUINOJSON__NAMESPACE_1_1VariantOperators.html",tooltip=" "];
+  Node6 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="ARDUINOJSON_NAMESPACE\l::JsonVariant",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classARDUINOJSON__NAMESPACE_1_1JsonVariant.html",tooltip=" "];
+  Node1 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="ARDUINOJSON_NAMESPACE\l::VariantOperators\< const\l JsonDocument & \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structARDUINOJSON__NAMESPACE_1_1VariantOperators.html",tooltip=" "];
+  Node8 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="ARDUINOJSON_NAMESPACE\l::JsonDocument",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classARDUINOJSON__NAMESPACE_1_1JsonDocument.html",tooltip=" "];
+  Node9 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="ARDUINOJSON_NAMESPACE\l::BasicJsonDocument\<\l TAllocator \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classARDUINOJSON__NAMESPACE_1_1BasicJsonDocument.html",tooltip=" "];
+  Node9 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 [label="ARDUINOJSON_NAMESPACE\l::StaticJsonDocument\l\< desiredCapacity \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classARDUINOJSON__NAMESPACE_1_1StaticJsonDocument.html",tooltip=" "];
+  Node1 -> Node12 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node12 [label="ARDUINOJSON_NAMESPACE\l::VariantOperators\< JsonVariant\lConst \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structARDUINOJSON__NAMESPACE_1_1VariantOperators.html",tooltip=" "];
+  Node12 -> Node13 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node13 [label="ARDUINOJSON_NAMESPACE\l::JsonVariantConst",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classARDUINOJSON__NAMESPACE_1_1JsonVariantConst.html",tooltip=" "];
+  Node1 -> Node14 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node14 [label="ARDUINOJSON_NAMESPACE\l::VariantOperators\< JsonArray \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structARDUINOJSON__NAMESPACE_1_1VariantOperators.html",tooltip=" "];
+  Node14 -> Node15 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node15 [label="ARDUINOJSON_NAMESPACE\l::JsonArray",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classARDUINOJSON__NAMESPACE_1_1JsonArray.html",tooltip=" "];
+  Node1 -> Node16 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node16 [label="ARDUINOJSON_NAMESPACE\l::VariantOperators\< Element\lProxy\< TUpstream \> \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structARDUINOJSON__NAMESPACE_1_1VariantOperators.html",tooltip=" "];
+  Node16 -> Node17 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node17 [label="ARDUINOJSON_NAMESPACE\l::ElementProxy\< TUpstream \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classARDUINOJSON__NAMESPACE_1_1ElementProxy.html",tooltip=" "];
+  Node1 -> Node18 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node18 [label="ARDUINOJSON_NAMESPACE\l::VariantOperators\< JsonObject \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structARDUINOJSON__NAMESPACE_1_1VariantOperators.html",tooltip=" "];
+  Node18 -> Node19 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node19 [label="ARDUINOJSON_NAMESPACE\l::JsonObject",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classARDUINOJSON__NAMESPACE_1_1JsonObject.html",tooltip=" "];
+  Node1 -> Node20 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node20 [label="ARDUINOJSON_NAMESPACE\l::VariantOperators\< JsonObject\lConst \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structARDUINOJSON__NAMESPACE_1_1VariantOperators.html",tooltip=" "];
+  Node20 -> Node21 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node21 [label="ARDUINOJSON_NAMESPACE\l::JsonObjectConst",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classARDUINOJSON__NAMESPACE_1_1JsonObjectConst.html",tooltip=" "];
+  Node1 -> Node22 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node22 [label="ARDUINOJSON_NAMESPACE\l::VariantOperators\< TVariant \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structARDUINOJSON__NAMESPACE_1_1VariantOperators.html",tooltip=" "];
+}

@@ -1,0 +1,250 @@
+\hypertarget{classNetworkStack}{}\doxysection{Network\+Stack Class Reference}
+\label{classNetworkStack}\index{NetworkStack@{NetworkStack}}
+
+
+Manages network communication, OTA updates, and Wake-\/on-\/\+LAN.  
+
+
+
+
+{\ttfamily \#include $<$network\+\_\+stack.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNetworkStack_a18b008fb4b2bb7cca51e57b54bfefa59}\label{classNetworkStack_a18b008fb4b2bb7cca51e57b54bfefa59}} 
+\mbox{\hyperlink{classNetworkStack_a18b008fb4b2bb7cca51e57b54bfefa59}{Network\+Stack}} ()
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{classNetworkStack}{Network\+Stack}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNetworkStack_a345f8a666ce8d87a24a0e922d6935889}{set\+Server\+Ip}} (IPAddress ip)
+\begin{DoxyCompactList}\small\item\em Sets the server IP address. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNetworkStack_a01448a9d95a52a09145f1b984bb4f618}{set\+Sercer\+Port}} (int port)
+\begin{DoxyCompactList}\small\item\em Sets the server port. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNetworkStack_add72e00c0213b35fcd1fa285d3e7c047}{configure\+Wi\+Fi}} (const char $\ast$ssid, const char $\ast$passwd)
+\begin{DoxyCompactList}\small\item\em Configures Wi-\/\+Fi with SSID and password. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNetworkStack_a8b9365217e929e70a14dec6111b6a599}{configure\+OTA}} (bool Enable)
+\begin{DoxyCompactList}\small\item\em Enables or disables OTA (Over-\/\+The-\/\+Air) updates. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNetworkStack_a20eca4a8bb612a4fa9786a8c212afb47}\label{classNetworkStack_a20eca4a8bb612a4fa9786a8c212afb47}} 
+void \mbox{\hyperlink{classNetworkStack_a20eca4a8bb612a4fa9786a8c212afb47}{Init\+Wifi\+Module}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the Wi-\/\+Fi module. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNetworkStack_ae52472bcc9666d5e7a8bb665b224785e}{Init\+Ethernet\+Module}} (uint8\+\_\+t cs\+\_\+pin)
+\begin{DoxyCompactList}\small\item\em Initializes the Ethernet module with a specific chip select (CS) pin. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNetworkStack_ae8af0a3b8804c8cd535ec40b17eafea4}{enable\+OTA}} (bool state)
+\begin{DoxyCompactList}\small\item\em Enables or disables OTA updates. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classNetworkStack_aeb6d527c10eb26c7eaee9aeb87c14c89}{OTA}} ()
+\begin{DoxyCompactList}\small\item\em Performs an OTA update. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNetworkStack_a563e341f89449702c0dc8b097799f114}{Notify\+Server}} ()
+\begin{DoxyCompactList}\small\item\em Notifies the server that we are connected. \end{DoxyCompactList}\item 
+const String \mbox{\hyperlink{classNetworkStack_ac92c4f5ccf1bac7321b872d8adf27c1d}{Get\+Firmware\+Version}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the firmware version from the server. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNetworkStack_a29746d26343662be7f8619b5f174b4d8}{Wake\+On\+Lan}} (const uint8\+\_\+t Tagrget\+Mac\mbox{[}$\,$\mbox{]}, int repetition)
+\begin{DoxyCompactList}\small\item\em Sends a Wake-\/on-\/\+LAN (WoL) signal to a target device. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNetworkStack_aedc91c1299f7049ce567570614579f08}\label{classNetworkStack_aedc91c1299f7049ce567570614579f08}} 
+void \mbox{\hyperlink{classNetworkStack_aedc91c1299f7049ce567570614579f08}{init\+Task\+Wol}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the Wake-\/on-\/\+LAN task. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNetworkStack_abd7cf95b035dcdb3e93a0891ae2c7ef7}{set\+Wo\+LRepetiton}} (uint8\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em Sets the number of repetitions for Wake-\/on-\/\+LAN. \end{DoxyCompactList}\item 
+IPAddress \mbox{\hyperlink{classNetworkStack_a07010e28b03937b2726939b6f7e52393}{Get\+Server\+IP}} ()
+\begin{DoxyCompactList}\small\item\em Gets the configured server IP address. \end{DoxyCompactList}\item 
+uint8\+\_\+t $\ast$ \mbox{\hyperlink{classNetworkStack_a98f21055c277ee7ed5b7727fda0134ff}{Get\+Macaddr}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the MAC address of the device. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages network communication, OTA updates, and Wake-\/on-\/\+LAN. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classNetworkStack_a8b9365217e929e70a14dec6111b6a599}\label{classNetworkStack_a8b9365217e929e70a14dec6111b6a599}} 
+\index{NetworkStack@{NetworkStack}!configureOTA@{configureOTA}}
+\index{configureOTA@{configureOTA}!NetworkStack@{NetworkStack}}
+\doxysubsubsection{\texorpdfstring{configureOTA()}{configureOTA()}}
+{\footnotesize\ttfamily void Network\+Stack\+::configure\+OTA (\begin{DoxyParamCaption}\item[{bool}]{Enable }\end{DoxyParamCaption})}
+
+
+
+Enables or disables OTA (Over-\/\+The-\/\+Air) updates. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Enable} & If true, OTA updates are enabled. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classNetworkStack_add72e00c0213b35fcd1fa285d3e7c047}\label{classNetworkStack_add72e00c0213b35fcd1fa285d3e7c047}} 
+\index{NetworkStack@{NetworkStack}!configureWiFi@{configureWiFi}}
+\index{configureWiFi@{configureWiFi}!NetworkStack@{NetworkStack}}
+\doxysubsubsection{\texorpdfstring{configureWiFi()}{configureWiFi()}}
+{\footnotesize\ttfamily void Network\+Stack\+::configure\+Wi\+Fi (\begin{DoxyParamCaption}\item[{const char $\ast$}]{ssid = {\ttfamily \char`\"{}\char`\"{}},  }\item[{const char $\ast$}]{passwd = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})}
+
+
+
+Configures Wi-\/\+Fi with SSID and password. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ssid} & The SSID of the Wi-\/\+Fi network. \\
+\hline
+{\em passwd} & The password for the Wi-\/\+Fi network. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classNetworkStack_ae8af0a3b8804c8cd535ec40b17eafea4}\label{classNetworkStack_ae8af0a3b8804c8cd535ec40b17eafea4}} 
+\index{NetworkStack@{NetworkStack}!enableOTA@{enableOTA}}
+\index{enableOTA@{enableOTA}!NetworkStack@{NetworkStack}}
+\doxysubsubsection{\texorpdfstring{enableOTA()}{enableOTA()}}
+{\footnotesize\ttfamily void Network\+Stack\+::enable\+OTA (\begin{DoxyParamCaption}\item[{bool}]{state }\end{DoxyParamCaption})}
+
+
+
+Enables or disables OTA updates. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & If true, OTA updates are enabled. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classNetworkStack_ac92c4f5ccf1bac7321b872d8adf27c1d}\label{classNetworkStack_ac92c4f5ccf1bac7321b872d8adf27c1d}} 
+\index{NetworkStack@{NetworkStack}!GetFirmwareVersion@{GetFirmwareVersion}}
+\index{GetFirmwareVersion@{GetFirmwareVersion}!NetworkStack@{NetworkStack}}
+\doxysubsubsection{\texorpdfstring{GetFirmwareVersion()}{GetFirmwareVersion()}}
+{\footnotesize\ttfamily const String Network\+Stack\+::\+Get\+Firmware\+Version (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the firmware version from the server. 
+
+\begin{DoxyReturn}{Returns}
+The firmware version as a string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetworkStack_a98f21055c277ee7ed5b7727fda0134ff}\label{classNetworkStack_a98f21055c277ee7ed5b7727fda0134ff}} 
+\index{NetworkStack@{NetworkStack}!GetMacaddr@{GetMacaddr}}
+\index{GetMacaddr@{GetMacaddr}!NetworkStack@{NetworkStack}}
+\doxysubsubsection{\texorpdfstring{GetMacaddr()}{GetMacaddr()}}
+{\footnotesize\ttfamily uint8\+\_\+t $\ast$ Network\+Stack\+::\+Get\+Macaddr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the MAC address of the device. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to the MAC address array. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetworkStack_a07010e28b03937b2726939b6f7e52393}\label{classNetworkStack_a07010e28b03937b2726939b6f7e52393}} 
+\index{NetworkStack@{NetworkStack}!GetServerIP@{GetServerIP}}
+\index{GetServerIP@{GetServerIP}!NetworkStack@{NetworkStack}}
+\doxysubsubsection{\texorpdfstring{GetServerIP()}{GetServerIP()}}
+{\footnotesize\ttfamily IPAddress Network\+Stack\+::\+Get\+Server\+IP (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the configured server IP address. 
+
+\begin{DoxyReturn}{Returns}
+The server IP address. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetworkStack_ae52472bcc9666d5e7a8bb665b224785e}\label{classNetworkStack_ae52472bcc9666d5e7a8bb665b224785e}} 
+\index{NetworkStack@{NetworkStack}!InitEthernetModule@{InitEthernetModule}}
+\index{InitEthernetModule@{InitEthernetModule}!NetworkStack@{NetworkStack}}
+\doxysubsubsection{\texorpdfstring{InitEthernetModule()}{InitEthernetModule()}}
+{\footnotesize\ttfamily void Network\+Stack\+::\+Init\+Ethernet\+Module (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{cs\+\_\+pin }\end{DoxyParamCaption})}
+
+
+
+Initializes the Ethernet module with a specific chip select (CS) pin. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cs\+\_\+pin} & The chip select pin for the Ethernet module. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classNetworkStack_a563e341f89449702c0dc8b097799f114}\label{classNetworkStack_a563e341f89449702c0dc8b097799f114}} 
+\index{NetworkStack@{NetworkStack}!NotifyServer@{NotifyServer}}
+\index{NotifyServer@{NotifyServer}!NetworkStack@{NetworkStack}}
+\doxysubsubsection{\texorpdfstring{NotifyServer()}{NotifyServer()}}
+{\footnotesize\ttfamily void Network\+Stack\+::\+Notify\+Server (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Notifies the server that we are connected. 
+
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000001}{Todo}}]to be implemented \end{DoxyRefDesc}
+\mbox{\Hypertarget{classNetworkStack_aeb6d527c10eb26c7eaee9aeb87c14c89}\label{classNetworkStack_aeb6d527c10eb26c7eaee9aeb87c14c89}} 
+\index{NetworkStack@{NetworkStack}!OTA@{OTA}}
+\index{OTA@{OTA}!NetworkStack@{NetworkStack}}
+\doxysubsubsection{\texorpdfstring{OTA()}{OTA()}}
+{\footnotesize\ttfamily bool Network\+Stack\+::\+OTA (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Performs an OTA update. 
+
+\begin{DoxyReturn}{Returns}
+True if the update was successful, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetworkStack_a01448a9d95a52a09145f1b984bb4f618}\label{classNetworkStack_a01448a9d95a52a09145f1b984bb4f618}} 
+\index{NetworkStack@{NetworkStack}!setSercerPort@{setSercerPort}}
+\index{setSercerPort@{setSercerPort}!NetworkStack@{NetworkStack}}
+\doxysubsubsection{\texorpdfstring{setSercerPort()}{setSercerPort()}}
+{\footnotesize\ttfamily void Network\+Stack\+::set\+Sercer\+Port (\begin{DoxyParamCaption}\item[{int}]{port }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the server port. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The port number of the server. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classNetworkStack_a345f8a666ce8d87a24a0e922d6935889}\label{classNetworkStack_a345f8a666ce8d87a24a0e922d6935889}} 
+\index{NetworkStack@{NetworkStack}!setServerIp@{setServerIp}}
+\index{setServerIp@{setServerIp}!NetworkStack@{NetworkStack}}
+\doxysubsubsection{\texorpdfstring{setServerIp()}{setServerIp()}}
+{\footnotesize\ttfamily void Network\+Stack\+::set\+Server\+Ip (\begin{DoxyParamCaption}\item[{IPAddress}]{ip }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the server IP address. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ip} & The IP address of the server. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classNetworkStack_abd7cf95b035dcdb3e93a0891ae2c7ef7}\label{classNetworkStack_abd7cf95b035dcdb3e93a0891ae2c7ef7}} 
+\index{NetworkStack@{NetworkStack}!setWoLRepetiton@{setWoLRepetiton}}
+\index{setWoLRepetiton@{setWoLRepetiton}!NetworkStack@{NetworkStack}}
+\doxysubsubsection{\texorpdfstring{setWoLRepetiton()}{setWoLRepetiton()}}
+{\footnotesize\ttfamily void Network\+Stack\+::set\+Wo\+LRepetiton (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the number of repetitions for Wake-\/on-\/\+LAN. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & Number of repetitions. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classNetworkStack_a29746d26343662be7f8619b5f174b4d8}\label{classNetworkStack_a29746d26343662be7f8619b5f174b4d8}} 
+\index{NetworkStack@{NetworkStack}!WakeOnLan@{WakeOnLan}}
+\index{WakeOnLan@{WakeOnLan}!NetworkStack@{NetworkStack}}
+\doxysubsubsection{\texorpdfstring{WakeOnLan()}{WakeOnLan()}}
+{\footnotesize\ttfamily void Network\+Stack\+::\+Wake\+On\+Lan (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{Tagrget\+Mac\mbox{[}$\,$\mbox{]},  }\item[{int}]{repetition = {\ttfamily 6} }\end{DoxyParamCaption})}
+
+
+
+Sends a Wake-\/on-\/\+LAN (WoL) signal to a target device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Tagrget\+Mac} & The MAC address of the target device. \\
+\hline
+{\em repetition} & The number of times to send the WoL packet. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{network__stack_8h}{network\+\_\+stack.\+h}}\item 
+src/network\+\_\+stack.\+cpp\item 
+src/Wo\+L\+\_\+\+Task.\+cpp\end{DoxyCompactItemize}

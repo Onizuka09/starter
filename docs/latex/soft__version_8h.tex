@@ -1,0 +1,93 @@
+\hypertarget{soft__version_8h}{}\doxysection{include/soft\+\_\+version.h File Reference}
+\label{soft__version_8h}\index{include/soft\_version.h@{include/soft\_version.h}}
+
+
+This file defines the software versioning and product information for the firmware.  
+
+
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=215pt]{soft__version_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{soft__version_8h_a2fd81ded1b6a151f629441182c358d5b}{PRODUCT\+\_\+\+NAME}}~\char`\"{}Starter\char`\"{}
+\begin{DoxyCompactList}\small\item\em The name of the product. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{soft__version_8h_a6df1d22fb5f09eccc23b9f399670cfd7}{STRINGIFY}}(x)~\#x
+\begin{DoxyCompactList}\small\item\em A macro to convert a value to a string. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{soft__version_8h_a9063e80f8777300c93afde6e6f4c9cea}{TOSTRING}}(x)~\mbox{\hyperlink{soft__version_8h_a6df1d22fb5f09eccc23b9f399670cfd7}{STRINGIFY}}(x)
+\begin{DoxyCompactList}\small\item\em A helper macro that uses STRINGIFY to convert a value into a string. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{soft__version_8h_aa14dc39d52ab121ceb570f1a265385e0}{FIRMWARE\+\_\+\+VERSION}}~\mbox{\hyperlink{soft__version_8h_a9063e80f8777300c93afde6e6f4c9cea}{TOSTRING}}(VERSION)
+\begin{DoxyCompactList}\small\item\em The firmware version string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file defines the software versioning and product information for the firmware. 
+
+It includes macros for the product name, firmware version, and utilities for stringifying the version number. \begin{DoxyAuthor}{Author}
+Moktar SELLAMI 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2025-\/02-\/16 
+\end{DoxyDate}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{soft__version_8h_aa14dc39d52ab121ceb570f1a265385e0}\label{soft__version_8h_aa14dc39d52ab121ceb570f1a265385e0}} 
+\index{soft\_version.h@{soft\_version.h}!FIRMWARE\_VERSION@{FIRMWARE\_VERSION}}
+\index{FIRMWARE\_VERSION@{FIRMWARE\_VERSION}!soft\_version.h@{soft\_version.h}}
+\doxysubsubsection{\texorpdfstring{FIRMWARE\_VERSION}{FIRMWARE\_VERSION}}
+{\footnotesize\ttfamily \#define FIRMWARE\+\_\+\+VERSION~\mbox{\hyperlink{soft__version_8h_a9063e80f8777300c93afde6e6f4c9cea}{TOSTRING}}(VERSION)}
+
+
+
+The firmware version string. 
+
+The VERSION is compiler flag, Must be updated by the User. This macro expands to the stringified version of the firmware version number. \mbox{\Hypertarget{soft__version_8h_a2fd81ded1b6a151f629441182c358d5b}\label{soft__version_8h_a2fd81ded1b6a151f629441182c358d5b}} 
+\index{soft\_version.h@{soft\_version.h}!PRODUCT\_NAME@{PRODUCT\_NAME}}
+\index{PRODUCT\_NAME@{PRODUCT\_NAME}!soft\_version.h@{soft\_version.h}}
+\doxysubsubsection{\texorpdfstring{PRODUCT\_NAME}{PRODUCT\_NAME}}
+{\footnotesize\ttfamily \#define PRODUCT\+\_\+\+NAME~\char`\"{}Starter\char`\"{}}
+
+
+
+The name of the product. 
+
+This macro defines the product name used throughout the firmware. \mbox{\Hypertarget{soft__version_8h_a6df1d22fb5f09eccc23b9f399670cfd7}\label{soft__version_8h_a6df1d22fb5f09eccc23b9f399670cfd7}} 
+\index{soft\_version.h@{soft\_version.h}!STRINGIFY@{STRINGIFY}}
+\index{STRINGIFY@{STRINGIFY}!soft\_version.h@{soft\_version.h}}
+\doxysubsubsection{\texorpdfstring{STRINGIFY}{STRINGIFY}}
+{\footnotesize\ttfamily \#define STRINGIFY(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~\#x}
+
+
+
+A macro to convert a value to a string. 
+
+This macro is used for converting the value passed to it into a string literal.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The value to be stringified. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{soft__version_8h_a9063e80f8777300c93afde6e6f4c9cea}\label{soft__version_8h_a9063e80f8777300c93afde6e6f4c9cea}} 
+\index{soft\_version.h@{soft\_version.h}!TOSTRING@{TOSTRING}}
+\index{TOSTRING@{TOSTRING}!soft\_version.h@{soft\_version.h}}
+\doxysubsubsection{\texorpdfstring{TOSTRING}{TOSTRING}}
+{\footnotesize\ttfamily \#define TOSTRING(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~\mbox{\hyperlink{soft__version_8h_a6df1d22fb5f09eccc23b9f399670cfd7}{STRINGIFY}}(x)}
+
+
+
+A helper macro that uses STRINGIFY to convert a value into a string. 
+
+This macro simplifies the process of stringifying a value.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The value to be stringified. \\
+\hline
+\end{DoxyParams}

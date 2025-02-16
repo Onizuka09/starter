@@ -1,0 +1,80 @@
+\hypertarget{mystorage_8h}{}\doxysection{include/mystorage.h File Reference}
+\label{mystorage_8h}\index{include/mystorage.h@{include/mystorage.h}}
+
+
+Storage module for handling file operations using Little\+FS.  
+
+
+{\ttfamily \#include $<$Little\+FS.\+h$>$}\newline
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+{\ttfamily \#include $<$FS.\+h$>$}\newline
+Include dependency graph for mystorage.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=279pt]{mystorage_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{mystorage_8h_a8841578fe91cace6206676f0e751cab5}{list\+Dir}} (fs\+::\+FS \&fs, const char $\ast$dirname, uint8\+\_\+t levels)
+\begin{DoxyCompactList}\small\item\em Lists the contents of a directory. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{mystorage_8h_a6f492782c7086d25c30c6c526781f01f}{Dump\+\_\+file}} (fs\+::\+FS \&fs, const char $\ast$path)
+\begin{DoxyCompactList}\small\item\em Dumps the contents of a file to the serial output. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Storage module for handling file operations using Little\+FS. 
+
+This module provides functions to interact with the file system, including listing directories, dumping file contents, and basic file operations.
+
+\begin{DoxyAuthor}{Author}
+Moktar SELLAMI 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2025-\/02-\/16 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{mystorage_8h_a6f492782c7086d25c30c6c526781f01f}\label{mystorage_8h_a6f492782c7086d25c30c6c526781f01f}} 
+\index{mystorage.h@{mystorage.h}!Dump\_file@{Dump\_file}}
+\index{Dump\_file@{Dump\_file}!mystorage.h@{mystorage.h}}
+\doxysubsubsection{\texorpdfstring{Dump\_file()}{Dump\_file()}}
+{\footnotesize\ttfamily void Dump\+\_\+file (\begin{DoxyParamCaption}\item[{fs\+::\+FS \&}]{fs,  }\item[{const char $\ast$}]{path }\end{DoxyParamCaption})}
+
+
+
+Dumps the contents of a file to the serial output. 
+
+This function reads the specified file and prints its content for debugging purposes.
+
+
+\begin{DoxyParams}{Parameters}
+{\em fs} & The file system instance (e.\+g., Little\+FS). \\
+\hline
+{\em path} & The file path to dump. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{mystorage_8h_a8841578fe91cace6206676f0e751cab5}\label{mystorage_8h_a8841578fe91cace6206676f0e751cab5}} 
+\index{mystorage.h@{mystorage.h}!listDir@{listDir}}
+\index{listDir@{listDir}!mystorage.h@{mystorage.h}}
+\doxysubsubsection{\texorpdfstring{listDir()}{listDir()}}
+{\footnotesize\ttfamily void list\+Dir (\begin{DoxyParamCaption}\item[{fs\+::\+FS \&}]{fs,  }\item[{const char $\ast$}]{dirname,  }\item[{uint8\+\_\+t}]{levels }\end{DoxyParamCaption})}
+
+
+
+Lists the contents of a directory. 
+
+This function prints the files and directories present in the specified directory.
+
+
+\begin{DoxyParams}{Parameters}
+{\em fs} & The file system instance (e.\+g., Little\+FS). \\
+\hline
+{\em dirname} & The path of the directory to list. \\
+\hline
+{\em levels} & The depth level for recursive listing. \\
+\hline
+\end{DoxyParams}

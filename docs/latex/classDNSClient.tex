@@ -1,0 +1,78 @@
+\hypertarget{classDNSClient}{}\doxysection{DNSClient Class Reference}
+\label{classDNSClient}\index{DNSClient@{DNSClient}}
+
+
+Collaboration diagram for DNSClient\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDNSClient_aac123ed1182719dd850b3a05deafcaf0}\label{classDNSClient_aac123ed1182719dd850b3a05deafcaf0}} 
+void {\bfseries begin} (const IPAddress \&a\+DNSServer)
+\item 
+int \mbox{\hyperlink{classDNSClient_acb77b0143a72500dcc6ec5523bceb734}{inet\+\_\+aton}} (const char $\ast$a\+IPAddr\+String, IPAddress \&a\+Result)
+\item 
+int \mbox{\hyperlink{classDNSClient_af20adcb96951de0c65ac0f9b42c6d4cc}{get\+Host\+By\+Name}} (const char $\ast$a\+Hostname, IPAddress \&a\+Result, uint16\+\_\+t timeout=5000)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDNSClient_aa48bcfd274245e3d456b7ad0d8170463}\label{classDNSClient_aa48bcfd274245e3d456b7ad0d8170463}} 
+uint16\+\_\+t {\bfseries Build\+Request} (const char $\ast$a\+Name)
+\item 
+\mbox{\Hypertarget{classDNSClient_a1a03da561244297f59ae89e65ba1e0ef}\label{classDNSClient_a1a03da561244297f59ae89e65ba1e0ef}} 
+uint16\+\_\+t {\bfseries Process\+Response} (uint16\+\_\+t a\+Timeout, IPAddress \&a\+Address)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDNSClient_ae1c134ae6c67ff2fc2e0c11e3ba1121a}\label{classDNSClient_ae1c134ae6c67ff2fc2e0c11e3ba1121a}} 
+IPAddress {\bfseries i\+DNSServer}
+\item 
+\mbox{\Hypertarget{classDNSClient_a20b50f5a6a4101f8b2d388a75146763d}\label{classDNSClient_a20b50f5a6a4101f8b2d388a75146763d}} 
+uint16\+\_\+t {\bfseries i\+Request\+Id}
+\item 
+\mbox{\Hypertarget{classDNSClient_a0f66ce3af99bd8c01b965f3945597c9a}\label{classDNSClient_a0f66ce3af99bd8c01b965f3945597c9a}} 
+\mbox{\hyperlink{classEthernetUDP}{Ethernet\+UDP}} {\bfseries i\+Udp}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDNSClient_af20adcb96951de0c65ac0f9b42c6d4cc}\label{classDNSClient_af20adcb96951de0c65ac0f9b42c6d4cc}} 
+\index{DNSClient@{DNSClient}!getHostByName@{getHostByName}}
+\index{getHostByName@{getHostByName}!DNSClient@{DNSClient}}
+\doxysubsubsection{\texorpdfstring{getHostByName()}{getHostByName()}}
+{\footnotesize\ttfamily int DNSClient\+::get\+Host\+By\+Name (\begin{DoxyParamCaption}\item[{const char $\ast$}]{a\+Hostname,  }\item[{IPAddress \&}]{a\+Result,  }\item[{uint16\+\_\+t}]{timeout = {\ttfamily 5000} }\end{DoxyParamCaption})}
+
+Resolve the given hostname to an IP address. 
+\begin{DoxyParams}{Parameters}
+{\em a\+Hostname} & Name to be resolved \\
+\hline
+{\em a\+Result} & IPAddress structure to store the returned IP address \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if a\+IPAddr\+String was successfully converted to an IP address, else error code 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDNSClient_acb77b0143a72500dcc6ec5523bceb734}\label{classDNSClient_acb77b0143a72500dcc6ec5523bceb734}} 
+\index{DNSClient@{DNSClient}!inet\_aton@{inet\_aton}}
+\index{inet\_aton@{inet\_aton}!DNSClient@{DNSClient}}
+\doxysubsubsection{\texorpdfstring{inet\_aton()}{inet\_aton()}}
+{\footnotesize\ttfamily int DNSClient\+::inet\+\_\+aton (\begin{DoxyParamCaption}\item[{const char $\ast$}]{a\+IPAddr\+String,  }\item[{IPAddress \&}]{a\+Result }\end{DoxyParamCaption})}
+
+Convert a numeric IP address string into a four-\/byte IP address. 
+\begin{DoxyParams}{Parameters}
+{\em a\+IPAddr\+String} & IP address to convert \\
+\hline
+{\em a\+Result} & IPAddress structure to store the returned IP address \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if a\+IPAddr\+String was successfully converted to an IP address, else error code 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+Ethernet/src/Dns.\+h\item 
+lib/\+Ethernet/src/Dns.\+cpp\end{DoxyCompactItemize}

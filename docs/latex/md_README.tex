@@ -1,0 +1,159 @@
+\hypertarget{md_README_autotoc_md1}{}\doxysection{Description\+:}\label{md_README_autotoc_md1}
+{\bfseries{starter}}\+: is a smart automation system designed for publicity stations.
+
+The system ensures seamless startup of a marketing stand by automating the following processes\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{TV Control}} via IR\+: Automatically powers on the TV to begin displaying content without user intervention (Remote control).
+\item {\bfseries{PC Wake-\/\+Up}} via Ethernet (Wake-\/on-\/\+LAN)\+: Wakes the connected PC to run the publicity application as soon as power is restored.
+\item {\bfseries{Over the Air updates}}\+: supports OTA via ( Ethernet and Wi\+Fi) with the abilty to rollback the update fails.
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md_README_autotoc_md3}{}\doxysection{Availalable Verisions\+:}\label{md_README_autotoc_md3}
+{\ttfamily version\+\_\+1}\+: first version conatins basic fucntionalities (Wol and IR control)
+
+{\ttfamily version\+\_\+1.\+1.\+0}\+: we redesigned the IR interface to be universal (supports NEC, SAMSUNG, LG, Pulse\+Distance Protocoles)
+
+{\ttfamily version\+\_\+1.\+1.\+1}\+: we intergrate OTA functionalties and redsign of the other modules. we also supports rollback if the updated firmware is corrupted. ~\newline
+
+
+\DoxyHorRuler{0}
+\hypertarget{md_README_autotoc_md5}{}\doxysection{Architecture \& design}\label{md_README_autotoc_md5}
+\DoxyHorRuler{0}
+\hypertarget{md_README_autotoc_md7}{}\doxysection{Materials list\+:}\label{md_README_autotoc_md7}
+
+\begin{DoxyItemize}
+\item ESP32 dev module
+\item RTC module\+: DS1302
+\item SPI Ethernet module\+: W5500
+\item RGB LED
+\item Button ~\newline
+
+\item IR reciever and emitter
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md_README_autotoc_md9}{}\doxysection{Project structure}\label{md_README_autotoc_md9}
+{\bfseries{-\/ Include Folder}}\+:
+\begin{DoxyItemize}
+\item conf.\+h \+: contains build flags that are use at compile time to enable \& dispable certain modules ~\newline
+
+\item Hadrware.\+h\+: contains Pins defetions ~\newline
+
+\item Button\+Module.\+h \+: provides APIs to control button ~\newline
+
+\item IR\+\_\+\+Module.\+h \+: provides APis to control IR send and Receive ~\newline
+
+\item Mylog.\+h\+: interface for intituitive logging functionalities ~\newline
+
+\item mystorage.\+h\+: provides APIs to controll Little FS ( strorage system) ~\newline
+
+\item network\+\_\+stack.\+h \+: provides APIs for network functionalities. ~\newline
+
+\item RGBModule.\+h \+: provides APIs functionalities to control RGB~\newline
+
+\item RTC\+\_\+module.\+h\+: provides APIs functionalities to control RTC ~\newline
+
+\item soft\+\_\+version.\+h \+: macro that contains the firmware version~\newline
+
+\end{DoxyItemize}
+
+{\bfseries{-\/ Src Folder}}\+:
+
+
+\begin{DoxyItemize}
+\item this folder contains the main Fimware \+:{\ttfamily main.\+cpp} ~\newline
+
+\item It also conatains the implemntation of the Other modules. ~\newline
+
+\item The Wo\+L\+\_\+\+Task is the implementation of the Wake On Lan task. ~\newline
+
+\end{DoxyItemize}
+
+{\bfseries{-\/ Test Folder}}\+:
+
+
+\begin{DoxyItemize}
+\item Contains the testing firmwares for modules
+\end{DoxyItemize}
+
+{\bfseries{-\/ data Folder}}\+:
+
+
+\begin{DoxyItemize}
+\item Contains json settings file that will be uploaded to the ESP32 board.
+\end{DoxyItemize}
+
+{\bfseries{-\/ Makefile}}\+:
+
+
+\begin{DoxyItemize}
+\item contains rules to automate the process of building and flashing the project.
+\end{DoxyItemize}
+
+{\bfseries{-\/ Scripts}}\+:
+
+A folder that cotains python scripts that platformio uses it,
+
+we have a script to that instructs pio at build time to append the {\ttfamily version} at the end of the build output\+: {\ttfamily firmware\+\_\+1.\+1.\+0.\+bin}\hypertarget{md_README_autotoc_md10}{}\doxysubsection{Lib depends}\label{md_README_autotoc_md10}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{|-\/-\/ RTC @ 2.4.2}
+\DoxyCodeLine{|-\/-\/ ArduinoJson @ 6.20.1}
+\DoxyCodeLine{|-\/-\/ IRremote @ 4.4.1}
+\DoxyCodeLine{|-\/-\/ Ethernet @ 2.0.2}
+\DoxyCodeLine{|-\/-\/ SPI @ 2.0.0}
+\DoxyCodeLine{|-\/-\/ HTTPClient @ 2.0.0}
+\DoxyCodeLine{|-\/-\/ LittleFS @ 2.0.0}
+\DoxyCodeLine{|-\/-\/ Update @ 2.0.0}
+\DoxyCodeLine{|-\/-\/ FS @ 2.0.0}
+
+\end{DoxyCode}
+
+
+\DoxyHorRuler{0}
+\hypertarget{md_README_autotoc_md12}{}\doxysection{Usage}\label{md_README_autotoc_md12}
+
+\begin{DoxyItemize}
+\item clone the repo
+\item install the dependencies
+\item build the project
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md_README_autotoc_md14}{}\doxysection{Contribution rules\+:}\label{md_README_autotoc_md14}
+To add a new feature you must follow these steps\+:
+
+create a new branch withe the feature name ~\newline
+ if the feature is new module implementation\+: ( new sensor)\+:
+\begin{DoxyItemize}
+\item you must follow this structure 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{include:}
+\DoxyCodeLine{-\/-\/-\/-\/-\/ module\_name.h }
+\DoxyCodeLine{src: }
+\DoxyCodeLine{-\/-\/-\/-\/-\/ module\_name.cpp }
+
+\end{DoxyCode}
+
+\end{DoxyItemize}
+
+\begin{quote}
+{\bfseries{Note For testing}} \end{quote}
+To test the module or the feature
+
+create a new file in the src file called {\ttfamily test\+\_\+module\+\_\+name.\+cpp} in platformio.\+ini ~\newline
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{build\_src\_filter= +<test\_module\_name.cpp.cpp>   }
+
+\end{DoxyCode}
+ after testing you can move the test file in the test folder in comment out the build src flag in the platformio.\+ini then you can merge.
+
+\begin{quote}
+{\bfseries{Note For commits}} \end{quote}
+please make your commits informative, that explains the changes that ypou have made. 

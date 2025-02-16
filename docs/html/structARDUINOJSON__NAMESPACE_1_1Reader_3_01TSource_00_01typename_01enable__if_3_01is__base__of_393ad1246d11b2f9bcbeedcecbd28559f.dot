@@ -1,0 +1,9 @@
+digraph "ARDUINOJSON_NAMESPACE::Reader&lt; TSource, typename enable_if&lt; is_base_of&lt; ::String, TSource &gt;::value &gt;::type &gt;"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="ARDUINOJSON_NAMESPACE\l::Reader\< TSource, typename\l enable_if\< is_base_of\< \l::String, TSource \>::value\l \>::type \>",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="ARDUINOJSON_NAMESPACE\l::BoundedReader\< const\l char * \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structARDUINOJSON__NAMESPACE_1_1BoundedReader.html",tooltip=" "];
+}

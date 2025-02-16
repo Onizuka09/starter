@@ -1,0 +1,16 @@
+<map id="ARDUINOJSON_NAMESPACE::VariantAttorney" name="ARDUINOJSON_NAMESPACE::VariantAttorney">
+<area shape="rect" id="node1" title=" " alt="" coords="5,397,208,439"/>
+<area shape="rect" id="node2" href="$structARDUINOJSON__NAMESPACE_1_1Converter_3_01JsonArray_01_4.html" title=" " alt="" coords="272,5,475,47"/>
+<area shape="rect" id="node3" href="$structARDUINOJSON__NAMESPACE_1_1Converter_3_01JsonArrayConst_01_4.html" title=" " alt="" coords="262,71,485,112"/>
+<area shape="rect" id="node4" href="$structARDUINOJSON__NAMESPACE_1_1Converter_3_01JsonObject_01_4.html" title=" " alt="" coords="272,136,475,177"/>
+<area shape="rect" id="node5" href="$structARDUINOJSON__NAMESPACE_1_1Converter_3_01JsonObjectConst_01_4.html" title=" " alt="" coords="258,201,489,243"/>
+<area shape="rect" id="node6" href="$structARDUINOJSON__NAMESPACE_1_1Converter_3_01JsonString_01_4.html" title=" " alt="" coords="272,267,475,308"/>
+<area shape="rect" id="node7" href="$structARDUINOJSON__NAMESPACE_1_1Converter_3_01JsonVariant_01_4.html" title=" " alt="" coords="272,332,475,373"/>
+<area shape="rect" id="node8" href="$structARDUINOJSON__NAMESPACE_1_1Converter_3_01JsonVariantConst_01_4.html" title=" " alt="" coords="256,397,491,439"/>
+<area shape="rect" id="node9" href="$structARDUINOJSON__NAMESPACE_1_1Converter_3_01SerializedValue_3_01T_01_4_00_01typename_01enable_8c165934429b8c1227ea939521dfb21d.html" title=" " alt="" coords="269,463,478,549"/>
+<area shape="rect" id="node10" href="$structARDUINOJSON__NAMESPACE_1_1Converter_3_01T_00_01typename_01enable__if_3_01is__enum_3_01T_01_4_1_1value_01_4_1_1type_01_4.html" title=" " alt="" coords="272,573,475,644"/>
+<area shape="rect" id="node11" href="$structARDUINOJSON__NAMESPACE_1_1Converter_3_01T_00_01typename_01enable__if_3_01is__floating__poi863942a1f00d179d50c7e77ff5c8f3e4.html" title=" " alt="" coords="268,668,479,739"/>
+<area shape="rect" id="node12" href="$structARDUINOJSON__NAMESPACE_1_1Converter_3_01T_00_01typename_01enable__if_3_01is__integral_3_01552366e8a75bd4cdd65a09318e10e6fd.html" title=" " alt="" coords="267,763,479,863"/>
+<area shape="rect" id="node13" href="$structARDUINOJSON__NAMESPACE_1_1Converter_3_01bool_01_4.html" title=" " alt="" coords="272,887,475,928"/>
+<area shape="rect" id="node14" href="$structARDUINOJSON__NAMESPACE_1_1Converter_3_01const_01char_01_5_01_4.html" title=" " alt="" coords="272,952,475,993"/>
+</map>

@@ -1,0 +1,295 @@
+\hypertarget{group__Sending}{}\doxysection{Sending IR data for multiple protocols}
+\label{group__Sending}\index{Sending IR data for multiple protocols@{Sending IR data for multiple protocols}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__Sending_ga89441d6de01ddea7e79305281dbbfdbd}\label{group__Sending_ga89441d6de01ddea7e79305281dbbfdbd}} 
+{\bfseries IRsend\+::\+IRsend} (uint\+\_\+fast8\+\_\+t a\+Send\+Pin)
+\item 
+void \mbox{\hyperlink{group__Sending_ga170701fb079d24717aded137dee808e7}{IRsend\+::begin}} (uint\+\_\+fast8\+\_\+t a\+Send\+Pin)
+\item 
+\mbox{\Hypertarget{group__Sending_ga218982c1abdb34314e6d8f4b07086db7}\label{group__Sending_ga218982c1abdb34314e6d8f4b07086db7}} 
+void {\bfseries IRsend\+::set\+Send\+Pin} (uint\+\_\+fast8\+\_\+t a\+Send\+Pin)
+\item 
+void \mbox{\hyperlink{group__Sending_gac7abd96c6c4adb907dcc3adec54ebe77}{IRsend\+::begin}} (uint\+\_\+fast8\+\_\+t a\+Send\+Pin, bool a\+Enable\+LEDFeedback, uint\+\_\+fast8\+\_\+t a\+Feedback\+LEDPin)
+\item 
+size\+\_\+t \mbox{\hyperlink{group__Sending_ga7954d4b7ff55e43b69fbf6e483f422b2}{IRsend\+::write}} (\mbox{\hyperlink{structIRData}{IRData}} $\ast$a\+IRSend\+Data, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats=\mbox{\hyperlink{IRremoteInt_8h_a5d35fb37031b53f0083f8b88ae3cf2c2}{NO\+\_\+\+REPEATS}})
+\item 
+size\+\_\+t \mbox{\hyperlink{group__Sending_gaafdc6909c8794dc65aa702b84230ea7d}{IRsend\+::write}} (\mbox{\hyperlink{IRProtocol_8h_ad5b287a488a8c1b7b8661f029ab56fad}{decode\+\_\+type\+\_\+t}} a\+Protocol, uint16\+\_\+t a\+Address, uint16\+\_\+t a\+Command, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats=\mbox{\hyperlink{IRremoteInt_8h_a5d35fb37031b53f0083f8b88ae3cf2c2}{NO\+\_\+\+REPEATS}})
+\item 
+void \mbox{\hyperlink{group__Sending_ga875f514d9cf039cbad7f781595247952}{IRsend\+::send\+Raw}} (const uint16\+\_\+t a\+Buffer\+With\+Microseconds\mbox{[}$\,$\mbox{]}, uint\+\_\+fast16\+\_\+t a\+Length\+Of\+Buffer, uint\+\_\+fast8\+\_\+t a\+IRFrequency\+Kilohertz)
+\item 
+void \mbox{\hyperlink{group__Sending_gae1aebf8a1c14c25bd21da343411bd441}{IRsend\+::send\+Raw}} (const uint8\+\_\+t a\+Buffer\+With\+Ticks\mbox{[}$\,$\mbox{]}, uint\+\_\+fast16\+\_\+t a\+Length\+Of\+Buffer, uint\+\_\+fast8\+\_\+t a\+IRFrequency\+Kilohertz)
+\item 
+void \mbox{\hyperlink{group__Sending_ga9fb09e73b62fcca2229b982877922b1f}{IRsend\+::send\+Raw\+\_\+P}} (const uint16\+\_\+t a\+Buffer\+With\+Microseconds\mbox{[}$\,$\mbox{]}, uint\+\_\+fast16\+\_\+t a\+Length\+Of\+Buffer, uint\+\_\+fast8\+\_\+t a\+IRFrequency\+Kilohertz)
+\item 
+void \mbox{\hyperlink{group__Sending_ga4fc6a1201b9af5884856fc411d47c087}{IRsend\+::send\+Raw\+\_\+P}} (const uint8\+\_\+t a\+Buffer\+With\+Ticks\mbox{[}$\,$\mbox{]}, uint\+\_\+fast16\+\_\+t a\+Length\+Of\+Buffer, uint\+\_\+fast8\+\_\+t a\+IRFrequency\+Kilohertz)
+\item 
+void \mbox{\hyperlink{group__Sending_gae3184d665eabcaca813d4cab9227e691}{IRsend\+::send\+Pulse\+Distance\+Width\+From\+Array}} (uint\+\_\+fast8\+\_\+t a\+Frequency\+KHz, \mbox{\hyperlink{structDistanceWidthTimingInfoStruct}{Distance\+Width\+Timing\+Info\+Struct}} $\ast$a\+Distance\+Width\+Timing\+Info, IRRaw\+Data\+Type $\ast$a\+Decoded\+Raw\+Data\+Array, uint16\+\_\+t a\+Number\+Of\+Bits, uint8\+\_\+t a\+Flags, uint16\+\_\+t a\+Repeat\+Period\+Millis, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats)
+\item 
+\mbox{\Hypertarget{group__Sending_ga3993584a7493d8f464e060c523d4efac}\label{group__Sending_ga3993584a7493d8f464e060c523d4efac}} 
+void {\bfseries IRsend\+::send\+Pulse\+Distance\+Width\+From\+Array} (uint\+\_\+fast8\+\_\+t a\+Frequency\+KHz, uint16\+\_\+t a\+Header\+Mark\+Micros, uint16\+\_\+t a\+Header\+Space\+Micros, uint16\+\_\+t a\+One\+Mark\+Micros, uint16\+\_\+t a\+One\+Space\+Micros, uint16\+\_\+t a\+Zero\+Mark\+Micros, uint16\+\_\+t a\+Zero\+Space\+Micros, IRRaw\+Data\+Type $\ast$a\+Decoded\+Raw\+Data\+Array, uint16\+\_\+t a\+Number\+Of\+Bits, uint8\+\_\+t a\+Flags, uint16\+\_\+t a\+Repeat\+Period\+Millis, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats)
+\item 
+void \mbox{\hyperlink{group__Sending_ga9dc397d1e45a668433a06ee69ed37c11}{IRsend\+::send\+Pulse\+Distance\+Width\+From\+Array}} (\mbox{\hyperlink{structPulseDistanceWidthProtocolConstants}{Pulse\+Distance\+Width\+Protocol\+Constants}} $\ast$a\+Protocol\+Constants, IRRaw\+Data\+Type $\ast$a\+Decoded\+Raw\+Data\+Array, uint16\+\_\+t a\+Number\+Of\+Bits, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats)
+\item 
+void \mbox{\hyperlink{group__Sending_gacc820b71185ccb9571fcfaba9af6803f}{IRsend\+::send\+Pulse\+Distance\+Width}} (\mbox{\hyperlink{structPulseDistanceWidthProtocolConstants}{Pulse\+Distance\+Width\+Protocol\+Constants}} $\ast$a\+Protocol\+Constants, IRRaw\+Data\+Type a\+Data, uint\+\_\+fast8\+\_\+t a\+Number\+Of\+Bits, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats)
+\item 
+void \mbox{\hyperlink{group__Sending_gadadb64cdb5e3b94c854cc75b4a6ef303}{IRsend\+::send\+Pulse\+Distance\+Width}} (uint\+\_\+fast8\+\_\+t a\+Frequency\+KHz, uint16\+\_\+t a\+Header\+Mark\+Micros, uint16\+\_\+t a\+Header\+Space\+Micros, uint16\+\_\+t a\+One\+Mark\+Micros, uint16\+\_\+t a\+One\+Space\+Micros, uint16\+\_\+t a\+Zero\+Mark\+Micros, uint16\+\_\+t a\+Zero\+Space\+Micros, IRRaw\+Data\+Type a\+Data, uint\+\_\+fast8\+\_\+t a\+Number\+Of\+Bits, uint8\+\_\+t a\+Flags, uint16\+\_\+t a\+Repeat\+Period\+Millis, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats, void($\ast$a\+Special\+Send\+Repeat\+Function)()=NULL)
+\item 
+void \mbox{\hyperlink{group__Sending_ga0e697969acd5ea115afd45d0c08a03db}{IRsend\+::send\+Pulse\+Distance\+Width\+Data}} (\mbox{\hyperlink{structPulseDistanceWidthProtocolConstants}{Pulse\+Distance\+Width\+Protocol\+Constants}} $\ast$a\+Protocol\+Constants, IRRaw\+Data\+Type a\+Data, uint\+\_\+fast8\+\_\+t a\+Number\+Of\+Bits)
+\item 
+void \mbox{\hyperlink{group__Sending_ga2259444b98a657c6ca6274dc2ef64ef3}{IRsend\+::send\+Pulse\+Distance\+Width\+Data}} (uint16\+\_\+t a\+One\+Mark\+Micros, uint16\+\_\+t a\+One\+Space\+Micros, uint16\+\_\+t a\+Zero\+Mark\+Micros, uint16\+\_\+t a\+Zero\+Space\+Micros, IRRaw\+Data\+Type a\+Data, uint\+\_\+fast8\+\_\+t a\+Number\+Of\+Bits, uint8\+\_\+t a\+Flags)
+\item 
+void \mbox{\hyperlink{group__Sending_gab58ccb971822a22552d4bb5d46b4693e}{IRsend\+::send\+Biphase\+Data}} (uint16\+\_\+t a\+Biphase\+Time\+Unit, uint32\+\_\+t a\+Data, uint\+\_\+fast8\+\_\+t a\+Number\+Of\+Bits)
+\item 
+void \mbox{\hyperlink{group__Sending_ga71a76987183f83b366fa59660e80253b}{IRsend\+::mark}} (uint16\+\_\+t a\+Mark\+Micros)
+\item 
+void \mbox{\hyperlink{group__Sending_ga5242741b8da4fbfaae237eee2b279dd0}{IRsend\+::\+IRLed\+Off}} ()
+\item 
+static void \mbox{\hyperlink{group__Sending_ga914d45f08addaf1142e167a8ebf7d5a4}{IRsend\+::space}} (uint16\+\_\+t a\+Space\+Micros)
+\item 
+static void \mbox{\hyperlink{group__Sending_ga78e52089f1ee53b3d080db7d8c25f798}{IRsend\+::custom\+Delay\+Microseconds}} (unsigned long a\+Microseconds)
+\item 
+void \mbox{\hyperlink{group__Sending_ga30b1c8f6029a2f72b4dee0eeb2fb7f15}{IRsend\+::enable\+IROut}} (uint\+\_\+fast8\+\_\+t a\+Frequency\+KHz)
+\item 
+\mbox{\Hypertarget{group__Sending_ga2197b815b50508e7901209bff307fdc1}\label{group__Sending_ga2197b815b50508e7901209bff307fdc1}} 
+uint16\+\_\+t {\bfseries IRsend\+::get\+Pulse\+Correction\+Nanos} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__Sending_gafba8232b747be85f72c1c4612780d5cf}\label{group__Sending_gafba8232b747be85f72c1c4612780d5cf}} 
+\mbox{\hyperlink{classIRsend}{IRsend}} {\bfseries Ir\+Sender}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__Sending_ga170701fb079d24717aded137dee808e7}\label{group__Sending_ga170701fb079d24717aded137dee808e7}} 
+\index{Sending IR data for multiple protocols@{Sending IR data for multiple protocols}!begin@{begin}}
+\index{begin@{begin}!Sending IR data for multiple protocols@{Sending IR data for multiple protocols}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void IRsend\+::begin (\begin{DoxyParamCaption}\item[{uint\+\_\+fast8\+\_\+t}]{a\+Send\+Pin }\end{DoxyParamCaption})}
+
+Initializes the send pin and enable LED feedback with board specific FEEDBACK\+\_\+\+LED\+\_\+\+ON() and FEEDBACK\+\_\+\+LED\+\_\+\+OFF() functions 
+\begin{DoxyParams}{Parameters}
+{\em a\+Send\+Pin} & The Arduino pin number, where a IR sender diode is connected. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Sending_gac7abd96c6c4adb907dcc3adec54ebe77}\label{group__Sending_gac7abd96c6c4adb907dcc3adec54ebe77}} 
+\index{Sending IR data for multiple protocols@{Sending IR data for multiple protocols}!begin@{begin}}
+\index{begin@{begin}!Sending IR data for multiple protocols@{Sending IR data for multiple protocols}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void IRsend\+::begin (\begin{DoxyParamCaption}\item[{uint\+\_\+fast8\+\_\+t}]{a\+Send\+Pin,  }\item[{bool}]{a\+Enable\+LEDFeedback,  }\item[{uint\+\_\+fast8\+\_\+t}]{a\+Feedback\+LEDPin }\end{DoxyParamCaption})}
+
+Initializes the send and feedback pin 
+\begin{DoxyParams}{Parameters}
+{\em a\+Send\+Pin} & The Arduino pin number, where a IR sender diode is connected. \\
+\hline
+{\em a\+Enable\+LEDFeedback} & If true the feedback LED is activated while receiving or sending a PWM signal /a mark \\
+\hline
+{\em a\+Feedback\+LEDPin} & If 0 / USE\+\_\+\+DEFAULT\+\_\+\+FEEDBACK\+\_\+\+LED\+\_\+\+PIN, then take board specific FEEDBACK\+\_\+\+LED\+\_\+\+ON() and FEEDBACK\+\_\+\+LED\+\_\+\+OFF() functions \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Sending_ga78e52089f1ee53b3d080db7d8c25f798}\label{group__Sending_ga78e52089f1ee53b3d080db7d8c25f798}} 
+\index{Sending IR data for multiple protocols@{Sending IR data for multiple protocols}!customDelayMicroseconds@{customDelayMicroseconds}}
+\index{customDelayMicroseconds@{customDelayMicroseconds}!Sending IR data for multiple protocols@{Sending IR data for multiple protocols}}
+\doxysubsubsection{\texorpdfstring{customDelayMicroseconds()}{customDelayMicroseconds()}}
+{\footnotesize\ttfamily void IRsend\+::custom\+Delay\+Microseconds (\begin{DoxyParamCaption}\item[{unsigned long}]{a\+Microseconds }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Custom delay function that circumvents Arduino\textquotesingle{}s delay\+Microseconds 16 bit limit and is (mostly) not extended by the duration of interrupt codes like the millis() interrupt \mbox{\Hypertarget{group__Sending_ga30b1c8f6029a2f72b4dee0eeb2fb7f15}\label{group__Sending_ga30b1c8f6029a2f72b4dee0eeb2fb7f15}} 
+\index{Sending IR data for multiple protocols@{Sending IR data for multiple protocols}!enableIROut@{enableIROut}}
+\index{enableIROut@{enableIROut}!Sending IR data for multiple protocols@{Sending IR data for multiple protocols}}
+\doxysubsubsection{\texorpdfstring{enableIROut()}{enableIROut()}}
+{\footnotesize\ttfamily void IRsend\+::enable\+IROut (\begin{DoxyParamCaption}\item[{uint\+\_\+fast8\+\_\+t}]{a\+Frequency\+KHz }\end{DoxyParamCaption})}
+
+Enables IR output. The k\+Hz value controls the modulation frequency in kilohertz. IF PWM should be generated by a timer, it uses the platform specific timer\+Config\+For\+Send() function, otherwise it computes the delays used by the \mbox{\hyperlink{group__Sending_ga71a76987183f83b366fa59660e80253b}{mark()}} function. If IR\+\_\+\+SEND\+\_\+\+PIN is defined, maximum PWM frequency for an AVR @16 MHz is 170 k\+Hz (180 k\+Hz if NO\+\_\+\+LED\+\_\+\+FEEDBACK\+\_\+\+CODE is defined) \mbox{\Hypertarget{group__Sending_ga5242741b8da4fbfaae237eee2b279dd0}\label{group__Sending_ga5242741b8da4fbfaae237eee2b279dd0}} 
+\index{Sending IR data for multiple protocols@{Sending IR data for multiple protocols}!IRLedOff@{IRLedOff}}
+\index{IRLedOff@{IRLedOff}!Sending IR data for multiple protocols@{Sending IR data for multiple protocols}}
+\doxysubsubsection{\texorpdfstring{IRLedOff()}{IRLedOff()}}
+{\footnotesize\ttfamily void IRsend\+::\+IRLed\+Off (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Just switch the IR sending LED off to send an IR space A space is \char`\"{}no output\char`\"{}, so the PWM output is disabled. This function may affect the state of feedback LED. \mbox{\Hypertarget{group__Sending_ga71a76987183f83b366fa59660e80253b}\label{group__Sending_ga71a76987183f83b366fa59660e80253b}} 
+\index{Sending IR data for multiple protocols@{Sending IR data for multiple protocols}!mark@{mark}}
+\index{mark@{mark}!Sending IR data for multiple protocols@{Sending IR data for multiple protocols}}
+\doxysubsubsection{\texorpdfstring{mark()}{mark()}}
+{\footnotesize\ttfamily void IRsend\+::mark (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{a\+Mark\+Micros }\end{DoxyParamCaption})}
+
+Sends an IR mark for the specified number of microseconds. The mark output is modulated at the PWM frequency if USE\+\_\+\+NO\+\_\+\+SEND\+\_\+\+PWM is not defined. The output is guaranteed to be OFF / inactive after after the call of the function. This function may affect the state of feedback LED. Period time is 26 us for 38.\+46 k\+Hz, 27 us for 37.\+04 k\+Hz, 25 us for 40 k\+Hz. On time is 8 us for 30\% duty cycle
+
+The \mbox{\hyperlink{group__Sending_ga71a76987183f83b366fa59660e80253b}{mark()}} function relies on the correct implementation of\+: delay\+Microseconds() for pulse time, and micros() for pause time. The delay\+Microseconds() of pulse time is guarded on AVR CPU\textquotesingle{}s with no\+Interrupts() / interrupts(). At the start of pause time, interrupts are enabled once, the rest of the pause is also guarded on AVR CPU\textquotesingle{}s with no\+Interrupts() / interrupts(). The maximum length of an interrupt during sending should not exceed 26 us -\/ 8 us = 18 us, otherwise timing is disturbed. This disturbance is no problem, if the exceedance is small and does not happen too often. \mbox{\Hypertarget{group__Sending_gab58ccb971822a22552d4bb5d46b4693e}\label{group__Sending_gab58ccb971822a22552d4bb5d46b4693e}} 
+\index{Sending IR data for multiple protocols@{Sending IR data for multiple protocols}!sendBiphaseData@{sendBiphaseData}}
+\index{sendBiphaseData@{sendBiphaseData}!Sending IR data for multiple protocols@{Sending IR data for multiple protocols}}
+\doxysubsubsection{\texorpdfstring{sendBiphaseData()}{sendBiphaseData()}}
+{\footnotesize\ttfamily void IRsend\+::send\+Biphase\+Data (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{a\+Biphase\+Time\+Unit,  }\item[{uint32\+\_\+t}]{a\+Data,  }\item[{uint\+\_\+fast8\+\_\+t}]{a\+Number\+Of\+Bits }\end{DoxyParamCaption})}
+
+Sends Biphase data MSB first Always send start bit, do not send the trailing space of the start bit 0 -\/$>$ mark+space 1 -\/$>$ space+mark The output always ends with a space can only send 31 bit data, since we put the start bit as 32th bit on front 
+\begin{DoxyParams}{Parameters}
+{\em a\+Data} & uint32 or uint64 holding the bits to be sent. \\
+\hline
+{\em a\+Number\+Of\+Bits} & Number of bits from a\+Data to be actually sent. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Sending_gacc820b71185ccb9571fcfaba9af6803f}\label{group__Sending_gacc820b71185ccb9571fcfaba9af6803f}} 
+\index{Sending IR data for multiple protocols@{Sending IR data for multiple protocols}!sendPulseDistanceWidth@{sendPulseDistanceWidth}}
+\index{sendPulseDistanceWidth@{sendPulseDistanceWidth}!Sending IR data for multiple protocols@{Sending IR data for multiple protocols}}
+\doxysubsubsection{\texorpdfstring{sendPulseDistanceWidth()}{sendPulseDistanceWidth()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void IRsend\+::send\+Pulse\+Distance\+Width (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPulseDistanceWidthProtocolConstants}{Pulse\+Distance\+Width\+Protocol\+Constants}} $\ast$}]{a\+Protocol\+Constants,  }\item[{IRRaw\+Data\+Type}]{a\+Data,  }\item[{uint\+\_\+fast8\+\_\+t}]{a\+Number\+Of\+Bits,  }\item[{int\+\_\+fast8\+\_\+t}]{a\+Number\+Of\+Repeats }\end{DoxyParamCaption})}
+
+Sends Pulse\+Distance frames and repeats 
+\begin{DoxyParams}{Parameters}
+{\em a\+Protocol\+Constants} & The constants to use for sending this protocol. \\
+\hline
+{\em a\+Data} & uint32 or uint64 holding the bits to be sent. \\
+\hline
+{\em a\+Number\+Of\+Bits} & Number of bits from a\+Data to be actually sent. \\
+\hline
+{\em a\+Number\+Of\+Repeats} & If $<$ 0 and a a\+Protocol\+Constants-\/$>$Special\+Send\+Repeat\+Function() is specified then it is called without leading and trailing space. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Sending_gadadb64cdb5e3b94c854cc75b4a6ef303}\label{group__Sending_gadadb64cdb5e3b94c854cc75b4a6ef303}} 
+\index{Sending IR data for multiple protocols@{Sending IR data for multiple protocols}!sendPulseDistanceWidth@{sendPulseDistanceWidth}}
+\index{sendPulseDistanceWidth@{sendPulseDistanceWidth}!Sending IR data for multiple protocols@{Sending IR data for multiple protocols}}
+\doxysubsubsection{\texorpdfstring{sendPulseDistanceWidth()}{sendPulseDistanceWidth()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void IRsend\+::send\+Pulse\+Distance\+Width (\begin{DoxyParamCaption}\item[{uint\+\_\+fast8\+\_\+t}]{a\+Frequency\+KHz,  }\item[{uint16\+\_\+t}]{a\+Header\+Mark\+Micros,  }\item[{uint16\+\_\+t}]{a\+Header\+Space\+Micros,  }\item[{uint16\+\_\+t}]{a\+One\+Mark\+Micros,  }\item[{uint16\+\_\+t}]{a\+One\+Space\+Micros,  }\item[{uint16\+\_\+t}]{a\+Zero\+Mark\+Micros,  }\item[{uint16\+\_\+t}]{a\+Zero\+Space\+Micros,  }\item[{IRRaw\+Data\+Type}]{a\+Data,  }\item[{uint\+\_\+fast8\+\_\+t}]{a\+Number\+Of\+Bits,  }\item[{uint8\+\_\+t}]{a\+Flags,  }\item[{uint16\+\_\+t}]{a\+Repeat\+Period\+Millis,  }\item[{int\+\_\+fast8\+\_\+t}]{a\+Number\+Of\+Repeats,  }\item[{void($\ast$)()}]{a\+Special\+Send\+Repeat\+Function = {\ttfamily NULL} }\end{DoxyParamCaption})}
+
+Sends Pulse\+Distance frames and repeats. 
+\begin{DoxyParams}{Parameters}
+{\em a\+Frequency\+KHz,a\+Header\+Mark\+Micros,a\+Header\+Space\+Micros,a\+One\+Mark\+Micros,a\+One\+Space\+Micros,a\+Zero\+Mark\+Micros,a\+Zero\+Space\+Micros,a\+Flags,a\+Repeat\+Period\+Millis} & Values to use for sending this protocol, also contained in the \mbox{\hyperlink{structPulseDistanceWidthProtocolConstants}{Pulse\+Distance\+Width\+Protocol\+Constants}} of this protocol. \\
+\hline
+{\em a\+Data} & uint32 or uint64 holding the bits to be sent. \\
+\hline
+{\em a\+Number\+Of\+Bits} & Number of bits from a\+Data to be actually sent. \\
+\hline
+{\em a\+Flags} & Evaluated flags are PROTOCOL\+\_\+\+IS\+\_\+\+MSB\+\_\+\+FIRST and SUPPRESS\+\_\+\+STOP\+\_\+\+BIT. Stop bit is otherwise sent for all pulse distance protocols. \\
+\hline
+{\em a\+Number\+Of\+Repeats} & If $<$ 0 and a a\+Protocol\+Constants-\/$>$Special\+Send\+Repeat\+Function() is specified then it is called without leading and trailing space. \\
+\hline
+{\em a\+Special\+Send\+Repeat\+Function} & If NULL, the first frame is repeated completely, otherwise this function is used for sending the repeat frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Sending_ga0e697969acd5ea115afd45d0c08a03db}\label{group__Sending_ga0e697969acd5ea115afd45d0c08a03db}} 
+\index{Sending IR data for multiple protocols@{Sending IR data for multiple protocols}!sendPulseDistanceWidthData@{sendPulseDistanceWidthData}}
+\index{sendPulseDistanceWidthData@{sendPulseDistanceWidthData}!Sending IR data for multiple protocols@{Sending IR data for multiple protocols}}
+\doxysubsubsection{\texorpdfstring{sendPulseDistanceWidthData()}{sendPulseDistanceWidthData()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void IRsend\+::send\+Pulse\+Distance\+Width\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPulseDistanceWidthProtocolConstants}{Pulse\+Distance\+Width\+Protocol\+Constants}} $\ast$}]{a\+Protocol\+Constants,  }\item[{IRRaw\+Data\+Type}]{a\+Data,  }\item[{uint\+\_\+fast8\+\_\+t}]{a\+Number\+Of\+Bits }\end{DoxyParamCaption})}
+
+Sends Pulse\+Distance from data contained in parameter using Protocol\+Constants structure for timing etc. The output always ends with a space Each additional call costs 16 bytes program memory 
+\begin{DoxyParams}{Parameters}
+{\em a\+Protocol\+Constants} & The constants to use for sending this protocol. \\
+\hline
+{\em a\+Data} & uint32 or uint64 holding the bits to be sent. \\
+\hline
+{\em a\+Number\+Of\+Bits} & Number of bits from a\+Data to be actually sent. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Sending_ga2259444b98a657c6ca6274dc2ef64ef3}\label{group__Sending_ga2259444b98a657c6ca6274dc2ef64ef3}} 
+\index{Sending IR data for multiple protocols@{Sending IR data for multiple protocols}!sendPulseDistanceWidthData@{sendPulseDistanceWidthData}}
+\index{sendPulseDistanceWidthData@{sendPulseDistanceWidthData}!Sending IR data for multiple protocols@{Sending IR data for multiple protocols}}
+\doxysubsubsection{\texorpdfstring{sendPulseDistanceWidthData()}{sendPulseDistanceWidthData()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void IRsend\+::send\+Pulse\+Distance\+Width\+Data (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{a\+One\+Mark\+Micros,  }\item[{uint16\+\_\+t}]{a\+One\+Space\+Micros,  }\item[{uint16\+\_\+t}]{a\+Zero\+Mark\+Micros,  }\item[{uint16\+\_\+t}]{a\+Zero\+Space\+Micros,  }\item[{IRRaw\+Data\+Type}]{a\+Data,  }\item[{uint\+\_\+fast8\+\_\+t}]{a\+Number\+Of\+Bits,  }\item[{uint8\+\_\+t}]{a\+Flags }\end{DoxyParamCaption})}
+
+Sends Pulse\+Distance data with timing parameters and flag parameters. The output always ends with a space 
+\begin{DoxyParams}{Parameters}
+{\em a\+One\+Mark\+Micros} & Timing for sending this protocol. \\
+\hline
+{\em a\+Data} & uint32 or uint64 holding the bits to be sent. \\
+\hline
+{\em a\+Number\+Of\+Bits} & Number of bits from a\+Data to be actually sent. \\
+\hline
+{\em a\+Flags} & Evaluated flags are PROTOCOL\+\_\+\+IS\+\_\+\+MSB\+\_\+\+FIRST and SUPPRESS\+\_\+\+STOP\+\_\+\+BIT. Stop bit is otherwise sent for all pulse distance protocols. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Sending_ga9dc397d1e45a668433a06ee69ed37c11}\label{group__Sending_ga9dc397d1e45a668433a06ee69ed37c11}} 
+\index{Sending IR data for multiple protocols@{Sending IR data for multiple protocols}!sendPulseDistanceWidthFromArray@{sendPulseDistanceWidthFromArray}}
+\index{sendPulseDistanceWidthFromArray@{sendPulseDistanceWidthFromArray}!Sending IR data for multiple protocols@{Sending IR data for multiple protocols}}
+\doxysubsubsection{\texorpdfstring{sendPulseDistanceWidthFromArray()}{sendPulseDistanceWidthFromArray()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void IRsend\+::send\+Pulse\+Distance\+Width\+From\+Array (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPulseDistanceWidthProtocolConstants}{Pulse\+Distance\+Width\+Protocol\+Constants}} $\ast$}]{a\+Protocol\+Constants,  }\item[{IRRaw\+Data\+Type $\ast$}]{a\+Decoded\+Raw\+Data\+Array,  }\item[{uint16\+\_\+t}]{a\+Number\+Of\+Bits,  }\item[{int\+\_\+fast8\+\_\+t}]{a\+Number\+Of\+Repeats }\end{DoxyParamCaption})}
+
+Sends Pulse\+Distance data from array using \mbox{\hyperlink{structPulseDistanceWidthProtocolConstants}{Pulse\+Distance\+Width\+Protocol\+Constants}} For LSB First the LSB of array\mbox{[}0\mbox{]} is sent first then all bits until MSB of array\mbox{[}0\mbox{]}. Next is LSB of array\mbox{[}1\mbox{]} and so on. The output always ends with a space Stop bit is always sent 
+\begin{DoxyParams}{Parameters}
+{\em a\+Number\+Of\+Bits} & Number of bits from a\+Decoded\+Raw\+Data\+Array to be actually sent. \\
+\hline
+{\em a\+Number\+Of\+Repeats} & If $<$ 0 and a a\+Protocol\+Constants-\/$>$Special\+Send\+Repeat\+Function() is specified then it is called without leading and trailing space. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Sending_gae3184d665eabcaca813d4cab9227e691}\label{group__Sending_gae3184d665eabcaca813d4cab9227e691}} 
+\index{Sending IR data for multiple protocols@{Sending IR data for multiple protocols}!sendPulseDistanceWidthFromArray@{sendPulseDistanceWidthFromArray}}
+\index{sendPulseDistanceWidthFromArray@{sendPulseDistanceWidthFromArray}!Sending IR data for multiple protocols@{Sending IR data for multiple protocols}}
+\doxysubsubsection{\texorpdfstring{sendPulseDistanceWidthFromArray()}{sendPulseDistanceWidthFromArray()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void IRsend\+::send\+Pulse\+Distance\+Width\+From\+Array (\begin{DoxyParamCaption}\item[{uint\+\_\+fast8\+\_\+t}]{a\+Frequency\+KHz,  }\item[{\mbox{\hyperlink{structDistanceWidthTimingInfoStruct}{Distance\+Width\+Timing\+Info\+Struct}} $\ast$}]{a\+Distance\+Width\+Timing\+Info,  }\item[{IRRaw\+Data\+Type $\ast$}]{a\+Decoded\+Raw\+Data\+Array,  }\item[{uint16\+\_\+t}]{a\+Number\+Of\+Bits,  }\item[{uint8\+\_\+t}]{a\+Flags,  }\item[{uint16\+\_\+t}]{a\+Repeat\+Period\+Millis,  }\item[{int\+\_\+fast8\+\_\+t}]{a\+Number\+Of\+Repeats }\end{DoxyParamCaption})}
+
+Sends Pulse\+Distance data from array For LSB First the LSB of array\mbox{[}0\mbox{]} is sent first then all bits until MSB of array\mbox{[}0\mbox{]}. Next is LSB of array\mbox{[}1\mbox{]} and so on. The output always ends with a space Stop bit is always sent 
+\begin{DoxyParams}{Parameters}
+{\em a\+Flags} & Evaluated flags are PROTOCOL\+\_\+\+IS\+\_\+\+MSB\+\_\+\+FIRST and SUPPRESS\+\_\+\+STOP\+\_\+\+BIT. Stop bit is otherwise sent for all pulse distance protocols. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Sending_ga875f514d9cf039cbad7f781595247952}\label{group__Sending_ga875f514d9cf039cbad7f781595247952}} 
+\index{Sending IR data for multiple protocols@{Sending IR data for multiple protocols}!sendRaw@{sendRaw}}
+\index{sendRaw@{sendRaw}!Sending IR data for multiple protocols@{Sending IR data for multiple protocols}}
+\doxysubsubsection{\texorpdfstring{sendRaw()}{sendRaw()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void IRsend\+::send\+Raw (\begin{DoxyParamCaption}\item[{const uint16\+\_\+t}]{a\+Buffer\+With\+Microseconds\mbox{[}$\,$\mbox{]},  }\item[{uint\+\_\+fast16\+\_\+t}]{a\+Length\+Of\+Buffer,  }\item[{uint\+\_\+fast8\+\_\+t}]{a\+IRFrequency\+Kilohertz }\end{DoxyParamCaption})}
+
+Function using an 16 byte microsecond timing array for every purpose. Raw data starts with a Mark. No leading space as in received timing data! \mbox{\Hypertarget{group__Sending_gae1aebf8a1c14c25bd21da343411bd441}\label{group__Sending_gae1aebf8a1c14c25bd21da343411bd441}} 
+\index{Sending IR data for multiple protocols@{Sending IR data for multiple protocols}!sendRaw@{sendRaw}}
+\index{sendRaw@{sendRaw}!Sending IR data for multiple protocols@{Sending IR data for multiple protocols}}
+\doxysubsubsection{\texorpdfstring{sendRaw()}{sendRaw()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void IRsend\+::send\+Raw (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{a\+Buffer\+With\+Ticks\mbox{[}$\,$\mbox{]},  }\item[{uint\+\_\+fast16\+\_\+t}]{a\+Length\+Of\+Buffer,  }\item[{uint\+\_\+fast8\+\_\+t}]{a\+IRFrequency\+Kilohertz }\end{DoxyParamCaption})}
+
+Function using an 8 byte tick timing array to save program memory Raw data starts with a Mark. No leading space as in received timing data! \mbox{\Hypertarget{group__Sending_ga9fb09e73b62fcca2229b982877922b1f}\label{group__Sending_ga9fb09e73b62fcca2229b982877922b1f}} 
+\index{Sending IR data for multiple protocols@{Sending IR data for multiple protocols}!sendRaw\_P@{sendRaw\_P}}
+\index{sendRaw\_P@{sendRaw\_P}!Sending IR data for multiple protocols@{Sending IR data for multiple protocols}}
+\doxysubsubsection{\texorpdfstring{sendRaw\_P()}{sendRaw\_P()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void IRsend\+::send\+Raw\+\_\+P (\begin{DoxyParamCaption}\item[{const uint16\+\_\+t}]{a\+Buffer\+With\+Microseconds\mbox{[}$\,$\mbox{]},  }\item[{uint\+\_\+fast16\+\_\+t}]{a\+Length\+Of\+Buffer,  }\item[{uint\+\_\+fast8\+\_\+t}]{a\+IRFrequency\+Kilohertz }\end{DoxyParamCaption})}
+
+Function using an 16 byte microsecond timing array in FLASH for every purpose. Raw data starts with a Mark. No leading space as in received timing data! \mbox{\Hypertarget{group__Sending_ga4fc6a1201b9af5884856fc411d47c087}\label{group__Sending_ga4fc6a1201b9af5884856fc411d47c087}} 
+\index{Sending IR data for multiple protocols@{Sending IR data for multiple protocols}!sendRaw\_P@{sendRaw\_P}}
+\index{sendRaw\_P@{sendRaw\_P}!Sending IR data for multiple protocols@{Sending IR data for multiple protocols}}
+\doxysubsubsection{\texorpdfstring{sendRaw\_P()}{sendRaw\_P()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void IRsend\+::send\+Raw\+\_\+P (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{a\+Buffer\+With\+Ticks\mbox{[}$\,$\mbox{]},  }\item[{uint\+\_\+fast16\+\_\+t}]{a\+Length\+Of\+Buffer,  }\item[{uint\+\_\+fast8\+\_\+t}]{a\+IRFrequency\+Kilohertz }\end{DoxyParamCaption})}
+
+New function using an 8 byte tick (50 us) timing array in FLASH to save program memory Raw data starts with a Mark. No leading space as in received timing data! \mbox{\Hypertarget{group__Sending_ga914d45f08addaf1142e167a8ebf7d5a4}\label{group__Sending_ga914d45f08addaf1142e167a8ebf7d5a4}} 
+\index{Sending IR data for multiple protocols@{Sending IR data for multiple protocols}!space@{space}}
+\index{space@{space}!Sending IR data for multiple protocols@{Sending IR data for multiple protocols}}
+\doxysubsubsection{\texorpdfstring{space()}{space()}}
+{\footnotesize\ttfamily void IRsend\+::space (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{a\+Space\+Micros }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Sends an IR space for the specified number of microseconds. A space is \char`\"{}no output\char`\"{}, so just wait. \mbox{\Hypertarget{group__Sending_gaafdc6909c8794dc65aa702b84230ea7d}\label{group__Sending_gaafdc6909c8794dc65aa702b84230ea7d}} 
+\index{Sending IR data for multiple protocols@{Sending IR data for multiple protocols}!write@{write}}
+\index{write@{write}!Sending IR data for multiple protocols@{Sending IR data for multiple protocols}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily size\+\_\+t IRsend\+::write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{IRProtocol_8h_ad5b287a488a8c1b7b8661f029ab56fad}{decode\+\_\+type\+\_\+t}}}]{a\+Protocol,  }\item[{uint16\+\_\+t}]{a\+Address,  }\item[{uint16\+\_\+t}]{a\+Command,  }\item[{int\+\_\+fast8\+\_\+t}]{a\+Number\+Of\+Repeats = {\ttfamily \mbox{\hyperlink{IRremoteInt_8h_a5d35fb37031b53f0083f8b88ae3cf2c2}{NO\+\_\+\+REPEATS}}} }\end{DoxyParamCaption})}
+
+Simple version of write without support for MAGIQUEST and number\+Of\+Bits for SONY protocol 
+\begin{DoxyParams}{Parameters}
+{\em a\+Number\+Of\+Repeats} & If a\+Number\+Of\+Repeats $<$ 0 then only a special repeat frame without leading and trailing space will be sent by calling NECProtocol\+Constants.\+Special\+Send\+Repeat\+Function(). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Sending_ga7954d4b7ff55e43b69fbf6e483f422b2}\label{group__Sending_ga7954d4b7ff55e43b69fbf6e483f422b2}} 
+\index{Sending IR data for multiple protocols@{Sending IR data for multiple protocols}!write@{write}}
+\index{write@{write}!Sending IR data for multiple protocols@{Sending IR data for multiple protocols}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily size\+\_\+t IRsend\+::write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structIRData}{IRData}} $\ast$}]{a\+IRSend\+Data,  }\item[{int\+\_\+fast8\+\_\+t}]{a\+Number\+Of\+Repeats = {\ttfamily \mbox{\hyperlink{IRremoteInt_8h_a5d35fb37031b53f0083f8b88ae3cf2c2}{NO\+\_\+\+REPEATS}}} }\end{DoxyParamCaption})}
+
+Interprets and sends a \mbox{\hyperlink{structIRData}{IRData}} structure. 
+\begin{DoxyParams}{Parameters}
+{\em a\+IRSend\+Data} & The values of protocol, address, command and repeat flag are taken for sending. \\
+\hline
+{\em a\+Number\+Of\+Repeats} & Number of repeats to send after the initial data if data is no repeat. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if data sent, 0 if no data sent (i.\+e. for BANG\+\_\+\+OLUFSEN, which is currently not supported here) Interprets and sends a \mbox{\hyperlink{structIRData}{IRData}} structure. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em a\+IRSend\+Data} & The values of protocol, address, command and repeat flag are taken for sending. \\
+\hline
+{\em a\+Number\+Of\+Repeats} & Number of repeats to send after the initial data if data is no repeat. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if data sent, 0 if no data sent (i.\+e. for BANG\+\_\+\+OLUFSEN, which is currently not supported here) 
+\end{DoxyReturn}

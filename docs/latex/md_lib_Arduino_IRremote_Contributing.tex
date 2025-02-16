@@ -1,0 +1,26 @@
+This library is the culmination of the expertise of many members of the open source community who have dedicated their time and hard work.
+
+If you want to contribute to this project\+:
+\begin{DoxyItemize}
+\item Report bugs and errors
+\item Ask for enhancements
+\item Create issues and pull requests
+\item Tell other people about this library
+\item Contribute new protocols
+\end{DoxyItemize}\hypertarget{md_lib_Arduino_IRremote_Contributing_autotoc_md50}{}\doxysection{Guidelines}\label{md_lib_Arduino_IRremote_Contributing_autotoc_md50}
+The following are some guidelines to observe when creating discussions / PRs\+: \hypertarget{md_lib_Arduino_IRremote_Contributing_autotoc_md51}{}\doxysubsubsection{Be friendly}\label{md_lib_Arduino_IRremote_Contributing_autotoc_md51}
+It is important that we can all enjoy a safe space as we are all working on the same project and {\bfseries{it is okay for people to have different ideas}}. \hypertarget{md_lib_Arduino_IRremote_Contributing_autotoc_md52}{}\doxysubsubsection{Use reasonable titles}\label{md_lib_Arduino_IRremote_Contributing_autotoc_md52}
+Refrain from using overly long or capitalized titles as they are usually annoying and do little to encourage others to help \+:smile\+:. \hypertarget{md_lib_Arduino_IRremote_Contributing_autotoc_md53}{}\doxysubsubsection{Use the formatting style}\label{md_lib_Arduino_IRremote_Contributing_autotoc_md53}
+We use the original \href{https://en.wikipedia.org/wiki/Indentation_style\#K&R_style}{\texttt{ C Style by Kerninghan / Ritchie}} in \href{https://en.wikipedia.org/wiki/Indentation_style\#Variant:_1TBS_(OTBS)}{\texttt{ variant\+: 1TBS (OTBS)}}.~\newline
+ In short\+: 4 spaces indentation, no tabs, opening braces on the same line, braces are mandatory on all if/while/do, no hard line length limit.~\newline
+ To beautify your code, you may use the online formatter \href{https://www.freecodeformat.com/c-format.php}{\texttt{ here}}. \hypertarget{md_lib_Arduino_IRremote_Contributing_autotoc_md54}{}\doxysubsubsection{Cover $<$strong$>$all$<$/strong$>$ occurences of the problem / addition you address with your PR}\label{md_lib_Arduino_IRremote_Contributing_autotoc_md54}
+Do not forget the documentation like it is done for existing code. Code changes without proper documentation will be rejected!\hypertarget{md_lib_Arduino_IRremote_Contributing_autotoc_md55}{}\doxysection{Adding new protocols}\label{md_lib_Arduino_IRremote_Contributing_autotoc_md55}
+To add a new protocol is quite straightforward. Best is too look at the existing protocols to find a similar one and modify it.~\newline
+ As a rule of thumb, it is easier to work with a description of the protocol rather than trying to entirely reverse-\/engineer the protocol. Please include a link to the description in the header, if you found one.~\newline
+ The {\bfseries{durations}} you receive are likely to be longer for marks and shorter for spaces than the protocol suggests, but this depends on the receiver circuit in use. Most protocols use multiples of one time-\/unit for marks and spaces like e.\+g. \href{https://github.com/Arduino-IRremote/Arduino-IRremote/blob/master/src/ir_NEC.hpp\#L62}{\texttt{ NEC}}. It\textquotesingle{}s easy to be off-\/by-\/one with the last bit, since the last space is not recorded by IRremote.
+
+Try to make use of the template functions {\ttfamily decode\+Pulse\+Distance\+Data()} and {\ttfamily send\+Pulse\+Distance\+Data()}. If your protocol supports address and code fields, try to reflect this in your api like it is done in \href{https://github.com/Arduino-IRremote/Arduino-IRremote/blob/master/src/ir_NEC.hpp\#L96}{\texttt{ {\ttfamily send\+NEC(uint16\+\_\+t a\+Address, uint8\+\_\+t a\+Command, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats, bool a\+Is\+Repeat)}}} and \href{https://github.com/Arduino-IRremote/Arduino-IRremote/blob/master/src/ir_NEC.hpp\#L194}{\texttt{ {\ttfamily decode\+NEC()}}}.~\newline
+\hypertarget{md_lib_Arduino_IRremote_Contributing_autotoc_md56}{}\doxysubsection{Integration}\label{md_lib_Arduino_IRremote_Contributing_autotoc_md56}
+To integrate your protocol, you need to extend the two functions {\ttfamily decode()} and {\ttfamily get\+Protocol\+String()} in {\itshape IRreceice.\+hpp}, add macros and function declarations for sending and receiving and extend the {\ttfamily enum decode\+\_\+type\+\_\+t} in {\itshape \mbox{\hyperlink{IRremote_8h}{IRremote.\+h}}}.~\newline
+ And at least it would be wonderful if you can provide an example how to use the new protocol. A detailed description can be found in the \href{https://github.com/Arduino-IRremote/Arduino-IRremote/blob/master/src/ir_Template.hpp\#L11}{\texttt{ ir\+\_\+\+Template.\+hpp}} file.\hypertarget{md_lib_Arduino_IRremote_Contributing_autotoc_md57}{}\doxysubsection{Creating API documentation}\label{md_lib_Arduino_IRremote_Contributing_autotoc_md57}
+To generate the API documentation, Doxygen, as well as \href{http://www.graphviz.org/}{\texttt{ Graphviz}} should be installed. (Note that on Windows, it is useful to specify the installer to add Graphviz to PATH or to do it manually. With Doxygen and Graphviz installed, issue the command {\ttfamily doxygen} from the command line in the main project directory, which will generate the API documentation in HTML format. The just generated {\ttfamily docs/index.\+html} can now be opened in a browser. 

@@ -1,0 +1,16 @@
+digraph "Catch::DecomposedExpression"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Catch::DecomposedExpression",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Catch::BinaryExpression\l\< LhsT, Op, RhsT \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classCatch_1_1BinaryExpression.html",tooltip=" "];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Catch::ExpressionLhs\< T \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classCatch_1_1ExpressionLhs.html",tooltip=" "];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Catch::MatchExpression\l\< ArgT, MatcherT \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classCatch_1_1MatchExpression.html",tooltip=" "];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="Catch::ResultBuilder",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classCatch_1_1ResultBuilder.html",tooltip=" "];
+}

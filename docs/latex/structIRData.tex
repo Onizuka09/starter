@@ -1,0 +1,51 @@
+\hypertarget{structIRData}{}\doxysection{IRData Struct Reference}
+\label{structIRData}\index{IRData@{IRData}}
+
+
+{\ttfamily \#include $<$IRProtocol.\+h$>$}
+
+
+
+Collaboration diagram for IRData\+:
+% FIG 0
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structIRData_a703592faec26bab5cbe465f53ef14245}\label{structIRData_a703592faec26bab5cbe465f53ef14245}} 
+\mbox{\hyperlink{IRProtocol_8h_ad5b287a488a8c1b7b8661f029ab56fad}{decode\+\_\+type\+\_\+t}} \mbox{\hyperlink{structIRData_a703592faec26bab5cbe465f53ef14245}{protocol}}
+\begin{DoxyCompactList}\small\item\em UNKNOWN, NEC, SONY, RC5, PULSE\+\_\+\+DISTANCE, ... \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structIRData_a1255a5b7d704d34fda83dcabcb903d4c}\label{structIRData_a1255a5b7d704d34fda83dcabcb903d4c}} 
+uint16\+\_\+t \mbox{\hyperlink{structIRData_a1255a5b7d704d34fda83dcabcb903d4c}{address}}
+\begin{DoxyCompactList}\small\item\em Decoded address, Distance protocol (t\+Mark\+Ticks\+Long (if t\+Mark\+Ticks\+Long == 0, then t\+Mark\+Ticks\+Short) $<$$<$ 8) $\vert$ t\+Space\+Ticks\+Long. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structIRData_ab0ce2b36765ea429e8c4bfa0706a45e7}\label{structIRData_ab0ce2b36765ea429e8c4bfa0706a45e7}} 
+uint16\+\_\+t \mbox{\hyperlink{structIRData_ab0ce2b36765ea429e8c4bfa0706a45e7}{command}}
+\begin{DoxyCompactList}\small\item\em Decoded command, Distance protocol (t\+Mark\+Ticks\+Short $<$$<$ 8) $\vert$ t\+Space\+Ticks\+Short. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structIRData_a0b71fa1a17e3ab0ae9bc9462b795213f}\label{structIRData_a0b71fa1a17e3ab0ae9bc9462b795213f}} 
+uint16\+\_\+t \mbox{\hyperlink{structIRData_a0b71fa1a17e3ab0ae9bc9462b795213f}{extra}}
+\begin{DoxyCompactList}\small\item\em Contains upper 16 bit of Magiquest Wand\+ID, Kaseikyo unknown vendor ID and Distance protocol (Header\+Mark\+Ticks $<$$<$ 8) $\vert$ Header\+Space\+Ticks. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structIRData_a1aca80950279db7f8631f96268f012d9}\label{structIRData_a1aca80950279db7f8631f96268f012d9}} 
+IRRaw\+Data\+Type \mbox{\hyperlink{structIRData_a1aca80950279db7f8631f96268f012d9}{decoded\+Raw\+Data}}
+\begin{DoxyCompactList}\small\item\em Up to 32/64 bit decoded raw data, to be used for send functions. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structIRData_a945c41b8463a36cf00b0f38b0aa73200}\label{structIRData_a945c41b8463a36cf00b0f38b0aa73200}} 
+uint16\+\_\+t \mbox{\hyperlink{structIRData_a945c41b8463a36cf00b0f38b0aa73200}{number\+Of\+Bits}}
+\begin{DoxyCompactList}\small\item\em Number of bits received for data (address + command + parity) -\/ to determine protocol length if different length are possible. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structIRData_aaaad48fc0d90e5c6daec601987848a51}\label{structIRData_aaaad48fc0d90e5c6daec601987848a51}} 
+uint8\+\_\+t \mbox{\hyperlink{structIRData_aaaad48fc0d90e5c6daec601987848a51}{flags}}
+\begin{DoxyCompactList}\small\item\em IRDATA\+\_\+\+FLAGS\+\_\+\+IS\+\_\+\+REPEAT, IRDATA\+\_\+\+FLAGS\+\_\+\+WAS\+\_\+\+OVERFLOW etc. See IRDATA\+\_\+\+FLAGS\+\_\+$\ast$ definitions above. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structIRData_a8a17562431120ffc7f8964e56e5db27e}\label{structIRData_a8a17562431120ffc7f8964e56e5db27e}} 
+IRRawlen\+Type \mbox{\hyperlink{structIRData_a8a17562431120ffc7f8964e56e5db27e}{rawlen}}
+\begin{DoxyCompactList}\small\item\em counter of entries in rawbuf of last received frame. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structIRData_a39cdcb814880cd9af21f79b53669e824}\label{structIRData_a39cdcb814880cd9af21f79b53669e824}} 
+uint16\+\_\+t \mbox{\hyperlink{structIRData_a39cdcb814880cd9af21f79b53669e824}{initial\+Gap\+Ticks}}
+\begin{DoxyCompactList}\small\item\em contains the initial gap (pre 4.\+4\+: the value in rawbuf\mbox{[}0\mbox{]}) of the last received frame. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structIRData_a8d7c987d63874731ff2e1120b21a1a08}\label{structIRData_a8d7c987d63874731ff2e1120b21a1a08}} 
+\mbox{\hyperlink{structirparams__struct}{irparams\+\_\+struct}} $\ast$ \mbox{\hyperlink{structIRData_a8d7c987d63874731ff2e1120b21a1a08}{raw\+Data\+Ptr}}
+\begin{DoxyCompactList}\small\item\em Pointer of the raw timing data to be decoded. Mainly the Overflow\+Flag and the data buffer filled by receiving ISR. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Data structure for the user application, available as decoded\+IRData. Filled by decoders and read by print functions or user application. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+Arduino-\/\+IRremote/src/\mbox{\hyperlink{IRProtocol_8h}{IRProtocol.\+h}}\end{DoxyCompactItemize}

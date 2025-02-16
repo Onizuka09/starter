@@ -1,0 +1,444 @@
+The latest version may not be released! See also the commit log at github\+: \href{https://github.com/Arduino-IRremote/Arduino-IRremote/commits/master}{\texttt{ https\+://github.\+com/\+Arduino-\/\+IRremote/\+Arduino-\/\+IRremote/commits/master}}\hypertarget{md_lib_Arduino_IRremote_changelog_autotoc_md1}{}\doxysection{4.\+4.\+1}\label{md_lib_Arduino_IRremote_changelog_autotoc_md1}
+
+\begin{DoxyItemize}
+\item Support for ESP 3.\+0 by akellai.
+\item restart\+Timer() now uses variable s\+Micros\+At\+Last\+Stop\+Timer to keep track of uncounted ticks between stop\+Timer() and restart\+Timer().
+\item Removed functions add\+Ticks\+To\+Internal\+Tick\+Counter() and add\+Micros\+To\+Internal\+Tick\+Counter(), which were added in 4.\+1.\+0.
+\item Version 2.\+2.\+0 of Tiny\+IR with new Tiny\+Receiver\+Decode() function to be used as drop in for Ir\+Receiver.\+decode().
+\item Support of RC6A.
+\end{DoxyItemize}\hypertarget{md_lib_Arduino_IRremote_changelog_autotoc_md2}{}\doxysection{4.\+4.\+0}\label{md_lib_Arduino_IRremote_changelog_autotoc_md2}
+
+\begin{DoxyItemize}
+\item Using 8 bit raw timing buffer for all timings except frame gap (former rawbuf\mbox{[}0\mbox{]}).
+\item Renamed decoded\+IRData.\+initial\+Gap to decoded\+IRData.\+initial\+Gap\+Ticks.
+\item send\+NEC() and send\+NEC2() now accepts 16 bit command to better map to NECext protocol found in IRDB databases.
+\item ir\+\_\+\+Distance\+Width\+Protocol() now decodes up to 10 ms mark or spaces if RAM is bigger than 2 k.
+\item Improved sensitivity and decoding of PULSE\+\_\+\+DISTANCE + PULSE\+\_\+\+WIDTH protocols.
+\item Changed TOLERANCE\+\_\+\+FOR\+\_\+\+DECODERS\+\_\+\+MARK\+\_\+\+OR\+\_\+\+SPACE\+\_\+\+MATCHING to TOLERANCE\+\_\+\+FOR\+\_\+\+DECODERS\+\_\+\+MARK\+\_\+\+OR\+\_\+\+SPACE\+\_\+\+MATCHING\+\_\+\+PERCENT.
+\item Improved examples All\+Protocols\+On\+LCD, Unit\+Test and Simple\+Receiver.
+\item New functions decode\+Pulse\+Distance\+Width\+Data() with 6 parameters and decode\+Pulse\+Distance\+Width\+Data\+Strict() with 7 parameters.
+\end{DoxyItemize}\hypertarget{md_lib_Arduino_IRremote_changelog_autotoc_md3}{}\doxysection{4.\+3.\+2}\label{md_lib_Arduino_IRremote_changelog_autotoc_md3}
+
+\begin{DoxyItemize}
+\item Added send\+Sony\+MSB(unsigned long data, int nbits) as a clone of send\+Sony(unsigned long data, int nbits) to be more consistent.
+\item Added send\+Samsung\+MSB(unsigned long data, int nbits) as a clone of send\+SAMSUNG(unsigned long data, int nbits) to be more consistent.
+\item Added ESP32 core 3.\+x error message.
+\end{DoxyItemize}\hypertarget{md_lib_Arduino_IRremote_changelog_autotoc_md4}{}\doxysection{4.\+3.\+1}\label{md_lib_Arduino_IRremote_changelog_autotoc_md4}
+
+\begin{DoxyItemize}
+\item Fixed overflow bug for rawlen $>$ 254.
+\item Removed deprecated send\+Pulse\+Distance... functions with parameter a\+Send\+Stop\+Bit.
+\end{DoxyItemize}\hypertarget{md_lib_Arduino_IRremote_changelog_autotoc_md5}{}\doxysection{4.\+3.\+0}\label{md_lib_Arduino_IRremote_changelog_autotoc_md5}
+
+\begin{DoxyItemize}
+\item Removed default value USE\+\_\+\+DEFAULT\+\_\+\+FEEDBACK\+\_\+\+LED\+\_\+\+PIN for last parameter of IRsend\+::begin(bool a\+Enable\+LEDFeedback, uint\+\_\+fast8\+\_\+t a\+Feedback\+LEDPin). Therefore Ir\+Sender.\+begin(\+DISABLE\+\_\+\+LED\+\_\+\+FEEDBACK) will not longer work!
+\item Added convenience function is\+IRReceiver\+Attached\+For\+Tiny\+Receiver().
+\item Added Extended NEC Protocol macro to Tiny\+IR by Buzzerb.
+\item Fixed send\+Samsung() / send\+Samsung\+LG() bug.
+\item Added functions stop\+Timer(), restart\+Timer() and restart\+Timer\+With\+Ticks\+To\+Add().
+\item Added rawlen and initial\+Gap to \mbox{\hyperlink{structIRData}{IRData}}.
+\item Added Receive\+And\+Send\+Hob\+To\+Hood example.
+\item Changed RECORD\+\_\+\+GAP\+\_\+\+MICROS default value from 5000 to 8000.
+\end{DoxyItemize}\hypertarget{md_lib_Arduino_IRremote_changelog_autotoc_md6}{}\doxysection{4.\+2.\+1}\label{md_lib_Arduino_IRremote_changelog_autotoc_md6}
+
+\begin{DoxyItemize}
+\item Fix wrong type of t\+Enable\+LEDFeedback in \mbox{\hyperlink{IRSend_8hpp_source}{IRSend.\+hpp}} and \mbox{\hyperlink{IRReceive_8hpp_source}{IRReceive.\+hpp}}.
+\item Tiny\+Receiver 2.\+0
+\begin{DoxyItemize}
+\item New Tiny\+IRReceiver\+Data which is filled with address, command and flags.
+\item Removed parameters address, command and flags from callback handle\+Received\+Tiny\+IRData() and print\+Tiny\+Receiver\+Result\+Minimal().
+\item Callback function now only enabled if USE\+\_\+\+CALLBACK\+\_\+\+FOR\+\_\+\+TINY\+\_\+\+RECEIVER is activated.
+\end{DoxyItemize}
+\item Fix changing IR\+\_\+\+SEND\+\_\+\+PIN dynamically for ESP32.
+\item Fix wrong type of t\+Enable\+LEDFeedback.
+\item Support for ESP32-\/\+C3.
+\end{DoxyItemize}\hypertarget{md_lib_Arduino_IRremote_changelog_autotoc_md7}{}\doxysection{4.\+2.\+0}\label{md_lib_Arduino_IRremote_changelog_autotoc_md7}
+
+\begin{DoxyItemize}
+\item The old decode function is renamed to decode\+\_\+old(decode\+\_\+results $\ast$a\+Results). decode (\mbox{\hyperlink{structdecode__results}{decode\+\_\+results}} $\ast$a\+Results) is only available in \mbox{\hyperlink{IRremote_8h}{IRremote.\+h}} and prints a message.
+\item Added DECODE\+\_\+\+ONKYO, to force 16 bit command and data decoding.
+\item Enable Bang\&Olufsen 455 k\+Hz if SEND\+\_\+\+PWM\+\_\+\+BY\+\_\+\+TIMER is defined.
+\item Fixed bug\+: Tiny\+Receiver throwing ISR not in IRAM on ESP8266.
+\item Usage of ATTiny\+Core pin numbering scheme e.\+g. PIN\+\_\+\+PB2.
+\item Added ARDUINO\+\_\+\+ARCH\+\_\+\+NRF52 to support Seeed XIAO n\+RF52840 Sense.
+\item First untested support of Uno R4.
+\item Extraced version macros to \mbox{\hyperlink{IRVersion_8h_source}{IRVersion.\+h}}.
+\end{DoxyItemize}\hypertarget{md_lib_Arduino_IRremote_changelog_autotoc_md8}{}\doxysubsection{4.\+1.\+2}\label{md_lib_Arduino_IRremote_changelog_autotoc_md8}
+
+\begin{DoxyItemize}
+\item Workaround for ESP32 RTOS delay() timing bug influencing the mark() function.
+\end{DoxyItemize}\hypertarget{md_lib_Arduino_IRremote_changelog_autotoc_md9}{}\doxysubsection{4.\+1.\+1}\label{md_lib_Arduino_IRremote_changelog_autotoc_md9}
+
+\begin{DoxyItemize}
+\item SAMD51 use timer3 if timer5 not available.
+\item Disabled \#define LOCAL\+\_\+\+DEBUG in \mbox{\hyperlink{IRReceive_8hpp_source}{IRReceive.\+hpp}}, which was accidently enabled at 4.\+1.\+0.
+\end{DoxyItemize}\hypertarget{md_lib_Arduino_IRremote_changelog_autotoc_md10}{}\doxysubsection{4.\+1.\+0}\label{md_lib_Arduino_IRremote_changelog_autotoc_md10}
+
+\begin{DoxyItemize}
+\item Fixed bug in printing durations $>$ 64535 in print\+IRResult\+Raw\+Formatted().
+\item Narrowed constraints for RC5 RC6 number of bits.
+\item Changed the first parameter of print\+Tiny\+Receiver\+Result\+Minimal() to \&Serial.
+\item Removed 3 Serial prints for deprecation warnings to fix \#1094.
+\item Version 1.\+2.\+0 of Tiny\+IR. Now FAST protocol with 40 ms period and shorter header space.
+\item Removed field \char`\"{}bool has\+Stop\+Bit\char`\"{} and parameter \char`\"{}bool a\+Send\+Stop\+Bit\char`\"{} from \mbox{\hyperlink{structPulseDistanceWidthProtocolConstants}{Pulse\+Distance\+Width\+Protocol\+Constants}} structure and related functions.
+\item Changed a lot of \char`\"{}unsigned int\char`\"{} types to \char`\"{}uint16\+\_\+t\char`\"{} types.
+\item Improved overflow handling.
+\item Improved software PWM generation.
+\item Added FAST protocol.
+\item Improved handling of PULSE\+\_\+\+DISTANCE + PULSE\+\_\+\+WIDTH protocols.
+\item New example Receive\+And\+Send\+Distance\+Width.
+\item Removed the automatic restarting of the receiver timer after sending with SEND\+\_\+\+PWM\+\_\+\+BY\+\_\+\+TIMER enabled.
+\item Split ISR into ISR and function \mbox{\hyperlink{group__TinyReceiver_ga3c3d6703d25dbcc0555823e23eec0e69}{IRPin\+Change\+Interrupt\+Handler()}}.
+\item Added functions add\+Ticks\+To\+Internal\+Tick\+Counter() and add\+Micros\+To\+Internal\+Tick\+Counter().
+\end{DoxyItemize}\hypertarget{md_lib_Arduino_IRremote_changelog_autotoc_md11}{}\doxysubsection{4.\+0.\+0}\label{md_lib_Arduino_IRremote_changelog_autotoc_md11}
+
+\begin{DoxyItemize}
+\item Added decoding of Pulse\+Distance\+Width protocols and therefore changed function decode\+Distance() to decode\+Distance\+Width() and filename ir\+\_\+\+Distance\+Protocol.\+hpp to \mbox{\hyperlink{ir__DistanceWidthProtocol_8hpp_source}{ir\+\_\+\+Distance\+Width\+Protocol.\+hpp}}.
+\item Removed static function print\+IRSend\+Usage(), but kept class function print\+IRSend\+Usage().
+\item Changed type of decoded\+Raw\+Data and decoded\+Raw\+Data\+Array which is now 64 bit for 32 bit platforms.
+\item Added receiver callback functionality and register\+Receive\+Complete\+Callback() function.
+\item Introduced common structure \mbox{\hyperlink{structPulseDistanceWidthProtocolConstants}{Pulse\+Distance\+Width\+Protocol\+Constants}}.
+\item Where possible, changed all send and decode functions to use \mbox{\hyperlink{structPulseDistanceWidthProtocolConstants}{Pulse\+Distance\+Width\+Protocol\+Constants}}.
+\item Improved MSB/\+LSB handling
+\item New convenience fuctions bitreverse32\+Bit() and bitreverse\+One\+Byte().
+\item Improved Magiquest protocol.
+\item Fix for \#1028 -\/ Prevent long delay caused by overflow when frame duration $<$ repeat period -\/ Thanks to Stephen Humphries!
+\item Support for ATtiny816 -\/ Thanks to elockman.
+\item Added Bang\&Olufsen protocol. \#1030.
+\item Third parameter of function \char`\"{}void begin(uint\+\_\+fast8\+\_\+t a\+Send\+Pin, bool a\+Enable\+LEDFeedback, uint\+\_\+fast8\+\_\+t a\+Feedback\+LEDPin)\char`\"{} is not optional anymore and this function is now only available if IR\+\_\+\+SEND\+\_\+\+PIN is not defined. \#1033.
+\item Fixed bug in send\+Sony() for command parameter $>$ 0x7F;
+\item Fixed bug with swapped LG2 header mark and space.
+\item Disabled strict checks while decoding. They can be enabled by defining DECODE\+\_\+\+STRICT\+\_\+\+CHECKS.
+\item Merged the 2 decode pulse width and distance functions.
+\item Changed macro names \+\_\+\+REPEAT\+\_\+\+SPACE to \+\_\+\+REPEAT\+\_\+\+DISTANCE.
+\item Improved Tiny\+IRReceiver,added FAST protocol for it and added \mbox{\hyperlink{TinyIRSender_8hpp_source}{Tiny\+IRSender.\+hpp}} and Tiny\+Sender example, renamed Tiny\+Receiver.\+h to \mbox{\hyperlink{TinyIR_8h_source}{Tiny\+IR.\+h}}.
+\item Added DISABLE\+\_\+\+CODE\+\_\+\+FOR\+\_\+\+RECEIVER to save program memory and RAM if receiving functionality is not required.
+\item Extracted protocol functions used by receive and send to \mbox{\hyperlink{IRProtocol_8hpp_source}{IRProtocol.\+hpp}}.
+\item Analyzed Denon code table and therefore changed Denon from MSB to LSB first.
+\item Renamed send\+RC6(a\+Raw\+Data...) to send\+RC6\+Raw( a\+Raw\+Data...).
+\item Support for seeduino which lacks the print(unsigned long long...) method. Thanks to sklott \href{https://stackoverflow.com/users/11680056/sklott}{\texttt{ https\+://stackoverflow.\+com/users/11680056/sklott}}
+\item Added support for attiny1614 by Joe Ostrander.
+\item Fixed SEND\+\_\+\+PWM\+\_\+\+BY\+\_\+\+TIMER for ATtiny167 thanks to freskpe.
+\item Improved SHARP repeat decoding.
+\item Replaced macros TIMER\+\_\+\+EN/\+DISABLE\+\_\+\+RECEIVE\+\_\+\+INTR and EN/\+DISABLE\+\_\+\+SEND\+\_\+\+PWM\+\_\+\+BY\+\_\+\+TIMER by functions.
+\item Added SAMSUNG48 protocol and send\+Samsung48() function.
+\end{DoxyItemize}\hypertarget{md_lib_Arduino_IRremote_changelog_autotoc_md12}{}\doxysubsection{3.\+9.\+0}\label{md_lib_Arduino_IRremote_changelog_autotoc_md12}
+
+\begin{DoxyItemize}
+\item Improved documentation with the help of \mbox{[}Electronics\+Archiver\}(\href{https://github.com/ElectronicsArchiver}{\texttt{ https\+://github.\+com/\+Electronics\+Archiver}}).
+\item Added NEC2 protocol.
+\item Improved Magiquest protocol.
+\item Renamed send\+Samsung\+Repeat() to send\+Samsung\+LGRepeat().
+\item Added function send\+Pulse\+Distance\+Width().
+\item Improved repeat detection for some protocols.
+\end{DoxyItemize}\hypertarget{md_lib_Arduino_IRremote_changelog_autotoc_md13}{}\doxysubsection{3.\+8.\+0}\label{md_lib_Arduino_IRremote_changelog_autotoc_md13}
+
+\begin{DoxyItemize}
+\item Changed Samsung repeat handling. Old handling is available as Samsung\+LG.
+\item Added function print\+IRSend\+Usage().
+\item Reduced output size and improved format of print\+IRResult\+Raw\+Formatted() to fasten up output (and getting repeats properly decoded).
+\item Fixed Bug in send\+Denon\+Raw() and improved decode\+Denon().
+\item Fixed potential bug in Send\+Biphase data for 1 bit.
+\item Fixed bug in send for RP4020.
+\item Fixed pin mapping problems especially for Teensy 2.\+0.
+\item Added support for decoding of \char`\"{}special\char`\"{} NEC repeats.
+\item Added SAMD51 support.
+\item Improved pin mapping for Tiny\+Receiver.
+\end{DoxyItemize}\hypertarget{md_lib_Arduino_IRremote_changelog_autotoc_md14}{}\doxysubsection{3.\+7.\+1}\label{md_lib_Arduino_IRremote_changelog_autotoc_md14}
+
+\begin{DoxyItemize}
+\item Send\+Raw now supports bufferlenght $>$ 255.
+\item Improved Distance\+Protocol decoder output.
+\item Fixed ESP32 send bug for 2.\+x ESP32 cores.
+\end{DoxyItemize}\hypertarget{md_lib_Arduino_IRremote_changelog_autotoc_md15}{}\doxysubsection{3.\+7.\+0}\label{md_lib_Arduino_IRremote_changelog_autotoc_md15}
+
+\begin{DoxyItemize}
+\item Changed TOLERANCE to TOLERANCE\+\_\+\+FOR\+\_\+\+DECODERS\+\_\+\+MARK\+\_\+\+OR\+\_\+\+SPACE\+\_\+\+MATCHING and documented it.
+\item Changed last uint8\+\_\+t to uint\+\_\+fast8\+\_\+t and uint16\+\_\+t to unsigned integer.
+\item Improved Magi\+Quest protocol.
+\item Improved prints and documentation.
+\item Added Ir\+Receiver.\+restart\+After\+Send() and inserted it in every send(). Closes \#989
+\item Use IRAM\+\_\+\+ATTR instead of deprecated ICACHE\+\_\+\+RAM\+\_\+\+ATTR for ESP8266.
+\item Removed pulse width decoding from ir\+\_\+\+Distance\+Protocol.
+\end{DoxyItemize}\hypertarget{md_lib_Arduino_IRremote_changelog_autotoc_md16}{}\doxysubsection{3.\+6.\+1}\label{md_lib_Arduino_IRremote_changelog_autotoc_md16}
+
+\begin{DoxyItemize}
+\item Switched Bose internal protocol timing for 0 and 1 -\/$>$ old 1 timing is now 0 and vice versa.
+\end{DoxyItemize}\hypertarget{md_lib_Arduino_IRremote_changelog_autotoc_md17}{}\doxysubsection{3.\+6.\+0}\label{md_lib_Arduino_IRremote_changelog_autotoc_md17}
+
+\begin{DoxyItemize}
+\item Separated enable flag of send and receive feedback LED. Inspired by PR\#970 from luvaihassanali.
+\item RP2040 support added.
+\item Refactored \mbox{\hyperlink{IRTimer_8hpp}{IRTimer.\+hpp}}.
+\item Refactored IR\+\_\+\+SEND\+\_\+\+PIN and Ir\+Sender.\+send\+Pin handling.
+\item Renamed IR\+\_\+\+SEND\+\_\+\+DUTY\+\_\+\+CYCLE to IR\+\_\+\+SEND\+\_\+\+DUTY\+\_\+\+CYCLE\+\_\+\+PERCENT.
+\item Fixed bugs for SEND\+\_\+\+PWM\+\_\+\+BY\+\_\+\+TIMER active.
+\end{DoxyItemize}\hypertarget{md_lib_Arduino_IRremote_changelog_autotoc_md18}{}\doxysubsection{3.\+5.\+2}\label{md_lib_Arduino_IRremote_changelog_autotoc_md18}
+
+\begin{DoxyItemize}
+\item Improved support for Teensy boards by Paul Stoffregen.
+\end{DoxyItemize}\hypertarget{md_lib_Arduino_IRremote_changelog_autotoc_md19}{}\doxysubsection{3.\+5.\+1}\label{md_lib_Arduino_IRremote_changelog_autotoc_md19}
+
+\begin{DoxyItemize}
+\item Renamed INFO\+\_\+\+PRINT to IR\+\_\+\+INFO\+\_\+\+PRINT as well as for DEBUG and TRACE.
+\item Fixed error with DEBUG in \mbox{\hyperlink{TinyIRReceiver_8hpp_source}{Tiny\+IRReceiver.\+hpp}}.
+\item Support for ATmega88 see issue \#923. Thanks to Dolmant.
+\item NO\+\_\+\+LED\+\_\+\+FEEDBACK\+\_\+\+CODE replaces and extends DISABLE\+\_\+\+LED\+\_\+\+FEEDBACK\+\_\+\+FOR\+\_\+\+RECEIVE.
+\item Removed NO\+\_\+\+LEGACY\+\_\+\+COMPATIBILITY macro, it was useless now.
+\item Fix ESP32 send bug see issue \#927.
+\end{DoxyItemize}\hypertarget{md_lib_Arduino_IRremote_changelog_autotoc_md20}{}\doxysubsection{3.\+5.\+0}\label{md_lib_Arduino_IRremote_changelog_autotoc_md20}
+
+\begin{DoxyItemize}
+\item Improved ir\+\_\+\+Distance\+Protocol.
+\item Tone for ESP32.
+\item last phase renamed $\ast$.cpp.\+h to .hpp.
+\item No deprecation print for ATtinies.
+\item Renamed ac\+\_\+\+LG.\+cpp to \mbox{\hyperlink{ac__LG_8hpp_source}{ac\+\_\+\+LG.\+hpp}}.
+\item Maintained Magi\+Quest by E. Stuart Hicks.
+\item Improved print Pronto by Asuki Kono.
+\item Added print\+Active\+IRProtocols() function.
+\item Used IR\+\_\+\+SEND\+\_\+\+PIN to reduce code size and improved send timing for AVR.
+\end{DoxyItemize}\hypertarget{md_lib_Arduino_IRremote_changelog_autotoc_md21}{}\doxysubsection{3.\+4.\+0}\label{md_lib_Arduino_IRremote_changelog_autotoc_md21}
+
+\begin{DoxyItemize}
+\item Added LG2 protocol.
+\item Added ATtiny167 (Digispark Pro) support.
+\item Renamed $\ast$.cpp.\+h to .hpp.
+\item organized carrier frequencies.
+\item Compiler switch USE\+\_\+\+OPEN\+\_\+\+DRAIN\+\_\+\+OUTPUT\+\_\+\+FOR\+\_\+\+SEND\+\_\+\+PIN added.
+\item Moved blink13() back to \mbox{\hyperlink{classIRrecv}{IRrecv}} class.
+\item Added Kaseikyo convenience functions like send\+Kaseikyo\+\_\+\+Denon().
+\item Improved / adjusted LG protocol and added class \mbox{\hyperlink{classAircondition__LG}{Aircondition\+\_\+\+LG}} based on real hardware supplied by makerspace 201 (\href{https://wiki.hackerspaces.org/ZwoNullEins}{\texttt{ https\+://wiki.\+hackerspaces.\+org/\+Zwo\+Null\+Eins}}) from Cologne.
+\item Improved universal decoder for pulse distance protocols to support more than 32 bits.
+\item Added mbed support.
+\end{DoxyItemize}\hypertarget{md_lib_Arduino_IRremote_changelog_autotoc_md22}{}\doxysubsection{3.\+3.\+0}\label{md_lib_Arduino_IRremote_changelog_autotoc_md22}
+
+\begin{DoxyItemize}
+\item Fix errors if LED\+\_\+\+BUILTIN is not defined.
+\item Fixed error for AVR timer1. Thanks to alexbarcelo.
+\item New example IRremote\+Extension\+Test.
+\item Enabled mega\+AVR 0-\/series devices.
+\item Added universal decoder for pulse distance protocols.
+\end{DoxyItemize}\hypertarget{md_lib_Arduino_IRremote_changelog_autotoc_md23}{}\doxysubsection{3.\+2.\+0}\label{md_lib_Arduino_IRremote_changelog_autotoc_md23}
+
+\begin{DoxyItemize}
+\item Fix for ESP32 send Error, removed {\ttfamily USE\+\_\+\+SOFT\+\_\+\+SEND\+\_\+\+PWM} macro.
+\item Added Onkyo protocol.
+\item Support for old 2.\+x code by backwards compatible {\ttfamily decode(decode\+\_\+results $\ast$a\+Results)} function.
+\item Removed USE\+\_\+\+OLD\+\_\+\+DECODE macro and added NO\+\_\+\+LEGACY\+\_\+\+COMPATIBILITY macro.
+\item Added ATtiny1604 support.
+\item New Send\+And\+Receive example.
+\item Added ESP8266 support.
+\item Extended DEBUG output.
+\end{DoxyItemize}\hypertarget{md_lib_Arduino_IRremote_changelog_autotoc_md24}{}\doxysubsection{3.\+1.\+0}\label{md_lib_Arduino_IRremote_changelog_autotoc_md24}
+
+\begin{DoxyItemize}
+\item Generation of PWM by software is active by default.
+\item Removed \mbox{\hyperlink{structdecode__results}{decode\+\_\+results}} results.
+\item Renamed most \mbox{\hyperlink{structirparams__struct}{irparams\+\_\+struct}} values.
+\item Fixed LG send bug and added unit test.
+\item Replaced {\ttfamily \#define DECODE\+\_\+\+NEC 1/0} by defining/not defining.
+\item Use LED\+\_\+\+BUILTIN instead of FEEDBACK\+\_\+\+LED if Feedback\+LEDPin is 0.
+\item Use F\+\_\+\+CPU instead of SYSCLOCK.
+\item Removed SENDPIN\+\_\+\+ON and SENDPIN\+\_\+\+OFF macros.
+\item Refactored board specific code for timer and feedback LED.
+\item Extracted common LED feedback functions and implemented feedback for send.
+\item MATCH\+\_\+\+MARK() etc. now available as \mbox{\hyperlink{group__Receiving_ga4472564ea96b1ee10b51f594f60d7aeb}{match\+Mark()}}.
+\item Added STM32\+F1 by (by Roger Clark) support.
+\item Added stm32 (by ST) support. Thanks to Paolo Malaspina.
+\item Added ATtiny88 support.
+\end{DoxyItemize}\hypertarget{md_lib_Arduino_IRremote_changelog_autotoc_md25}{}\doxysubsection{3.\+0.\+2}\label{md_lib_Arduino_IRremote_changelog_autotoc_md25}
+
+\begin{DoxyItemize}
+\item Bug fix for USE\+\_\+\+OLD\+\_\+\+DECODE.
+\item Increase RECORD\+\_\+\+GAP\+\_\+\+MICROS to 11000.
+\item Fix overflow message. (\#793).
+\item Improved handling for HASH decoder.
+\item Tested for ATtiny85.
+\item Added {\ttfamily print\+IRResult\+Minimal()}.
+\item Added missing IRAM\+\_\+\+ATTR for ESP32.
+\item Adapted to Tiny\+Core 0.\+0.\+7.
+\item Fixed decode\+Sony 20 bit bug \#811.
+\item Replaced delay\+Microseconds with custom\+Delay\+Microseconds and removed No\+Interrupt() for send functions, removed SPIN\+\_\+\+WAIT macro, sleep\+Micros() and sleep\+Until\+Micros().
+\item Fixed LG checksum error.
+\item Fixed JVC repeat error.
+\end{DoxyItemize}\hypertarget{md_lib_Arduino_IRremote_changelog_autotoc_md26}{}\doxysubsection{3.\+0.\+0 + 3.\+0.\+1 2021/02}\label{md_lib_Arduino_IRremote_changelog_autotoc_md26}
+
+\begin{DoxyItemize}
+\item New LSB first decoders are default.
+\item Added Send\+Raw with byte data.
+\item Fixed resume bug if irparams.\+rawlen $>$= RAW\+\_\+\+BUFFER\+\_\+\+LENGTH. Thanks to Iosif Peterfi
+\item Added {\ttfamily dump\+Pronto(\+String $\ast$a\+String, unsigned int frequency)} with \mbox{\hyperlink{classString}{String}} object as argument. Thanks to Iosif Peterfi
+\item Removed Test2 example.
+\item Fixed swapped cases in {\ttfamily get\+Protocol\+String()}. Thanks to Jim-\/2249
+\item Added compile option {\ttfamily IR\+\_\+\+INPUT\+\_\+\+IS\+\_\+\+ACTIVE\+\_\+\+HIGH}. Thanks to Jim-\/2249
+\item Corrected template. Thanks to Jim-\/2249
+\item Introduced standard decode and send functions.
+\item Added compatibility with tone for AVR\textquotesingle{}s.
+\item New Tiny\+IRreceiver does not require a timer.
+\item New Minimal\+Receiver and IRDispatcher\+Demo examples.
+\item Added Tiny\+Core 32 / ATtiny3217 support.
+\item Added Apple protocol.
+\end{DoxyItemize}\hypertarget{md_lib_Arduino_IRremote_changelog_autotoc_md27}{}\doxysubsection{2.\+8.\+1 2020/10}\label{md_lib_Arduino_IRremote_changelog_autotoc_md27}
+
+\begin{DoxyItemize}
+\item Fixed bug in Sony decode introduced in 2.\+8.\+0.
+\end{DoxyItemize}\hypertarget{md_lib_Arduino_IRremote_changelog_autotoc_md28}{}\doxysubsection{2.\+8.\+0 2020/10}\label{md_lib_Arduino_IRremote_changelog_autotoc_md28}
+
+\begin{DoxyItemize}
+\item Changed License to MIT see \href{https://github.com/Arduino-IRremote/Arduino-IRremote/issues/397}{\texttt{ https\+://github.\+com/\+Arduino-\/\+IRremote/\+Arduino-\/\+IRremote/issues/397}}.
+\item Added ATtiny timer 1 support.
+\item Changed wrong return code signature of decode\+Pulse\+Distance\+Data() and its handling.
+\item Removed Mitsubishi protocol, since the implementation is in contradiction with all documentation I found and therefore supposed to be wrong.
+\item Removed AIWA implementation, since it is only for 1 device and at least the sending was implemented wrong.
+\item Added Lego\+\_\+\+PF decode.
+\item Changed internal usage of custom\+\_\+delay\+\_\+usec.
+\item Moved dump/print functions from example to ir\+Receiver.
+\item ir\+Pronto.\+cpp\+: Using \mbox{\hyperlink{classPrint}{Print}} instead of \mbox{\hyperlink{structStream}{Stream}} saves 1020 bytes program memory. Changed from \& to $\ast$ parameter type to be more transparent and consistent with other code of IRremote.
+\end{DoxyItemize}\hypertarget{md_lib_Arduino_IRremote_changelog_autotoc_md29}{}\doxysubsection{2.\+7.\+0 2020/09}\label{md_lib_Arduino_IRremote_changelog_autotoc_md29}
+
+\begin{DoxyItemize}
+\item Added ATmega328\+PB support.
+\item Renamed hardware specific macro and function names.
+\item Renamed {\ttfamily USE\+\_\+\+SOFT\+\_\+\+CARRIER}, {\ttfamily USE\+\_\+\+NO\+\_\+\+CARRIER}, {\ttfamily DUTY\+\_\+\+CYCLE} macros to {\ttfamily USE\+\_\+\+SOFT\+\_\+\+SEND\+\_\+\+PWM}, {\ttfamily USE\+\_\+\+NO\+\_\+\+SEND\+\_\+\+PWM}, {\ttfamily IR\+\_\+\+SEND\+\_\+\+DUTY\+\_\+\+CYCLE}.
+\item Removed blocking wait for ATmega32\+U4 Serial in examples.
+\item Deactivated default debug output.
+\item Optimized types in send\+RC5ext and send\+Sharp\+Alt.
+\item Added {\ttfamily DECODE\+\_\+\+NEC\+\_\+\+STANDARD} and {\ttfamily SEND\+\_\+\+NEC\+\_\+\+STANDARD}.
+\item Renamed all IRrecv$\ast$ examples to IRreceive$\ast$.
+\item Added functions {\ttfamily print\+IRResult\+Short(\&\+Serial)} and {\ttfamily get\+Protocol\+String(decode\+\_\+type\+\_\+t a\+Decode\+Type)}.
+\item Added flag {\ttfamily decoded\+IRData.\+is\+Repeat}.
+\item Updated examples.
+\end{DoxyItemize}\hypertarget{md_lib_Arduino_IRremote_changelog_autotoc_md30}{}\doxysubsection{2.\+6.\+1 2020/08}\label{md_lib_Arduino_IRremote_changelog_autotoc_md30}
+
+\begin{DoxyItemize}
+\item Adjusted JVC and LG timing.
+\item Fixed 4809 bug.
+\end{DoxyItemize}\hypertarget{md_lib_Arduino_IRremote_changelog_autotoc_md31}{}\doxysubsection{2.\+6.\+0 2020/08}\label{md_lib_Arduino_IRremote_changelog_autotoc_md31}
+
+\begin{DoxyItemize}
+\item Added support for Magi\+Quest IR wands.
+\item Corrected Samsung timing.
+\item NEC repeat implementation.
+\item Formatting and changing {\ttfamily TIMER\+\_\+\+CONFIG\+\_\+\+KHZ} and {\ttfamily TIMER\+\_\+\+CONFIG\+\_\+\+NORMAL} macros to static functions.
+\item Added {\ttfamily IRAM\+\_\+\+ATTR} for ESP32 ISR.
+\item Removed {\ttfamily \#define HAS\+\_\+\+AVR\+\_\+\+INTERRUPT\+\_\+H}.
+\item Changed Receiver States. Now starting with 0.
+\item Changed switch to if / else if in IRRemote.\+cpp because of ESP32 compiler bug.
+\item Changed {\ttfamily DEBUG} handling since compiler warns about empty \char`\"{}\+IF\char`\"{} or \char`\"{}\+ELSE\char`\"{} statements in IRRemote.\+cpp.
+\end{DoxyItemize}\hypertarget{md_lib_Arduino_IRremote_changelog_autotoc_md32}{}\doxysubsection{2.\+5.\+0 2020/06}\label{md_lib_Arduino_IRremote_changelog_autotoc_md32}
+
+\begin{DoxyItemize}
+\item Corrected keywords.\+txt.
+\item Bose\+Wave protocol added PR \#690.
+\item Formatting comply to the new stylesheet.
+\item Renamed \char`\"{}boarddefs.\+h\char`\"{} \href{https://github.com/Arduino-IRremote/Arduino-IRremote/issues/375}{\texttt{ ISSUE \#375}}.
+\item Renamed {\ttfamily SEND\+\_\+\+PIN} to {\ttfamily IR\+\_\+\+SEND\+\_\+\+PIN}.
+\item Renamed state macros.
+\item Enabled {\ttfamily DUTY\+\_\+\+CYCLE} for send signal.
+\item Added sending for ESP32.
+\item Changed rawlen from uint8\+\_\+t to unsigned int allowing bigger receive buffer and renamed {\ttfamily RAWBUF} to {\ttfamily RAW\+\_\+\+BUFFER\+\_\+\+LENGTH}.
+\item Introduced {\ttfamily USE\+\_\+\+NO\+\_\+\+CARRIER} for simulating an IR receiver. Changes from \#283 by bengtmartensson
+\item Added function send\+Raw\+\_\+\+P() for sending data from flash. Changes from \#268 by adamlhumphreys
+\item Optimized by reducing floating point operations as suggested by madmalkav (\#193).
+\item Optimized with macros when using default {\ttfamily MICROS\+\_\+\+PER\+\_\+\+TICK} and {\ttfamily TOLERANCE}.
+\item Made decode\+Hash as a settable protocol defined by {\ttfamily DECODE\+\_\+\+HASH}.
+\item Added Philips Extended RC-\/5 protocol support \href{https://github.com/Arduino-IRremote/Arduino-IRremote/pull/522}{\texttt{ PR \#522}}
+\end{DoxyItemize}\hypertarget{md_lib_Arduino_IRremote_changelog_autotoc_md33}{}\doxysubsection{2.\+4.\+0 -\/ 2017/08/10}\label{md_lib_Arduino_IRremote_changelog_autotoc_md33}
+
+\begin{DoxyItemize}
+\item Cleanup of hardware dependencies. Merge in SAM support \href{https://github.com/Arduino-IRremote/Arduino-IRremote/pull/437}{\texttt{ PR \#437}}
+\end{DoxyItemize}\hypertarget{md_lib_Arduino_IRremote_changelog_autotoc_md34}{}\doxysubsection{2.\+3.\+3 -\/ 2017/03/31}\label{md_lib_Arduino_IRremote_changelog_autotoc_md34}
+
+\begin{DoxyItemize}
+\item Added ESP32 IR receive support \href{https://github.com/Arduino-IRremote/Arduino-IRremote/pull/425}{\texttt{ PR \#427}}
+\end{DoxyItemize}\hypertarget{md_lib_Arduino_IRremote_changelog_autotoc_md35}{}\doxysubsection{2.\+2.\+3 -\/ 2017/03/27}\label{md_lib_Arduino_IRremote_changelog_autotoc_md35}
+
+\begin{DoxyItemize}
+\item Fix calculation of pause length in LEGO PF protocol \href{https://github.com/Arduino-IRremote/Arduino-IRremote/pull/427}{\texttt{ PR \#427}}
+\end{DoxyItemize}\hypertarget{md_lib_Arduino_IRremote_changelog_autotoc_md36}{}\doxysubsection{2.\+2.\+2 -\/ 2017/01/20}\label{md_lib_Arduino_IRremote_changelog_autotoc_md36}
+
+\begin{DoxyItemize}
+\item Fixed naming bug \href{https://github.com/Arduino-IRremote/Arduino-IRremote/pull/398}{\texttt{ PR \#398}}
+\end{DoxyItemize}\hypertarget{md_lib_Arduino_IRremote_changelog_autotoc_md37}{}\doxysubsection{2.\+2.\+1 -\/ 2016/07/27}\label{md_lib_Arduino_IRremote_changelog_autotoc_md37}
+
+\begin{DoxyItemize}
+\item Added tests for Lego Power Functions Protocol \href{https://github.com/Arduino-IRremote/Arduino-IRremote/pull/336}{\texttt{ PR \#336}}
+\end{DoxyItemize}\hypertarget{md_lib_Arduino_IRremote_changelog_autotoc_md38}{}\doxysubsection{2.\+2.\+0 -\/ 2016/06/28}\label{md_lib_Arduino_IRremote_changelog_autotoc_md38}
+
+\begin{DoxyItemize}
+\item Added support for ATmega8535
+\item Added support for ATmega16
+\item Added support for ATmega32
+\item Added support for ATmega164
+\item Added support for ATmega324
+\item Added support for ATmega644
+\item Added support for ATmega1284
+\item Added support for ATmega64
+\item Added support for ATmega128
+\end{DoxyItemize}
+
+\href{https://github.com/Arduino-IRremote/Arduino-IRremote/pull/324}{\texttt{ PR}}\hypertarget{md_lib_Arduino_IRremote_changelog_autotoc_md39}{}\doxysubsection{2.\+1.\+1 -\/ 2016/05/04}\label{md_lib_Arduino_IRremote_changelog_autotoc_md39}
+
+\begin{DoxyItemize}
+\item Added Lego Power Functions Protocol \href{https://github.com/Arduino-IRremote/Arduino-IRremote/pull/309}{\texttt{ PR \#309}}
+\end{DoxyItemize}\hypertarget{md_lib_Arduino_IRremote_changelog_autotoc_md40}{}\doxysubsection{2.\+1.\+0 -\/ 2016/02/20}\label{md_lib_Arduino_IRremote_changelog_autotoc_md40}
+
+\begin{DoxyItemize}
+\item Improved Debugging \href{https://github.com/Arduino-IRremote/Arduino-IRremote/pull/258}{\texttt{ PR \#258}}
+\item Display TIME instead of TICKS \href{https://github.com/Arduino-IRremote/Arduino-IRremote/pull/258}{\texttt{ PR \#258}}
+\end{DoxyItemize}\hypertarget{md_lib_Arduino_IRremote_changelog_autotoc_md41}{}\doxysubsection{2.\+0.\+4 -\/ 2016/02/20}\label{md_lib_Arduino_IRremote_changelog_autotoc_md41}
+
+\begin{DoxyItemize}
+\item Add Panasonic and JVC to IRrecord example \href{https://github.com/Arduino-IRremote/Arduino-IRremote/pull/54}{\texttt{ PR}}
+\end{DoxyItemize}\hypertarget{md_lib_Arduino_IRremote_changelog_autotoc_md42}{}\doxysubsection{2.\+0.\+3 -\/ 2016/02/20}\label{md_lib_Arduino_IRremote_changelog_autotoc_md42}
+
+\begin{DoxyItemize}
+\item Change IRSend Raw parameter to const \href{https://github.com/Arduino-IRremote/Arduino-IRremote/pull/227}{\texttt{ PR}}
+\end{DoxyItemize}\hypertarget{md_lib_Arduino_IRremote_changelog_autotoc_md43}{}\doxysubsection{2.\+0.\+2 -\/ 2015/12/02}\label{md_lib_Arduino_IRremote_changelog_autotoc_md43}
+
+\begin{DoxyItemize}
+\item Added IRremote\+Info Sketch -\/ \href{https://github.com/Arduino-IRremote/Arduino-IRremote/pull/241}{\texttt{ PR}}
+\item Enforcing changelog.\+md
+\end{DoxyItemize}\hypertarget{md_lib_Arduino_IRremote_changelog_autotoc_md44}{}\doxysubsection{2.\+0.\+1 -\/ 2015/07/26 -\/ $<$a href=\char`\"{}https\+://github.\+com/shirriff/\+Arduino-\/\+IRremote/releases/tag/\+BETA\char`\"{}$>$\+Release$<$/a$>$}\label{md_lib_Arduino_IRremote_changelog_autotoc_md44}
+\hypertarget{md_lib_Arduino_IRremote_changelog_autotoc_md45}{}\doxysubsubsection{Changes}\label{md_lib_Arduino_IRremote_changelog_autotoc_md45}
+
+\begin{DoxyItemize}
+\item Updated README
+\item Updated Contributors
+\item Fixed \#110 Mess
+\item Created Gitter Room
+\item Added Gitter Badge
+\item Standardised Code Base
+\item Clean Debug Output
+\item Optimized Send Loops
+\item Modularized Design
+\item Optimized and Updated Examples
+\item Improved Documentation
+\item Fixed and Improved many coding errors
+\item Fixed Aiwa RC-\/\+T501 Decoding
+\item Fixed Interrupt on ATmega8
+\item Switched to Stable Release of Platform\+IO
+\end{DoxyItemize}\hypertarget{md_lib_Arduino_IRremote_changelog_autotoc_md46}{}\doxysubsubsection{Additions}\label{md_lib_Arduino_IRremote_changelog_autotoc_md46}
+
+\begin{DoxyItemize}
+\item Added Aiwa RC-\/\+T501 Protocol
+\item Added Denon Protocol
+\item Added Pronto Support
+\item Added compile options
+\item Added Template For New Protocols
+\item Added this changelog
+\item Added Teensy LC Support
+\item Added ATtiny84 Support
+\item Added ATtiny85 Support
+\item Added is\+Idle method
+\end{DoxyItemize}\hypertarget{md_lib_Arduino_IRremote_changelog_autotoc_md47}{}\doxysubsubsection{Deletions}\label{md_lib_Arduino_IRremote_changelog_autotoc_md47}
+
+\begin{DoxyItemize}
+\item Removed (Fixed) \#110
+\item Broke Teensy 3 / 3.\+1 Support
+\end{DoxyItemize}\hypertarget{md_lib_Arduino_IRremote_changelog_autotoc_md48}{}\doxysubsubsection{Not Working}\label{md_lib_Arduino_IRremote_changelog_autotoc_md48}
+
+\begin{DoxyItemize}
+\item Teensy 3 / 3.\+1 Support is in Development 
+\end{DoxyItemize}

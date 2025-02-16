@@ -1,0 +1,15 @@
+digraph "lib/Arduino-IRremote" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_97aefd0d527b934f1d99a682da8fe6a9 {
+    graph [ bgcolor="#ddddee", pencolor="black", label="lib" fontname="Helvetica", fontsize="10", URL="dir_97aefd0d527b934f1d99a682da8fe6a9.html"]
+  subgraph clusterdir_68d3614a5c655cc1084e46e96220bcc7 {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_68d3614a5c655cc1084e46e96220bcc7.html"];
+    dir_68d3614a5c655cc1084e46e96220bcc7 [shape=plaintext label="Arduino-IRremote"];
+  dir_f75d7860a5609d0d16a215e88cea0049 [shape=box label="examples" fillcolor="white" style="filled" color="red" URL="dir_f75d7860a5609d0d16a215e88cea0049.html"];
+  dir_86452b9b23b6458ad2595ea5f184aea6 [shape=box label="src" fillcolor="white" style="filled" color="red" URL="dir_86452b9b23b6458ad2595ea5f184aea6.html"];
+  }
+  }
+  dir_f75d7860a5609d0d16a215e88cea0049->dir_86452b9b23b6458ad2595ea5f184aea6 [headlabel="1", labeldistance=1.5 headhref="dir_000003_000031.html"];
+}

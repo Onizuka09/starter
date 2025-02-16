@@ -1,46 +1,41 @@
-/*
- * =====================================================================================
+/**
+ * @file mystorage.h
+ * @brief Storage module for handling file operations using LittleFS.
  *
- *       Filename:  JsonFileManager.h
+ * This module provides functions to interact with the file system, including listing directories, 
+ * dumping file contents, and basic file operations.
  *
- *    Description:  
- *
- *        Version:  1.0
- *        Created:  04/17/2024 05:35:01 AM
- *       Revision:  none
- *       Compiler:  g++
- *
- *         Author:  YOUR NAME (), 
- *   Organization:  
- *
- * =====================================================================================
+ * @author Moktar SELLAMI
+ * @date 2025-02-16
  */
+#ifndef MY_STORAGE_H_ 
+#define MY_STORAGE_H_
 
 
-#ifndef JSON_FILE_MANAGER_H 
-#define JSON_FILE_MANAGER_H
 
 #include <LittleFS.h>
 #include <Arduino.h>
 #include <FS.h>
 
-// typedef enum {
-//  settings,
-// } Files;
+/**
+ * @brief Lists the contents of a directory.
+ *
+ * This function prints the files and directories present in the specified directory.
+ *
+ * @param fs The file system instance (e.g., LittleFS).
+ * @param dirname The path of the directory to list.
+ * @param levels The depth level for recursive listing.
+ */
+void listDir(fs::FS &fs, const char *dirname, uint8_t levels);
 
+/**
+ * @brief Dumps the contents of a file to the serial output.
+ *
+ * This function reads the specified file and prints its content for debugging purposes.
+ *
+ * @param fs The file system instance (e.g., LittleFS).
+ * @param path The file path to dump.
+ */
+void Dump_file(fs::FS &fs, const char *path);
 
-
-// void init_littlefs();
-// bool isDataAvailable(Files f);
-// void dump_file2(Files f); 
-// bool write_file(uint8_t* data, size_t size, Files f) ;
-// bool readData(uint8_t* buffer,size_t* size,Files f) ;
-// void stop_littlefs();
-// void resetFile(Files f) ;
-
-void listDir(fs::FS &fs, const char *dirname, uint8_t levels) ;
-void Dump_file(fs::FS &fs, const char *path) ;
-
-
-
-#endif
+#endif // MY_STORAGE_H_

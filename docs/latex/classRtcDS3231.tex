@@ -1,0 +1,107 @@
+\hypertarget{classRtcDS3231}{}\doxysection{Rtc\+DS3231$<$ T\+\_\+\+WIRE\+\_\+\+METHOD $>$ Class Template Reference}
+\label{classRtcDS3231}\index{RtcDS3231$<$ T\_WIRE\_METHOD $>$@{RtcDS3231$<$ T\_WIRE\_METHOD $>$}}
+
+
+Inheritance diagram for Rtc\+DS3231$<$ T\+\_\+\+WIRE\+\_\+\+METHOD $>$\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRtcDS3231_ad0c02c5ff38211356ca99811fd66c635}\label{classRtcDS3231_ad0c02c5ff38211356ca99811fd66c635}} 
+{\bfseries Rtc\+DS3231} (T\+\_\+\+WIRE\+\_\+\+METHOD \&wire)
+\item 
+\mbox{\Hypertarget{classRtcDS3231_a6e73ff9b1b19547bda25edcd3334f516}\label{classRtcDS3231_a6e73ff9b1b19547bda25edcd3334f516}} 
+void {\bfseries Begin} ()
+\item 
+\mbox{\Hypertarget{classRtcDS3231_a67dc6ee7f88745867e4f41077dfa7412}\label{classRtcDS3231_a67dc6ee7f88745867e4f41077dfa7412}} 
+void {\bfseries Begin} (int sda, int scl)
+\item 
+\mbox{\Hypertarget{classRtcDS3231_a26df11dff7a863b3c91acfa37f4b3226}\label{classRtcDS3231_a26df11dff7a863b3c91acfa37f4b3226}} 
+uint8\+\_\+t {\bfseries Last\+Error} ()
+\item 
+\mbox{\Hypertarget{classRtcDS3231_a9f1e6af640d8d04c940d5d8dda50518a}\label{classRtcDS3231_a9f1e6af640d8d04c940d5d8dda50518a}} 
+bool {\bfseries Is\+Date\+Time\+Valid} ()
+\item 
+\mbox{\Hypertarget{classRtcDS3231_a86c5819d995bbc266600e1029678d072}\label{classRtcDS3231_a86c5819d995bbc266600e1029678d072}} 
+bool {\bfseries Get\+Is\+Running} ()
+\item 
+\mbox{\Hypertarget{classRtcDS3231_a77c1e1702c02bc7ba153a61b2ed53f6d}\label{classRtcDS3231_a77c1e1702c02bc7ba153a61b2ed53f6d}} 
+void {\bfseries Set\+Is\+Running} (bool is\+Running)
+\item 
+\mbox{\Hypertarget{classRtcDS3231_ae09f481a1826b6ed4dd1295db39ea656}\label{classRtcDS3231_ae09f481a1826b6ed4dd1295db39ea656}} 
+void {\bfseries Set\+Date\+Time} (const \mbox{\hyperlink{classRtcDateTime}{Rtc\+Date\+Time}} \&dt)
+\item 
+\mbox{\Hypertarget{classRtcDS3231_a4e71a193291a996b9ccace5ce28cde59}\label{classRtcDS3231_a4e71a193291a996b9ccace5ce28cde59}} 
+\mbox{\hyperlink{classRtcDateTime}{Rtc\+Date\+Time}} {\bfseries Get\+Date\+Time} ()
+\item 
+\mbox{\Hypertarget{classRtcDS3231_a534ddb82645de3407a6ffb8a2c92b3d0}\label{classRtcDS3231_a534ddb82645de3407a6ffb8a2c92b3d0}} 
+\mbox{\hyperlink{classRtcTemperature}{Rtc\+Temperature}} {\bfseries Get\+Temperature} ()
+\item 
+\mbox{\Hypertarget{classRtcDS3231_a81a90021b65a50a92ec6176bd1a5860c}\label{classRtcDS3231_a81a90021b65a50a92ec6176bd1a5860c}} 
+void {\bfseries Enable32k\+Hz\+Pin} (bool enable)
+\item 
+\mbox{\Hypertarget{classRtcDS3231_a223da54c07bc017a5c6c254b27548f3c}\label{classRtcDS3231_a223da54c07bc017a5c6c254b27548f3c}} 
+void {\bfseries Set\+Square\+Wave\+Pin} (DS3231\+Square\+Wave\+Pin\+Mode pin\+Mode, bool enable\+While\+In\+Battery\+Backup=true)
+\item 
+\mbox{\Hypertarget{classRtcDS3231_af2a88ca0e3aa1f85ee8dfba2f5ea00bd}\label{classRtcDS3231_af2a88ca0e3aa1f85ee8dfba2f5ea00bd}} 
+void {\bfseries Set\+Square\+Wave\+Pin\+Clock\+Frequency} (DS3231\+Square\+Wave\+Clock freq)
+\item 
+\mbox{\Hypertarget{classRtcDS3231_ac0c0bb0b87644d46124bb390bbdcd8a6}\label{classRtcDS3231_ac0c0bb0b87644d46124bb390bbdcd8a6}} 
+void {\bfseries Set\+Alarm\+One} (const \mbox{\hyperlink{classDS3231AlarmOne}{DS3231\+Alarm\+One}} \&alarm)
+\item 
+\mbox{\Hypertarget{classRtcDS3231_a4e8bcde1ec694bb4a7403d1af1820709}\label{classRtcDS3231_a4e8bcde1ec694bb4a7403d1af1820709}} 
+void {\bfseries Set\+Alarm\+Two} (const \mbox{\hyperlink{classDS3231AlarmTwo}{DS3231\+Alarm\+Two}} \&alarm)
+\item 
+\mbox{\Hypertarget{classRtcDS3231_a1432d525a7c9476016e79011c9c6deac}\label{classRtcDS3231_a1432d525a7c9476016e79011c9c6deac}} 
+\mbox{\hyperlink{classDS3231AlarmOne}{DS3231\+Alarm\+One}} {\bfseries Get\+Alarm\+One} ()
+\item 
+\mbox{\Hypertarget{classRtcDS3231_a990fe562a1c3c54218d0e3f6df2ad038}\label{classRtcDS3231_a990fe562a1c3c54218d0e3f6df2ad038}} 
+\mbox{\hyperlink{classDS3231AlarmTwo}{DS3231\+Alarm\+Two}} {\bfseries Get\+Alarm\+Two} ()
+\item 
+\mbox{\Hypertarget{classRtcDS3231_a7bb14e7c7259122bcbaa7ab87f4a3f41}\label{classRtcDS3231_a7bb14e7c7259122bcbaa7ab87f4a3f41}} 
+DS3231\+Alarm\+Flag {\bfseries Latch\+Alarms\+Triggered\+Flags} ()
+\item 
+\mbox{\Hypertarget{classRtcDS3231_a20c2fa256578e1059decb90353dbab64}\label{classRtcDS3231_a20c2fa256578e1059decb90353dbab64}} 
+DS3231\+Alarm\+Flag {\bfseries Latch\+Alarm\+One\+Flag} ()
+\item 
+\mbox{\Hypertarget{classRtcDS3231_a2e0475d7d94dd428c34f636af7643a7c}\label{classRtcDS3231_a2e0475d7d94dd428c34f636af7643a7c}} 
+DS3231\+Alarm\+Flag {\bfseries Latch\+Alarm\+Two\+Flag} ()
+\item 
+\mbox{\Hypertarget{classRtcDS3231_a654f173fbdfb294828ecf3cbf0949f0b}\label{classRtcDS3231_a654f173fbdfb294828ecf3cbf0949f0b}} 
+bool {\bfseries Get\+Alarm\+One\+Triggered} ()
+\item 
+\mbox{\Hypertarget{classRtcDS3231_a65ca549fa52147263f0ce092e4cc3325}\label{classRtcDS3231_a65ca549fa52147263f0ce092e4cc3325}} 
+bool {\bfseries Get\+Alarm\+Two\+Triggered} ()
+\item 
+\mbox{\Hypertarget{classRtcDS3231_ab4c23c09699a670869b988917dfccafb}\label{classRtcDS3231_ab4c23c09699a670869b988917dfccafb}} 
+void {\bfseries Force\+Temperature\+Compensation\+Update} (bool block)
+\item 
+\mbox{\Hypertarget{classRtcDS3231_a2ee7a2efbfc4a3d3be4fb4fc0617205f}\label{classRtcDS3231_a2ee7a2efbfc4a3d3be4fb4fc0617205f}} 
+int8\+\_\+t {\bfseries Get\+Aging\+Offset} ()
+\item 
+\mbox{\Hypertarget{classRtcDS3231_aa225e3c0047fb679992eca8026920e43}\label{classRtcDS3231_aa225e3c0047fb679992eca8026920e43}} 
+void {\bfseries Set\+Aging\+Offset} (int8\+\_\+t value)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRtcDS3231_a95efd43579068bbef93e34c0e89d6296}\label{classRtcDS3231_a95efd43579068bbef93e34c0e89d6296}} 
+uint8\+\_\+t {\bfseries get\+Reg} (uint8\+\_\+t reg\+Address)
+\item 
+\mbox{\Hypertarget{classRtcDS3231_ac6e51ebec1b1b900b350aadb22fd3a7c}\label{classRtcDS3231_ac6e51ebec1b1b900b350aadb22fd3a7c}} 
+void {\bfseries set\+Reg} (uint8\+\_\+t reg\+Address, uint8\+\_\+t reg\+Value)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRtcDS3231_ac4f8ef0680fe13d2db0d58a6780e6677}\label{classRtcDS3231_ac4f8ef0680fe13d2db0d58a6780e6677}} 
+T\+\_\+\+WIRE\+\_\+\+METHOD \& {\bfseries \+\_\+wire}
+\item 
+\mbox{\Hypertarget{classRtcDS3231_a09d9e05b34aec506571211d040aac044}\label{classRtcDS3231_a09d9e05b34aec506571211d040aac044}} 
+uint8\+\_\+t {\bfseries \+\_\+last\+Error}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+Rtc/src/Rtc\+DS3231.\+h\end{DoxyCompactItemize}

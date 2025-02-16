@@ -1,0 +1,61 @@
+\hypertarget{classARDUINOJSON__NAMESPACE_1_1TextFormatter}{}\doxysection{ARDUINOJSON\+\_\+\+NAMESPACE\+::Text\+Formatter$<$ TWriter $>$ Class Template Reference}
+\label{classARDUINOJSON__NAMESPACE_1_1TextFormatter}\index{ARDUINOJSON\_NAMESPACE::TextFormatter$<$ TWriter $>$@{ARDUINOJSON\_NAMESPACE::TextFormatter$<$ TWriter $>$}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classARDUINOJSON__NAMESPACE_1_1TextFormatter_a011b208d3227b44e4e70c4e9e4c5bc4b}\label{classARDUINOJSON__NAMESPACE_1_1TextFormatter_a011b208d3227b44e4e70c4e9e4c5bc4b}} 
+{\bfseries Text\+Formatter} (TWriter writer)
+\item 
+\mbox{\Hypertarget{classARDUINOJSON__NAMESPACE_1_1TextFormatter_a449387fdcf6815f7a53dce6ee7c6b5b5}\label{classARDUINOJSON__NAMESPACE_1_1TextFormatter_a449387fdcf6815f7a53dce6ee7c6b5b5}} 
+size\+\_\+t {\bfseries bytes\+Written} () const
+\item 
+\mbox{\Hypertarget{classARDUINOJSON__NAMESPACE_1_1TextFormatter_a56ed05ddc56459d58d1fcf040f018277}\label{classARDUINOJSON__NAMESPACE_1_1TextFormatter_a56ed05ddc56459d58d1fcf040f018277}} 
+void {\bfseries write\+Boolean} (bool value)
+\item 
+\mbox{\Hypertarget{classARDUINOJSON__NAMESPACE_1_1TextFormatter_a09127d9dbaef62db3e3f724a31ae34fb}\label{classARDUINOJSON__NAMESPACE_1_1TextFormatter_a09127d9dbaef62db3e3f724a31ae34fb}} 
+void {\bfseries write\+String} (const char $\ast$value)
+\item 
+\mbox{\Hypertarget{classARDUINOJSON__NAMESPACE_1_1TextFormatter_a11972cdf199efb390f0504bb44a19dfb}\label{classARDUINOJSON__NAMESPACE_1_1TextFormatter_a11972cdf199efb390f0504bb44a19dfb}} 
+void {\bfseries write\+String} (const char $\ast$value, size\+\_\+t n)
+\item 
+\mbox{\Hypertarget{classARDUINOJSON__NAMESPACE_1_1TextFormatter_abc68885760948e35bb01cc538696bd30}\label{classARDUINOJSON__NAMESPACE_1_1TextFormatter_abc68885760948e35bb01cc538696bd30}} 
+void {\bfseries write\+Char} (char c)
+\item 
+\mbox{\Hypertarget{classARDUINOJSON__NAMESPACE_1_1TextFormatter_a2e3bd0040a6538fb9d82dadccc9321db}\label{classARDUINOJSON__NAMESPACE_1_1TextFormatter_a2e3bd0040a6538fb9d82dadccc9321db}} 
+{\footnotesize template$<$typename T $>$ }\\void {\bfseries write\+Float} (T value)
+\item 
+\mbox{\Hypertarget{classARDUINOJSON__NAMESPACE_1_1TextFormatter_a4d2672cf8873da179d2d6fd8486b7648}\label{classARDUINOJSON__NAMESPACE_1_1TextFormatter_a4d2672cf8873da179d2d6fd8486b7648}} 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{structARDUINOJSON__NAMESPACE_1_1enable__if}{enable\+\_\+if}}$<$ \mbox{\hyperlink{structARDUINOJSON__NAMESPACE_1_1is__signed}{is\+\_\+signed}}$<$ T $>$\+::value $>$\+::type {\bfseries write\+Integer} (T value)
+\item 
+\mbox{\Hypertarget{classARDUINOJSON__NAMESPACE_1_1TextFormatter_ae622a84b4f06020fafe581b53ea55053}\label{classARDUINOJSON__NAMESPACE_1_1TextFormatter_ae622a84b4f06020fafe581b53ea55053}} 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{structARDUINOJSON__NAMESPACE_1_1enable__if}{enable\+\_\+if}}$<$ \mbox{\hyperlink{structARDUINOJSON__NAMESPACE_1_1is__unsigned}{is\+\_\+unsigned}}$<$ T $>$\+::value $>$\+::type {\bfseries write\+Integer} (T value)
+\item 
+\mbox{\Hypertarget{classARDUINOJSON__NAMESPACE_1_1TextFormatter_a8be8ab943df4f96518b576ea3e26629f}\label{classARDUINOJSON__NAMESPACE_1_1TextFormatter_a8be8ab943df4f96518b576ea3e26629f}} 
+void {\bfseries write\+Decimals} (uint32\+\_\+t value, int8\+\_\+t width)
+\item 
+\mbox{\Hypertarget{classARDUINOJSON__NAMESPACE_1_1TextFormatter_a6860c034c36d0de44b0b94a26d9a2376}\label{classARDUINOJSON__NAMESPACE_1_1TextFormatter_a6860c034c36d0de44b0b94a26d9a2376}} 
+void {\bfseries write\+Raw} (const char $\ast$s)
+\item 
+\mbox{\Hypertarget{classARDUINOJSON__NAMESPACE_1_1TextFormatter_acd170b0c39bf5bb8cbd501d93e9eee3a}\label{classARDUINOJSON__NAMESPACE_1_1TextFormatter_acd170b0c39bf5bb8cbd501d93e9eee3a}} 
+void {\bfseries write\+Raw} (const char $\ast$s, size\+\_\+t n)
+\item 
+\mbox{\Hypertarget{classARDUINOJSON__NAMESPACE_1_1TextFormatter_aa95d5f370819053b7c6ea2b23b65be9f}\label{classARDUINOJSON__NAMESPACE_1_1TextFormatter_aa95d5f370819053b7c6ea2b23b65be9f}} 
+void {\bfseries write\+Raw} (const char $\ast$begin, const char $\ast$end)
+\item 
+\mbox{\Hypertarget{classARDUINOJSON__NAMESPACE_1_1TextFormatter_ae8415eece6ae08e97306b324e4a1b7d4}\label{classARDUINOJSON__NAMESPACE_1_1TextFormatter_ae8415eece6ae08e97306b324e4a1b7d4}} 
+{\footnotesize template$<$size\+\_\+t N$>$ }\\void {\bfseries write\+Raw} (const char(\&s)\mbox{[}N\mbox{]})
+\item 
+\mbox{\Hypertarget{classARDUINOJSON__NAMESPACE_1_1TextFormatter_a58ba8651e3a0e30ddf20821c7d899290}\label{classARDUINOJSON__NAMESPACE_1_1TextFormatter_a58ba8651e3a0e30ddf20821c7d899290}} 
+void {\bfseries write\+Raw} (char c)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classARDUINOJSON__NAMESPACE_1_1TextFormatter_aa072f6651958d7dd94d8a18221658c9d}\label{classARDUINOJSON__NAMESPACE_1_1TextFormatter_aa072f6651958d7dd94d8a18221658c9d}} 
+\mbox{\hyperlink{classARDUINOJSON__NAMESPACE_1_1CountingDecorator}{Counting\+Decorator}}$<$ TWriter $>$ {\bfseries \+\_\+writer}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+Arduino\+Json/src/\+Arduino\+Json/\+Json/Text\+Formatter.\+hpp\end{DoxyCompactItemize}

@@ -1,0 +1,10 @@
+digraph "Graphical Class Hierarchy"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node0 [label="ARDUINOJSON_NAMESPACE\l::Reader\< char *, void \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structARDUINOJSON__NAMESPACE_1_1Reader.html",tooltip=" "];
+  Node0 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 [label="ARDUINOJSON_NAMESPACE\l::Reader\< TVariant, typename\l enable_if\< IsVariant\< TVariant\l \>::value \>::type \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structARDUINOJSON__NAMESPACE_1_1Reader_3_01TVariant_00_01typename_01enable__if_3_01IsVariant_3_02e809e013eee94a546676d42556099db.html",tooltip=" "];
+}

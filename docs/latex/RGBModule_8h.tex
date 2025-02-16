@@ -1,0 +1,83 @@
+\hypertarget{RGBModule_8h}{}\doxysection{include/\+RGBModule.h File Reference}
+\label{RGBModule_8h}\index{include/RGBModule.h@{include/RGBModule.h}}
+
+
+This file defines the \mbox{\hyperlink{classRGBModule}{RGBModule}} class for controlling an RGB LED.  
+
+
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+Include dependency graph for RGBModule.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=201pt]{RGBModule_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classRGBModule}{RGBModule}}
+\begin{DoxyCompactList}\small\item\em Class for controlling an RGB LED. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{RGBModule_8h_ae10cb58b12d14aa3cbc1050fdc8f8d4e}{LED\+\_\+\+STATUS\+\_\+\+COLOR}} \{ \newline
+\mbox{\hyperlink{RGBModule_8h_ae10cb58b12d14aa3cbc1050fdc8f8d4ea0897b4936417743a46c55fc4632e3c72}{GREEN\+\_\+\+COLOR\+\_\+\+STATUS}} = 0
+, \mbox{\hyperlink{RGBModule_8h_ae10cb58b12d14aa3cbc1050fdc8f8d4eaac501f02310324df5e3899a4bb142633}{BLUE\+\_\+\+COLOR\+\_\+\+STATUS}}
+, \mbox{\hyperlink{RGBModule_8h_ae10cb58b12d14aa3cbc1050fdc8f8d4ead8cc5b502497bed5fc16c69118d0ee13}{RED\+\_\+\+COLOR\+\_\+\+STATUS}}
+, \mbox{\hyperlink{RGBModule_8h_ae10cb58b12d14aa3cbc1050fdc8f8d4ea5f1dc4176813cd4684b5ce44bf24e969}{NO\+\_\+\+COLOR\+\_\+\+STATUS}}
+, \newline
+\mbox{\hyperlink{RGBModule_8h_ae10cb58b12d14aa3cbc1050fdc8f8d4ea526a0b9869e73c5801dc7b9ac1971bde}{YELLOW\+\_\+\+COLOR\+\_\+\+STATUS}}
+, \mbox{\hyperlink{RGBModule_8h_ae10cb58b12d14aa3cbc1050fdc8f8d4eab249be35d0d37e5a9c2d5e06c48f1391}{LIGHT\+\_\+\+BLUE\+\_\+\+COLOR\+\_\+\+STATUS}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumeration for the different LED status colors. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file defines the \mbox{\hyperlink{classRGBModule}{RGBModule}} class for controlling an RGB LED. 
+
+The \mbox{\hyperlink{classRGBModule}{RGBModule}} class allows setting colors, blinking status, and managing RGB LED tasks. \begin{DoxyAuthor}{Author}
+Moktar SELLAMI 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2025-\/02-\/16 
+\end{DoxyDate}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{RGBModule_8h_ae10cb58b12d14aa3cbc1050fdc8f8d4e}\label{RGBModule_8h_ae10cb58b12d14aa3cbc1050fdc8f8d4e}} 
+\index{RGBModule.h@{RGBModule.h}!LED\_STATUS\_COLOR@{LED\_STATUS\_COLOR}}
+\index{LED\_STATUS\_COLOR@{LED\_STATUS\_COLOR}!RGBModule.h@{RGBModule.h}}
+\doxysubsubsection{\texorpdfstring{LED\_STATUS\_COLOR}{LED\_STATUS\_COLOR}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{RGBModule_8h_ae10cb58b12d14aa3cbc1050fdc8f8d4e}{LED\+\_\+\+STATUS\+\_\+\+COLOR}}}
+
+
+
+Enumeration for the different LED status colors. 
+
+This enum represents various states for controlling LED colors. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GREEN\_COLOR\_STATUS@{GREEN\_COLOR\_STATUS}!RGBModule.h@{RGBModule.h}}\index{RGBModule.h@{RGBModule.h}!GREEN\_COLOR\_STATUS@{GREEN\_COLOR\_STATUS}}}\mbox{\Hypertarget{RGBModule_8h_ae10cb58b12d14aa3cbc1050fdc8f8d4ea0897b4936417743a46c55fc4632e3c72}\label{RGBModule_8h_ae10cb58b12d14aa3cbc1050fdc8f8d4ea0897b4936417743a46c55fc4632e3c72}} 
+GREEN\+\_\+\+COLOR\+\_\+\+STATUS&LED is green. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BLUE\_COLOR\_STATUS@{BLUE\_COLOR\_STATUS}!RGBModule.h@{RGBModule.h}}\index{RGBModule.h@{RGBModule.h}!BLUE\_COLOR\_STATUS@{BLUE\_COLOR\_STATUS}}}\mbox{\Hypertarget{RGBModule_8h_ae10cb58b12d14aa3cbc1050fdc8f8d4eaac501f02310324df5e3899a4bb142633}\label{RGBModule_8h_ae10cb58b12d14aa3cbc1050fdc8f8d4eaac501f02310324df5e3899a4bb142633}} 
+BLUE\+\_\+\+COLOR\+\_\+\+STATUS&LED is blue. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RED\_COLOR\_STATUS@{RED\_COLOR\_STATUS}!RGBModule.h@{RGBModule.h}}\index{RGBModule.h@{RGBModule.h}!RED\_COLOR\_STATUS@{RED\_COLOR\_STATUS}}}\mbox{\Hypertarget{RGBModule_8h_ae10cb58b12d14aa3cbc1050fdc8f8d4ead8cc5b502497bed5fc16c69118d0ee13}\label{RGBModule_8h_ae10cb58b12d14aa3cbc1050fdc8f8d4ead8cc5b502497bed5fc16c69118d0ee13}} 
+RED\+\_\+\+COLOR\+\_\+\+STATUS&LED is red. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NO\_COLOR\_STATUS@{NO\_COLOR\_STATUS}!RGBModule.h@{RGBModule.h}}\index{RGBModule.h@{RGBModule.h}!NO\_COLOR\_STATUS@{NO\_COLOR\_STATUS}}}\mbox{\Hypertarget{RGBModule_8h_ae10cb58b12d14aa3cbc1050fdc8f8d4ea5f1dc4176813cd4684b5ce44bf24e969}\label{RGBModule_8h_ae10cb58b12d14aa3cbc1050fdc8f8d4ea5f1dc4176813cd4684b5ce44bf24e969}} 
+NO\+\_\+\+COLOR\+\_\+\+STATUS&LED is off. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{YELLOW\_COLOR\_STATUS@{YELLOW\_COLOR\_STATUS}!RGBModule.h@{RGBModule.h}}\index{RGBModule.h@{RGBModule.h}!YELLOW\_COLOR\_STATUS@{YELLOW\_COLOR\_STATUS}}}\mbox{\Hypertarget{RGBModule_8h_ae10cb58b12d14aa3cbc1050fdc8f8d4ea526a0b9869e73c5801dc7b9ac1971bde}\label{RGBModule_8h_ae10cb58b12d14aa3cbc1050fdc8f8d4ea526a0b9869e73c5801dc7b9ac1971bde}} 
+YELLOW\+\_\+\+COLOR\+\_\+\+STATUS&LED is yellow. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LIGHT\_BLUE\_COLOR\_STATUS@{LIGHT\_BLUE\_COLOR\_STATUS}!RGBModule.h@{RGBModule.h}}\index{RGBModule.h@{RGBModule.h}!LIGHT\_BLUE\_COLOR\_STATUS@{LIGHT\_BLUE\_COLOR\_STATUS}}}\mbox{\Hypertarget{RGBModule_8h_ae10cb58b12d14aa3cbc1050fdc8f8d4eab249be35d0d37e5a9c2d5e06c48f1391}\label{RGBModule_8h_ae10cb58b12d14aa3cbc1050fdc8f8d4eab249be35d0d37e5a9c2d5e06c48f1391}} 
+LIGHT\+\_\+\+BLUE\+\_\+\+COLOR\+\_\+\+STATUS&LED is light blue. \\
+\hline
+
+\end{DoxyEnumFields}

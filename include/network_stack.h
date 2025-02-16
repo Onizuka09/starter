@@ -1,80 +1,199 @@
+/**
+ * @file network_stack.h
+ * @brief Network stack for handling Ethernet, Wi-Fi, OTA updates, and server communication.
+ *
+ * This module provides network functionalities, including initialization of Ethernet and Wi-Fi,
+ * Wake-on-LAN (WoL), OTA updates, and HTTP communication.
+ *
+ * @author Moktar SELLAMI
+ * @date 2025-02-16
+ */
 #ifndef NETWORK_STACK_H
 #define NETWORK_STACK_H
+
+
 #include <Arduino.h>
 #include <LittleFS.h>
 #include <Update.h>
 #include <Ethernet.h>
 #include <HTTPClient.h>
 #include "conf.h"
-// MACROS FOR TESTING COMPILATION 
 
-// macors conditions 
-/*
-NO_HARDWAR: SKIP ethernet module checking 
-ENABLE WIFI: ENABLES WIFI MODULE /TODO
-MyServ: HTTP connection connetcs to the testing server
-*/
-
+/**
+ * @class NetworkStack
+ * @brief Manages network communication, OTA updates, and Wake-on-LAN.
+ */
 class NetworkStack
 {
-
 public:
-
+    /**
+     * @brief Constructor for NetworkStack.
+     */
     NetworkStack();
 
-    // initializes both the Ethernet and wifi module 
-    void setServerIp(IPAddress ip){serverIP=ip ; }
-    void setSercerPort(int port ){ServerPort=port;}
-    void configureWiFi(const char *ssid , const char *passwd ); 
-    void configureOTA(bool Enable);// this if true will enable OTA and Rollback  
-    // void InitModule();
-    void InitWifiModule(); 
-    void InitEthernetModule(uint8_t cs_pin); 
-    // OTA SHIT
-    void enableOTA(bool state);
-    bool OTA();
-    // void OTAPool();// TODO 
+    /**
+     * @brief Sets the server IP address.
+     * @param ip The IP address of the server.
+     */
+    void setServerIp(IPAddress ip) { serverIP = ip; }
 
-    // SERVER COMS  SHIT 
+    /**
+     * @brief Sets the server port.
+     * @param port The port number of the server.
+     */
+    void setSercerPort(int port) { ServerPort = port; }
+
+    /**
+     * @brief Configures Wi-Fi with SSID and password.
+     * @param ssid The SSID of the Wi-Fi network.
+     * @param passwd The password for the Wi-Fi network.
+     */
+    void configureWiFi(const char *ssid, const char *passwd);
+
+    /**
+     * @brief Enables or disables OTA (Over-The-Air) updates.
+     * @param Enable If true, OTA updates are enabled.
+     */
+    void configureOTA(bool Enable);
+
+    /**
+     * @brief Initializes the Wi-Fi module.
+     */
+    void InitWifiModule();
+
+    /**
+     * @brief Initializes the Ethernet module with a specific chip select (CS) pin.
+     * @param cs_pin The chip select pin for the Ethernet module.
+     */
+    void InitEthernetModule(uint8_t cs_pin);
+
+    /**
+     * @brief Enables or disables OTA updates.
+     * @param state If true, OTA updates are enabled.
+     */
+    void enableOTA(bool state);
+
+    /**
+     * @brief Performs an OTA update.
+     * @return True if the update was successful, false otherwise.
+     */
+    bool OTA();
+
+    /**
+     * @brief Notifies the server that we are connected.
+     * @todo to be implemented
+     */
     void NotifyServer();
+
+    /**
+     * @brief Retrieves the firmware version from the server.
+     * @return The firmware version as a string.
+     */
     const String GetFirmwareVersion();
 
-    
-    
-    // WOL SHIT 
-    void WakeOnLan(const uint8_t TagrgetMac[], int repetition);   
+    /**
+     * @brief Sends a Wake-on-LAN (WoL) signal to a target device.
+     * @param TagrgetMac The MAC address of the target device.
+     * @param repetition The number of times to send the WoL packet.
+     */
+    void WakeOnLan(const uint8_t TagrgetMac[], int repetition);
+
+    /**
+     * @brief Initializes the Wake-on-LAN task.
+     */
     void initTaskWol();
-    void setWoLRepetiton(uint8_t n){WoLRepetion=n;}
-    // SETINGS SHIT 
-    IPAddress GetServerIP(){return serverIP;};
+
+    /**
+     * @brief Sets the number of repetitions for Wake-on-LAN.
+     * @param n Number of repetitions.
+     */
+    void setWoLRepetiton(uint8_t n) { WoLRepetion = n; }
+
+    /**
+     * @brief Gets the configured server IP address.
+     * @return The server IP address.
+     */
+    IPAddress GetServerIP() { return serverIP; }
+
+    /**
+     * @brief Retrieves the MAC address of the device.
+     * @return Pointer to the MAC address array.
+     */
     uint8_t *GetMacaddr();
 
 private:
+    /**
+     * @brief Background task for Wake-on-LAN execution.
+     * @param parameter Task parameters.
+     */
+    static void runTaskWOL(void *parameter);
 
-    static void runTaskWOL(void* parameter);    
-    // void TaskOTAPool();
+    /**
+     * @brief Reads the HTTP response from the server.
+     * @return The response as a string.
+     */
     String ReadHTTPResponse();
-    String HTTPPOST(const String &reqPath, const String &contentType, const String &data);
-    String HTTPGET(const String &reqPath);
-    int RequestOTA(const String &reqPath); 
-    int UpdateFirmware(int FirmwareSize);
-    void MacArrayToString(const uint8_t* arr,char* macString,size_t _sizeMacString); 
-private:
-    TaskHandle_t handler;
-    int ServerPort;
-    IPAddress serverIP;
-    IPAddress LocalIP; // (203, 161, 60, 31); // Example: IP for example.com (or use a domain name)
-    uint8_t MyMacAddr[6]; // = {0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED};
-    bool isOTAEnabled;
-    uint8_t WoLRepetion; 
 
-#if (OTA_WIFI_ETH == 0 )
-    EthernetClient client;
+    /**
+     * @brief Sends an HTTP POST request.
+     * @param reqPath The request path.
+     * @param contentType The content type of the request.
+     * @param data The data to send in the request body.
+     * @return The server response as a string.
+     */
+    String HTTPPOST(const String &reqPath, const String &contentType, const String &data);
+
+    /**
+     * @brief Sends an HTTP GET request.
+     * @param reqPath The request path.
+     * @return The server response as a string.
+     */
+    String HTTPGET(const String &reqPath);
+
+    /**
+     * @brief Requests an OTA update from the server.
+     * @param reqPath The request path for the update.
+     * @return The status of the OTA request.
+     */
+    int RequestOTA(const String &reqPath);
+
+    /**
+     * @brief Updates the firmware with a given size.
+     * @param FirmwareSize The size of the new firmware.
+     * @return The update status.
+     */
+    int UpdateFirmware(int FirmwareSize);
+
+    /**
+     * @brief Converts a MAC address array to a string format.
+     * @param arr The MAC address array.
+     * @param macString The output string buffer.
+     * @param _sizeMacString The size of the output buffer.
+     */
+    void MacArrayToString(const uint8_t *arr, char *macString, size_t _sizeMacString);
+
+private:
+    TaskHandle_t handler; ///< Task handle for background tasks.
+    int ServerPort; ///< Server port number.
+    IPAddress serverIP; ///< Server IP address.
+    IPAddress LocalIP; ///< Local IP address.
+    uint8_t MyMacAddr[6]; ///< Device MAC address.
+    bool isOTAEnabled; ///< Flag indicating if OTA updates are enabled.
+    uint8_t WoLRepetion; ///< Number of repetitions for Wake-on-LAN.
+
+    /** 
+ * @brief Selects which client instance to use to perform the HTTP requests.
+ * 
+ * If `OTA_WIFI_ETH == 1`, we are using WiFi client instance
+ * else we are using the ethernet client instance
+ */
+#if (OTA_WIFI_ETH == 0)
+    EthernetClient client; ///< Ethernet client instance.
 #else
-    WiFiClient client;
-    const char *ssid = "";
-    const char *passwd = "";
+    WiFiClient client; ///< Wi-Fi client instance.
+    const char *ssid = ""; ///< Wi-Fi SSID.
+    const char *passwd = ""; ///< Wi-Fi password.
 #endif
 };
 
-#endif
+#endif // NETWORK_STACK_H

@@ -1,0 +1,306 @@
+\hypertarget{group__TinyReceiver}{}\doxysection{Minimal receiver for NEC and FAST protocol}
+\label{group__TinyReceiver}\index{Minimal receiver for NEC and FAST protocol@{Minimal receiver for NEC and FAST protocol}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structTinyIRReceiverStruct}{Tiny\+IRReceiver\+Struct}}
+\item 
+struct \mbox{\hyperlink{structTinyIRReceiverCallbackDataStruct}{Tiny\+IRReceiver\+Callback\+Data\+Struct}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_gab740dd587f2603ebf1183bd8043e5153}\label{group__TinyReceiver_gab740dd587f2603ebf1183bd8043e5153}} 
+\#define {\bfseries VERSION\+\_\+\+TINYIR}~\char`\"{}2.\+2.\+0\char`\"{}
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_ga05c4dfc623d9ab9c3f6c7da81d361a0b}\label{group__TinyReceiver_ga05c4dfc623d9ab9c3f6c7da81d361a0b}} 
+\#define {\bfseries VERSION\+\_\+\+TINYIR\+\_\+\+MAJOR}~2
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_gabbfb8e770c41cbdcf0afd3ef243e0d3c}\label{group__TinyReceiver_gabbfb8e770c41cbdcf0afd3ef243e0d3c}} 
+\#define {\bfseries VERSION\+\_\+\+TINYIR\+\_\+\+MINOR}~2
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_ga8223f29625c671b7a921a502f8cca06d}\label{group__TinyReceiver_ga8223f29625c671b7a921a502f8cca06d}} 
+\#define {\bfseries VERSION\+\_\+\+TINYIR\+\_\+\+PATCH}~0
+\item 
+\#define \mbox{\hyperlink{group__TinyReceiver_ga2ab110e480a4b16fe516c2afd16a1ea2}{NEC\+\_\+\+ADDRESS\+\_\+\+BITS}}~16
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_ga07e295da53565eb7146072bdfeb2ed32}\label{group__TinyReceiver_ga07e295da53565eb7146072bdfeb2ed32}} 
+\#define {\bfseries NEC\+\_\+\+COMMAND\+\_\+\+BITS}~16
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_gaa82c77bc0131ac28bc3534b8cf3422bc}\label{group__TinyReceiver_gaa82c77bc0131ac28bc3534b8cf3422bc}} 
+\#define {\bfseries NEC\+\_\+\+BITS}~(\mbox{\hyperlink{group__TinyReceiver_ga2ab110e480a4b16fe516c2afd16a1ea2}{NEC\+\_\+\+ADDRESS\+\_\+\+BITS}} + NEC\+\_\+\+COMMAND\+\_\+\+BITS)
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_gaf3317b0cf5cf7d3063addbaa0a256158}\label{group__TinyReceiver_gaf3317b0cf5cf7d3063addbaa0a256158}} 
+\#define {\bfseries NEC\+\_\+\+UNIT}~560
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_ga8d393b95d8df4dfa15873aec6a37965e}\label{group__TinyReceiver_ga8d393b95d8df4dfa15873aec6a37965e}} 
+\#define {\bfseries NEC\+\_\+\+HEADER\+\_\+\+MARK}~(16 $\ast$ NEC\+\_\+\+UNIT)
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_ga5c728ed320ffee624e26767be0a80404}\label{group__TinyReceiver_ga5c728ed320ffee624e26767be0a80404}} 
+\#define {\bfseries NEC\+\_\+\+HEADER\+\_\+\+SPACE}~(8 $\ast$ NEC\+\_\+\+UNIT)
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_ga3abbe30ef3781c1cf2490003e1c1443a}\label{group__TinyReceiver_ga3abbe30ef3781c1cf2490003e1c1443a}} 
+\#define {\bfseries NEC\+\_\+\+BIT\+\_\+\+MARK}~NEC\+\_\+\+UNIT
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_ga5ac04ec8b2185c9fb257d39c472733b1}\label{group__TinyReceiver_ga5ac04ec8b2185c9fb257d39c472733b1}} 
+\#define {\bfseries NEC\+\_\+\+ONE\+\_\+\+SPACE}~(3 $\ast$ NEC\+\_\+\+UNIT)
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_ga5ee46914e98bf7f87f32a7104843b243}\label{group__TinyReceiver_ga5ee46914e98bf7f87f32a7104843b243}} 
+\#define {\bfseries NEC\+\_\+\+ZERO\+\_\+\+SPACE}~NEC\+\_\+\+UNIT
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_ga91880ffa0b09391f2c827d3a1c565abf}\label{group__TinyReceiver_ga91880ffa0b09391f2c827d3a1c565abf}} 
+\#define {\bfseries NEC\+\_\+\+REPEAT\+\_\+\+HEADER\+\_\+\+SPACE}~(4 $\ast$ NEC\+\_\+\+UNIT)
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_gac2dab5c4a22f8c4915217d3ee4676f08}\label{group__TinyReceiver_gac2dab5c4a22f8c4915217d3ee4676f08}} 
+\#define {\bfseries NEC\+\_\+\+REPEAT\+\_\+\+PERIOD}~110000
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_ga7445961959fb69fed84c046145402045}\label{group__TinyReceiver_ga7445961959fb69fed84c046145402045}} 
+\#define {\bfseries NEC\+\_\+\+MINIMAL\+\_\+\+DURATION}~49900
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_ga39b7e9de38af79c826aff1df717aef6d}\label{group__TinyReceiver_ga39b7e9de38af79c826aff1df717aef6d}} 
+\#define {\bfseries NEC\+\_\+\+MAXIMUM\+\_\+\+REPEAT\+\_\+\+DISTANCE}~(NEC\+\_\+\+REPEAT\+\_\+\+PERIOD -\/ NEC\+\_\+\+MINIMAL\+\_\+\+DURATION + 10000)
+\item 
+\#define \mbox{\hyperlink{group__TinyReceiver_ga433cb7141a714640247d749a232f71e9}{FAST\+\_\+\+KHZ}}~38
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_ga31545568310c2a958279c3cb31287067}\label{group__TinyReceiver_ga31545568310c2a958279c3cb31287067}} 
+\#define {\bfseries FAST\+\_\+\+ADDRESS\+\_\+\+BITS}~0
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_ga8cd04aae5069c6ca9bb6f537574f5f01}\label{group__TinyReceiver_ga8cd04aae5069c6ca9bb6f537574f5f01}} 
+\#define {\bfseries FAST\+\_\+\+COMMAND\+\_\+\+BITS}~16
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_gadd78822c51f4692289f2ce174bdf82b0}\label{group__TinyReceiver_gadd78822c51f4692289f2ce174bdf82b0}} 
+\#define {\bfseries FAST\+\_\+\+BITS}~(FAST\+\_\+\+ADDRESS\+\_\+\+BITS + FAST\+\_\+\+COMMAND\+\_\+\+BITS)
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_gaa8ee2ed0948e4f4382b020c5bcea4e8f}\label{group__TinyReceiver_gaa8ee2ed0948e4f4382b020c5bcea4e8f}} 
+\#define {\bfseries FAST\+\_\+\+UNIT}~526
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_gad0e804e9cefa097c4f675793f68e1872}\label{group__TinyReceiver_gad0e804e9cefa097c4f675793f68e1872}} 
+\#define {\bfseries FAST\+\_\+\+BIT\+\_\+\+MARK}~FAST\+\_\+\+UNIT
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_ga3328b696c6fa6b4dcf75fd608ede42be}\label{group__TinyReceiver_ga3328b696c6fa6b4dcf75fd608ede42be}} 
+\#define {\bfseries FAST\+\_\+\+ONE\+\_\+\+SPACE}~(3 $\ast$ FAST\+\_\+\+UNIT)
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_ga45f7bfdc1ec78bb187031df82d97a9b1}\label{group__TinyReceiver_ga45f7bfdc1ec78bb187031df82d97a9b1}} 
+\#define {\bfseries FAST\+\_\+\+ZERO\+\_\+\+SPACE}~FAST\+\_\+\+UNIT
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_ga533fde31d6c3cab34ddeefbe26183427}\label{group__TinyReceiver_ga533fde31d6c3cab34ddeefbe26183427}} 
+\#define {\bfseries FAST\+\_\+\+HEADER\+\_\+\+MARK}~(4 $\ast$ FAST\+\_\+\+UNIT)
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_ga14bff3efcd02e7c95ffb4a1220e7b86a}\label{group__TinyReceiver_ga14bff3efcd02e7c95ffb4a1220e7b86a}} 
+\#define {\bfseries FAST\+\_\+\+HEADER\+\_\+\+SPACE}~(2 $\ast$ FAST\+\_\+\+UNIT)
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_ga2c359cbdc94b7c6c8e7fdcd5554f82d3}\label{group__TinyReceiver_ga2c359cbdc94b7c6c8e7fdcd5554f82d3}} 
+\#define {\bfseries FAST\+\_\+\+REPEAT\+\_\+\+PERIOD}~50000
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_ga134f64dbd20f429bdced06c5968ae6db}\label{group__TinyReceiver_ga134f64dbd20f429bdced06c5968ae6db}} 
+\#define {\bfseries FAST\+\_\+\+REPEAT\+\_\+\+DISTANCE}~(FAST\+\_\+\+REPEAT\+\_\+\+PERIOD -\/ (55 $\ast$ FAST\+\_\+\+UNIT))
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_gaac531fcf99de73123948940ccca7d7bb}\label{group__TinyReceiver_gaac531fcf99de73123948940ccca7d7bb}} 
+\#define {\bfseries FAST\+\_\+\+MAXIMUM\+\_\+\+REPEAT\+\_\+\+DISTANCE}~(FAST\+\_\+\+REPEAT\+\_\+\+DISTANCE + 10000)
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_gaa86e62c87863e10d44fcf9047d3802bd}\label{group__TinyReceiver_gaa86e62c87863e10d44fcf9047d3802bd}} 
+\#define {\bfseries TINY\+\_\+\+RECEIVER\+\_\+\+ADDRESS\+\_\+\+BITS}~\mbox{\hyperlink{group__TinyReceiver_ga2ab110e480a4b16fe516c2afd16a1ea2}{NEC\+\_\+\+ADDRESS\+\_\+\+BITS}}
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_ga771b0ae69abb340bb723b3e49698e946}\label{group__TinyReceiver_ga771b0ae69abb340bb723b3e49698e946}} 
+\#define {\bfseries TINY\+\_\+\+RECEIVER\+\_\+\+ADDRESS\+\_\+\+HAS\+\_\+8\+\_\+\+BIT\+\_\+\+PARITY}~true
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_gadf2baa0ff9b72fa7543d4f733d07b43c}\label{group__TinyReceiver_gadf2baa0ff9b72fa7543d4f733d07b43c}} 
+\#define {\bfseries TINY\+\_\+\+RECEIVER\+\_\+\+COMMAND\+\_\+\+BITS}~NEC\+\_\+\+COMMAND\+\_\+\+BITS
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_ga8c1b71ffa47b7ca81c1152040d512ccf}\label{group__TinyReceiver_ga8c1b71ffa47b7ca81c1152040d512ccf}} 
+\#define {\bfseries TINY\+\_\+\+RECEIVER\+\_\+\+COMMAND\+\_\+\+HAS\+\_\+8\+\_\+\+BIT\+\_\+\+PARITY}~true
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_ga175ce9f07102c40f6cb730f12ddb6a17}\label{group__TinyReceiver_ga175ce9f07102c40f6cb730f12ddb6a17}} 
+\#define {\bfseries TINY\+\_\+\+RECEIVER\+\_\+\+BITS}~NEC\+\_\+\+BITS
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_gae2ffd84c9910eae58166b1e71f3c1c9e}\label{group__TinyReceiver_gae2ffd84c9910eae58166b1e71f3c1c9e}} 
+\#define {\bfseries TINY\+\_\+\+RECEIVER\+\_\+\+UNIT}~NEC\+\_\+\+UNIT
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_ga02b86589f51233381c98c1d8fecb16cf}\label{group__TinyReceiver_ga02b86589f51233381c98c1d8fecb16cf}} 
+\#define {\bfseries TINY\+\_\+\+RECEIVER\+\_\+\+HEADER\+\_\+\+MARK}~NEC\+\_\+\+HEADER\+\_\+\+MARK
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_gad8a578b8524aec9a94c33b8d869429c8}\label{group__TinyReceiver_gad8a578b8524aec9a94c33b8d869429c8}} 
+\#define {\bfseries TINY\+\_\+\+RECEIVER\+\_\+\+HEADER\+\_\+\+SPACE}~NEC\+\_\+\+HEADER\+\_\+\+SPACE
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_gaa70bb82f3342768a4c569172a475fe41}\label{group__TinyReceiver_gaa70bb82f3342768a4c569172a475fe41}} 
+\#define {\bfseries TINY\+\_\+\+RECEIVER\+\_\+\+BIT\+\_\+\+MARK}~NEC\+\_\+\+BIT\+\_\+\+MARK
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_ga2fb6634355355f0430d1017a17e837ca}\label{group__TinyReceiver_ga2fb6634355355f0430d1017a17e837ca}} 
+\#define {\bfseries TINY\+\_\+\+RECEIVER\+\_\+\+ONE\+\_\+\+SPACE}~NEC\+\_\+\+ONE\+\_\+\+SPACE
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_ga45b68ccfb2ae010dd9c7d3a48d12810b}\label{group__TinyReceiver_ga45b68ccfb2ae010dd9c7d3a48d12810b}} 
+\#define {\bfseries TINY\+\_\+\+RECEIVER\+\_\+\+ZERO\+\_\+\+SPACE}~NEC\+\_\+\+ZERO\+\_\+\+SPACE
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_gad3cedd13814cc47e25d501fea6d9d90e}\label{group__TinyReceiver_gad3cedd13814cc47e25d501fea6d9d90e}} 
+\#define {\bfseries TINY\+\_\+\+RECEIVER\+\_\+\+MAXIMUM\+\_\+\+REPEAT\+\_\+\+DISTANCE}~NEC\+\_\+\+MAXIMUM\+\_\+\+REPEAT\+\_\+\+DISTANCE
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_gaf33c8a218dd35ede965cf20a68a0068d}\label{group__TinyReceiver_gaf33c8a218dd35ede965cf20a68a0068d}} 
+\#define {\bfseries MICROS\+\_\+\+IN\+\_\+\+ONE\+\_\+\+SECOND}~1000000L
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_gae9ba0b7dd556e22688f7da01019bba68}\label{group__TinyReceiver_gae9ba0b7dd556e22688f7da01019bba68}} 
+\#define {\bfseries MICROS\+\_\+\+IN\+\_\+\+ONE\+\_\+\+MILLI}~1000L
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_ga02b97ed6af9381a224ea3be0cab054a0}\label{group__TinyReceiver_ga02b97ed6af9381a224ea3be0cab054a0}} 
+\#define {\bfseries lower\+Value25\+Percent}(a\+Duration)~(a\+Duration -\/ (a\+Duration / 4))
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_ga22a6cd77d395a6c06686eafdf9aa2b52}\label{group__TinyReceiver_ga22a6cd77d395a6c06686eafdf9aa2b52}} 
+\#define {\bfseries upper\+Value25\+Percent}(a\+Duration)~(a\+Duration + (a\+Duration / 4))
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_ga46e492bdd0789424ce0c1eafdaddcd05}\label{group__TinyReceiver_ga46e492bdd0789424ce0c1eafdaddcd05}} 
+\#define {\bfseries lower\+Value50\+Percent}(a\+Duration)~(a\+Duration / 2)
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_ga352aba643df683019cddd3ae28c80def}\label{group__TinyReceiver_ga352aba643df683019cddd3ae28c80def}} 
+\#define {\bfseries upper\+Value50\+Percent}(a\+Duration)~(a\+Duration + (a\+Duration / 2))
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_ga2535b0f1ae380b696c6a37ffa69b3df3}\label{group__TinyReceiver_ga2535b0f1ae380b696c6a37ffa69b3df3}} 
+\#define {\bfseries IR\+\_\+\+RECEIVER\+\_\+\+STATE\+\_\+\+WAITING\+\_\+\+FOR\+\_\+\+START\+\_\+\+MARK}~0
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_ga43017cba7c72b3f0d45265f417e5195d}\label{group__TinyReceiver_ga43017cba7c72b3f0d45265f417e5195d}} 
+\#define {\bfseries IR\+\_\+\+RECEIVER\+\_\+\+STATE\+\_\+\+WAITING\+\_\+\+FOR\+\_\+\+START\+\_\+\+SPACE}~1
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_gaecf505182d1fa2aa885fcde6cd4160bf}\label{group__TinyReceiver_gaecf505182d1fa2aa885fcde6cd4160bf}} 
+\#define {\bfseries IR\+\_\+\+RECEIVER\+\_\+\+STATE\+\_\+\+WAITING\+\_\+\+FOR\+\_\+\+FIRST\+\_\+\+DATA\+\_\+\+MARK}~2
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_gad3b7237c2aa120840c0eed233d5c627e}\label{group__TinyReceiver_gad3b7237c2aa120840c0eed233d5c627e}} 
+\#define {\bfseries IR\+\_\+\+RECEIVER\+\_\+\+STATE\+\_\+\+WAITING\+\_\+\+FOR\+\_\+\+DATA\+\_\+\+SPACE}~3
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_gae237abb240b59b9c8dd7d853fc3c76b1}\label{group__TinyReceiver_gae237abb240b59b9c8dd7d853fc3c76b1}} 
+\#define {\bfseries IR\+\_\+\+RECEIVER\+\_\+\+STATE\+\_\+\+WAITING\+\_\+\+FOR\+\_\+\+DATA\+\_\+\+MARK}~4
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_ga2f6f17e18c7b5f1ef4b9cfc907d086e4}\label{group__TinyReceiver_ga2f6f17e18c7b5f1ef4b9cfc907d086e4}} 
+\#define {\bfseries IR\+\_\+\+RECEIVER\+\_\+\+STATE\+\_\+\+WAITING\+\_\+\+FOR\+\_\+\+STOP\+\_\+\+MARK}~5
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_gad670ce496c4a3352cb9929284db11928}\label{group__TinyReceiver_gad670ce496c4a3352cb9929284db11928}} 
+\#define {\bfseries IRDATA\+\_\+\+FLAGS\+\_\+\+EMPTY}~0x00
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_gaaa9952cd64b58083c28873484c494abf}\label{group__TinyReceiver_gaaa9952cd64b58083c28873484c494abf}} 
+\#define {\bfseries IRDATA\+\_\+\+FLAGS\+\_\+\+IS\+\_\+\+REPEAT}~0x01
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_ga5c5e6ae69aa440bfa132550d120ace08}\label{group__TinyReceiver_ga5c5e6ae69aa440bfa132550d120ace08}} 
+\#define {\bfseries IRDATA\+\_\+\+FLAGS\+\_\+\+IS\+\_\+\+AUTO\+\_\+\+REPEAT}~0x02
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_ga1a60f95f0885b1865dc5514ddd80e093}\label{group__TinyReceiver_ga1a60f95f0885b1865dc5514ddd80e093}} 
+\#define \mbox{\hyperlink{group__TinyReceiver_ga1a60f95f0885b1865dc5514ddd80e093}{IRDATA\+\_\+\+FLAGS\+\_\+\+PARITY\+\_\+\+FAILED}}~0x04
+\begin{DoxyCompactList}\small\item\em the current (autorepeat) frame violated parity check \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__TinyReceiver_ga32204b2259848fb5fdcf5cec09b6437a}\label{group__TinyReceiver_ga32204b2259848fb5fdcf5cec09b6437a}} 
+\#define {\bfseries IR\+\_\+\+RECEIVE\+\_\+\+PIN}~2
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_gae7054616db7e69e979dfcd5ad38fb968}\label{group__TinyReceiver_gae7054616db7e69e979dfcd5ad38fb968}} 
+\#define {\bfseries TINY\+\_\+\+RECEIVER\+\_\+\+USE\+\_\+\+ARDUINO\+\_\+\+ATTACH\+\_\+\+INTERRUPT}
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_gafae76562a7daac7eba30e8c5439f2cf7}\label{group__TinyReceiver_gafae76562a7daac7eba30e8c5439f2cf7}} 
+\#define {\bfseries USE\+\_\+\+ATTACH\+\_\+\+INTERRUPT}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_ga2553571086097dd6e7ba319a6da2c743}\label{group__TinyReceiver_ga2553571086097dd6e7ba319a6da2c743}} 
+bool {\bfseries is\+IRReceiver\+Attached\+For\+Tiny\+Receiver} ()
+\item 
+bool \mbox{\hyperlink{group__TinyReceiver_gaafb51bc656ba199129d261afa3f950c2}{init\+PCIInterrupt\+For\+Tiny\+Receiver}} ()
+\item 
+bool \mbox{\hyperlink{group__TinyReceiver_gacc1eec5de7563e88aa73d16aa9e60a10}{enable\+PCIInterrupt\+For\+Tiny\+Receiver}} ()
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_ga4217cae1ded4a9b2ed54bc3a1e8cd86e}\label{group__TinyReceiver_ga4217cae1ded4a9b2ed54bc3a1e8cd86e}} 
+void {\bfseries disable\+PCIInterrupt\+For\+Tiny\+Receiver} ()
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_gab65e33fe496d3bee4af897e5d8bd9420}\label{group__TinyReceiver_gab65e33fe496d3bee4af897e5d8bd9420}} 
+bool {\bfseries is\+Tiny\+Receiver\+Idle} ()
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_gaa97ef3a9ba3e40bd50a906788b65e79a}\label{group__TinyReceiver_gaa97ef3a9ba3e40bd50a906788b65e79a}} 
+bool {\bfseries Tiny\+Receiver\+Decode} ()
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_ga27649645d9280dfaee8095ce2dcf8f07}\label{group__TinyReceiver_ga27649645d9280dfaee8095ce2dcf8f07}} 
+void {\bfseries print\+Tiny\+Receiver\+Result\+Minimal} (\mbox{\hyperlink{classPrint}{Print}} $\ast$a\+Serial)
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_ga5d40a2ebca50382f9ddc8210cd82ebcd}\label{group__TinyReceiver_ga5d40a2ebca50382f9ddc8210cd82ebcd}} 
+void {\bfseries send\+FAST} (uint8\+\_\+t a\+Send\+Pin, uint16\+\_\+t a\+Command, uint\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats=0)
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_ga21e45ae5abbd50dcf77693c87c01cc71}\label{group__TinyReceiver_ga21e45ae5abbd50dcf77693c87c01cc71}} 
+void {\bfseries send\+Fast8\+Bit\+And\+Parity} (uint8\+\_\+t a\+Send\+Pin, uint8\+\_\+t a\+Command, uint\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats=0)
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_ga42ba5dff1100c121334ae46c000631e2}\label{group__TinyReceiver_ga42ba5dff1100c121334ae46c000631e2}} 
+void {\bfseries send\+ONKYO} (uint8\+\_\+t a\+Send\+Pin, uint16\+\_\+t a\+Address, uint16\+\_\+t a\+Command, uint\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats=0, bool a\+Send\+NEC2\+Repeats=false)
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_gad46384dcfa939b9ed9538b6c907acb1f}\label{group__TinyReceiver_gad46384dcfa939b9ed9538b6c907acb1f}} 
+void {\bfseries send\+NECMinimal} (uint8\+\_\+t a\+Send\+Pin, uint16\+\_\+t a\+Address, uint16\+\_\+t a\+Command, uint\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats=0) \+\_\+\+\_\+attribute\+\_\+\+\_\+((deprecated(\char`\"{}Renamed to send\+NEC().\char`\"{})))
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_gad56f6ae51db2f76f6b48bd6eb621b55d}\label{group__TinyReceiver_gad56f6ae51db2f76f6b48bd6eb621b55d}} 
+void {\bfseries send\+NEC} (uint8\+\_\+t a\+Send\+Pin, uint16\+\_\+t a\+Address, uint16\+\_\+t a\+Command, uint\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats=0, bool a\+Send\+NEC2\+Repeats=false)
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_ga2f9e7eb2572eabb1fb55a5e112a7afdb}\label{group__TinyReceiver_ga2f9e7eb2572eabb1fb55a5e112a7afdb}} 
+void {\bfseries send\+Extended\+NEC} (uint8\+\_\+t a\+Send\+Pin, uint16\+\_\+t a\+Address, uint16\+\_\+t a\+Command, uint\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats=0, bool a\+Send\+NEC2\+Repeats=false)
+\item 
+void \mbox{\hyperlink{group__TinyReceiver_gaa968353e3a3d31ca950fe4dd5be38b71}{handle\+Tiny\+Received\+IRData}} ()
+\item 
+void \mbox{\hyperlink{group__TinyReceiver_ga3c3d6703d25dbcc0555823e23eec0e69}{IRPin\+Change\+Interrupt\+Handler}} (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_gab367546db9f1c8a232471ca8b6e27053}\label{group__TinyReceiver_gab367546db9f1c8a232471ca8b6e27053}} 
+volatile \mbox{\hyperlink{structTinyIRReceiverCallbackDataStruct}{Tiny\+IRReceiver\+Callback\+Data\+Struct}} {\bfseries Tiny\+IRReceiver\+Data}
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_ga30567324f26c2fae24bb11592262b6d3}\label{group__TinyReceiver_ga30567324f26c2fae24bb11592262b6d3}} 
+\mbox{\hyperlink{structTinyIRReceiverStruct}{Tiny\+IRReceiver\+Struct}} {\bfseries Tiny\+IRReceiver\+Control}
+\item 
+\mbox{\Hypertarget{group__TinyReceiver_gab367546db9f1c8a232471ca8b6e27053}\label{group__TinyReceiver_gab367546db9f1c8a232471ca8b6e27053}} 
+volatile \mbox{\hyperlink{structTinyIRReceiverCallbackDataStruct}{Tiny\+IRReceiver\+Callback\+Data\+Struct}} {\bfseries Tiny\+IRReceiver\+Data}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__TinyReceiver_ga433cb7141a714640247d749a232f71e9}\label{group__TinyReceiver_ga433cb7141a714640247d749a232f71e9}} 
+\index{Minimal receiver for NEC and FAST protocol@{Minimal receiver for NEC and FAST protocol}!FAST\_KHZ@{FAST\_KHZ}}
+\index{FAST\_KHZ@{FAST\_KHZ}!Minimal receiver for NEC and FAST protocol@{Minimal receiver for NEC and FAST protocol}}
+\doxysubsubsection{\texorpdfstring{FAST\_KHZ}{FAST\_KHZ}}
+{\footnotesize\ttfamily \#define FAST\+\_\+\+KHZ~38}
+
+The FAST protocol is a proprietary modified JVC protocol without address, with parity and with a shorter header. FAST protocol characteristics\+:
+\begin{DoxyItemize}
+\item Bit timing is like NEC or JVC
+\item The header is shorter, 3156 vs. 12500
+\item No address and 16 bit data, interpreted as 8 bit command and 8 bit inverted command, leading to a fixed protocol length of (6 + (16 $\ast$ 3) + 1) $\ast$ 526 = 55 $\ast$ 526 = 28930 microseconds or 29 ms.
+\item Repeats are sent as complete frames but in a 50 ms period / with a 21 ms distance. 
+\end{DoxyItemize}\mbox{\Hypertarget{group__TinyReceiver_ga2ab110e480a4b16fe516c2afd16a1ea2}\label{group__TinyReceiver_ga2ab110e480a4b16fe516c2afd16a1ea2}} 
+\index{Minimal receiver for NEC and FAST protocol@{Minimal receiver for NEC and FAST protocol}!NEC\_ADDRESS\_BITS@{NEC\_ADDRESS\_BITS}}
+\index{NEC\_ADDRESS\_BITS@{NEC\_ADDRESS\_BITS}!Minimal receiver for NEC and FAST protocol@{Minimal receiver for NEC and FAST protocol}}
+\doxysubsubsection{\texorpdfstring{NEC\_ADDRESS\_BITS}{NEC\_ADDRESS\_BITS}}
+{\footnotesize\ttfamily \#define NEC\+\_\+\+ADDRESS\+\_\+\+BITS~16}
+
+Timing for NEC protocol
+
+see\+: \href{https://www.sbprojects.net/knowledge/ir/nec.php}{\texttt{ https\+://www.\+sbprojects.\+net/knowledge/ir/nec.\+php}} LSB first, 1 start bit + 16 bit address + 8 bit data + 8 bit inverted data + 1 stop bit. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__TinyReceiver_gacc1eec5de7563e88aa73d16aa9e60a10}\label{group__TinyReceiver_gacc1eec5de7563e88aa73d16aa9e60a10}} 
+\index{Minimal receiver for NEC and FAST protocol@{Minimal receiver for NEC and FAST protocol}!enablePCIInterruptForTinyReceiver@{enablePCIInterruptForTinyReceiver}}
+\index{enablePCIInterruptForTinyReceiver@{enablePCIInterruptForTinyReceiver}!Minimal receiver for NEC and FAST protocol@{Minimal receiver for NEC and FAST protocol}}
+\doxysubsubsection{\texorpdfstring{enablePCIInterruptForTinyReceiver()}{enablePCIInterruptForTinyReceiver()}}
+{\footnotesize\ttfamily bool enable\+PCIInterrupt\+For\+Tiny\+Receiver (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Initializes hardware interrupt generation according to IR\+\_\+\+RECEIVE\+\_\+\+PIN or use attach\+Interrupt() function. \begin{DoxyReturn}{Returns}
+true if interrupt was successfully enabled 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__TinyReceiver_gaa968353e3a3d31ca950fe4dd5be38b71}\label{group__TinyReceiver_gaa968353e3a3d31ca950fe4dd5be38b71}} 
+\index{Minimal receiver for NEC and FAST protocol@{Minimal receiver for NEC and FAST protocol}!handleTinyReceivedIRData@{handleTinyReceivedIRData}}
+\index{handleTinyReceivedIRData@{handleTinyReceivedIRData}!Minimal receiver for NEC and FAST protocol@{Minimal receiver for NEC and FAST protocol}}
+\doxysubsubsection{\texorpdfstring{handleTinyReceivedIRData()}{handleTinyReceivedIRData()}}
+{\footnotesize\ttfamily void handle\+Tiny\+Received\+IRData (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Declaration of the callback function provided by the user application. It is called every time a complete IR command or repeat was received. \mbox{\Hypertarget{group__TinyReceiver_gaafb51bc656ba199129d261afa3f950c2}\label{group__TinyReceiver_gaafb51bc656ba199129d261afa3f950c2}} 
+\index{Minimal receiver for NEC and FAST protocol@{Minimal receiver for NEC and FAST protocol}!initPCIInterruptForTinyReceiver@{initPCIInterruptForTinyReceiver}}
+\index{initPCIInterruptForTinyReceiver@{initPCIInterruptForTinyReceiver}!Minimal receiver for NEC and FAST protocol@{Minimal receiver for NEC and FAST protocol}}
+\doxysubsubsection{\texorpdfstring{initPCIInterruptForTinyReceiver()}{initPCIInterruptForTinyReceiver()}}
+{\footnotesize\ttfamily bool init\+PCIInterrupt\+For\+Tiny\+Receiver (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Sets IR\+\_\+\+RECEIVE\+\_\+\+PIN mode to INPUT, and if IR\+\_\+\+FEEDBACK\+\_\+\+LED\+\_\+\+PIN is defined, sets feedback LED output mode. Then call \mbox{\hyperlink{group__TinyReceiver_gacc1eec5de7563e88aa73d16aa9e60a10}{enable\+PCIInterrupt\+For\+Tiny\+Receiver()}} \mbox{\Hypertarget{group__TinyReceiver_ga3c3d6703d25dbcc0555823e23eec0e69}\label{group__TinyReceiver_ga3c3d6703d25dbcc0555823e23eec0e69}} 
+\index{Minimal receiver for NEC and FAST protocol@{Minimal receiver for NEC and FAST protocol}!IRPinChangeInterruptHandler@{IRPinChangeInterruptHandler}}
+\index{IRPinChangeInterruptHandler@{IRPinChangeInterruptHandler}!Minimal receiver for NEC and FAST protocol@{Minimal receiver for NEC and FAST protocol}}
+\doxysubsubsection{\texorpdfstring{IRPinChangeInterruptHandler()}{IRPinChangeInterruptHandler()}}
+{\footnotesize\ttfamily void IRPin\+Change\+Interrupt\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+The ISR (Interrupt Service Routine) of Tiny\+IRRreceiver. It handles the NEC protocol decoding and calls the user callback function on complete. 5 us + 3 us for push + pop for a 16MHz ATmega 

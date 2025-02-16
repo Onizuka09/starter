@@ -1,0 +1,288 @@
+\hypertarget{classIRHandler}{}\doxysection{IRHandler Class Reference}
+\label{classIRHandler}\index{IRHandler@{IRHandler}}
+
+
+Class for handling IR communication.  
+
+
+
+
+{\ttfamily \#include $<$IR\+\_\+\+Module.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classIRHandler_aa87acd7ffd3578960dd676aa226795bb}{IRHandler}} (uint8\+\_\+t receive\+Pin, uint8\+\_\+t \+\_\+send\+Pin, uint8\+\_\+t tvpin)
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{classIRHandler}{IRHandler}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIRHandler_ab7dccf3ce06d44bafdcdce4b5f5dae2e}\label{classIRHandler_ab7dccf3ce06d44bafdcdce4b5f5dae2e}} 
+void \mbox{\hyperlink{classIRHandler_ab7dccf3ce06d44bafdcdce4b5f5dae2e}{begin}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the IR module. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIRHandler_a384e2259a1c20d6c5d54a70ede67c99f}\label{classIRHandler_a384e2259a1c20d6c5d54a70ede67c99f}} 
+void \mbox{\hyperlink{classIRHandler_a384e2259a1c20d6c5d54a70ede67c99f}{init\+\_\+little\+FS}} ()
+\begin{DoxyCompactList}\small\item\em Initializes Little\+FS. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIRHandler_a8e01ae95f82b59a4528f8cf8340d4167}\label{classIRHandler_a8e01ae95f82b59a4528f8cf8340d4167}} 
+void \mbox{\hyperlink{classIRHandler_a8e01ae95f82b59a4528f8cf8340d4167}{dump\+\_\+data\+\_\+stored}} (const char $\ast$filename)
+\begin{DoxyCompactList}\small\item\em Dumps stored IR data that are store in a file. to the console. \end{DoxyCompactList}\item 
+decode\+\_\+type\+\_\+t \mbox{\hyperlink{classIRHandler_af829a5219fcc6cdd3a6cf64101855f78}{identify\+Protocol}} (\mbox{\hyperlink{structMyIRData}{My\+IRData}} \&ir\+Data)
+\begin{DoxyCompactList}\small\item\em Identifies the protocol of received IR data. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classIRHandler_a9eb20a5b494f40492c71c2814ca7d7fa}{set\+Recieved\+Data}} (\mbox{\hyperlink{structMyIRData}{My\+IRData}} \&ir\+Data)
+\begin{DoxyCompactList}\small\item\em Sets received IR data. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIRHandler_ad4fe738d7eff4b41cc5e8bc981211e73}{receive\+IR}} (bool save\+Data)
+\begin{DoxyCompactList}\small\item\em Receives IR data and optionally saves it. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIRHandler_a98bde05aefb20da13df81e2e21e5ae39}\label{classIRHandler_a98bde05aefb20da13df81e2e21e5ae39}} 
+void \mbox{\hyperlink{classIRHandler_a98bde05aefb20da13df81e2e21e5ae39}{send\+IR}} ()
+\begin{DoxyCompactList}\small\item\em Sends stored IR data. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classIRHandler_a6813bbbad190f6feb60d4126725700c2}{play\+Back\+Data}} (const \mbox{\hyperlink{structMyIRData}{My\+IRData}} \&ir\+Data)
+\begin{DoxyCompactList}\small\item\em Plays back stored IR data. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{classIRHandler_a2c73b9508c8a88ffecddfa7befac8ad5}{get\+TVStatus}} (uint16\+\_\+t delay)
+\begin{DoxyCompactList}\small\item\em Checks TV status after a certain delay. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classIRHandler_a9fb19c6d95fba6f374f098508eb7cdcf}{store\+Data}} (\mbox{\hyperlink{structMyIRData}{My\+IRData}} \&ir\+Data)
+\begin{DoxyCompactList}\small\item\em Stores received IR data. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIRHandler_a6498407cde95270dcc4b0f99ac2053f0}{Is\+IRDataavailable}} (const char $\ast$filename)
+\begin{DoxyCompactList}\small\item\em Checks if IR data is available in a file. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIRHandler_a5e3dafa1ef2c8202076f2aa2f0ea4abe}{read\+My\+IRData\+JSON}} (const char $\ast$filename, \mbox{\hyperlink{structMyIRData}{My\+IRData}} \&data)
+\begin{DoxyCompactList}\small\item\em Reads stored IR data from a JSON file and saves it in data. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classIRHandler_abc6f1a5e52364e029e096cecc866e0a4}{store\+My\+IRData\+JSON}} (const char $\ast$filename, const \mbox{\hyperlink{structMyIRData}{My\+IRData}} \&data)
+\begin{DoxyCompactList}\small\item\em Stores IR data into a JSON file. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIRHandler_afce89cb2b1b4565f58de14641401f17c}{Dump\+My\+IRData\+JSON}} (const char $\ast$filename)
+\begin{DoxyCompactList}\small\item\em Dumps IR data stored a JSON file to the console. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classIRHandler_a9eb2d793f89cbd65c0d175232eedfa8f}{Print\+My\+IRData}} (\mbox{\hyperlink{structMyIRData}{My\+IRData}} \&data)
+\begin{DoxyCompactList}\small\item\em Prints stored IR data to the console. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classIRHandler_af599fc3260c976f1930c29fcdac01798}{clear\+\_\+file}} (const char $\ast$filename)
+\begin{DoxyCompactList}\small\item\em Clears the content of a file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for handling IR communication. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classIRHandler_aa87acd7ffd3578960dd676aa226795bb}\label{classIRHandler_aa87acd7ffd3578960dd676aa226795bb}} 
+\index{IRHandler@{IRHandler}!IRHandler@{IRHandler}}
+\index{IRHandler@{IRHandler}!IRHandler@{IRHandler}}
+\doxysubsubsection{\texorpdfstring{IRHandler()}{IRHandler()}}
+{\footnotesize\ttfamily IRHandler\+::\+IRHandler (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{receive\+Pin,  }\item[{uint8\+\_\+t}]{\+\_\+send\+Pin,  }\item[{uint8\+\_\+t}]{tvpin }\end{DoxyParamCaption})}
+
+
+
+Constructor for \mbox{\hyperlink{classIRHandler}{IRHandler}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em receive\+Pin} & IR receive pin. \\
+\hline
+{\em \+\_\+send\+Pin} & IR send pin. \\
+\hline
+{\em tvpin} & TV control pin. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classIRHandler_af599fc3260c976f1930c29fcdac01798}\label{classIRHandler_af599fc3260c976f1930c29fcdac01798}} 
+\index{IRHandler@{IRHandler}!clear\_file@{clear\_file}}
+\index{clear\_file@{clear\_file}!IRHandler@{IRHandler}}
+\doxysubsubsection{\texorpdfstring{clear\_file()}{clear\_file()}}
+{\footnotesize\ttfamily void IRHandler\+::clear\+\_\+file (\begin{DoxyParamCaption}\item[{const char $\ast$}]{filename }\end{DoxyParamCaption})}
+
+
+
+Clears the content of a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & File to clear. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classIRHandler_afce89cb2b1b4565f58de14641401f17c}\label{classIRHandler_afce89cb2b1b4565f58de14641401f17c}} 
+\index{IRHandler@{IRHandler}!DumpMyIRDataJSON@{DumpMyIRDataJSON}}
+\index{DumpMyIRDataJSON@{DumpMyIRDataJSON}!IRHandler@{IRHandler}}
+\doxysubsubsection{\texorpdfstring{DumpMyIRDataJSON()}{DumpMyIRDataJSON()}}
+{\footnotesize\ttfamily bool IRHandler\+::\+Dump\+My\+IRData\+JSON (\begin{DoxyParamCaption}\item[{const char $\ast$}]{filename }\end{DoxyParamCaption})}
+
+
+
+Dumps IR data stored a JSON file to the console. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & File to dump data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if successful, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIRHandler_a2c73b9508c8a88ffecddfa7befac8ad5}\label{classIRHandler_a2c73b9508c8a88ffecddfa7befac8ad5}} 
+\index{IRHandler@{IRHandler}!getTVStatus@{getTVStatus}}
+\index{getTVStatus@{getTVStatus}!IRHandler@{IRHandler}}
+\doxysubsubsection{\texorpdfstring{getTVStatus()}{getTVStatus()}}
+{\footnotesize\ttfamily uint8\+\_\+t IRHandler\+::get\+TVStatus (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{delay }\end{DoxyParamCaption})}
+
+
+
+Checks TV status after a certain delay. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em delay} & Time delay before checking status. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+TV status (0 or 1). 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIRHandler_af829a5219fcc6cdd3a6cf64101855f78}\label{classIRHandler_af829a5219fcc6cdd3a6cf64101855f78}} 
+\index{IRHandler@{IRHandler}!identifyProtocol@{identifyProtocol}}
+\index{identifyProtocol@{identifyProtocol}!IRHandler@{IRHandler}}
+\doxysubsubsection{\texorpdfstring{identifyProtocol()}{identifyProtocol()}}
+{\footnotesize\ttfamily decode\+\_\+type\+\_\+t IRHandler\+::identify\+Protocol (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMyIRData}{My\+IRData}} \&}]{ir\+Data }\end{DoxyParamCaption})}
+
+
+
+Identifies the protocol of received IR data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ir\+Data} & Reference to \mbox{\hyperlink{structMyIRData}{My\+IRData}} structure. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Detected protocol type. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIRHandler_a6498407cde95270dcc4b0f99ac2053f0}\label{classIRHandler_a6498407cde95270dcc4b0f99ac2053f0}} 
+\index{IRHandler@{IRHandler}!IsIRDataavailable@{IsIRDataavailable}}
+\index{IsIRDataavailable@{IsIRDataavailable}!IRHandler@{IRHandler}}
+\doxysubsubsection{\texorpdfstring{IsIRDataavailable()}{IsIRDataavailable()}}
+{\footnotesize\ttfamily bool IRHandler\+::\+Is\+IRDataavailable (\begin{DoxyParamCaption}\item[{const char $\ast$}]{filename }\end{DoxyParamCaption})}
+
+
+
+Checks if IR data is available in a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & File to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if data is available, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIRHandler_a6813bbbad190f6feb60d4126725700c2}\label{classIRHandler_a6813bbbad190f6feb60d4126725700c2}} 
+\index{IRHandler@{IRHandler}!playBackData@{playBackData}}
+\index{playBackData@{playBackData}!IRHandler@{IRHandler}}
+\doxysubsubsection{\texorpdfstring{playBackData()}{playBackData()}}
+{\footnotesize\ttfamily void IRHandler\+::play\+Back\+Data (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structMyIRData}{My\+IRData}} \&}]{ir\+Data }\end{DoxyParamCaption})}
+
+
+
+Plays back stored IR data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ir\+Data} & IR data to be played back. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classIRHandler_a9eb2d793f89cbd65c0d175232eedfa8f}\label{classIRHandler_a9eb2d793f89cbd65c0d175232eedfa8f}} 
+\index{IRHandler@{IRHandler}!PrintMyIRData@{PrintMyIRData}}
+\index{PrintMyIRData@{PrintMyIRData}!IRHandler@{IRHandler}}
+\doxysubsubsection{\texorpdfstring{PrintMyIRData()}{PrintMyIRData()}}
+{\footnotesize\ttfamily void IRHandler\+::\+Print\+My\+IRData (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMyIRData}{My\+IRData}} \&}]{data }\end{DoxyParamCaption})}
+
+
+
+Prints stored IR data to the console. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & IR data to print. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classIRHandler_a5e3dafa1ef2c8202076f2aa2f0ea4abe}\label{classIRHandler_a5e3dafa1ef2c8202076f2aa2f0ea4abe}} 
+\index{IRHandler@{IRHandler}!readMyIRDataJSON@{readMyIRDataJSON}}
+\index{readMyIRDataJSON@{readMyIRDataJSON}!IRHandler@{IRHandler}}
+\doxysubsubsection{\texorpdfstring{readMyIRDataJSON()}{readMyIRDataJSON()}}
+{\footnotesize\ttfamily bool IRHandler\+::read\+My\+IRData\+JSON (\begin{DoxyParamCaption}\item[{const char $\ast$}]{filename,  }\item[{\mbox{\hyperlink{structMyIRData}{My\+IRData}} \&}]{data }\end{DoxyParamCaption})}
+
+
+
+Reads stored IR data from a JSON file and saves it in data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & File to read. \\
+\hline
+{\em data} & Reference to \mbox{\hyperlink{structMyIRData}{My\+IRData}} structure to populate. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if successful, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIRHandler_ad4fe738d7eff4b41cc5e8bc981211e73}\label{classIRHandler_ad4fe738d7eff4b41cc5e8bc981211e73}} 
+\index{IRHandler@{IRHandler}!receiveIR@{receiveIR}}
+\index{receiveIR@{receiveIR}!IRHandler@{IRHandler}}
+\doxysubsubsection{\texorpdfstring{receiveIR()}{receiveIR()}}
+{\footnotesize\ttfamily bool IRHandler\+::receive\+IR (\begin{DoxyParamCaption}\item[{bool}]{save\+Data }\end{DoxyParamCaption})}
+
+
+
+Receives IR data and optionally saves it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em save\+Data} & Boolean flag to store data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if data is successfully received, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIRHandler_a9eb20a5b494f40492c71c2814ca7d7fa}\label{classIRHandler_a9eb20a5b494f40492c71c2814ca7d7fa}} 
+\index{IRHandler@{IRHandler}!setRecievedData@{setRecievedData}}
+\index{setRecievedData@{setRecievedData}!IRHandler@{IRHandler}}
+\doxysubsubsection{\texorpdfstring{setRecievedData()}{setRecievedData()}}
+{\footnotesize\ttfamily void IRHandler\+::set\+Recieved\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMyIRData}{My\+IRData}} \&}]{ir\+Data }\end{DoxyParamCaption})}
+
+
+
+Sets received IR data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ir\+Data} & Reference to \mbox{\hyperlink{structMyIRData}{My\+IRData}} structure. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classIRHandler_a9fb19c6d95fba6f374f098508eb7cdcf}\label{classIRHandler_a9fb19c6d95fba6f374f098508eb7cdcf}} 
+\index{IRHandler@{IRHandler}!storeData@{storeData}}
+\index{storeData@{storeData}!IRHandler@{IRHandler}}
+\doxysubsubsection{\texorpdfstring{storeData()}{storeData()}}
+{\footnotesize\ttfamily void IRHandler\+::store\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMyIRData}{My\+IRData}} \&}]{ir\+Data }\end{DoxyParamCaption})}
+
+
+
+Stores received IR data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ir\+Data} & Reference to \mbox{\hyperlink{structMyIRData}{My\+IRData}} structure. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classIRHandler_abc6f1a5e52364e029e096cecc866e0a4}\label{classIRHandler_abc6f1a5e52364e029e096cecc866e0a4}} 
+\index{IRHandler@{IRHandler}!storeMyIRDataJSON@{storeMyIRDataJSON}}
+\index{storeMyIRDataJSON@{storeMyIRDataJSON}!IRHandler@{IRHandler}}
+\doxysubsubsection{\texorpdfstring{storeMyIRDataJSON()}{storeMyIRDataJSON()}}
+{\footnotesize\ttfamily void IRHandler\+::store\+My\+IRData\+JSON (\begin{DoxyParamCaption}\item[{const char $\ast$}]{filename,  }\item[{const \mbox{\hyperlink{structMyIRData}{My\+IRData}} \&}]{data }\end{DoxyParamCaption})}
+
+
+
+Stores IR data into a JSON file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & File to store data. \\
+\hline
+{\em data} & Data to be stored. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{IR__Module_8h}{IR\+\_\+\+Module.\+h}}\item 
+src/IR\+\_\+\+Module.\+cpp\end{DoxyCompactItemize}

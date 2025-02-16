@@ -1,0 +1,1309 @@
+\hypertarget{group__Decoder}{}\doxysection{Decoders and encoders for different protocols}
+\label{group__Decoder}\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__Decoder_ga97929dcf9c3088fe6b5ea9984179ee2a}\label{group__Decoder_ga97929dcf9c3088fe6b5ea9984179ee2a}} 
+\#define {\bfseries BOSEWAVE\+\_\+\+BITS}~16
+\item 
+\mbox{\Hypertarget{group__Decoder_ga01910d7deda73c7866abb73405e982d5}\label{group__Decoder_ga01910d7deda73c7866abb73405e982d5}} 
+\#define {\bfseries BOSEWAVE\+\_\+\+HEADER\+\_\+\+MARK}~1014
+\item 
+\mbox{\Hypertarget{group__Decoder_ga1d790d85945d62aeac5b1324dcbc0654}\label{group__Decoder_ga1d790d85945d62aeac5b1324dcbc0654}} 
+\#define {\bfseries BOSEWAVE\+\_\+\+HEADER\+\_\+\+SPACE}~1468
+\item 
+\mbox{\Hypertarget{group__Decoder_ga4a7b99be53662b1689675e92c5e8d640}\label{group__Decoder_ga4a7b99be53662b1689675e92c5e8d640}} 
+\#define {\bfseries BOSEWAVE\+\_\+\+BIT\+\_\+\+MARK}~520
+\item 
+\mbox{\Hypertarget{group__Decoder_ga1a90821da64722ab8ddaefe4d084c4b9}\label{group__Decoder_ga1a90821da64722ab8ddaefe4d084c4b9}} 
+\#define {\bfseries BOSEWAVE\+\_\+\+ZERO\+\_\+\+SPACE}~468
+\item 
+\mbox{\Hypertarget{group__Decoder_gac5abcecc1e901cf947864d70ef5fd685}\label{group__Decoder_gac5abcecc1e901cf947864d70ef5fd685}} 
+\#define {\bfseries BOSEWAVE\+\_\+\+ONE\+\_\+\+SPACE}~1468
+\item 
+\mbox{\Hypertarget{group__Decoder_ga3411e84f67ceffecca90355ae399fcca}\label{group__Decoder_ga3411e84f67ceffecca90355ae399fcca}} 
+\#define {\bfseries BOSEWAVE\+\_\+\+REPEAT\+\_\+\+PERIOD}~75000
+\item 
+\mbox{\Hypertarget{group__Decoder_gabbdf7b50f7e8fa7bc9974a9c38508184}\label{group__Decoder_gabbdf7b50f7e8fa7bc9974a9c38508184}} 
+\#define {\bfseries BOSEWAVE\+\_\+\+REPEAT\+\_\+\+DISTANCE}~50000
+\item 
+\mbox{\Hypertarget{group__Decoder_gac1d497c4e549ffd7b0a96a68b6d5e51a}\label{group__Decoder_gac1d497c4e549ffd7b0a96a68b6d5e51a}} 
+\#define {\bfseries BOSEWAVE\+\_\+\+MAXIMUM\+\_\+\+REPEAT\+\_\+\+DISTANCE}~62000
+\item 
+\mbox{\Hypertarget{group__Decoder_ga0fa706b9b7b446be7508c1d42a287b87}\label{group__Decoder_ga0fa706b9b7b446be7508c1d42a287b87}} 
+\#define {\bfseries DENON\+\_\+\+ADDRESS\+\_\+\+BITS}~5
+\item 
+\mbox{\Hypertarget{group__Decoder_ga90391cc9021f25e3db08a4ecb6a3ce5b}\label{group__Decoder_ga90391cc9021f25e3db08a4ecb6a3ce5b}} 
+\#define {\bfseries DENON\+\_\+\+COMMAND\+\_\+\+BITS}~8
+\item 
+\mbox{\Hypertarget{group__Decoder_gac4d956744c670f42909797aa1a9f66d2}\label{group__Decoder_gac4d956744c670f42909797aa1a9f66d2}} 
+\#define {\bfseries DENON\+\_\+\+FRAME\+\_\+\+BITS}~2
+\item 
+\mbox{\Hypertarget{group__Decoder_gaf72e9c52e59ed81ef46bfd19a8b15613}\label{group__Decoder_gaf72e9c52e59ed81ef46bfd19a8b15613}} 
+\#define {\bfseries DENON\+\_\+\+BITS}~(DENON\+\_\+\+ADDRESS\+\_\+\+BITS + DENON\+\_\+\+COMMAND\+\_\+\+BITS + DENON\+\_\+\+FRAME\+\_\+\+BITS)
+\item 
+\mbox{\Hypertarget{group__Decoder_gad25dca3fd4ddc00b460b66007be0b2bb}\label{group__Decoder_gad25dca3fd4ddc00b460b66007be0b2bb}} 
+\#define {\bfseries DENON\+\_\+\+UNIT}~260
+\item 
+\mbox{\Hypertarget{group__Decoder_gaa1e687145d4c8b75ae218193b16ecc8d}\label{group__Decoder_gaa1e687145d4c8b75ae218193b16ecc8d}} 
+\#define {\bfseries DENON\+\_\+\+BIT\+\_\+\+MARK}~DENON\+\_\+\+UNIT
+\item 
+\mbox{\Hypertarget{group__Decoder_ga8bf7f0f59510bb18534fc8766c9fe01e}\label{group__Decoder_ga8bf7f0f59510bb18534fc8766c9fe01e}} 
+\#define {\bfseries DENON\+\_\+\+ONE\+\_\+\+SPACE}~(7 $\ast$ DENON\+\_\+\+UNIT)
+\item 
+\mbox{\Hypertarget{group__Decoder_ga502f8eb1ebb964692c6593a580713064}\label{group__Decoder_ga502f8eb1ebb964692c6593a580713064}} 
+\#define {\bfseries DENON\+\_\+\+ZERO\+\_\+\+SPACE}~(3 $\ast$ DENON\+\_\+\+UNIT)
+\item 
+\mbox{\Hypertarget{group__Decoder_ga44433ad61bcd657972a364f4d4963cc7}\label{group__Decoder_ga44433ad61bcd657972a364f4d4963cc7}} 
+\#define {\bfseries DENON\+\_\+\+AUTO\+\_\+\+REPEAT\+\_\+\+DISTANCE}~45000
+\item 
+\mbox{\Hypertarget{group__Decoder_gadf29400cf8e1622f6bc747dff0944861}\label{group__Decoder_gadf29400cf8e1622f6bc747dff0944861}} 
+\#define {\bfseries DENON\+\_\+\+REPEAT\+\_\+\+PERIOD}~110000
+\item 
+\mbox{\Hypertarget{group__Decoder_ga6dc27eb34cfad41af16ceb70357898da}\label{group__Decoder_ga6dc27eb34cfad41af16ceb70357898da}} 
+\#define {\bfseries DENON\+\_\+\+HEADER\+\_\+\+MARK}~DENON\+\_\+\+UNIT
+\item 
+\mbox{\Hypertarget{group__Decoder_gaba7b22de3732ce2d613f16730f2477d8}\label{group__Decoder_gaba7b22de3732ce2d613f16730f2477d8}} 
+\#define {\bfseries DENON\+\_\+\+HEADER\+\_\+\+SPACE}~(3 $\ast$ DENON\+\_\+\+UNIT)
+\item 
+\mbox{\Hypertarget{group__Decoder_gaede1737ff1f8da95a80c7aa059ba2f13}\label{group__Decoder_gaede1737ff1f8da95a80c7aa059ba2f13}} 
+\#define {\bfseries JVC\+\_\+\+ADDRESS\+\_\+\+BITS}~8
+\item 
+\mbox{\Hypertarget{group__Decoder_ga6c37ba21b2b04d86a7c5c028dd0edc9e}\label{group__Decoder_ga6c37ba21b2b04d86a7c5c028dd0edc9e}} 
+\#define {\bfseries JVC\+\_\+\+COMMAND\+\_\+\+BITS}~8
+\item 
+\mbox{\Hypertarget{group__Decoder_gafcb4f4e6144a1e3c779b2b8777b8f8ac}\label{group__Decoder_gafcb4f4e6144a1e3c779b2b8777b8f8ac}} 
+\#define {\bfseries JVC\+\_\+\+BITS}~(JVC\+\_\+\+ADDRESS\+\_\+\+BITS + JVC\+\_\+\+COMMAND\+\_\+\+BITS)
+\item 
+\mbox{\Hypertarget{group__Decoder_gaa79a9fdad87400415aa367568b9fdb98}\label{group__Decoder_gaa79a9fdad87400415aa367568b9fdb98}} 
+\#define {\bfseries JVC\+\_\+\+UNIT}~526
+\item 
+\mbox{\Hypertarget{group__Decoder_gaec51a5a6206fbaae28a05966a840069d}\label{group__Decoder_gaec51a5a6206fbaae28a05966a840069d}} 
+\#define {\bfseries JVC\+\_\+\+HEADER\+\_\+\+MARK}~(16 $\ast$ JVC\+\_\+\+UNIT)
+\item 
+\mbox{\Hypertarget{group__Decoder_ga44feb6af98dbbcf234ef970742b511a0}\label{group__Decoder_ga44feb6af98dbbcf234ef970742b511a0}} 
+\#define {\bfseries JVC\+\_\+\+HEADER\+\_\+\+SPACE}~(8 $\ast$ JVC\+\_\+\+UNIT)
+\item 
+\mbox{\Hypertarget{group__Decoder_ga3eb74f5b177f68386ff35bd41e09a33c}\label{group__Decoder_ga3eb74f5b177f68386ff35bd41e09a33c}} 
+\#define {\bfseries JVC\+\_\+\+BIT\+\_\+\+MARK}~JVC\+\_\+\+UNIT
+\item 
+\mbox{\Hypertarget{group__Decoder_gac66f4778d06e0a5eda29695f4a0ad9fa}\label{group__Decoder_gac66f4778d06e0a5eda29695f4a0ad9fa}} 
+\#define {\bfseries JVC\+\_\+\+ONE\+\_\+\+SPACE}~(3 $\ast$ JVC\+\_\+\+UNIT)
+\item 
+\mbox{\Hypertarget{group__Decoder_ga3e161d70fe56f2ed0f76b5421fd5b1b3}\label{group__Decoder_ga3e161d70fe56f2ed0f76b5421fd5b1b3}} 
+\#define {\bfseries JVC\+\_\+\+ZERO\+\_\+\+SPACE}~JVC\+\_\+\+UNIT
+\item 
+\mbox{\Hypertarget{group__Decoder_ga3b7ef2259866de5d238e589e63e4e1c0}\label{group__Decoder_ga3b7ef2259866de5d238e589e63e4e1c0}} 
+\#define {\bfseries JVC\+\_\+\+REPEAT\+\_\+\+DISTANCE}~(uint16\+\_\+t)(45 $\ast$ JVC\+\_\+\+UNIT)
+\item 
+\mbox{\Hypertarget{group__Decoder_ga3511024575bd92aae238c9db73b9d1e1}\label{group__Decoder_ga3511024575bd92aae238c9db73b9d1e1}} 
+\#define {\bfseries JVC\+\_\+\+REPEAT\+\_\+\+PERIOD}~65000
+\item 
+\mbox{\Hypertarget{group__Decoder_gaa40dc0f36a788a2347dd601eb421fac9}\label{group__Decoder_gaa40dc0f36a788a2347dd601eb421fac9}} 
+\#define {\bfseries KASEIKYO\+\_\+\+VENDOR\+\_\+\+ID\+\_\+\+BITS}~16
+\item 
+\mbox{\Hypertarget{group__Decoder_ga00026f9a2bcd232d4cb191b9e9ce9fdb}\label{group__Decoder_ga00026f9a2bcd232d4cb191b9e9ce9fdb}} 
+\#define {\bfseries KASEIKYO\+\_\+\+VENDOR\+\_\+\+ID\+\_\+\+PARITY\+\_\+\+BITS}~4
+\item 
+\mbox{\Hypertarget{group__Decoder_ga2980cf86e2d6c0af8df3c7a29ff9468f}\label{group__Decoder_ga2980cf86e2d6c0af8df3c7a29ff9468f}} 
+\#define {\bfseries KASEIKYO\+\_\+\+ADDRESS\+\_\+\+BITS}~12
+\item 
+\mbox{\Hypertarget{group__Decoder_ga46f7e707bf79a6b1657bd29bfaaa7522}\label{group__Decoder_ga46f7e707bf79a6b1657bd29bfaaa7522}} 
+\#define {\bfseries KASEIKYO\+\_\+\+COMMAND\+\_\+\+BITS}~8
+\item 
+\mbox{\Hypertarget{group__Decoder_ga4d69f0966b844257d734539d4547ea80}\label{group__Decoder_ga4d69f0966b844257d734539d4547ea80}} 
+\#define {\bfseries KASEIKYO\+\_\+\+PARITY\+\_\+\+BITS}~8
+\item 
+\mbox{\Hypertarget{group__Decoder_ga592fb0e33827b607bb6c43072526575c}\label{group__Decoder_ga592fb0e33827b607bb6c43072526575c}} 
+\#define {\bfseries KASEIKYO\+\_\+\+BITS}~(KASEIKYO\+\_\+\+VENDOR\+\_\+\+ID\+\_\+\+BITS + KASEIKYO\+\_\+\+VENDOR\+\_\+\+ID\+\_\+\+PARITY\+\_\+\+BITS + KASEIKYO\+\_\+\+ADDRESS\+\_\+\+BITS + KASEIKYO\+\_\+\+COMMAND\+\_\+\+BITS + KASEIKYO\+\_\+\+PARITY\+\_\+\+BITS)
+\item 
+\mbox{\Hypertarget{group__Decoder_ga902a330843509bcaff6a5f0bf4f38a9d}\label{group__Decoder_ga902a330843509bcaff6a5f0bf4f38a9d}} 
+\#define {\bfseries KASEIKYO\+\_\+\+UNIT}~432
+\item 
+\mbox{\Hypertarget{group__Decoder_gaced5ece1bb2d810f20f6a02142181699}\label{group__Decoder_gaced5ece1bb2d810f20f6a02142181699}} 
+\#define {\bfseries KASEIKYO\+\_\+\+HEADER\+\_\+\+MARK}~(8 $\ast$ KASEIKYO\+\_\+\+UNIT)
+\item 
+\mbox{\Hypertarget{group__Decoder_ga5bad2bab824504b4289cf034c8070b60}\label{group__Decoder_ga5bad2bab824504b4289cf034c8070b60}} 
+\#define {\bfseries KASEIKYO\+\_\+\+HEADER\+\_\+\+SPACE}~(4 $\ast$ KASEIKYO\+\_\+\+UNIT)
+\item 
+\mbox{\Hypertarget{group__Decoder_ga69ea9935d680733cf8e37181e7df9184}\label{group__Decoder_ga69ea9935d680733cf8e37181e7df9184}} 
+\#define {\bfseries KASEIKYO\+\_\+\+BIT\+\_\+\+MARK}~KASEIKYO\+\_\+\+UNIT
+\item 
+\mbox{\Hypertarget{group__Decoder_ga70e2a773b7615e33846a98556ef5e43f}\label{group__Decoder_ga70e2a773b7615e33846a98556ef5e43f}} 
+\#define {\bfseries KASEIKYO\+\_\+\+ONE\+\_\+\+SPACE}~(3 $\ast$ KASEIKYO\+\_\+\+UNIT)
+\item 
+\mbox{\Hypertarget{group__Decoder_ga11d27c9a23d42f44d941e0e9a678fcf5}\label{group__Decoder_ga11d27c9a23d42f44d941e0e9a678fcf5}} 
+\#define {\bfseries KASEIKYO\+\_\+\+ZERO\+\_\+\+SPACE}~KASEIKYO\+\_\+\+UNIT
+\item 
+\mbox{\Hypertarget{group__Decoder_ga96b2393ae13bd45c6b13074a27e800eb}\label{group__Decoder_ga96b2393ae13bd45c6b13074a27e800eb}} 
+\#define {\bfseries KASEIKYO\+\_\+\+AVERAGE\+\_\+\+DURATION}~56000
+\item 
+\mbox{\Hypertarget{group__Decoder_gab8c7f8e151b67c06523fce7193dd5cdd}\label{group__Decoder_gab8c7f8e151b67c06523fce7193dd5cdd}} 
+\#define {\bfseries KASEIKYO\+\_\+\+REPEAT\+\_\+\+PERIOD}~130000
+\item 
+\mbox{\Hypertarget{group__Decoder_ga7f2291b1aefd16dce8a384f26662fed8}\label{group__Decoder_ga7f2291b1aefd16dce8a384f26662fed8}} 
+\#define {\bfseries KASEIKYO\+\_\+\+REPEAT\+\_\+\+DISTANCE}~(KASEIKYO\+\_\+\+REPEAT\+\_\+\+PERIOD -\/ KASEIKYO\+\_\+\+AVERAGE\+\_\+\+DURATION)
+\item 
+\mbox{\Hypertarget{group__Decoder_ga6c1738e5a8ec0026b10285b47a5d3ca8}\label{group__Decoder_ga6c1738e5a8ec0026b10285b47a5d3ca8}} 
+\#define {\bfseries KASEIKYO\+\_\+\+MAXIMUM\+\_\+\+REPEAT\+\_\+\+DISTANCE}~(KASEIKYO\+\_\+\+REPEAT\+\_\+\+DISTANCE + (KASEIKYO\+\_\+\+REPEAT\+\_\+\+DISTANCE / 4))
+\item 
+\mbox{\Hypertarget{group__Decoder_ga310adca9c81e03bc122d77251a594440}\label{group__Decoder_ga310adca9c81e03bc122d77251a594440}} 
+\#define {\bfseries PANASONIC\+\_\+\+VENDOR\+\_\+\+ID\+\_\+\+CODE}~0x2002
+\item 
+\mbox{\Hypertarget{group__Decoder_gaeb3d85736eb3f3e60af419edd191e14d}\label{group__Decoder_gaeb3d85736eb3f3e60af419edd191e14d}} 
+\#define {\bfseries DENON\+\_\+\+VENDOR\+\_\+\+ID\+\_\+\+CODE}~0x3254
+\item 
+\mbox{\Hypertarget{group__Decoder_gaca397cf0ba4543c581f0f5bfaf50ef25}\label{group__Decoder_gaca397cf0ba4543c581f0f5bfaf50ef25}} 
+\#define {\bfseries MITSUBISHI\+\_\+\+VENDOR\+\_\+\+ID\+\_\+\+CODE}~0x\+CB23
+\item 
+\mbox{\Hypertarget{group__Decoder_ga2ee9972dc5425130b659242589ceb098}\label{group__Decoder_ga2ee9972dc5425130b659242589ceb098}} 
+\#define {\bfseries SHARP\+\_\+\+VENDOR\+\_\+\+ID\+\_\+\+CODE}~0x5\+AAA
+\item 
+\mbox{\Hypertarget{group__Decoder_ga3e456885d3a0286f50fb024b0b3f90a2}\label{group__Decoder_ga3e456885d3a0286f50fb024b0b3f90a2}} 
+\#define {\bfseries JVC\+\_\+\+VENDOR\+\_\+\+ID\+\_\+\+CODE}~0x0103
+\item 
+\mbox{\Hypertarget{group__Decoder_ga39a09b56f06d4ed10980f04da1cf7d3c}\label{group__Decoder_ga39a09b56f06d4ed10980f04da1cf7d3c}} 
+\#define {\bfseries LEGO\+\_\+\+CHANNEL\+\_\+\+BITS}~4
+\item 
+\mbox{\Hypertarget{group__Decoder_ga22bc0b6a014c407189fbdda9de0d9460}\label{group__Decoder_ga22bc0b6a014c407189fbdda9de0d9460}} 
+\#define {\bfseries LEGO\+\_\+\+MODE\+\_\+\+BITS}~4
+\item 
+\mbox{\Hypertarget{group__Decoder_ga24e8ec9c66fa683bbe0cf8e2bf9f464f}\label{group__Decoder_ga24e8ec9c66fa683bbe0cf8e2bf9f464f}} 
+\#define {\bfseries LEGO\+\_\+\+COMMAND\+\_\+\+BITS}~4
+\item 
+\mbox{\Hypertarget{group__Decoder_ga7da9e4d69027085b8a05c99dedd711c8}\label{group__Decoder_ga7da9e4d69027085b8a05c99dedd711c8}} 
+\#define {\bfseries LEGO\+\_\+\+PARITY\+\_\+\+BITS}~4
+\item 
+\mbox{\Hypertarget{group__Decoder_gaba11a8cdf603ec3a9f581e0316065ccd}\label{group__Decoder_gaba11a8cdf603ec3a9f581e0316065ccd}} 
+\#define {\bfseries LEGO\+\_\+\+BITS}~(LEGO\+\_\+\+CHANNEL\+\_\+\+BITS + LEGO\+\_\+\+MODE\+\_\+\+BITS + LEGO\+\_\+\+COMMAND\+\_\+\+BITS + LEGO\+\_\+\+PARITY\+\_\+\+BITS)
+\item 
+\mbox{\Hypertarget{group__Decoder_ga413eee2968c317cddd592f169a0ae4d7}\label{group__Decoder_ga413eee2968c317cddd592f169a0ae4d7}} 
+\#define {\bfseries LEGO\+\_\+\+HEADER\+\_\+\+MARK}~158
+\item 
+\mbox{\Hypertarget{group__Decoder_ga9f0dd70b25bfe364a5959c6531c1838c}\label{group__Decoder_ga9f0dd70b25bfe364a5959c6531c1838c}} 
+\#define {\bfseries LEGO\+\_\+\+HEADER\+\_\+\+SPACE}~1026
+\item 
+\mbox{\Hypertarget{group__Decoder_ga38fc71b4c4cfb05d183d1656365755ab}\label{group__Decoder_ga38fc71b4c4cfb05d183d1656365755ab}} 
+\#define {\bfseries LEGO\+\_\+\+BIT\+\_\+\+MARK}~158
+\item 
+\mbox{\Hypertarget{group__Decoder_ga8aefc728574d08153c73f21bdb4cb152}\label{group__Decoder_ga8aefc728574d08153c73f21bdb4cb152}} 
+\#define {\bfseries LEGO\+\_\+\+ONE\+\_\+\+SPACE}~553
+\item 
+\mbox{\Hypertarget{group__Decoder_ga8d06796444b99735c047301f52d5fcfc}\label{group__Decoder_ga8d06796444b99735c047301f52d5fcfc}} 
+\#define {\bfseries LEGO\+\_\+\+ZERO\+\_\+\+SPACE}~263
+\item 
+\mbox{\Hypertarget{group__Decoder_gacffc86d1bdb9fa68d39408e230349be3}\label{group__Decoder_gacffc86d1bdb9fa68d39408e230349be3}} 
+\#define {\bfseries LEGO\+\_\+\+AVERAGE\+\_\+\+DURATION}~11000
+\item 
+\mbox{\Hypertarget{group__Decoder_ga92da2b7d1208de09d496438a32e46ecf}\label{group__Decoder_ga92da2b7d1208de09d496438a32e46ecf}} 
+\#define {\bfseries LEGO\+\_\+\+AUTO\+\_\+\+REPEAT\+\_\+\+PERIOD\+\_\+\+MIN}~110000
+\item 
+\mbox{\Hypertarget{group__Decoder_gadb5b6035eb795ce7def85993415a8d38}\label{group__Decoder_gadb5b6035eb795ce7def85993415a8d38}} 
+\#define {\bfseries LEGO\+\_\+\+AUTO\+\_\+\+REPEAT\+\_\+\+PERIOD\+\_\+\+MAX}~230000
+\item 
+\mbox{\Hypertarget{group__Decoder_gacd9e7f1a67b4ac536be4b7754db8da62}\label{group__Decoder_gacd9e7f1a67b4ac536be4b7754db8da62}} 
+\#define {\bfseries LEGO\+\_\+\+MODE\+\_\+\+EXTENDED}~0
+\item 
+\mbox{\Hypertarget{group__Decoder_ga47c92bffd09d8ad45b99db6c6eda8e0b}\label{group__Decoder_ga47c92bffd09d8ad45b99db6c6eda8e0b}} 
+\#define {\bfseries LEGO\+\_\+\+MODE\+\_\+\+COMBO}~1
+\item 
+\mbox{\Hypertarget{group__Decoder_ga4b8e451f62edbd13839eec57242fa6bf}\label{group__Decoder_ga4b8e451f62edbd13839eec57242fa6bf}} 
+\#define {\bfseries LEGO\+\_\+\+MODE\+\_\+\+SINGLE}~0x4
+\item 
+\mbox{\Hypertarget{group__Decoder_ga195b3b0d3512e9321d7bacc052207852}\label{group__Decoder_ga195b3b0d3512e9321d7bacc052207852}} 
+\#define {\bfseries LG\+\_\+\+ADDRESS\+\_\+\+BITS}~8
+\item 
+\mbox{\Hypertarget{group__Decoder_gadf67f00c097160de2557c969ad6248a8}\label{group__Decoder_gadf67f00c097160de2557c969ad6248a8}} 
+\#define {\bfseries LG\+\_\+\+COMMAND\+\_\+\+BITS}~16
+\item 
+\mbox{\Hypertarget{group__Decoder_ga0d92dd1cd56a7f82b6281796042b94b5}\label{group__Decoder_ga0d92dd1cd56a7f82b6281796042b94b5}} 
+\#define {\bfseries LG\+\_\+\+CHECKSUM\+\_\+\+BITS}~4
+\item 
+\mbox{\Hypertarget{group__Decoder_gacaf693c322cb866cec3eafecfbe35b66}\label{group__Decoder_gacaf693c322cb866cec3eafecfbe35b66}} 
+\#define {\bfseries LG\+\_\+\+BITS}~(LG\+\_\+\+ADDRESS\+\_\+\+BITS + LG\+\_\+\+COMMAND\+\_\+\+BITS + LG\+\_\+\+CHECKSUM\+\_\+\+BITS)
+\item 
+\mbox{\Hypertarget{group__Decoder_ga677656ae675af73405b65e0228ce6bc9}\label{group__Decoder_ga677656ae675af73405b65e0228ce6bc9}} 
+\#define {\bfseries LG\+\_\+\+UNIT}~500
+\item 
+\mbox{\Hypertarget{group__Decoder_gae9e8390ffc6850202815112c8493a0f6}\label{group__Decoder_gae9e8390ffc6850202815112c8493a0f6}} 
+\#define {\bfseries LG\+\_\+\+HEADER\+\_\+\+MARK}~(18 $\ast$ LG\+\_\+\+UNIT)
+\item 
+\mbox{\Hypertarget{group__Decoder_ga5eccb52c8ef993ad228c6968953c583c}\label{group__Decoder_ga5eccb52c8ef993ad228c6968953c583c}} 
+\#define {\bfseries LG\+\_\+\+HEADER\+\_\+\+SPACE}~4200
+\item 
+\mbox{\Hypertarget{group__Decoder_ga5867052dc3896b7ec94b9c24a4c89cc8}\label{group__Decoder_ga5867052dc3896b7ec94b9c24a4c89cc8}} 
+\#define {\bfseries LG2\+\_\+\+HEADER\+\_\+\+MARK}~(19 $\ast$ LG\+\_\+\+UNIT)
+\item 
+\mbox{\Hypertarget{group__Decoder_ga6d0d031a5d287ef60e683a09b7bf05bc}\label{group__Decoder_ga6d0d031a5d287ef60e683a09b7bf05bc}} 
+\#define {\bfseries LG2\+\_\+\+HEADER\+\_\+\+SPACE}~(6 $\ast$ LG\+\_\+\+UNIT)
+\item 
+\mbox{\Hypertarget{group__Decoder_gacb12362c8e9ab1034036c4efc20d57f5}\label{group__Decoder_gacb12362c8e9ab1034036c4efc20d57f5}} 
+\#define {\bfseries LG\+\_\+\+BIT\+\_\+\+MARK}~LG\+\_\+\+UNIT
+\item 
+\mbox{\Hypertarget{group__Decoder_ga5b41314206902e7eec1c396b3999eab9}\label{group__Decoder_ga5b41314206902e7eec1c396b3999eab9}} 
+\#define {\bfseries LG\+\_\+\+ONE\+\_\+\+SPACE}~1580
+\item 
+\mbox{\Hypertarget{group__Decoder_ga8f7c839827bd908025687a175453f50a}\label{group__Decoder_ga8f7c839827bd908025687a175453f50a}} 
+\#define {\bfseries LG\+\_\+\+ZERO\+\_\+\+SPACE}~550
+\item 
+\mbox{\Hypertarget{group__Decoder_ga98bc79faab54e6927516f308a0a07cb5}\label{group__Decoder_ga98bc79faab54e6927516f308a0a07cb5}} 
+\#define {\bfseries LG\+\_\+\+REPEAT\+\_\+\+HEADER\+\_\+\+SPACE}~(4 $\ast$ LG\+\_\+\+UNIT)
+\item 
+\mbox{\Hypertarget{group__Decoder_gaa478740acb2cb7dd0737a791b90b33fc}\label{group__Decoder_gaa478740acb2cb7dd0737a791b90b33fc}} 
+\#define {\bfseries LG\+\_\+\+REPEAT\+\_\+\+PERIOD}~110000
+\item 
+\mbox{\Hypertarget{group__Decoder_ga2ab110e480a4b16fe516c2afd16a1ea2}\label{group__Decoder_ga2ab110e480a4b16fe516c2afd16a1ea2}} 
+\#define {\bfseries NEC\+\_\+\+ADDRESS\+\_\+\+BITS}~16
+\item 
+\mbox{\Hypertarget{group__Decoder_ga07e295da53565eb7146072bdfeb2ed32}\label{group__Decoder_ga07e295da53565eb7146072bdfeb2ed32}} 
+\#define {\bfseries NEC\+\_\+\+COMMAND\+\_\+\+BITS}~16
+\item 
+\mbox{\Hypertarget{group__Decoder_gaa82c77bc0131ac28bc3534b8cf3422bc}\label{group__Decoder_gaa82c77bc0131ac28bc3534b8cf3422bc}} 
+\#define {\bfseries NEC\+\_\+\+BITS}~(\mbox{\hyperlink{group__TinyReceiver_ga2ab110e480a4b16fe516c2afd16a1ea2}{NEC\+\_\+\+ADDRESS\+\_\+\+BITS}} + NEC\+\_\+\+COMMAND\+\_\+\+BITS)
+\item 
+\mbox{\Hypertarget{group__Decoder_gaf3317b0cf5cf7d3063addbaa0a256158}\label{group__Decoder_gaf3317b0cf5cf7d3063addbaa0a256158}} 
+\#define {\bfseries NEC\+\_\+\+UNIT}~560
+\item 
+\mbox{\Hypertarget{group__Decoder_ga8d393b95d8df4dfa15873aec6a37965e}\label{group__Decoder_ga8d393b95d8df4dfa15873aec6a37965e}} 
+\#define {\bfseries NEC\+\_\+\+HEADER\+\_\+\+MARK}~(16 $\ast$ NEC\+\_\+\+UNIT)
+\item 
+\mbox{\Hypertarget{group__Decoder_ga5c728ed320ffee624e26767be0a80404}\label{group__Decoder_ga5c728ed320ffee624e26767be0a80404}} 
+\#define {\bfseries NEC\+\_\+\+HEADER\+\_\+\+SPACE}~(8 $\ast$ NEC\+\_\+\+UNIT)
+\item 
+\mbox{\Hypertarget{group__Decoder_ga3abbe30ef3781c1cf2490003e1c1443a}\label{group__Decoder_ga3abbe30ef3781c1cf2490003e1c1443a}} 
+\#define {\bfseries NEC\+\_\+\+BIT\+\_\+\+MARK}~NEC\+\_\+\+UNIT
+\item 
+\mbox{\Hypertarget{group__Decoder_ga5ac04ec8b2185c9fb257d39c472733b1}\label{group__Decoder_ga5ac04ec8b2185c9fb257d39c472733b1}} 
+\#define {\bfseries NEC\+\_\+\+ONE\+\_\+\+SPACE}~(3 $\ast$ NEC\+\_\+\+UNIT)
+\item 
+\mbox{\Hypertarget{group__Decoder_ga5ee46914e98bf7f87f32a7104843b243}\label{group__Decoder_ga5ee46914e98bf7f87f32a7104843b243}} 
+\#define {\bfseries NEC\+\_\+\+ZERO\+\_\+\+SPACE}~NEC\+\_\+\+UNIT
+\item 
+\mbox{\Hypertarget{group__Decoder_ga91880ffa0b09391f2c827d3a1c565abf}\label{group__Decoder_ga91880ffa0b09391f2c827d3a1c565abf}} 
+\#define {\bfseries NEC\+\_\+\+REPEAT\+\_\+\+HEADER\+\_\+\+SPACE}~(4 $\ast$ NEC\+\_\+\+UNIT)
+\item 
+\mbox{\Hypertarget{group__Decoder_gad086d93e5fb59de2890e12653a9c2f4f}\label{group__Decoder_gad086d93e5fb59de2890e12653a9c2f4f}} 
+\#define {\bfseries NEC\+\_\+\+AVERAGE\+\_\+\+DURATION}~62000
+\item 
+\mbox{\Hypertarget{group__Decoder_ga7445961959fb69fed84c046145402045}\label{group__Decoder_ga7445961959fb69fed84c046145402045}} 
+\#define {\bfseries NEC\+\_\+\+MINIMAL\+\_\+\+DURATION}~49900
+\item 
+\mbox{\Hypertarget{group__Decoder_ga0e78e019c888522fce3d5a4d4104753d}\label{group__Decoder_ga0e78e019c888522fce3d5a4d4104753d}} 
+\#define {\bfseries NEC\+\_\+\+REPEAT\+\_\+\+DURATION}~(NEC\+\_\+\+HEADER\+\_\+\+MARK  + NEC\+\_\+\+REPEAT\+\_\+\+HEADER\+\_\+\+SPACE + NEC\+\_\+\+BIT\+\_\+\+MARK)
+\item 
+\mbox{\Hypertarget{group__Decoder_gac2dab5c4a22f8c4915217d3ee4676f08}\label{group__Decoder_gac2dab5c4a22f8c4915217d3ee4676f08}} 
+\#define {\bfseries NEC\+\_\+\+REPEAT\+\_\+\+PERIOD}~110000
+\item 
+\mbox{\Hypertarget{group__Decoder_gad5b529d2582c1dab2e4a91beb5071ae3}\label{group__Decoder_gad5b529d2582c1dab2e4a91beb5071ae3}} 
+\#define {\bfseries NEC\+\_\+\+REPEAT\+\_\+\+DISTANCE}~(NEC\+\_\+\+REPEAT\+\_\+\+PERIOD -\/ NEC\+\_\+\+AVERAGE\+\_\+\+DURATION)
+\item 
+\mbox{\Hypertarget{group__Decoder_ga39b7e9de38af79c826aff1df717aef6d}\label{group__Decoder_ga39b7e9de38af79c826aff1df717aef6d}} 
+\#define {\bfseries NEC\+\_\+\+MAXIMUM\+\_\+\+REPEAT\+\_\+\+DISTANCE}~(NEC\+\_\+\+REPEAT\+\_\+\+PERIOD -\/ NEC\+\_\+\+MINIMAL\+\_\+\+DURATION + 10000)
+\item 
+\mbox{\Hypertarget{group__Decoder_ga4d268b1bd7431cab88c570c446d4810b}\label{group__Decoder_ga4d268b1bd7431cab88c570c446d4810b}} 
+\#define {\bfseries APPLE\+\_\+\+ADDRESS}~0x87\+EE
+\item 
+\mbox{\Hypertarget{group__Decoder_ga73ca131b63144028338dad0721dfcb17}\label{group__Decoder_ga73ca131b63144028338dad0721dfcb17}} 
+\#define {\bfseries DISH\+\_\+\+BITS}~16
+\item 
+\mbox{\Hypertarget{group__Decoder_ga5a4a46d571cc0eec3aa187259f68f887}\label{group__Decoder_ga5a4a46d571cc0eec3aa187259f68f887}} 
+\#define {\bfseries DISH\+\_\+\+HEADER\+\_\+\+MARK}~400
+\item 
+\mbox{\Hypertarget{group__Decoder_ga4c65e6ec3bc9ffdce4b169e7ebdefa7a}\label{group__Decoder_ga4c65e6ec3bc9ffdce4b169e7ebdefa7a}} 
+\#define {\bfseries DISH\+\_\+\+HEADER\+\_\+\+SPACE}~6100
+\item 
+\mbox{\Hypertarget{group__Decoder_ga7d81745417fbe85534e14b11ba18b817}\label{group__Decoder_ga7d81745417fbe85534e14b11ba18b817}} 
+\#define {\bfseries DISH\+\_\+\+BIT\+\_\+\+MARK}~400
+\item 
+\mbox{\Hypertarget{group__Decoder_ga689ee75287838ce80c698313a9c5941f}\label{group__Decoder_ga689ee75287838ce80c698313a9c5941f}} 
+\#define {\bfseries DISH\+\_\+\+ONE\+\_\+\+SPACE}~1700
+\item 
+\mbox{\Hypertarget{group__Decoder_gaaf3bea58e3c288a99869978697d2e562}\label{group__Decoder_gaaf3bea58e3c288a99869978697d2e562}} 
+\#define {\bfseries DISH\+\_\+\+ZERO\+\_\+\+SPACE}~2800
+\item 
+\mbox{\Hypertarget{group__Decoder_ga70ab8b8d81b426972d8950b1d28730e2}\label{group__Decoder_ga70ab8b8d81b426972d8950b1d28730e2}} 
+\#define {\bfseries DISH\+\_\+\+REPEAT\+\_\+\+SPACE}~6200
+\item 
+\mbox{\Hypertarget{group__Decoder_ga1c501f7c080c2cf8f5593ca1fb2f0b24}\label{group__Decoder_ga1c501f7c080c2cf8f5593ca1fb2f0b24}} 
+\#define {\bfseries WHYNTER\+\_\+\+BITS}~32
+\item 
+\mbox{\Hypertarget{group__Decoder_ga27674e95707b010ac4b064524006f80e}\label{group__Decoder_ga27674e95707b010ac4b064524006f80e}} 
+\#define {\bfseries WHYNTER\+\_\+\+HEADER\+\_\+\+MARK}~2850
+\item 
+\mbox{\Hypertarget{group__Decoder_ga516861bba8fb7df36adfcef25f2ae493}\label{group__Decoder_ga516861bba8fb7df36adfcef25f2ae493}} 
+\#define {\bfseries WHYNTER\+\_\+\+HEADER\+\_\+\+SPACE}~2850
+\item 
+\mbox{\Hypertarget{group__Decoder_ga7cd99216d53c9b798c413bb7ff54126f}\label{group__Decoder_ga7cd99216d53c9b798c413bb7ff54126f}} 
+\#define {\bfseries WHYNTER\+\_\+\+BIT\+\_\+\+MARK}~750
+\item 
+\mbox{\Hypertarget{group__Decoder_ga2e824e5b2ac1c06adafdbb203091ad2a}\label{group__Decoder_ga2e824e5b2ac1c06adafdbb203091ad2a}} 
+\#define {\bfseries WHYNTER\+\_\+\+ONE\+\_\+\+SPACE}~2150
+\item 
+\mbox{\Hypertarget{group__Decoder_gad81c68b306ebd739a90a2162e5afdba8}\label{group__Decoder_gad81c68b306ebd739a90a2162e5afdba8}} 
+\#define {\bfseries WHYNTER\+\_\+\+ZERO\+\_\+\+SPACE}~750
+\item 
+\mbox{\Hypertarget{group__Decoder_ga6a67feee58533e6520c703ce2f21c74d}\label{group__Decoder_ga6a67feee58533e6520c703ce2f21c74d}} 
+\#define {\bfseries RC5\+\_\+\+ADDRESS\+\_\+\+BITS}~5
+\item 
+\mbox{\Hypertarget{group__Decoder_gad486165e9022f3ee3a36c2d6c0068901}\label{group__Decoder_gad486165e9022f3ee3a36c2d6c0068901}} 
+\#define {\bfseries RC5\+\_\+\+COMMAND\+\_\+\+BITS}~6
+\item 
+\mbox{\Hypertarget{group__Decoder_ga736ff0f98dd2db7eb6998fd0d99f4764}\label{group__Decoder_ga736ff0f98dd2db7eb6998fd0d99f4764}} 
+\#define {\bfseries RC5\+\_\+\+COMMAND\+\_\+\+FIELD\+\_\+\+BIT}~1
+\item 
+\mbox{\Hypertarget{group__Decoder_ga5b54edc58ba3827fa05eb934f570f27d}\label{group__Decoder_ga5b54edc58ba3827fa05eb934f570f27d}} 
+\#define {\bfseries RC5\+\_\+\+TOGGLE\+\_\+\+BIT}~1
+\item 
+\mbox{\Hypertarget{group__Decoder_gabc94db01a9d2e2f8caccaa32ec2ffa8a}\label{group__Decoder_gabc94db01a9d2e2f8caccaa32ec2ffa8a}} 
+\#define {\bfseries RC5\+\_\+\+BITS}~(RC5\+\_\+\+COMMAND\+\_\+\+FIELD\+\_\+\+BIT + RC5\+\_\+\+TOGGLE\+\_\+\+BIT + RC5\+\_\+\+ADDRESS\+\_\+\+BITS + RC5\+\_\+\+COMMAND\+\_\+\+BITS)
+\item 
+\mbox{\Hypertarget{group__Decoder_ga29c2e67aa7b0ee1ed87b0e154eaf6f69}\label{group__Decoder_ga29c2e67aa7b0ee1ed87b0e154eaf6f69}} 
+\#define {\bfseries RC5\+\_\+\+UNIT}~889
+\item 
+\mbox{\Hypertarget{group__Decoder_gaace57f5ebe7ac2d2f80a496702065627}\label{group__Decoder_gaace57f5ebe7ac2d2f80a496702065627}} 
+\#define {\bfseries MIN\+\_\+\+RC5\+\_\+\+MARKS}~((RC5\+\_\+\+BITS + 1) / 2)
+\item 
+\mbox{\Hypertarget{group__Decoder_ga72ef3521775a056c2009b22cc9a50a28}\label{group__Decoder_ga72ef3521775a056c2009b22cc9a50a28}} 
+\#define {\bfseries RC5\+\_\+\+DURATION}~(15L $\ast$ RC5\+\_\+\+UNIT)
+\item 
+\mbox{\Hypertarget{group__Decoder_ga985b139053cd231f47e363981e6a32e4}\label{group__Decoder_ga985b139053cd231f47e363981e6a32e4}} 
+\#define {\bfseries RC5\+\_\+\+REPEAT\+\_\+\+PERIOD}~(128L $\ast$ RC5\+\_\+\+UNIT)
+\item 
+\mbox{\Hypertarget{group__Decoder_ga9274e35497925d4e13817a580abb6014}\label{group__Decoder_ga9274e35497925d4e13817a580abb6014}} 
+\#define {\bfseries RC5\+\_\+\+REPEAT\+\_\+\+DISTANCE}~(RC5\+\_\+\+REPEAT\+\_\+\+PERIOD -\/ RC5\+\_\+\+DURATION)
+\item 
+\mbox{\Hypertarget{group__Decoder_gad5be6473101d5d85483a3c8e5f0afe24}\label{group__Decoder_gad5be6473101d5d85483a3c8e5f0afe24}} 
+\#define {\bfseries RC5\+\_\+\+MAXIMUM\+\_\+\+REPEAT\+\_\+\+DISTANCE}~(RC5\+\_\+\+REPEAT\+\_\+\+DISTANCE + (RC5\+\_\+\+REPEAT\+\_\+\+DISTANCE / 4))
+\item 
+\mbox{\Hypertarget{group__Decoder_ga864aa6044417289d715eb819c1be3e10}\label{group__Decoder_ga864aa6044417289d715eb819c1be3e10}} 
+\#define {\bfseries MIN\+\_\+\+RC6\+\_\+\+SAMPLES}~1
+\item 
+\mbox{\Hypertarget{group__Decoder_gab20744e40f55c70de7fd11c163643d03}\label{group__Decoder_gab20744e40f55c70de7fd11c163643d03}} 
+\#define {\bfseries RC6\+\_\+\+RPT\+\_\+\+LENGTH}~46000
+\item 
+\mbox{\Hypertarget{group__Decoder_gabe308752857e0c9d2aa632459efff68b}\label{group__Decoder_gabe308752857e0c9d2aa632459efff68b}} 
+\#define {\bfseries RC6\+\_\+\+LEADING\+\_\+\+BIT}~1
+\item 
+\mbox{\Hypertarget{group__Decoder_gace06a80186f826baaec50247cccd9fa6}\label{group__Decoder_gace06a80186f826baaec50247cccd9fa6}} 
+\#define {\bfseries RC6\+\_\+\+MODE\+\_\+\+BITS}~3
+\item 
+\mbox{\Hypertarget{group__Decoder_ga2899c3ab9e20e006a196f1e959e496f7}\label{group__Decoder_ga2899c3ab9e20e006a196f1e959e496f7}} 
+\#define {\bfseries RC6\+\_\+\+TOGGLE\+\_\+\+BIT}~1
+\item 
+\mbox{\Hypertarget{group__Decoder_gab3e03a477dc7e59a0eed631cf75e9b61}\label{group__Decoder_gab3e03a477dc7e59a0eed631cf75e9b61}} 
+\#define {\bfseries RC6\+\_\+\+TOGGLE\+\_\+\+BIT\+\_\+\+INDEX}~RC6\+\_\+\+MODE\+\_\+\+BITS
+\item 
+\mbox{\Hypertarget{group__Decoder_ga998e578fa80abf8e58794f162b4e9c4f}\label{group__Decoder_ga998e578fa80abf8e58794f162b4e9c4f}} 
+\#define {\bfseries RC6\+\_\+\+ADDRESS\+\_\+\+BITS}~8
+\item 
+\mbox{\Hypertarget{group__Decoder_ga2693e6912aaa2615f31b2c8298e84e83}\label{group__Decoder_ga2693e6912aaa2615f31b2c8298e84e83}} 
+\#define {\bfseries RC6\+\_\+\+COMMAND\+\_\+\+BITS}~8
+\item 
+\mbox{\Hypertarget{group__Decoder_ga3811179a4279f3a3c3162cc27e896d2b}\label{group__Decoder_ga3811179a4279f3a3c3162cc27e896d2b}} 
+\#define {\bfseries RC6\+\_\+\+CUSTOMER\+\_\+\+BITS}~14
+\item 
+\mbox{\Hypertarget{group__Decoder_gaf0ebba4bfe3db1f49f593ac87ecc78ea}\label{group__Decoder_gaf0ebba4bfe3db1f49f593ac87ecc78ea}} 
+\#define {\bfseries RC6\+\_\+\+BITS}~(RC6\+\_\+\+LEADING\+\_\+\+BIT + RC6\+\_\+\+MODE\+\_\+\+BITS + RC6\+\_\+\+TOGGLE\+\_\+\+BIT + RC6\+\_\+\+ADDRESS\+\_\+\+BITS + RC6\+\_\+\+COMMAND\+\_\+\+BITS)
+\item 
+\mbox{\Hypertarget{group__Decoder_ga3f943e6a4abcdea07091bcb25c9f1d66}\label{group__Decoder_ga3f943e6a4abcdea07091bcb25c9f1d66}} 
+\#define {\bfseries RC6\+A\+\_\+\+BITS}~(RC6\+\_\+\+LEADING\+\_\+\+BIT + RC6\+\_\+\+MODE\+\_\+\+BITS + RC6\+\_\+\+TOGGLE\+\_\+\+BIT + 1 + RC6\+\_\+\+CUSTOMER\+\_\+\+BITS + RC6\+\_\+\+ADDRESS\+\_\+\+BITS + RC6\+\_\+\+COMMAND\+\_\+\+BITS)
+\item 
+\mbox{\Hypertarget{group__Decoder_ga0c8422e20817bc71f9b16f013d282800}\label{group__Decoder_ga0c8422e20817bc71f9b16f013d282800}} 
+\#define {\bfseries RC6\+\_\+\+UNIT}~444
+\item 
+\mbox{\Hypertarget{group__Decoder_ga89c0498dae46351ae778a263bd1c90c9}\label{group__Decoder_ga89c0498dae46351ae778a263bd1c90c9}} 
+\#define {\bfseries RC6\+\_\+\+HEADER\+\_\+\+MARK}~(6 $\ast$ RC6\+\_\+\+UNIT)
+\item 
+\mbox{\Hypertarget{group__Decoder_ga5c7e98f561ee9ffea33dbe1f5c6d124a}\label{group__Decoder_ga5c7e98f561ee9ffea33dbe1f5c6d124a}} 
+\#define {\bfseries RC6\+\_\+\+HEADER\+\_\+\+SPACE}~(2 $\ast$ RC6\+\_\+\+UNIT)
+\item 
+\mbox{\Hypertarget{group__Decoder_ga80d136268d4d727245922ae0c85464c3}\label{group__Decoder_ga80d136268d4d727245922ae0c85464c3}} 
+\#define {\bfseries RC6\+\_\+\+TRAILING\+\_\+\+SPACE}~(6 $\ast$ RC6\+\_\+\+UNIT)
+\item 
+\mbox{\Hypertarget{group__Decoder_ga9d1c512ada596652f29f24b17ef7f900}\label{group__Decoder_ga9d1c512ada596652f29f24b17ef7f900}} 
+\#define {\bfseries MIN\+\_\+\+RC6\+\_\+\+MARKS}~4 + ((RC6\+\_\+\+ADDRESS\+\_\+\+BITS + RC6\+\_\+\+COMMAND\+\_\+\+BITS) / 2)
+\item 
+\mbox{\Hypertarget{group__Decoder_gac2c6129f14778e8648af177c4a832717}\label{group__Decoder_gac2c6129f14778e8648af177c4a832717}} 
+\#define {\bfseries RC6\+\_\+\+REPEAT\+\_\+\+DISTANCE}~107000
+\item 
+\mbox{\Hypertarget{group__Decoder_gaf2645fd5d9872aaef20fefbe46536d49}\label{group__Decoder_gaf2645fd5d9872aaef20fefbe46536d49}} 
+\#define {\bfseries RC6\+\_\+\+MAXIMUM\+\_\+\+REPEAT\+\_\+\+DISTANCE}~(RC6\+\_\+\+REPEAT\+\_\+\+DISTANCE + (RC6\+\_\+\+REPEAT\+\_\+\+DISTANCE / 4))
+\item 
+\mbox{\Hypertarget{group__Decoder_ga283d6e91f30293b52d3b0d7aeb11c2cb}\label{group__Decoder_ga283d6e91f30293b52d3b0d7aeb11c2cb}} 
+\#define {\bfseries SAMSUNG\+\_\+\+ADDRESS\+\_\+\+BITS}~16
+\item 
+\mbox{\Hypertarget{group__Decoder_ga12d540662f0eaef3297b2fee1be653b9}\label{group__Decoder_ga12d540662f0eaef3297b2fee1be653b9}} 
+\#define {\bfseries SAMSUNG\+\_\+\+COMMAND16\+\_\+\+BITS}~16
+\item 
+\mbox{\Hypertarget{group__Decoder_gab7035588b69b6a1c30dd496a1e8351c0}\label{group__Decoder_gab7035588b69b6a1c30dd496a1e8351c0}} 
+\#define {\bfseries SAMSUNG\+\_\+\+COMMAND32\+\_\+\+BITS}~32
+\item 
+\mbox{\Hypertarget{group__Decoder_gafc27510b737f1ce90042bee6ef245592}\label{group__Decoder_gafc27510b737f1ce90042bee6ef245592}} 
+\#define {\bfseries SAMSUNG\+\_\+\+BITS}~(SAMSUNG\+\_\+\+ADDRESS\+\_\+\+BITS + SAMSUNG\+\_\+\+COMMAND16\+\_\+\+BITS)
+\item 
+\mbox{\Hypertarget{group__Decoder_gac442c5511ca3736cafc683e2507db6b4}\label{group__Decoder_gac442c5511ca3736cafc683e2507db6b4}} 
+\#define {\bfseries SAMSUNG48\+\_\+\+BITS}~(SAMSUNG\+\_\+\+ADDRESS\+\_\+\+BITS + SAMSUNG\+\_\+\+COMMAND32\+\_\+\+BITS)
+\item 
+\mbox{\Hypertarget{group__Decoder_ga651bd895c4ad553171399aebcc7297ea}\label{group__Decoder_ga651bd895c4ad553171399aebcc7297ea}} 
+\#define {\bfseries SAMSUNG\+\_\+\+UNIT}~560
+\item 
+\mbox{\Hypertarget{group__Decoder_gaba5b0346e4a7aca7a202768a6abf7cae}\label{group__Decoder_gaba5b0346e4a7aca7a202768a6abf7cae}} 
+\#define {\bfseries SAMSUNG\+\_\+\+HEADER\+\_\+\+MARK}~(8 $\ast$ SAMSUNG\+\_\+\+UNIT)
+\item 
+\mbox{\Hypertarget{group__Decoder_ga22d50c9e05c2de32c73cda0a9b05a8c4}\label{group__Decoder_ga22d50c9e05c2de32c73cda0a9b05a8c4}} 
+\#define {\bfseries SAMSUNG\+\_\+\+HEADER\+\_\+\+SPACE}~(8 $\ast$ SAMSUNG\+\_\+\+UNIT)
+\item 
+\mbox{\Hypertarget{group__Decoder_ga838b0e3727e67fd3b986d2f3b77ffb7c}\label{group__Decoder_ga838b0e3727e67fd3b986d2f3b77ffb7c}} 
+\#define {\bfseries SAMSUNG\+\_\+\+BIT\+\_\+\+MARK}~SAMSUNG\+\_\+\+UNIT
+\item 
+\mbox{\Hypertarget{group__Decoder_ga139bb990e482496d098c49c6409047bf}\label{group__Decoder_ga139bb990e482496d098c49c6409047bf}} 
+\#define {\bfseries SAMSUNG\+\_\+\+ONE\+\_\+\+SPACE}~(3 $\ast$ SAMSUNG\+\_\+\+UNIT)
+\item 
+\mbox{\Hypertarget{group__Decoder_ga47aa3d1eeb1f86ee48a8c9a9e2c1e4d2}\label{group__Decoder_ga47aa3d1eeb1f86ee48a8c9a9e2c1e4d2}} 
+\#define {\bfseries SAMSUNG\+\_\+\+ZERO\+\_\+\+SPACE}~SAMSUNG\+\_\+\+UNIT
+\item 
+\mbox{\Hypertarget{group__Decoder_gad3410f25a216ddb5a2a975d3aa33fdcd}\label{group__Decoder_gad3410f25a216ddb5a2a975d3aa33fdcd}} 
+\#define {\bfseries SAMSUNG\+\_\+\+AVERAGE\+\_\+\+DURATION}~55000
+\item 
+\mbox{\Hypertarget{group__Decoder_ga2d02df520e7d312e045090f6f1e62897}\label{group__Decoder_ga2d02df520e7d312e045090f6f1e62897}} 
+\#define {\bfseries SAMSUNG\+\_\+\+REPEAT\+\_\+\+DURATION}~(SAMSUNG\+\_\+\+HEADER\+\_\+\+MARK  + SAMSUNG\+\_\+\+HEADER\+\_\+\+SPACE + SAMSUNG\+\_\+\+BIT\+\_\+\+MARK + SAMSUNG\+\_\+\+ZERO\+\_\+\+SPACE + SAMSUNG\+\_\+\+BIT\+\_\+\+MARK)
+\item 
+\mbox{\Hypertarget{group__Decoder_ga7611f37500fda881b03220c8a7fd9d74}\label{group__Decoder_ga7611f37500fda881b03220c8a7fd9d74}} 
+\#define {\bfseries SAMSUNG\+\_\+\+REPEAT\+\_\+\+PERIOD}~110000
+\item 
+\mbox{\Hypertarget{group__Decoder_ga93066e8dacaf408cbf31e67ecea0183b}\label{group__Decoder_ga93066e8dacaf408cbf31e67ecea0183b}} 
+\#define {\bfseries SAMSUNG\+\_\+\+MAXIMUM\+\_\+\+REPEAT\+\_\+\+DISTANCE}~(SAMSUNG\+\_\+\+REPEAT\+\_\+\+PERIOD + (SAMSUNG\+\_\+\+REPEAT\+\_\+\+PERIOD / 4))
+\item 
+\mbox{\Hypertarget{group__Decoder_ga8bf3de6a0e95b5fcdee222bb59170be3}\label{group__Decoder_ga8bf3de6a0e95b5fcdee222bb59170be3}} 
+\#define {\bfseries SONY\+\_\+\+ADDRESS\+\_\+\+BITS}~5
+\item 
+\mbox{\Hypertarget{group__Decoder_ga41b47908d312a62738b47d02f5996bd7}\label{group__Decoder_ga41b47908d312a62738b47d02f5996bd7}} 
+\#define {\bfseries SONY\+\_\+\+COMMAND\+\_\+\+BITS}~7
+\item 
+\mbox{\Hypertarget{group__Decoder_ga706923dfa59320924f91e826c170789f}\label{group__Decoder_ga706923dfa59320924f91e826c170789f}} 
+\#define {\bfseries SONY\+\_\+\+EXTRA\+\_\+\+BITS}~8
+\item 
+\mbox{\Hypertarget{group__Decoder_ga081ed9a7e2b2ee39c9ca9198f655160e}\label{group__Decoder_ga081ed9a7e2b2ee39c9ca9198f655160e}} 
+\#define {\bfseries SONY\+\_\+\+BITS\+\_\+\+MIN}~(SONY\+\_\+\+COMMAND\+\_\+\+BITS + SONY\+\_\+\+ADDRESS\+\_\+\+BITS)
+\item 
+\mbox{\Hypertarget{group__Decoder_gaf3244e66cd80474af035911fbbe6d46d}\label{group__Decoder_gaf3244e66cd80474af035911fbbe6d46d}} 
+\#define {\bfseries SONY\+\_\+\+BITS\+\_\+15}~(SONY\+\_\+\+COMMAND\+\_\+\+BITS + SONY\+\_\+\+ADDRESS\+\_\+\+BITS + 3)
+\item 
+\mbox{\Hypertarget{group__Decoder_ga0122c3deff0aa5a81ccb9cc675d87e57}\label{group__Decoder_ga0122c3deff0aa5a81ccb9cc675d87e57}} 
+\#define {\bfseries SONY\+\_\+\+BITS\+\_\+\+MAX}~(SONY\+\_\+\+COMMAND\+\_\+\+BITS + SONY\+\_\+\+ADDRESS\+\_\+\+BITS + SONY\+\_\+\+EXTRA\+\_\+\+BITS)
+\item 
+\mbox{\Hypertarget{group__Decoder_ga441cf836ba5e41a476cfaed754619e7d}\label{group__Decoder_ga441cf836ba5e41a476cfaed754619e7d}} 
+\#define {\bfseries SONY\+\_\+\+UNIT}~600
+\item 
+\mbox{\Hypertarget{group__Decoder_gaa9e51d168691efecbc72d9ab08ebe167}\label{group__Decoder_gaa9e51d168691efecbc72d9ab08ebe167}} 
+\#define {\bfseries SONY\+\_\+\+HEADER\+\_\+\+MARK}~(4 $\ast$ SONY\+\_\+\+UNIT)
+\item 
+\mbox{\Hypertarget{group__Decoder_gaaa7d595e4d4b3857f3165bbc7682ae36}\label{group__Decoder_gaaa7d595e4d4b3857f3165bbc7682ae36}} 
+\#define {\bfseries SONY\+\_\+\+ONE\+\_\+\+MARK}~(2 $\ast$ SONY\+\_\+\+UNIT)
+\item 
+\mbox{\Hypertarget{group__Decoder_gaacafe83ae7609e591a845d188477b4e6}\label{group__Decoder_gaacafe83ae7609e591a845d188477b4e6}} 
+\#define {\bfseries SONY\+\_\+\+ZERO\+\_\+\+MARK}~SONY\+\_\+\+UNIT
+\item 
+\mbox{\Hypertarget{group__Decoder_ga6bed381432686c9434b0debbda4936d0}\label{group__Decoder_ga6bed381432686c9434b0debbda4936d0}} 
+\#define {\bfseries SONY\+\_\+\+SPACE}~SONY\+\_\+\+UNIT
+\item 
+\mbox{\Hypertarget{group__Decoder_gae0f8f9c332bb24c958a5dcec4260659e}\label{group__Decoder_gae0f8f9c332bb24c958a5dcec4260659e}} 
+\#define {\bfseries SONY\+\_\+\+AVERAGE\+\_\+\+DURATION\+\_\+\+MIN}~21000
+\item 
+\mbox{\Hypertarget{group__Decoder_gaf803b6ab7aa5ca862f25cf41e0336290}\label{group__Decoder_gaf803b6ab7aa5ca862f25cf41e0336290}} 
+\#define {\bfseries SONY\+\_\+\+AVERAGE\+\_\+\+DURATION\+\_\+\+MAX}~33000
+\item 
+\mbox{\Hypertarget{group__Decoder_ga04bbfe2a8ffe2d8909f20223dc7ae573}\label{group__Decoder_ga04bbfe2a8ffe2d8909f20223dc7ae573}} 
+\#define {\bfseries SONY\+\_\+\+REPEAT\+\_\+\+PERIOD}~45000
+\item 
+\mbox{\Hypertarget{group__Decoder_ga5d0099e94e845b1dfca08317a7c69f31}\label{group__Decoder_ga5d0099e94e845b1dfca08317a7c69f31}} 
+\#define {\bfseries SONY\+\_\+\+MAXIMUM\+\_\+\+REPEAT\+\_\+\+DISTANCE}~(SONY\+\_\+\+REPEAT\+\_\+\+PERIOD -\/ SONY\+\_\+\+AVERAGE\+\_\+\+DURATION\+\_\+\+MIN)
+\item 
+\mbox{\Hypertarget{group__Decoder_gae8967821a9dae0e890bdb9d95a3ee6c0}\label{group__Decoder_gae8967821a9dae0e890bdb9d95a3ee6c0}} 
+\#define {\bfseries SONY\+\_\+\+DOUBLE\+\_\+\+SPACE\+\_\+\+USECS}~500
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__Decoder_ga90217576bd30a0755127207435731549}\label{group__Decoder_ga90217576bd30a0755127207435731549}} 
+bool {\bfseries aggregate\+Array\+Counts} (uint8\+\_\+t a\+Array\mbox{[}$\,$\mbox{]}, uint8\+\_\+t a\+Max\+Index, uint8\+\_\+t $\ast$a\+Short\+Index, uint8\+\_\+t $\ast$a\+Long\+Index)
+\item 
+void \mbox{\hyperlink{group__Decoder_gaddace9c2bd03f63855063a3ce5e65acc}{send\+LG2\+Special\+Repeat}} ()
+\item 
+void \mbox{\hyperlink{group__Decoder_ga7c4ddfbbbe38d11709d079dee617f2b2}{send\+NECSpecial\+Repeat}} ()
+\item 
+void \mbox{\hyperlink{group__Decoder_gad3b594eed28121c2406e7d80d1636c82}{send\+Samsung\+LGSpecial\+Repeat}} ()
+\item 
+\mbox{\Hypertarget{group__Decoder_ga1288521054e8b5afb8aece28355829ff}\label{group__Decoder_ga1288521054e8b5afb8aece28355829ff}} 
+void {\bfseries IRsend\+::send\+Bose\+Wave} (uint8\+\_\+t a\+Command, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats=\mbox{\hyperlink{IRremoteInt_8h_a5d35fb37031b53f0083f8b88ae3cf2c2}{NO\+\_\+\+REPEATS}})
+\item 
+\mbox{\Hypertarget{group__Decoder_gaf9a5bf8248971aca9d4f5b68f3e9f858}\label{group__Decoder_gaf9a5bf8248971aca9d4f5b68f3e9f858}} 
+bool {\bfseries IRrecv\+::decode\+Bose\+Wave} ()
+\item 
+\mbox{\Hypertarget{group__Decoder_ga9b819c19d95d4d880e9d6ecb056c0e0a}\label{group__Decoder_ga9b819c19d95d4d880e9d6ecb056c0e0a}} 
+void {\bfseries IRsend\+::send\+Sharp} (uint8\+\_\+t a\+Address, uint8\+\_\+t a\+Command, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats)
+\item 
+\mbox{\Hypertarget{group__Decoder_gafac34cda1599b5bd6ba5a8e8451cf6fa}\label{group__Decoder_gafac34cda1599b5bd6ba5a8e8451cf6fa}} 
+void {\bfseries IRsend\+::send\+Denon} (uint8\+\_\+t a\+Address, uint8\+\_\+t a\+Command, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats, bool a\+Send\+Sharp=false)
+\item 
+\mbox{\Hypertarget{group__Decoder_ga7edfd9309ccd7f87762a17480635dcd6}\label{group__Decoder_ga7edfd9309ccd7f87762a17480635dcd6}} 
+bool {\bfseries IRrecv\+::decode\+Sharp} ()
+\item 
+\mbox{\Hypertarget{group__Decoder_ga680c0090daf6945a85fd2658af84dfac}\label{group__Decoder_ga680c0090daf6945a85fd2658af84dfac}} 
+bool {\bfseries IRrecv\+::decode\+Denon} ()
+\item 
+\mbox{\Hypertarget{group__Decoder_ga76790d94a80f32ee90591f8803b79d28}\label{group__Decoder_ga76790d94a80f32ee90591f8803b79d28}} 
+void {\bfseries IRsend\+::send\+Denon\+Raw} (uint16\+\_\+t a\+Raw\+Data, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats=\mbox{\hyperlink{IRremoteInt_8h_a5d35fb37031b53f0083f8b88ae3cf2c2}{NO\+\_\+\+REPEATS}}) \+\_\+\+\_\+attribute\+\_\+\+\_\+((deprecated(\char`\"{}Please use send\+Denon(a\+Address
+\item 
+\mbox{\Hypertarget{group__Decoder_ga07fda81bccc55fb38f7a0851b58abe3a}\label{group__Decoder_ga07fda81bccc55fb38f7a0851b58abe3a}} 
+void {\bfseries IRsend\+::send\+Denon} (unsigned long data, int nbits) \+\_\+\+\_\+attribute\+\_\+\+\_\+((deprecated(\char`\"{}The function send\+Denon(data
+\item 
+\mbox{\Hypertarget{group__Decoder_ga07a2eb37d101e52d0ed4ac694b7ec659}\label{group__Decoder_ga07a2eb37d101e52d0ed4ac694b7ec659}} 
+void {\bfseries IRsend\+::send\+Sharp} (uint16\+\_\+t address, uint16\+\_\+t command)
+\item 
+\mbox{\Hypertarget{group__Decoder_ga5d11ba281c103fe66e0912c46276c26e}\label{group__Decoder_ga5d11ba281c103fe66e0912c46276c26e}} 
+bool {\bfseries IRrecv\+::decode\+Denon\+Old} (\mbox{\hyperlink{structdecode__results}{decode\+\_\+results}} $\ast$a\+Results)
+\item 
+\mbox{\Hypertarget{group__Decoder_ga651ca3f9f6e3d98962bf98d61610df61}\label{group__Decoder_ga651ca3f9f6e3d98962bf98d61610df61}} 
+bool {\bfseries IRrecv\+::decode\+Distance\+Width} ()
+\item 
+void \mbox{\hyperlink{group__Decoder_ga39702704a52a99d8cb7d118d8a9e0251}{IRsend\+::send\+FAST}} (uint8\+\_\+t a\+Command, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats)
+\item 
+\mbox{\Hypertarget{group__Decoder_ga26e0c4b0bd3cc4f5e007cd63904a7253}\label{group__Decoder_ga26e0c4b0bd3cc4f5e007cd63904a7253}} 
+bool {\bfseries IRrecv\+::decode\+FAST} ()
+\item 
+void \mbox{\hyperlink{group__Decoder_gaa10da0665ac4d44b06dba845420ab7f1}{IRsend\+::send\+JVC}} (uint8\+\_\+t a\+Address, uint8\+\_\+t a\+Command, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats)
+\item 
+\mbox{\Hypertarget{group__Decoder_gad6ecf38f85cefea8f71090fce4dbbbed}\label{group__Decoder_gad6ecf38f85cefea8f71090fce4dbbbed}} 
+bool {\bfseries IRrecv\+::decode\+JVC} ()
+\item 
+\mbox{\Hypertarget{group__Decoder_gad7512fb183efc882f493ce5ab4c2bd10}\label{group__Decoder_gad7512fb183efc882f493ce5ab4c2bd10}} 
+bool {\bfseries IRrecv\+::decode\+JVCMSB} (\mbox{\hyperlink{structdecode__results}{decode\+\_\+results}} $\ast$a\+Results)
+\item 
+void \mbox{\hyperlink{group__Decoder_gae3ffaf23301bec85ca0c2c7499f484a3}{IRsend\+::send\+JVCMSB}} (unsigned long data, int nbits, bool repeat=false)
+\item 
+void \mbox{\hyperlink{group__Decoder_gada6382d5c398922c22ace404179a5744}{IRsend\+::send\+Kaseikyo}} (uint16\+\_\+t a\+Address, uint8\+\_\+t a\+Data, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats, uint16\+\_\+t a\+Vendor\+Code)
+\item 
+void \mbox{\hyperlink{group__Decoder_gaf720308fa32a1f182ff17772c32c3cea}{IRsend\+::send\+Panasonic}} (uint16\+\_\+t a\+Address, uint8\+\_\+t a\+Data, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats)
+\item 
+void \mbox{\hyperlink{group__Decoder_ga266389f19755fdef8f6dc0155191bf3b}{IRsend\+::send\+Kaseikyo\+\_\+\+Denon}} (uint16\+\_\+t a\+Address, uint8\+\_\+t a\+Data, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats)
+\item 
+void \mbox{\hyperlink{group__Decoder_ga8853de09de0669d147a40e8344ee2dc4}{IRsend\+::send\+Kaseikyo\+\_\+\+Mitsubishi}} (uint16\+\_\+t a\+Address, uint8\+\_\+t a\+Data, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats)
+\item 
+void \mbox{\hyperlink{group__Decoder_gaf60a31544006d2e18eb25b3b0205a261}{IRsend\+::send\+Kaseikyo\+\_\+\+Sharp}} (uint16\+\_\+t a\+Address, uint8\+\_\+t a\+Data, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats)
+\item 
+void \mbox{\hyperlink{group__Decoder_ga87a6a2163f2608a0c90014586bb04cfa}{IRsend\+::send\+Kaseikyo\+\_\+\+JVC}} (uint16\+\_\+t a\+Address, uint8\+\_\+t a\+Data, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats)
+\item 
+\mbox{\Hypertarget{group__Decoder_ga099d67ab5fef881af8838d6cb11d0b14}\label{group__Decoder_ga099d67ab5fef881af8838d6cb11d0b14}} 
+bool {\bfseries IRrecv\+::decode\+Kaseikyo} ()
+\item 
+\mbox{\Hypertarget{group__Decoder_gaa62e64650aaae09b6f001a53a31f00b8}\label{group__Decoder_gaa62e64650aaae09b6f001a53a31f00b8}} 
+void {\bfseries IRsend\+::send\+Lego\+Power\+Functions} (uint8\+\_\+t a\+Channel, uint8\+\_\+t t\+Command, uint8\+\_\+t a\+Mode, bool a\+Do\+Send5\+Times=true)
+\item 
+\mbox{\Hypertarget{group__Decoder_gaea94765ecf1af29cf323354be4d74538}\label{group__Decoder_gaea94765ecf1af29cf323354be4d74538}} 
+void {\bfseries IRsend\+::send\+Lego\+Power\+Functions} (uint16\+\_\+t a\+Raw\+Data, uint8\+\_\+t a\+Channel, bool a\+Do\+Send5\+Times=true)
+\item 
+\mbox{\Hypertarget{group__Decoder_gae96d28d8682a352cb1118aae25d5bba5}\label{group__Decoder_gae96d28d8682a352cb1118aae25d5bba5}} 
+bool {\bfseries IRrecv\+::decode\+Lego\+Power\+Functions} ()
+\item 
+\mbox{\Hypertarget{group__Decoder_ga315bc3587e7c4aa15629155b66e52728}\label{group__Decoder_ga315bc3587e7c4aa15629155b66e52728}} 
+void {\bfseries IRsend\+::send\+Lego\+Power\+Functions} (uint16\+\_\+t a\+Raw\+Data, bool a\+Do\+Send5\+Times=true)
+\item 
+\mbox{\Hypertarget{group__Decoder_gaaea3e264abb5eb70d01e792817af23e6}\label{group__Decoder_gaaea3e264abb5eb70d01e792817af23e6}} 
+void {\bfseries IRsend\+::send\+LG2\+Repeat} ()
+\item 
+\mbox{\Hypertarget{group__Decoder_ga6ada889ebd0aeb60e7284c2060f61871}\label{group__Decoder_ga6ada889ebd0aeb60e7284c2060f61871}} 
+uint32\+\_\+t {\bfseries IRsend\+::compute\+LGRaw\+Data\+And\+Checksum} (uint8\+\_\+t a\+Address, uint16\+\_\+t a\+Command)
+\item 
+void \mbox{\hyperlink{group__Decoder_gab0200ca785ce3be24c4ad2efc95f37f7}{IRsend\+::send\+LG}} (uint8\+\_\+t a\+Address, uint16\+\_\+t a\+Command, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats)
+\item 
+void \mbox{\hyperlink{group__Decoder_gad8b3a7ce5ae5adb098ca0dc004b7b71b}{IRsend\+::send\+LG2}} (uint8\+\_\+t a\+Address, uint16\+\_\+t a\+Command, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats)
+\item 
+\mbox{\Hypertarget{group__Decoder_gac098ec62da77aa75ca9016d289f3d7aa}\label{group__Decoder_gac098ec62da77aa75ca9016d289f3d7aa}} 
+bool {\bfseries IRrecv\+::decode\+LG} ()
+\item 
+void \mbox{\hyperlink{group__Decoder_ga4a616180179201f4f863ee709d844dd7}{IRsend\+::send\+LGRaw}} (uint32\+\_\+t a\+Raw\+Data, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats=\mbox{\hyperlink{IRremoteInt_8h_a5d35fb37031b53f0083f8b88ae3cf2c2}{NO\+\_\+\+REPEATS}})
+\item 
+\mbox{\Hypertarget{group__Decoder_ga1db023ba20fabb7190751b66445cc872}\label{group__Decoder_ga1db023ba20fabb7190751b66445cc872}} 
+bool {\bfseries IRrecv\+::decode\+LGMSB} (\mbox{\hyperlink{structdecode__results}{decode\+\_\+results}} $\ast$a\+Results)
+\item 
+\mbox{\Hypertarget{group__Decoder_gaed2ff12fe3d0692ca58bc6cb5cab6495}\label{group__Decoder_gaed2ff12fe3d0692ca58bc6cb5cab6495}} 
+void {\bfseries IRsend\+::send\+LG} (unsigned long data, int nbits) \+\_\+\+\_\+attribute\+\_\+\+\_\+((deprecated(\char`\"{}The function send\+LG(data
+\item 
+void \mbox{\hyperlink{group__Decoder_gae8fff4f1d8703ca18ea85a15289dc44c}{IRsend\+::send\+NECRepeat}} ()
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group__Decoder_ga4cec214f3ebfd28867697ebaac4de74b}{IRsend\+::compute\+NECRaw\+Data\+And\+Checksum}} (uint16\+\_\+t a\+Address, uint16\+\_\+t a\+Command)
+\item 
+void \mbox{\hyperlink{group__Decoder_ga3dc9ab05c90197b056c226dcc187cc3a}{IRsend\+::send\+NEC}} (uint16\+\_\+t a\+Address, uint16\+\_\+t a\+Command, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats)
+\item 
+void \mbox{\hyperlink{group__Decoder_ga5a1e296f0350dc379cb925d13ca59d87}{IRsend\+::send\+Onkyo}} (uint16\+\_\+t a\+Address, uint16\+\_\+t a\+Command, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats)
+\item 
+void \mbox{\hyperlink{group__Decoder_gabf1692bf9eb21e6e27989d5be05c9c11}{IRsend\+::send\+NEC2}} (uint16\+\_\+t a\+Address, uint16\+\_\+t a\+Command, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats)
+\item 
+void \mbox{\hyperlink{group__Decoder_ga101c9bd6ac69748f27ec4abe65b04803}{IRsend\+::send\+Apple}} (uint8\+\_\+t a\+Address, uint8\+\_\+t a\+Command, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats)
+\item 
+void \mbox{\hyperlink{group__Decoder_ga0cd187952518c5df1a4596aeec33cc9f}{IRsend\+::send\+NECRaw}} (uint32\+\_\+t a\+Raw\+Data, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats=\mbox{\hyperlink{IRremoteInt_8h_a5d35fb37031b53f0083f8b88ae3cf2c2}{NO\+\_\+\+REPEATS}})
+\item 
+bool \mbox{\hyperlink{group__Decoder_ga3f1a3a12862517a61341a92dfb0ea7f8}{IRrecv\+::decode\+NEC}} ()
+\item 
+\mbox{\Hypertarget{group__Decoder_ga2b6633498c7e7b1ce64bb7f12a1ab4bd}\label{group__Decoder_ga2b6633498c7e7b1ce64bb7f12a1ab4bd}} 
+bool {\bfseries IRrecv\+::decode\+NECMSB} (\mbox{\hyperlink{structdecode__results}{decode\+\_\+results}} $\ast$a\+Results)
+\item 
+void \mbox{\hyperlink{group__Decoder_ga0184d3edbfe2659b12fc157c3be0cd63}{IRsend\+::send\+NECMSB}} (uint32\+\_\+t data, uint8\+\_\+t nbits, bool repeat=false)
+\item 
+\mbox{\Hypertarget{group__Decoder_gad15692d418b4e8df6c8b9907acfa348f}\label{group__Decoder_gad15692d418b4e8df6c8b9907acfa348f}} 
+void {\bfseries IRsend\+::send\+Dish} (uint16\+\_\+t a\+Data)
+\item 
+\mbox{\Hypertarget{group__Decoder_ga305c54c3b558c7fc13b05b792858cb8d}\label{group__Decoder_ga305c54c3b558c7fc13b05b792858cb8d}} 
+void {\bfseries IRsend\+::send\+Whynter} (uint32\+\_\+t a\+Data, uint8\+\_\+t a\+Number\+Of\+Bits\+To\+Send)
+\item 
+\mbox{\Hypertarget{group__Decoder_ga1de38e9831f29991f9be0e7a2583f142}\label{group__Decoder_ga1de38e9831f29991f9be0e7a2583f142}} 
+bool {\bfseries IRrecv\+::decode\+Whynter} ()
+\item 
+\mbox{\Hypertarget{group__Decoder_ga0836c4c6bdbf55977199d6975d6782dc}\label{group__Decoder_ga0836c4c6bdbf55977199d6975d6782dc}} 
+void {\bfseries IRsend\+::send\+Pronto} (const uint16\+\_\+t $\ast$data, uint16\+\_\+t length, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats=\mbox{\hyperlink{IRremoteInt_8h_a5d35fb37031b53f0083f8b88ae3cf2c2}{NO\+\_\+\+REPEATS}})
+\item 
+void \mbox{\hyperlink{group__Decoder_gae58b0eca1937aca61ee9c609f0396827}{IRsend\+::send\+Pronto}} (const char $\ast$pronto\+Hex\+String, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats=\mbox{\hyperlink{IRremoteInt_8h_a5d35fb37031b53f0083f8b88ae3cf2c2}{NO\+\_\+\+REPEATS}})
+\item 
+\mbox{\Hypertarget{group__Decoder_ga39b5c1f2d7378a717505862ef2c2b7ff}\label{group__Decoder_ga39b5c1f2d7378a717505862ef2c2b7ff}} 
+void {\bfseries IRsend\+::send\+Pronto} (const \+\_\+\+\_\+\+Flash\+String\+Helper $\ast$str, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats=\mbox{\hyperlink{IRremoteInt_8h_a5d35fb37031b53f0083f8b88ae3cf2c2}{NO\+\_\+\+REPEATS}})
+\item 
+void \mbox{\hyperlink{group__Decoder_ga68f4ba6d484fcdf02bcbf80c5f62a8f2}{IRrecv\+::compensate\+And\+Print\+IRResult\+As\+Pronto}} (\mbox{\hyperlink{classPrint}{Print}} $\ast$a\+Serial, uint16\+\_\+t frequency=38000U)
+\item 
+\mbox{\Hypertarget{group__Decoder_gac6e3066f2e8be8e4f18342a624bc60a2}\label{group__Decoder_gac6e3066f2e8be8e4f18342a624bc60a2}} 
+size\+\_\+t {\bfseries IRrecv\+::compensate\+And\+Store\+Pronto} (\mbox{\hyperlink{classString}{String}} $\ast$a\+String, uint16\+\_\+t frequency=38000U)
+\item 
+void \mbox{\hyperlink{group__Decoder_gacce74f70ce85c35d92bb3f1af08e6ff4}{IRsend\+::send\+RC5}} (uint8\+\_\+t a\+Address, uint8\+\_\+t a\+Command, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats, bool a\+Enable\+Automatic\+Toggle=true)
+\item 
+bool \mbox{\hyperlink{group__Decoder_ga5720b53e427e0346ecc248e55c57e2b9}{IRrecv\+::decode\+RC5}} ()
+\item 
+void \mbox{\hyperlink{group__Decoder_gafbba909b7fa7ef0f4770dc124e2c4804}{IRsend\+::send\+RC6}} (uint32\+\_\+t data, uint8\+\_\+t nbits) \+\_\+\+\_\+attribute\+\_\+\+\_\+((deprecated(\char`\"{}Please use send\+RC6\+Raw().\char`\"{})))
+\item 
+\mbox{\Hypertarget{group__Decoder_ga9a81f073c38fddb261bb6a7697af049c}\label{group__Decoder_ga9a81f073c38fddb261bb6a7697af049c}} 
+void {\bfseries IRsend\+::send\+RC6\+Raw} (uint32\+\_\+t data, uint8\+\_\+t nbits)
+\item 
+void \mbox{\hyperlink{group__Decoder_gad4338783d4c245c2756db5b00845fed7}{IRsend\+::send\+RC6}} (uint64\+\_\+t data, uint8\+\_\+t nbits) \+\_\+\+\_\+attribute\+\_\+\+\_\+((deprecated(\char`\"{}Please use send\+RC6\+Raw().\char`\"{})))
+\item 
+\mbox{\Hypertarget{group__Decoder_ga2676750b05dd52cd05b698176a971cb3}\label{group__Decoder_ga2676750b05dd52cd05b698176a971cb3}} 
+void {\bfseries IRsend\+::send\+RC6\+Raw} (uint64\+\_\+t data, uint8\+\_\+t nbits)
+\item 
+void \mbox{\hyperlink{group__Decoder_gaff709569cc91804f55dd6c50a9df6c6b}{IRsend\+::send\+RC6}} (uint8\+\_\+t a\+Address, uint8\+\_\+t a\+Command, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats, bool a\+Enable\+Automatic\+Toggle=true)
+\item 
+void \mbox{\hyperlink{group__Decoder_gaf6543af3a39c51ed70a6ce90da00c05a}{IRsend\+::send\+RC6A}} (uint8\+\_\+t a\+Address, uint8\+\_\+t a\+Command, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats, uint16\+\_\+t a\+Customer, bool a\+Enable\+Automatic\+Toggle=true)
+\item 
+bool \mbox{\hyperlink{group__Decoder_gad98448418d525479e74c1a38725b498f}{IRrecv\+::decode\+RC6}} ()
+\item 
+void \mbox{\hyperlink{group__Decoder_ga6168e3ad4e47c657c9f3de0e5d7590b3}{IRsend\+::send\+RC5}} (uint32\+\_\+t data, uint8\+\_\+t nbits)
+\item 
+\mbox{\Hypertarget{group__Decoder_gaee1c9e1d8ab6dcf642d6707b4528385b}\label{group__Decoder_gaee1c9e1d8ab6dcf642d6707b4528385b}} 
+void {\bfseries IRsend\+::send\+RC5ext} (uint8\+\_\+t addr, uint8\+\_\+t cmd, bool toggle)
+\item 
+void \mbox{\hyperlink{group__Decoder_ga395b9e2ded40a5ad085fa11938422b21}{IRsend\+::send\+Samsung\+LGRepeat}} ()
+\item 
+\mbox{\Hypertarget{group__Decoder_ga09ed812db755a2db480d8e9233036629}\label{group__Decoder_ga09ed812db755a2db480d8e9233036629}} 
+void {\bfseries IRsend\+::send\+Samsung\+LG} (uint16\+\_\+t a\+Address, uint16\+\_\+t a\+Command, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats)
+\item 
+void \mbox{\hyperlink{group__Decoder_ga6e694626edcde10e0d5a4e6a2bc6b915}{IRsend\+::send\+Samsung}} (uint16\+\_\+t a\+Address, uint16\+\_\+t a\+Command, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats)
+\item 
+void \mbox{\hyperlink{group__Decoder_ga43974eababba83296f3d3c5a18f89819}{IRsend\+::send\+Samsung16\+Bit\+Address\+And8\+Bit\+Command}} (uint16\+\_\+t a\+Address, uint8\+\_\+t a\+Command, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats)
+\item 
+void \mbox{\hyperlink{group__Decoder_ga78ab8efbaf556541c6c6be6c89281309}{IRsend\+::send\+Samsung16\+Bit\+Address\+And\+Command}} (uint16\+\_\+t a\+Address, uint16\+\_\+t a\+Command, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats)
+\item 
+void \mbox{\hyperlink{group__Decoder_gaa72ec4013c647400e0dc43a4ede328e4}{IRsend\+::send\+Samsung48}} (uint16\+\_\+t a\+Address, uint32\+\_\+t a\+Command, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats)
+\item 
+\mbox{\Hypertarget{group__Decoder_ga06311ef402fe0a9cc85ad9defd35fdec}\label{group__Decoder_ga06311ef402fe0a9cc85ad9defd35fdec}} 
+bool {\bfseries IRrecv\+::decode\+Samsung} ()
+\item 
+\mbox{\Hypertarget{group__Decoder_ga6bdd668914f10932bc87bc57c4059ccd}\label{group__Decoder_ga6bdd668914f10932bc87bc57c4059ccd}} 
+bool {\bfseries IRrecv\+::decode\+SAMSUNG} (\mbox{\hyperlink{structdecode__results}{decode\+\_\+results}} $\ast$a\+Results)
+\item 
+\mbox{\Hypertarget{group__Decoder_gaefb488359ec673f6268d5e18629e8344}\label{group__Decoder_gaefb488359ec673f6268d5e18629e8344}} 
+void {\bfseries IRsend\+::send\+Samsung\+MSB} (unsigned long data, int nbits)
+\item 
+\mbox{\Hypertarget{group__Decoder_ga7b4ca49d8fceaf6ccfa26df2d1b553d5}\label{group__Decoder_ga7b4ca49d8fceaf6ccfa26df2d1b553d5}} 
+void {\bfseries IRsend\+::send\+SAMSUNG} (unsigned long data, int nbits)
+\item 
+void \mbox{\hyperlink{group__Decoder_gafef2381435874c06374a40c6f06aa92b}{IRsend\+::send\+Sony}} (uint16\+\_\+t a\+Address, uint8\+\_\+t a\+Command, int\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats, uint8\+\_\+t number\+Of\+Bits=12)
+\item 
+\mbox{\Hypertarget{group__Decoder_gaa4b87d095decf4ec8d9e4c445d6dfa27}\label{group__Decoder_gaa4b87d095decf4ec8d9e4c445d6dfa27}} 
+bool {\bfseries IRrecv\+::decode\+Sony} ()
+\item 
+\mbox{\Hypertarget{group__Decoder_ga7ea1a0eb3b832974be8fd6c2cbde602f}\label{group__Decoder_ga7ea1a0eb3b832974be8fd6c2cbde602f}} 
+bool {\bfseries IRrecv\+::decode\+Sony\+MSB} (\mbox{\hyperlink{structdecode__results}{decode\+\_\+results}} $\ast$a\+Results)
+\item 
+void \mbox{\hyperlink{group__Decoder_ga4c99ff67282a3b58eb42c9f4d4ba5bb3}{IRsend\+::send\+Sony\+MSB}} (unsigned long data, int nbits)
+\item 
+\mbox{\Hypertarget{group__Decoder_ga8d1abfc5910cf3f0964498e8bf22bd4e}\label{group__Decoder_ga8d1abfc5910cf3f0964498e8bf22bd4e}} 
+void {\bfseries IRsend\+::send\+Sony} (unsigned long data, int nbits) \+\_\+\+\_\+attribute\+\_\+\+\_\+((deprecated(\char`\"{}This old function sends MSB first! Please use send\+Sony(a\+Address
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structPulseDistanceWidthProtocolConstants}{Pulse\+Distance\+Width\+Protocol\+Constants}} {\bfseries Bose\+Wave\+Protocol\+Constants}
+\item 
+struct \mbox{\hyperlink{structPulseDistanceWidthProtocolConstants}{Pulse\+Distance\+Width\+Protocol\+Constants}} {\bfseries Denon\+Protocol\+Constants}
+\item 
+struct \mbox{\hyperlink{structPulseDistanceWidthProtocolConstants}{Pulse\+Distance\+Width\+Protocol\+Constants}} {\bfseries FASTProtocol\+Constants}
+\item 
+struct \mbox{\hyperlink{structPulseDistanceWidthProtocolConstants}{Pulse\+Distance\+Width\+Protocol\+Constants}} {\bfseries JVCProtocol\+Constants}
+\item 
+struct \mbox{\hyperlink{structPulseDistanceWidthProtocolConstants}{Pulse\+Distance\+Width\+Protocol\+Constants}} {\bfseries Kaseikyo\+Protocol\+Constants}
+\item 
+struct \mbox{\hyperlink{structPulseDistanceWidthProtocolConstants}{Pulse\+Distance\+Width\+Protocol\+Constants}} {\bfseries Lego\+Protocol\+Constants}
+\item 
+struct \mbox{\hyperlink{structPulseDistanceWidthProtocolConstants}{Pulse\+Distance\+Width\+Protocol\+Constants}} {\bfseries LGProtocol\+Constants}
+\item 
+struct \mbox{\hyperlink{structPulseDistanceWidthProtocolConstants}{Pulse\+Distance\+Width\+Protocol\+Constants}} {\bfseries LG2\+Protocol\+Constants}
+\item 
+struct \mbox{\hyperlink{structPulseDistanceWidthProtocolConstants}{Pulse\+Distance\+Width\+Protocol\+Constants}} {\bfseries NECProtocol\+Constants}
+\item 
+struct \mbox{\hyperlink{structPulseDistanceWidthProtocolConstants}{Pulse\+Distance\+Width\+Protocol\+Constants}} {\bfseries NEC2\+Protocol\+Constants}
+\item 
+struct \mbox{\hyperlink{structPulseDistanceWidthProtocolConstants}{Pulse\+Distance\+Width\+Protocol\+Constants}} {\bfseries Dish\+Protocol\+Constants}
+\item 
+struct \mbox{\hyperlink{structPulseDistanceWidthProtocolConstants}{Pulse\+Distance\+Width\+Protocol\+Constants}} {\bfseries Whynter\+Protocol\+Constants}
+\item 
+\mbox{\Hypertarget{group__Decoder_ga7ddc7243bea95d0d6c21be665471e4af}\label{group__Decoder_ga7ddc7243bea95d0d6c21be665471e4af}} 
+uint8\+\_\+t {\bfseries s\+Last\+Send\+Toggle\+Value} = 1
+\item 
+struct \mbox{\hyperlink{structPulseDistanceWidthProtocolConstants}{Pulse\+Distance\+Width\+Protocol\+Constants}} {\bfseries Samsung\+Protocol\+Constants}
+\item 
+struct \mbox{\hyperlink{structPulseDistanceWidthProtocolConstants}{Pulse\+Distance\+Width\+Protocol\+Constants}} {\bfseries Samsung\+LGProtocol\+Constants}
+\item 
+struct \mbox{\hyperlink{structPulseDistanceWidthProtocolConstants}{Pulse\+Distance\+Width\+Protocol\+Constants}} {\bfseries Sony\+Protocol\+Constants}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__Decoder_ga68f4ba6d484fcdf02bcbf80c5f62a8f2}\label{group__Decoder_ga68f4ba6d484fcdf02bcbf80c5f62a8f2}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!compensateAndPrintIRResultAsPronto@{compensateAndPrintIRResultAsPronto}}
+\index{compensateAndPrintIRResultAsPronto@{compensateAndPrintIRResultAsPronto}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{compensateAndPrintIRResultAsPronto()}{compensateAndPrintIRResultAsPronto()}}
+{\footnotesize\ttfamily void IRrecv\+::compensate\+And\+Print\+IRResult\+As\+Pronto (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPrint}{Print}} $\ast$}]{a\+Serial,  }\item[{uint16\+\_\+t}]{a\+Frequency\+Hertz = {\ttfamily 38000U} }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{classPrint}{Print}} the result (second argument) as Pronto Hex on the \mbox{\hyperlink{classPrint}{Print}} supplied as argument. Used in the Receive\+Dump example. 
+\begin{DoxyParams}{Parameters}
+{\em a\+Serial} & The \mbox{\hyperlink{classPrint}{Print}} object on which to write, for Arduino you can use \&Serial. \\
+\hline
+{\em a\+Frequency\+Hertz} & Modulation frequency in Hz. Often 38000Hz. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Decoder_ga4cec214f3ebfd28867697ebaac4de74b}\label{group__Decoder_ga4cec214f3ebfd28867697ebaac4de74b}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!computeNECRawDataAndChecksum@{computeNECRawDataAndChecksum}}
+\index{computeNECRawDataAndChecksum@{computeNECRawDataAndChecksum}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{computeNECRawDataAndChecksum()}{computeNECRawDataAndChecksum()}}
+{\footnotesize\ttfamily uint32\+\_\+t IRsend\+::compute\+NECRaw\+Data\+And\+Checksum (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{a\+Address,  }\item[{uint16\+\_\+t}]{a\+Command }\end{DoxyParamCaption})}
+
+Convert 16 bit address and 16 bit command to 32 bit NECRaw data If we get a command $<$ 0x100, we send command and then $\sim$command If we get an address $<$ 0x100, we send 8 bit address and then $\sim$address !!! Be aware, that this is flexible, but makes it impossible to send e.\+g. 0x0042 as 16 bit value!!! To force send 16 bit address, use\+: \mbox{\hyperlink{group__Decoder_ga5a1e296f0350dc379cb925d13ca59d87}{send\+Onkyo()}}. \mbox{\Hypertarget{group__Decoder_ga3f1a3a12862517a61341a92dfb0ea7f8}\label{group__Decoder_ga3f1a3a12862517a61341a92dfb0ea7f8}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!decodeNEC@{decodeNEC}}
+\index{decodeNEC@{decodeNEC}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{decodeNEC()}{decodeNEC()}}
+{\footnotesize\ttfamily bool IRrecv\+::decode\+NEC (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Decodes also Onkyo and Apple \mbox{\Hypertarget{group__Decoder_ga5720b53e427e0346ecc248e55c57e2b9}\label{group__Decoder_ga5720b53e427e0346ecc248e55c57e2b9}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!decodeRC5@{decodeRC5}}
+\index{decodeRC5@{decodeRC5}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{decodeRC5()}{decodeRC5()}}
+{\footnotesize\ttfamily bool IRrecv\+::decode\+RC5 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Try to decode data as RC5 protocol \DoxyHorRuler{0}
+ Clock \+\_\+\+\_\+\+\_\+\+\_\+\+\_\+$\vert$ $\vert$\+\_\+$\vert$ $\vert$\+\_\+$\vert$ $\vert$\+\_\+$\vert$ $\vert$\+\_\+$\vert$ $\vert$\+\_\+$\vert$ $\vert$\+\_\+$\vert$ $\vert$\+\_\+$\vert$ $\vert$\+\_\+$\vert$ $\vert$\+\_\+$\vert$ $\vert$\+\_\+$\vert$ $\vert$\+\_\+$\vert$ $\vert$\+\_\+$\vert$ $\vert$ $^\wedge$ $^\wedge$ $^\wedge$ $^\wedge$ $^\wedge$ $^\wedge$ $^\wedge$ $^\wedge$ $^\wedge$ $^\wedge$ $^\wedge$ $^\wedge$ End of each data bit period \+\_\+ \+\_\+ -\/ Mark 2 Start bits for RC5 \+\_\+\+\_\+\+\_\+\+\_\+\+\_\+$\vert$ $\vert$\+\_\+$\vert$ ... -\/ Data starts with a space-\/$>$mark bit
+\begin{DoxyItemize}
+\item Space \+\_\+ 1 Start bit for RC5X \+\_\+\+\_\+\+\_\+\+\_\+\+\_\+$\vert$ ... 
+\end{DoxyItemize}\mbox{\Hypertarget{group__Decoder_gad98448418d525479e74c1a38725b498f}\label{group__Decoder_gad98448418d525479e74c1a38725b498f}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!decodeRC6@{decodeRC6}}
+\index{decodeRC6@{decodeRC6}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{decodeRC6()}{decodeRC6()}}
+{\footnotesize\ttfamily bool IRrecv\+::decode\+RC6 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Try to decode data as RC6 protocol \mbox{\Hypertarget{group__Decoder_ga101c9bd6ac69748f27ec4abe65b04803}\label{group__Decoder_ga101c9bd6ac69748f27ec4abe65b04803}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!sendApple@{sendApple}}
+\index{sendApple@{sendApple}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{sendApple()}{sendApple()}}
+{\footnotesize\ttfamily void IRsend\+::send\+Apple (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{a\+Device\+Id,  }\item[{uint8\+\_\+t}]{a\+Command,  }\item[{int\+\_\+fast8\+\_\+t}]{a\+Number\+Of\+Repeats }\end{DoxyParamCaption})}
+
+Apple\+: Send NEC with fixed 16 bit Apple address 0x87\+EE. There is NO delay after the last sent repeat! \href{https://en.wikipedia.org/wiki/Apple_Remote}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Apple\+\_\+\+Remote}} \href{https://gist.github.com/darconeous/4437f79a34e3b6441628}{\texttt{ https\+://gist.\+github.\+com/darconeous/4437f79a34e3b6441628}} 
+\begin{DoxyParams}{Parameters}
+{\em a\+Number\+Of\+Repeats} & If $<$ 0 then only a special repeat frame without leading and trailing space will be sent by calling NECProtocol\+Constants.\+Special\+Send\+Repeat\+Function(). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Decoder_ga39702704a52a99d8cb7d118d8a9e0251}\label{group__Decoder_ga39702704a52a99d8cb7d118d8a9e0251}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!sendFAST@{sendFAST}}
+\index{sendFAST@{sendFAST}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{sendFAST()}{sendFAST()}}
+{\footnotesize\ttfamily void IRsend\+::send\+FAST (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{a\+Command,  }\item[{int\+\_\+fast8\+\_\+t}]{a\+Number\+Of\+Repeats }\end{DoxyParamCaption})}
+
+The FAST protocol repeats by skipping the header mark and space -\/$>$ this leads to a poor repeat detection for JVC protocol. \mbox{\Hypertarget{group__Decoder_gaa10da0665ac4d44b06dba845420ab7f1}\label{group__Decoder_gaa10da0665ac4d44b06dba845420ab7f1}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!sendJVC@{sendJVC}}
+\index{sendJVC@{sendJVC}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{sendJVC()}{sendJVC()}}
+{\footnotesize\ttfamily void IRsend\+::send\+JVC (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{a\+Address,  }\item[{uint8\+\_\+t}]{a\+Command,  }\item[{int\+\_\+fast8\+\_\+t}]{a\+Number\+Of\+Repeats }\end{DoxyParamCaption})}
+
+The JVC protocol repeats by skipping the header mark and space -\/$>$ this leads to a poor repeat detection for JVC protocol. \mbox{\Hypertarget{group__Decoder_gae3ffaf23301bec85ca0c2c7499f484a3}\label{group__Decoder_gae3ffaf23301bec85ca0c2c7499f484a3}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!sendJVCMSB@{sendJVCMSB}}
+\index{sendJVCMSB@{sendJVCMSB}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{sendJVCMSB()}{sendJVCMSB()}}
+{\footnotesize\ttfamily void IRsend\+::send\+JVCMSB (\begin{DoxyParamCaption}\item[{unsigned long}]{data,  }\item[{int}]{nbits,  }\item[{bool}]{repeat = {\ttfamily false} }\end{DoxyParamCaption})}
+
+With Send \mbox{\hyperlink{group__Decoder_gae3ffaf23301bec85ca0c2c7499f484a3}{send\+JVCMSB()}} you can send your old 32 bit codes. To convert one into the other, you must reverse the byte positions and then reverse all bit positions of each byte. Use bitreverse32\+Bit(). Or write it as one binary string and reverse/mirror it. Example\+: 0x\+CB340102 byte reverse -\/$>$ 02 01 34 CB bit reverse-\/$>$ 40 80 2C D3. 0x\+CB340102 is binary 11001011001101000000000100000010. 0x40802\+CD3 is binary 01000000100000000010110011010011. If you read the first binary sequence backwards (right to left), you get the second sequence. \mbox{\Hypertarget{group__Decoder_gada6382d5c398922c22ace404179a5744}\label{group__Decoder_gada6382d5c398922c22ace404179a5744}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!sendKaseikyo@{sendKaseikyo}}
+\index{sendKaseikyo@{sendKaseikyo}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{sendKaseikyo()}{sendKaseikyo()}}
+{\footnotesize\ttfamily void IRsend\+::send\+Kaseikyo (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{a\+Address,  }\item[{uint8\+\_\+t}]{a\+Command,  }\item[{int\+\_\+fast8\+\_\+t}]{a\+Number\+Of\+Repeats,  }\item[{uint16\+\_\+t}]{a\+Vendor\+Code }\end{DoxyParamCaption})}
+
+Address can be interpreted as sub-\/device $<$$<$ 4 + 4 bit device \mbox{\Hypertarget{group__Decoder_ga266389f19755fdef8f6dc0155191bf3b}\label{group__Decoder_ga266389f19755fdef8f6dc0155191bf3b}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!sendKaseikyo\_Denon@{sendKaseikyo\_Denon}}
+\index{sendKaseikyo\_Denon@{sendKaseikyo\_Denon}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{sendKaseikyo\_Denon()}{sendKaseikyo\_Denon()}}
+{\footnotesize\ttfamily void IRsend\+::send\+Kaseikyo\+\_\+\+Denon (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{a\+Address,  }\item[{uint8\+\_\+t}]{a\+Command,  }\item[{int\+\_\+fast8\+\_\+t}]{a\+Number\+Of\+Repeats }\end{DoxyParamCaption})}
+
+Stub using Kaseikyo with DENON\+\_\+\+VENDOR\+\_\+\+ID\+\_\+\+CODE \mbox{\Hypertarget{group__Decoder_ga87a6a2163f2608a0c90014586bb04cfa}\label{group__Decoder_ga87a6a2163f2608a0c90014586bb04cfa}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!sendKaseikyo\_JVC@{sendKaseikyo\_JVC}}
+\index{sendKaseikyo\_JVC@{sendKaseikyo\_JVC}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{sendKaseikyo\_JVC()}{sendKaseikyo\_JVC()}}
+{\footnotesize\ttfamily void IRsend\+::send\+Kaseikyo\+\_\+\+JVC (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{a\+Address,  }\item[{uint8\+\_\+t}]{a\+Command,  }\item[{int\+\_\+fast8\+\_\+t}]{a\+Number\+Of\+Repeats }\end{DoxyParamCaption})}
+
+Stub using Kaseikyo with JVC\+\_\+\+VENDOR\+\_\+\+ID\+\_\+\+CODE \mbox{\Hypertarget{group__Decoder_ga8853de09de0669d147a40e8344ee2dc4}\label{group__Decoder_ga8853de09de0669d147a40e8344ee2dc4}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!sendKaseikyo\_Mitsubishi@{sendKaseikyo\_Mitsubishi}}
+\index{sendKaseikyo\_Mitsubishi@{sendKaseikyo\_Mitsubishi}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{sendKaseikyo\_Mitsubishi()}{sendKaseikyo\_Mitsubishi()}}
+{\footnotesize\ttfamily void IRsend\+::send\+Kaseikyo\+\_\+\+Mitsubishi (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{a\+Address,  }\item[{uint8\+\_\+t}]{a\+Command,  }\item[{int\+\_\+fast8\+\_\+t}]{a\+Number\+Of\+Repeats }\end{DoxyParamCaption})}
+
+Stub using Kaseikyo with MITSUBISHI\+\_\+\+VENDOR\+\_\+\+ID\+\_\+\+CODE \mbox{\Hypertarget{group__Decoder_gaf60a31544006d2e18eb25b3b0205a261}\label{group__Decoder_gaf60a31544006d2e18eb25b3b0205a261}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!sendKaseikyo\_Sharp@{sendKaseikyo\_Sharp}}
+\index{sendKaseikyo\_Sharp@{sendKaseikyo\_Sharp}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{sendKaseikyo\_Sharp()}{sendKaseikyo\_Sharp()}}
+{\footnotesize\ttfamily void IRsend\+::send\+Kaseikyo\+\_\+\+Sharp (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{a\+Address,  }\item[{uint8\+\_\+t}]{a\+Command,  }\item[{int\+\_\+fast8\+\_\+t}]{a\+Number\+Of\+Repeats }\end{DoxyParamCaption})}
+
+Stub using Kaseikyo with SHARP\+\_\+\+VENDOR\+\_\+\+ID\+\_\+\+CODE \mbox{\Hypertarget{group__Decoder_gab0200ca785ce3be24c4ad2efc95f37f7}\label{group__Decoder_gab0200ca785ce3be24c4ad2efc95f37f7}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!sendLG@{sendLG}}
+\index{sendLG@{sendLG}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{sendLG()}{sendLG()}}
+{\footnotesize\ttfamily void IRsend\+::send\+LG (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{a\+Address,  }\item[{uint16\+\_\+t}]{a\+Command,  }\item[{int\+\_\+fast8\+\_\+t}]{a\+Number\+Of\+Repeats }\end{DoxyParamCaption})}
+
+LG uses the NEC repeat. \mbox{\Hypertarget{group__Decoder_gad8b3a7ce5ae5adb098ca0dc004b7b71b}\label{group__Decoder_gad8b3a7ce5ae5adb098ca0dc004b7b71b}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!sendLG2@{sendLG2}}
+\index{sendLG2@{sendLG2}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{sendLG2()}{sendLG2()}}
+{\footnotesize\ttfamily void IRsend\+::send\+LG2 (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{a\+Address,  }\item[{uint16\+\_\+t}]{a\+Command,  }\item[{int\+\_\+fast8\+\_\+t}]{a\+Number\+Of\+Repeats }\end{DoxyParamCaption})}
+
+LG2 uses a special repeat. \mbox{\Hypertarget{group__Decoder_gaddace9c2bd03f63855063a3ce5e65acc}\label{group__Decoder_gaddace9c2bd03f63855063a3ce5e65acc}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!sendLG2SpecialRepeat@{sendLG2SpecialRepeat}}
+\index{sendLG2SpecialRepeat@{sendLG2SpecialRepeat}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{sendLG2SpecialRepeat()}{sendLG2SpecialRepeat()}}
+{\footnotesize\ttfamily void send\+LG2\+Special\+Repeat (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Static function for sending special repeat frame. For use in Protocol\+Constants. Saves up to 250 bytes compared to a member function. \mbox{\Hypertarget{group__Decoder_ga4a616180179201f4f863ee709d844dd7}\label{group__Decoder_ga4a616180179201f4f863ee709d844dd7}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!sendLGRaw@{sendLGRaw}}
+\index{sendLGRaw@{sendLGRaw}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{sendLGRaw()}{sendLGRaw()}}
+{\footnotesize\ttfamily void IRsend\+::send\+LGRaw (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{a\+Raw\+Data,  }\item[{int\+\_\+fast8\+\_\+t}]{a\+Number\+Of\+Repeats = {\ttfamily \mbox{\hyperlink{IRremoteInt_8h_a5d35fb37031b53f0083f8b88ae3cf2c2}{NO\+\_\+\+REPEATS}}} }\end{DoxyParamCaption})}
+
+Here you can put your raw data, even one with \char`\"{}wrong\char`\"{} checksum. 
+\begin{DoxyParams}{Parameters}
+{\em a\+Raw\+Data} & The lowest 28 (LG\+\_\+\+BITS) bit of this value are sent MSB first. \\
+\hline
+{\em a\+Number\+Of\+Repeats} & If $<$ 0 then only a special repeat frame will be sent. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Decoder_ga3dc9ab05c90197b056c226dcc187cc3a}\label{group__Decoder_ga3dc9ab05c90197b056c226dcc187cc3a}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!sendNEC@{sendNEC}}
+\index{sendNEC@{sendNEC}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{sendNEC()}{sendNEC()}}
+{\footnotesize\ttfamily void IRsend\+::send\+NEC (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{a\+Address,  }\item[{uint16\+\_\+t}]{a\+Command,  }\item[{int\+\_\+fast8\+\_\+t}]{a\+Number\+Of\+Repeats }\end{DoxyParamCaption})}
+
+NEC Send frame and special repeats There is NO delay after the last sent repeat! 
+\begin{DoxyParams}{Parameters}
+{\em a\+Number\+Of\+Repeats} & If $<$ 0 then only a special NEC repeat frame will be sent by calling NECProtocol\+Constants.\+Special\+Send\+Repeat\+Function(). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Decoder_gabf1692bf9eb21e6e27989d5be05c9c11}\label{group__Decoder_gabf1692bf9eb21e6e27989d5be05c9c11}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!sendNEC2@{sendNEC2}}
+\index{sendNEC2@{sendNEC2}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{sendNEC2()}{sendNEC2()}}
+{\footnotesize\ttfamily void IRsend\+::send\+NEC2 (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{a\+Address,  }\item[{uint16\+\_\+t}]{a\+Command,  }\item[{int\+\_\+fast8\+\_\+t}]{a\+Number\+Of\+Repeats }\end{DoxyParamCaption})}
+
+NEC2 Send frame !!! and repeat the frame for each requested repeat !!! There is NO delay after the last sent repeat! 
+\begin{DoxyParams}{Parameters}
+{\em a\+Number\+Of\+Repeats} & If $<$ 0 then nothing is sent. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Decoder_ga0184d3edbfe2659b12fc157c3be0cd63}\label{group__Decoder_ga0184d3edbfe2659b12fc157c3be0cd63}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!sendNECMSB@{sendNECMSB}}
+\index{sendNECMSB@{sendNECMSB}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{sendNECMSB()}{sendNECMSB()}}
+{\footnotesize\ttfamily void IRsend\+::send\+NECMSB (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{data,  }\item[{uint8\+\_\+t}]{nbits,  }\item[{bool}]{repeat = {\ttfamily false} }\end{DoxyParamCaption})}
+
+With Send \mbox{\hyperlink{group__Decoder_ga0184d3edbfe2659b12fc157c3be0cd63}{send\+NECMSB()}} you can send your old 32 bit codes. To convert one into the other, you must reverse the byte positions and then reverse all bit positions of each byte. Use bitreverse32\+Bit(). Or write it as one binary string and reverse/mirror it. Example\+: 0x\+CB340102 byte reverse -\/$>$ 02 01 34 CB bit reverse-\/$>$ 40 80 2C D3. 0x\+CB340102 is binary 11001011001101000000000100000010. 0x40802\+CD3 is binary 01000000100000000010110011010011. If you read the first binary sequence backwards (right to left), you get the second sequence. \mbox{\Hypertarget{group__Decoder_ga0cd187952518c5df1a4596aeec33cc9f}\label{group__Decoder_ga0cd187952518c5df1a4596aeec33cc9f}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!sendNECRaw@{sendNECRaw}}
+\index{sendNECRaw@{sendNECRaw}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{sendNECRaw()}{sendNECRaw()}}
+{\footnotesize\ttfamily void IRsend\+::send\+NECRaw (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{a\+Raw\+Data,  }\item[{int\+\_\+fast8\+\_\+t}]{a\+Number\+Of\+Repeats = {\ttfamily \mbox{\hyperlink{IRremoteInt_8h_a5d35fb37031b53f0083f8b88ae3cf2c2}{NO\+\_\+\+REPEATS}}} }\end{DoxyParamCaption})}
+
+Sends NEC protocol 
+\begin{DoxyParams}{Parameters}
+{\em a\+Number\+Of\+Repeats} & If $<$ 0 then only a special repeat frame without leading and trailing space will be sent by calling NECProtocol\+Constants.\+Special\+Send\+Repeat\+Function(). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Decoder_gae8fff4f1d8703ca18ea85a15289dc44c}\label{group__Decoder_gae8fff4f1d8703ca18ea85a15289dc44c}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!sendNECRepeat@{sendNECRepeat}}
+\index{sendNECRepeat@{sendNECRepeat}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{sendNECRepeat()}{sendNECRepeat()}}
+{\footnotesize\ttfamily void IRsend\+::send\+NECRepeat (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Send special NEC repeat frame Repeat commands should be sent in a 110 ms raster. \mbox{\Hypertarget{group__Decoder_ga7c4ddfbbbe38d11709d079dee617f2b2}\label{group__Decoder_ga7c4ddfbbbe38d11709d079dee617f2b2}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!sendNECSpecialRepeat@{sendNECSpecialRepeat}}
+\index{sendNECSpecialRepeat@{sendNECSpecialRepeat}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{sendNECSpecialRepeat()}{sendNECSpecialRepeat()}}
+{\footnotesize\ttfamily void send\+NECSpecial\+Repeat (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Static function variant of \mbox{\hyperlink{group__Decoder_gae8fff4f1d8703ca18ea85a15289dc44c}{IRsend\+::send\+NECRepeat}} For use in Protocol\+Constants. Saves up to 250 bytes compared to a member function. \mbox{\Hypertarget{group__Decoder_ga5a1e296f0350dc379cb925d13ca59d87}\label{group__Decoder_ga5a1e296f0350dc379cb925d13ca59d87}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!sendOnkyo@{sendOnkyo}}
+\index{sendOnkyo@{sendOnkyo}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{sendOnkyo()}{sendOnkyo()}}
+{\footnotesize\ttfamily void IRsend\+::send\+Onkyo (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{a\+Address,  }\item[{uint16\+\_\+t}]{a\+Command,  }\item[{int\+\_\+fast8\+\_\+t}]{a\+Number\+Of\+Repeats }\end{DoxyParamCaption})}
+
+There is NO delay after the last sent repeat! 
+\begin{DoxyParams}{Parameters}
+{\em a\+Number\+Of\+Repeats} & If $<$ 0 then only a special repeat frame without leading and trailing space will be sent by calling NECProtocol\+Constants.\+Special\+Send\+Repeat\+Function(). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Decoder_gaf720308fa32a1f182ff17772c32c3cea}\label{group__Decoder_gaf720308fa32a1f182ff17772c32c3cea}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!sendPanasonic@{sendPanasonic}}
+\index{sendPanasonic@{sendPanasonic}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{sendPanasonic()}{sendPanasonic()}}
+{\footnotesize\ttfamily void IRsend\+::send\+Panasonic (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{a\+Address,  }\item[{uint8\+\_\+t}]{a\+Command,  }\item[{int\+\_\+fast8\+\_\+t}]{a\+Number\+Of\+Repeats }\end{DoxyParamCaption})}
+
+Stub using Kaseikyo with PANASONIC\+\_\+\+VENDOR\+\_\+\+ID\+\_\+\+CODE \mbox{\Hypertarget{group__Decoder_gae58b0eca1937aca61ee9c609f0396827}\label{group__Decoder_gae58b0eca1937aca61ee9c609f0396827}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!sendPronto@{sendPronto}}
+\index{sendPronto@{sendPronto}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{sendPronto()}{sendPronto()}}
+{\footnotesize\ttfamily void IRsend\+::send\+Pronto (\begin{DoxyParamCaption}\item[{const char $\ast$}]{str,  }\item[{int\+\_\+fast8\+\_\+t}]{a\+Number\+Of\+Repeats = {\ttfamily \mbox{\hyperlink{IRremoteInt_8h_a5d35fb37031b53f0083f8b88ae3cf2c2}{NO\+\_\+\+REPEATS}}} }\end{DoxyParamCaption})}
+
+Parse the string given as Pronto Hex, and send it a number of times given as the second argument. Thereby the division of the Pronto Hex into an intro-\/sequence and a repeat sequence is taken into account\+: First the intro sequence is sent, then the repeat sequence is sent times-\/1 times. However, if the intro sequence is empty, the repeat sequence is sent times times. \href{http://www.harctoolbox.org/Glossary.html\#ProntoSemantics}{\texttt{ Reference}}.
+
+Note\+: Using this function is very wasteful for the memory consumption on a small board. Normally it is a much better idea to use a tool like e.\+g. Ir\+Scrutinizer to transform Pronto type signals offline to a more memory efficient format.
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & C type string (null terminated) containing a Pronto Hex representation. \\
+\hline
+{\em a\+Number\+Of\+Repeats} & Number of times to send the signal. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Decoder_ga6168e3ad4e47c657c9f3de0e5d7590b3}\label{group__Decoder_ga6168e3ad4e47c657c9f3de0e5d7590b3}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!sendRC5@{sendRC5}}
+\index{sendRC5@{sendRC5}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{sendRC5()}{sendRC5()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void IRsend\+::send\+RC5 (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{data,  }\item[{uint8\+\_\+t}]{nbits }\end{DoxyParamCaption})}
+
+Old version with 32 bit data \mbox{\Hypertarget{group__Decoder_gacce74f70ce85c35d92bb3f1af08e6ff4}\label{group__Decoder_gacce74f70ce85c35d92bb3f1af08e6ff4}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!sendRC5@{sendRC5}}
+\index{sendRC5@{sendRC5}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{sendRC5()}{sendRC5()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void IRsend\+::send\+RC5 (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{a\+Address,  }\item[{uint8\+\_\+t}]{a\+Command,  }\item[{int\+\_\+fast8\+\_\+t}]{a\+Number\+Of\+Repeats,  }\item[{bool}]{a\+Enable\+Automatic\+Toggle = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\+Command} & If a\+Command is $>$=0x40 then we switch automatically to RC5X. \\
+\hline
+{\em a\+Enable\+Automatic\+Toggle} & Send toggle bit according to the state of the static s\+Last\+Send\+Toggle\+Value variable. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Decoder_gafbba909b7fa7ef0f4770dc124e2c4804}\label{group__Decoder_gafbba909b7fa7ef0f4770dc124e2c4804}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!sendRC6@{sendRC6}}
+\index{sendRC6@{sendRC6}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{sendRC6()}{sendRC6()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void IRsend\+::send\+RC6 (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{a\+Raw\+Data,  }\item[{uint8\+\_\+t}]{a\+Number\+Of\+Bits\+To\+Send }\end{DoxyParamCaption})}
+
+Main RC6 send function \mbox{\Hypertarget{group__Decoder_gad4338783d4c245c2756db5b00845fed7}\label{group__Decoder_gad4338783d4c245c2756db5b00845fed7}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!sendRC6@{sendRC6}}
+\index{sendRC6@{sendRC6}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{sendRC6()}{sendRC6()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void IRsend\+::send\+RC6 (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{a\+Raw\+Data,  }\item[{uint8\+\_\+t}]{a\+Number\+Of\+Bits\+To\+Send }\end{DoxyParamCaption})}
+
+Send RC6 64 bit raw data Can be used to send RC6A with ?31? data bits \mbox{\Hypertarget{group__Decoder_gaff709569cc91804f55dd6c50a9df6c6b}\label{group__Decoder_gaff709569cc91804f55dd6c50a9df6c6b}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!sendRC6@{sendRC6}}
+\index{sendRC6@{sendRC6}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{sendRC6()}{sendRC6()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void IRsend\+::send\+RC6 (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{a\+Address,  }\item[{uint8\+\_\+t}]{a\+Command,  }\item[{int\+\_\+fast8\+\_\+t}]{a\+Number\+Of\+Repeats,  }\item[{bool}]{a\+Enable\+Automatic\+Toggle = {\ttfamily true} }\end{DoxyParamCaption})}
+
+Assemble raw data for RC6 from parameters and toggle state and send We do not wait for the minimal trailing space of 2666 us 
+\begin{DoxyParams}{Parameters}
+{\em a\+Enable\+Automatic\+Toggle} & Send toggle bit according to the state of the static s\+Last\+Send\+Toggle\+Value variable. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Decoder_gaf6543af3a39c51ed70a6ce90da00c05a}\label{group__Decoder_gaf6543af3a39c51ed70a6ce90da00c05a}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!sendRC6A@{sendRC6A}}
+\index{sendRC6A@{sendRC6A}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{sendRC6A()}{sendRC6A()}}
+{\footnotesize\ttfamily void IRsend\+::send\+RC6A (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{a\+Address,  }\item[{uint8\+\_\+t}]{a\+Command,  }\item[{int\+\_\+fast8\+\_\+t}]{a\+Number\+Of\+Repeats,  }\item[{uint16\+\_\+t}]{a\+Customer,  }\item[{bool}]{a\+Enable\+Automatic\+Toggle = {\ttfamily true} }\end{DoxyParamCaption})}
+
+Assemble raw data for RC6 from parameters and toggle state and send We do not wait for the minimal trailing space of 2666 us 
+\begin{DoxyParams}{Parameters}
+{\em a\+Enable\+Automatic\+Toggle} & Send toggle bit according to the state of the static s\+Last\+Send\+Toggle\+Value variable. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Decoder_ga6e694626edcde10e0d5a4e6a2bc6b915}\label{group__Decoder_ga6e694626edcde10e0d5a4e6a2bc6b915}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!sendSamsung@{sendSamsung}}
+\index{sendSamsung@{sendSamsung}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{sendSamsung()}{sendSamsung()}}
+{\footnotesize\ttfamily void IRsend\+::send\+Samsung (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{a\+Address,  }\item[{uint16\+\_\+t}]{a\+Command,  }\item[{int\+\_\+fast8\+\_\+t}]{a\+Number\+Of\+Repeats }\end{DoxyParamCaption})}
+
+Here we send Samsung32 If we get a command $<$ 0x100, we send command and then $\sim$command If we get an address $<$ 0x100, we send 8 bit address and then the same 8 bit address again, this makes it flipper IRDB compatible !!! Be aware, that this is flexible, but makes it impossible to send e.\+g. 0x0042 as 16 bit value!!! To force send 16 bit address, use\+: \mbox{\hyperlink{group__Decoder_ga78ab8efbaf556541c6c6be6c89281309}{send\+Samsung16\+Bit\+Address\+And\+Command()}}. 
+\begin{DoxyParams}{Parameters}
+{\em a\+Number\+Of\+Repeats} & If $<$ 0 then only a special repeat frame will be sent \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Decoder_ga43974eababba83296f3d3c5a18f89819}\label{group__Decoder_ga43974eababba83296f3d3c5a18f89819}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!sendSamsung16BitAddressAnd8BitCommand@{sendSamsung16BitAddressAnd8BitCommand}}
+\index{sendSamsung16BitAddressAnd8BitCommand@{sendSamsung16BitAddressAnd8BitCommand}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{sendSamsung16BitAddressAnd8BitCommand()}{sendSamsung16BitAddressAnd8BitCommand()}}
+{\footnotesize\ttfamily void IRsend\+::send\+Samsung16\+Bit\+Address\+And8\+Bit\+Command (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{a\+Address,  }\item[{uint8\+\_\+t}]{a\+Command,  }\item[{int\+\_\+fast8\+\_\+t}]{a\+Number\+Of\+Repeats }\end{DoxyParamCaption})}
+
+Maybe no one needs it in the wild... As above, but we are able to send e.\+g. 0x0042 as 16 bit address 
+\begin{DoxyParams}{Parameters}
+{\em a\+Number\+Of\+Repeats} & If $<$ 0 then only a special repeat frame will be sent \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Decoder_ga78ab8efbaf556541c6c6be6c89281309}\label{group__Decoder_ga78ab8efbaf556541c6c6be6c89281309}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!sendSamsung16BitAddressAndCommand@{sendSamsung16BitAddressAndCommand}}
+\index{sendSamsung16BitAddressAndCommand@{sendSamsung16BitAddressAndCommand}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{sendSamsung16BitAddressAndCommand()}{sendSamsung16BitAddressAndCommand()}}
+{\footnotesize\ttfamily void IRsend\+::send\+Samsung16\+Bit\+Address\+And\+Command (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{a\+Address,  }\item[{uint16\+\_\+t}]{a\+Command,  }\item[{int\+\_\+fast8\+\_\+t}]{a\+Number\+Of\+Repeats }\end{DoxyParamCaption})}
+
+Maybe no one needs it in the wild... As above, but we are able to send e.\+g. 0x0042 as 16 bit address 
+\begin{DoxyParams}{Parameters}
+{\em a\+Number\+Of\+Repeats} & If $<$ 0 then only a special repeat frame will be sent \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Decoder_gaa72ec4013c647400e0dc43a4ede328e4}\label{group__Decoder_gaa72ec4013c647400e0dc43a4ede328e4}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!sendSamsung48@{sendSamsung48}}
+\index{sendSamsung48@{sendSamsung48}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{sendSamsung48()}{sendSamsung48()}}
+{\footnotesize\ttfamily void IRsend\+::send\+Samsung48 (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{a\+Address,  }\item[{uint32\+\_\+t}]{a\+Command,  }\item[{int\+\_\+fast8\+\_\+t}]{a\+Number\+Of\+Repeats }\end{DoxyParamCaption})}
+
+Here we send Samsung48 We send 2 x (8 bit command and then $\sim$command) \mbox{\Hypertarget{group__Decoder_ga395b9e2ded40a5ad085fa11938422b21}\label{group__Decoder_ga395b9e2ded40a5ad085fa11938422b21}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!sendSamsungLGRepeat@{sendSamsungLGRepeat}}
+\index{sendSamsungLGRepeat@{sendSamsungLGRepeat}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{sendSamsungLGRepeat()}{sendSamsungLGRepeat()}}
+{\footnotesize\ttfamily void IRsend\+::send\+Samsung\+LGRepeat (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Send repeat Repeat commands should be sent in a 110 ms raster. This repeat was sent by an LG 6711R1\+P071A remote \mbox{\Hypertarget{group__Decoder_gad3b594eed28121c2406e7d80d1636c82}\label{group__Decoder_gad3b594eed28121c2406e7d80d1636c82}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!sendSamsungLGSpecialRepeat@{sendSamsungLGSpecialRepeat}}
+\index{sendSamsungLGSpecialRepeat@{sendSamsungLGSpecialRepeat}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{sendSamsungLGSpecialRepeat()}{sendSamsungLGSpecialRepeat()}}
+{\footnotesize\ttfamily void send\+Samsung\+LGSpecial\+Repeat (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Like above, but implemented as a static function Used for sending special repeat frame. For use in Protocol\+Constants. Saves up to 250 bytes compared to a member function. \mbox{\Hypertarget{group__Decoder_gafef2381435874c06374a40c6f06aa92b}\label{group__Decoder_gafef2381435874c06374a40c6f06aa92b}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!sendSony@{sendSony}}
+\index{sendSony@{sendSony}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{sendSony()}{sendSony()}}
+{\footnotesize\ttfamily void IRsend\+::send\+Sony (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{a\+Address,  }\item[{uint8\+\_\+t}]{a\+Command,  }\item[{int\+\_\+fast8\+\_\+t}]{a\+Number\+Of\+Repeats,  }\item[{uint8\+\_\+t}]{number\+Of\+Bits = {\ttfamily 12} }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em number\+Of\+Bits} & should be one of SIRCS\+\_\+12\+\_\+\+PROTOCOL, SIRCS\+\_\+15\+\_\+\+PROTOCOL, SIRCS\+\_\+20\+\_\+\+PROTOCOL. Not checked! 20 -\/$>$ send 13 address bits \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__Decoder_ga4c99ff67282a3b58eb42c9f4d4ba5bb3}\label{group__Decoder_ga4c99ff67282a3b58eb42c9f4d4ba5bb3}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!sendSonyMSB@{sendSonyMSB}}
+\index{sendSonyMSB@{sendSonyMSB}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{sendSonyMSB()}{sendSonyMSB()}}
+{\footnotesize\ttfamily void IRsend\+::send\+Sony\+MSB (\begin{DoxyParamCaption}\item[{unsigned long}]{data,  }\item[{int}]{nbits }\end{DoxyParamCaption})}
+
+Old version with MSB first data 
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{group__Decoder_ga2b9372d46b99ffdd915e8e70d41b4360}\label{group__Decoder_ga2b9372d46b99ffdd915e8e70d41b4360}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!BoseWaveProtocolConstants@{BoseWaveProtocolConstants}}
+\index{BoseWaveProtocolConstants@{BoseWaveProtocolConstants}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{BoseWaveProtocolConstants}{BoseWaveProtocolConstants}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structPulseDistanceWidthProtocolConstants}{Pulse\+Distance\+Width\+Protocol\+Constants}} Bose\+Wave\+Protocol\+Constants}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{ BOSEWAVE, BOSEWAVE\_KHZ, BOSEWAVE\_HEADER\_MARK,}
+\DoxyCodeLine{BOSEWAVE\_HEADER\_SPACE, BOSEWAVE\_BIT\_MARK, BOSEWAVE\_ONE\_SPACE, BOSEWAVE\_BIT\_MARK, BOSEWAVE\_ZERO\_SPACE, PROTOCOL\_IS\_LSB\_FIRST}
+\DoxyCodeLine{       , (BOSEWAVE\_REPEAT\_PERIOD / MICROS\_IN\_ONE\_MILLI), NULL \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{group__Decoder_ga2e60a5966e1402b20ddaaca9c1adb815}\label{group__Decoder_ga2e60a5966e1402b20ddaaca9c1adb815}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!DenonProtocolConstants@{DenonProtocolConstants}}
+\index{DenonProtocolConstants@{DenonProtocolConstants}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{DenonProtocolConstants}{DenonProtocolConstants}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structPulseDistanceWidthProtocolConstants}{Pulse\+Distance\+Width\+Protocol\+Constants}} Denon\+Protocol\+Constants}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{ DENON, DENON\_KHZ, DENON\_HEADER\_MARK, DENON\_HEADER\_SPACE,}
+\DoxyCodeLine{DENON\_BIT\_MARK, DENON\_ONE\_SPACE, DENON\_BIT\_MARK, DENON\_ZERO\_SPACE, PROTOCOL\_IS\_LSB\_FIRST,}
+\DoxyCodeLine{        (DENON\_REPEAT\_PERIOD / MICROS\_IN\_ONE\_MILLI), NULL \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{group__Decoder_gadc2297e116fe855ba3e3e541448a182a}\label{group__Decoder_gadc2297e116fe855ba3e3e541448a182a}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!DishProtocolConstants@{DishProtocolConstants}}
+\index{DishProtocolConstants@{DishProtocolConstants}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{DishProtocolConstants}{DishProtocolConstants}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structPulseDistanceWidthProtocolConstants}{Pulse\+Distance\+Width\+Protocol\+Constants}} Dish\+Protocol\+Constants}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{ UNKNOWN, 56, DISH\_HEADER\_MARK, DISH\_HEADER\_SPACE,}
+\DoxyCodeLine{DISH\_BIT\_MARK, DISH\_ONE\_SPACE, DISH\_BIT\_MARK, DISH\_ZERO\_SPACE, PROTOCOL\_IS\_MSB\_FIRST, 40, NULL \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{group__Decoder_ga8847754cf7feae92904236af9ab925cd}\label{group__Decoder_ga8847754cf7feae92904236af9ab925cd}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!FASTProtocolConstants@{FASTProtocolConstants}}
+\index{FASTProtocolConstants@{FASTProtocolConstants}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{FASTProtocolConstants}{FASTProtocolConstants}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structPulseDistanceWidthProtocolConstants}{Pulse\+Distance\+Width\+Protocol\+Constants}} FASTProtocol\+Constants}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{ FAST, \mbox{\hyperlink{group__TinyReceiver_ga433cb7141a714640247d749a232f71e9}{FAST\_KHZ}}, FAST\_HEADER\_MARK, FAST\_HEADER\_SPACE,}
+\DoxyCodeLine{FAST\_BIT\_MARK, FAST\_ONE\_SPACE, FAST\_BIT\_MARK, FAST\_ZERO\_SPACE, PROTOCOL\_IS\_LSB\_FIRST, (FAST\_REPEAT\_PERIOD / MICROS\_IN\_ONE\_MILLI),}
+\DoxyCodeLine{NULL \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{group__Decoder_gaa0a9300348a3451ddceca0e691dc4690}\label{group__Decoder_gaa0a9300348a3451ddceca0e691dc4690}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!JVCProtocolConstants@{JVCProtocolConstants}}
+\index{JVCProtocolConstants@{JVCProtocolConstants}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{JVCProtocolConstants}{JVCProtocolConstants}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structPulseDistanceWidthProtocolConstants}{Pulse\+Distance\+Width\+Protocol\+Constants}} JVCProtocol\+Constants}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{ JVC, JVC\_KHZ, JVC\_HEADER\_MARK, JVC\_HEADER\_SPACE, JVC\_BIT\_MARK,}
+\DoxyCodeLine{JVC\_ONE\_SPACE, JVC\_BIT\_MARK, JVC\_ZERO\_SPACE, PROTOCOL\_IS\_LSB\_FIRST, (JVC\_REPEAT\_PERIOD / MICROS\_IN\_ONE\_MILLI), NULL \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{group__Decoder_ga5f5da8d9b1b980c8fef61096ffb8b216}\label{group__Decoder_ga5f5da8d9b1b980c8fef61096ffb8b216}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!KaseikyoProtocolConstants@{KaseikyoProtocolConstants}}
+\index{KaseikyoProtocolConstants@{KaseikyoProtocolConstants}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{KaseikyoProtocolConstants}{KaseikyoProtocolConstants}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structPulseDistanceWidthProtocolConstants}{Pulse\+Distance\+Width\+Protocol\+Constants}} Kaseikyo\+Protocol\+Constants}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{ KASEIKYO, KASEIKYO\_KHZ, KASEIKYO\_HEADER\_MARK,}
+\DoxyCodeLine{KASEIKYO\_HEADER\_SPACE, KASEIKYO\_BIT\_MARK, KASEIKYO\_ONE\_SPACE, KASEIKYO\_BIT\_MARK, KASEIKYO\_ZERO\_SPACE, PROTOCOL\_IS\_LSB\_FIRST}
+\DoxyCodeLine{       , (KASEIKYO\_REPEAT\_PERIOD / MICROS\_IN\_ONE\_MILLI), NULL \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{group__Decoder_ga017d0098cfab807c75c3ca2c25268b8e}\label{group__Decoder_ga017d0098cfab807c75c3ca2c25268b8e}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!LegoProtocolConstants@{LegoProtocolConstants}}
+\index{LegoProtocolConstants@{LegoProtocolConstants}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{LegoProtocolConstants}{LegoProtocolConstants}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structPulseDistanceWidthProtocolConstants}{Pulse\+Distance\+Width\+Protocol\+Constants}} Lego\+Protocol\+Constants}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{ LEGO\_PF, 38, LEGO\_HEADER\_MARK, LEGO\_HEADER\_SPACE, LEGO\_BIT\_MARK,}
+\DoxyCodeLine{LEGO\_ONE\_SPACE, LEGO\_BIT\_MARK, LEGO\_ZERO\_SPACE, PROTOCOL\_IS\_LSB\_FIRST, (LEGO\_AUTO\_REPEAT\_PERIOD\_MIN}
+\DoxyCodeLine{        / MICROS\_IN\_ONE\_MILLI), NULL \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{group__Decoder_gac9dd82df6fd15506e54139e6ecf5f2da}\label{group__Decoder_gac9dd82df6fd15506e54139e6ecf5f2da}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!LG2ProtocolConstants@{LG2ProtocolConstants}}
+\index{LG2ProtocolConstants@{LG2ProtocolConstants}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{LG2ProtocolConstants}{LG2ProtocolConstants}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structPulseDistanceWidthProtocolConstants}{Pulse\+Distance\+Width\+Protocol\+Constants}} LG2\+Protocol\+Constants}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{ LG2, LG\_KHZ, LG2\_HEADER\_MARK, LG2\_HEADER\_SPACE, LG\_BIT\_MARK,}
+\DoxyCodeLine{LG\_ONE\_SPACE, LG\_BIT\_MARK, LG\_ZERO\_SPACE, PROTOCOL\_IS\_MSB\_FIRST, (LG\_REPEAT\_PERIOD / MICROS\_IN\_ONE\_MILLI), \&\mbox{\hyperlink{group__Decoder_gaddace9c2bd03f63855063a3ce5e65acc}{sendLG2SpecialRepeat}} \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{group__Decoder_ga5aa81ae309491017d390106bd1b78067}\label{group__Decoder_ga5aa81ae309491017d390106bd1b78067}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!LGProtocolConstants@{LGProtocolConstants}}
+\index{LGProtocolConstants@{LGProtocolConstants}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{LGProtocolConstants}{LGProtocolConstants}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structPulseDistanceWidthProtocolConstants}{Pulse\+Distance\+Width\+Protocol\+Constants}} LGProtocol\+Constants}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{ LG, LG\_KHZ, LG\_HEADER\_MARK, LG\_HEADER\_SPACE, LG\_BIT\_MARK,}
+\DoxyCodeLine{LG\_ONE\_SPACE, LG\_BIT\_MARK, LG\_ZERO\_SPACE, PROTOCOL\_IS\_MSB\_FIRST, (LG\_REPEAT\_PERIOD / MICROS\_IN\_ONE\_MILLI), \&\mbox{\hyperlink{group__Decoder_ga7c4ddfbbbe38d11709d079dee617f2b2}{sendNECSpecialRepeat}} \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{group__Decoder_gabc3c8d544eebf60b8a73495496a7c354}\label{group__Decoder_gabc3c8d544eebf60b8a73495496a7c354}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!NEC2ProtocolConstants@{NEC2ProtocolConstants}}
+\index{NEC2ProtocolConstants@{NEC2ProtocolConstants}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{NEC2ProtocolConstants}{NEC2ProtocolConstants}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structPulseDistanceWidthProtocolConstants}{Pulse\+Distance\+Width\+Protocol\+Constants}} NEC2\+Protocol\+Constants}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{ NEC2, NEC\_KHZ, NEC\_HEADER\_MARK, NEC\_HEADER\_SPACE, NEC\_BIT\_MARK,}
+\DoxyCodeLine{NEC\_ONE\_SPACE, NEC\_BIT\_MARK, NEC\_ZERO\_SPACE, PROTOCOL\_IS\_LSB\_FIRST, (NEC\_REPEAT\_PERIOD / MICROS\_IN\_ONE\_MILLI), NULL \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{group__Decoder_ga7993c30413e3edec00ff3f46a9357164}\label{group__Decoder_ga7993c30413e3edec00ff3f46a9357164}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!NECProtocolConstants@{NECProtocolConstants}}
+\index{NECProtocolConstants@{NECProtocolConstants}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{NECProtocolConstants}{NECProtocolConstants}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structPulseDistanceWidthProtocolConstants}{Pulse\+Distance\+Width\+Protocol\+Constants}} NECProtocol\+Constants}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{        \{ NEC, NEC\_KHZ, NEC\_HEADER\_MARK, NEC\_HEADER\_SPACE, NEC\_BIT\_MARK,}
+\DoxyCodeLine{        NEC\_ONE\_SPACE, NEC\_BIT\_MARK, NEC\_ZERO\_SPACE, PROTOCOL\_IS\_LSB\_FIRST, (NEC\_REPEAT\_PERIOD / MICROS\_IN\_ONE\_MILLI),}
+\DoxyCodeLine{                \&\mbox{\hyperlink{group__Decoder_ga7c4ddfbbbe38d11709d079dee617f2b2}{sendNECSpecialRepeat}} \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{group__Decoder_ga2176ced4df44ecd3eaaad6f392744e34}\label{group__Decoder_ga2176ced4df44ecd3eaaad6f392744e34}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!SamsungLGProtocolConstants@{SamsungLGProtocolConstants}}
+\index{SamsungLGProtocolConstants@{SamsungLGProtocolConstants}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{SamsungLGProtocolConstants}{SamsungLGProtocolConstants}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structPulseDistanceWidthProtocolConstants}{Pulse\+Distance\+Width\+Protocol\+Constants}} Samsung\+LGProtocol\+Constants}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{ SAMSUNGLG, SAMSUNG\_KHZ, SAMSUNG\_HEADER\_MARK,}
+\DoxyCodeLine{SAMSUNG\_HEADER\_SPACE, SAMSUNG\_BIT\_MARK, SAMSUNG\_ONE\_SPACE, SAMSUNG\_BIT\_MARK, SAMSUNG\_ZERO\_SPACE, PROTOCOL\_IS\_LSB\_FIRST,}
+\DoxyCodeLine{        (SAMSUNG\_REPEAT\_PERIOD / MICROS\_IN\_ONE\_MILLI), \&\mbox{\hyperlink{group__Decoder_gad3b594eed28121c2406e7d80d1636c82}{sendSamsungLGSpecialRepeat}} \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{group__Decoder_gab9dd24f874feb021b119287864648c5f}\label{group__Decoder_gab9dd24f874feb021b119287864648c5f}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!SamsungProtocolConstants@{SamsungProtocolConstants}}
+\index{SamsungProtocolConstants@{SamsungProtocolConstants}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{SamsungProtocolConstants}{SamsungProtocolConstants}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structPulseDistanceWidthProtocolConstants}{Pulse\+Distance\+Width\+Protocol\+Constants}} Samsung\+Protocol\+Constants}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{ SAMSUNG, SAMSUNG\_KHZ, SAMSUNG\_HEADER\_MARK,}
+\DoxyCodeLine{SAMSUNG\_HEADER\_SPACE, SAMSUNG\_BIT\_MARK, SAMSUNG\_ONE\_SPACE, SAMSUNG\_BIT\_MARK, SAMSUNG\_ZERO\_SPACE, PROTOCOL\_IS\_LSB\_FIRST,}
+\DoxyCodeLine{        (SAMSUNG\_REPEAT\_PERIOD / MICROS\_IN\_ONE\_MILLI), NULL \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{group__Decoder_ga18d303101fe62d4a4998843253552e80}\label{group__Decoder_ga18d303101fe62d4a4998843253552e80}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!SonyProtocolConstants@{SonyProtocolConstants}}
+\index{SonyProtocolConstants@{SonyProtocolConstants}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{SonyProtocolConstants}{SonyProtocolConstants}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structPulseDistanceWidthProtocolConstants}{Pulse\+Distance\+Width\+Protocol\+Constants}} Sony\+Protocol\+Constants}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{ SONY, SONY\_KHZ, SONY\_HEADER\_MARK, SONY\_SPACE, SONY\_ONE\_MARK,}
+\DoxyCodeLine{SONY\_SPACE, SONY\_ZERO\_MARK, SONY\_SPACE, PROTOCOL\_IS\_LSB\_FIRST, (SONY\_REPEAT\_PERIOD / MICROS\_IN\_ONE\_MILLI), NULL \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{group__Decoder_gac9e51e0ce2130b81dae8f5b6e3116787}\label{group__Decoder_gac9e51e0ce2130b81dae8f5b6e3116787}} 
+\index{Decoders and encoders for different protocols@{Decoders and encoders for different protocols}!WhynterProtocolConstants@{WhynterProtocolConstants}}
+\index{WhynterProtocolConstants@{WhynterProtocolConstants}!Decoders and encoders for different protocols@{Decoders and encoders for different protocols}}
+\doxysubsubsection{\texorpdfstring{WhynterProtocolConstants}{WhynterProtocolConstants}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structPulseDistanceWidthProtocolConstants}{Pulse\+Distance\+Width\+Protocol\+Constants}} Whynter\+Protocol\+Constants}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{ WHYNTER, 38, WHYNTER\_HEADER\_MARK, WHYNTER\_HEADER\_SPACE,}
+\DoxyCodeLine{WHYNTER\_BIT\_MARK, WHYNTER\_ONE\_SPACE, WHYNTER\_BIT\_MARK, WHYNTER\_ZERO\_SPACE, PROTOCOL\_IS\_MSB\_FIRST, 110, NULL \}}
+
+\end{DoxyCode}

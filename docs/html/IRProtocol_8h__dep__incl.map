@@ -1,0 +1,9 @@
+<map id="lib/Arduino&#45;IRremote/src/IRProtocol.h" name="lib/Arduino&#45;IRremote/src/IRProtocol.h">
+<area shape="rect" id="node1" title="Common declarations for receiving and sending." alt="" coords="183,5,341,47"/>
+<area shape="rect" id="node2" href="$IRremoteInt_8h.html" title="Contains all declarations required for the interface to IRremote. Could not be named IRremote...." alt="" coords="183,95,341,136"/>
+<area shape="rect" id="node3" href="$IR__Module_8h.html" title="Infrared (IR) module for handling IR communication." alt="" coords="5,191,159,218"/>
+<area shape="rect" id="node4" href="$ac__LG_8hpp_source.html" title=" " alt="" coords="183,184,341,225"/>
+<area shape="rect" id="node5" href="$IRremote_8hpp.html" title="Public API to the library." alt="" coords="365,184,522,225"/>
+<area shape="rect" id="node6" href="$IRremoteExtensionClass_8h_source.html" title=" " alt="" coords="224,273,447,329"/>
+<area shape="rect" id="node7" href="$IRremote_8h.html" title="Stub for backward compatibility." alt="" coords="471,281,629,322"/>
+</map>

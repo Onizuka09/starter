@@ -1,0 +1,39 @@
+\hypertarget{structTinyIRReceiverStruct}{}\doxysection{Tiny\+IRReceiver\+Struct Struct Reference}
+\label{structTinyIRReceiverStruct}\index{TinyIRReceiverStruct@{TinyIRReceiverStruct}}
+
+
+{\ttfamily \#include $<$Tiny\+IR.\+h$>$}
+
+
+
+Collaboration diagram for Tiny\+IRReceiver\+Struct\+:
+% FIG 0
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structTinyIRReceiverStruct_a978f2ac480cb3ab428ff3016239413f1}\label{structTinyIRReceiverStruct_a978f2ac480cb3ab428ff3016239413f1}} 
+uint32\+\_\+t \mbox{\hyperlink{structTinyIRReceiverStruct_a978f2ac480cb3ab428ff3016239413f1}{Last\+Change\+Micros}}
+\begin{DoxyCompactList}\small\item\em Microseconds of last Pin Change Interrupt. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structTinyIRReceiverStruct_aca59e5c5331a581e0603a59c552fa8c9}\label{structTinyIRReceiverStruct_aca59e5c5331a581e0603a59c552fa8c9}} 
+uint8\+\_\+t \mbox{\hyperlink{structTinyIRReceiverStruct_aca59e5c5331a581e0603a59c552fa8c9}{IRReceiver\+State}}
+\begin{DoxyCompactList}\small\item\em The state of the state machine. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structTinyIRReceiverStruct_accdf38f518f17dfaf1a8aa870d77ce91}\label{structTinyIRReceiverStruct_accdf38f518f17dfaf1a8aa870d77ce91}} 
+uint8\+\_\+t \mbox{\hyperlink{structTinyIRReceiverStruct_accdf38f518f17dfaf1a8aa870d77ce91}{IRRaw\+Data\+Bit\+Counter}}
+\begin{DoxyCompactList}\small\item\em How many bits are currently contained in raw data. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structTinyIRReceiverStruct_aa6f580c1bf0c11c37edefd255283361a}\label{structTinyIRReceiverStruct_aa6f580c1bf0c11c37edefd255283361a}} 
+uint32\+\_\+t \mbox{\hyperlink{structTinyIRReceiverStruct_aa6f580c1bf0c11c37edefd255283361a}{IRRaw\+Data\+Mask}}
+\begin{DoxyCompactList}\small\item\em The corresponding bit mask for IRRaw\+Data\+Bit\+Counter. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structTinyIRReceiverStruct_a6277ed6c719314aef883af018f886056}\label{structTinyIRReceiverStruct_a6277ed6c719314aef883af018f886056}} 
+\mbox{\hyperlink{unionLongUnion}{Long\+Union}} \mbox{\hyperlink{structTinyIRReceiverStruct_a6277ed6c719314aef883af018f886056}{IRRaw\+Data}}
+\begin{DoxyCompactList}\small\item\em The current raw data. \mbox{\hyperlink{unionLongUnion}{Long\+Union}} helps with decoding of address and command. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structTinyIRReceiverStruct_abead77902575acdd1ab470cea07a3611}\label{structTinyIRReceiverStruct_abead77902575acdd1ab470cea07a3611}} 
+uint8\+\_\+t \mbox{\hyperlink{structTinyIRReceiverStruct_abead77902575acdd1ab470cea07a3611}{Flags}}
+\begin{DoxyCompactList}\small\item\em One of IRDATA\+\_\+\+FLAGS\+\_\+\+EMPTY, IRDATA\+\_\+\+FLAGS\+\_\+\+IS\+\_\+\+REPEAT, and IRDATA\+\_\+\+FLAGS\+\_\+\+PARITY\+\_\+\+FAILED. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Control and data variables of the state machine for Tiny\+Receiver 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+Arduino-\/\+IRremote/src/Tiny\+IR.\+h\end{DoxyCompactItemize}

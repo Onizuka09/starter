@@ -1,0 +1,185 @@
+\hypertarget{conf_8h}{}\doxysection{include/conf.h File Reference}
+\label{conf_8h}\index{include/conf.h@{include/conf.h}}
+
+
+Project configuration header file.  
+
+
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+{\ttfamily \#include $<$IPAddress.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}soft\+\_\+version.\+h\char`\"{}}\newline
+Include dependency graph for conf.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=337pt]{conf_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=215pt]{conf_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{conf_8h_a069cace8124fbff2bca1b7f7986d173e}{ENABLE\+\_\+\+OTA}}~1
+\begin{DoxyCompactList}\small\item\em Flag to enable or disable Over-\/the-\/\+Air (OTA) updates. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{conf_8h_aef03c419ce0d8465f60f684b95b78eed}{DISABLE\+\_\+\+ETHERNET}}~0
+\begin{DoxyCompactList}\small\item\em Flag to enable or disable Ethernet. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{conf_8h_a81720996cdc4653ddeccf5811a6f8976}{ENABLE\+\_\+\+WIFI}}~0
+\begin{DoxyCompactList}\small\item\em Flag to enable or disable Wi\+Fi. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{conf_8h_a6d6f309542d06680928f1a2a74cd780c}{My\+Serv}}~0
+\begin{DoxyCompactList}\small\item\em Flag to select the server. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{conf_8h_a6d93a72d158d954e0c48473f5a09e5c4}{OTA\+\_\+\+WIFI\+\_\+\+ETH}}~0
+\begin{DoxyCompactList}\small\item\em Flag to select Wi\+Fi or Ethernet for OTA. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{conf_8h_aac66f2d9ba473594bccc67121ac9c752}\label{conf_8h_aac66f2d9ba473594bccc67121ac9c752}} 
+\#define \mbox{\hyperlink{conf_8h_aac66f2d9ba473594bccc67121ac9c752}{WIFI\+\_\+\+PASSWD}}~\char`\"{}i6q4k3b21r\char`\"{}
+\begin{DoxyCompactList}\small\item\em Wi\+Fi password. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{conf_8h_a586542b79d00e4db7e1d5a667ae83a2b}\label{conf_8h_a586542b79d00e4db7e1d5a667ae83a2b}} 
+\#define \mbox{\hyperlink{conf_8h_a586542b79d00e4db7e1d5a667ae83a2b}{WIFI\+\_\+\+SSID}}~\char`\"{}TT\+\_\+23\+C0\char`\"{}
+\begin{DoxyCompactList}\small\item\em Wi\+Fi SSID. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{conf_8h_a8bc57bcf33b35bb6240edd567b89ecba}\label{conf_8h_a8bc57bcf33b35bb6240edd567b89ecba}} 
+\#define \mbox{\hyperlink{conf_8h_a8bc57bcf33b35bb6240edd567b89ecba}{TEST\+\_\+\+SOFTWARE\+\_\+\+VERSION}}~\mbox{\hyperlink{soft__version_8h_aa14dc39d52ab121ceb570f1a265385e0}{FIRMWARE\+\_\+\+VERSION}}
+\begin{DoxyCompactList}\small\item\em Firmware version used for OTA update comparisons. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{conf_8h_a84e05965a138d8b30daa7523dd77e173}\label{conf_8h_a84e05965a138d8b30daa7523dd77e173}} 
+\#define \mbox{\hyperlink{conf_8h_a84e05965a138d8b30daa7523dd77e173}{MYSERV\+\_\+\+IP}}~(192, 168, 1, 14)
+\begin{DoxyCompactList}\small\item\em IP address of the test server. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{conf_8h_abe27dced0daec63dc399b0d3ce909597}\label{conf_8h_abe27dced0daec63dc399b0d3ce909597}} 
+\#define \mbox{\hyperlink{conf_8h_abe27dced0daec63dc399b0d3ce909597}{MYSERV\+\_\+\+PORT}}~5000
+\begin{DoxyCompactList}\small\item\em Port number of the test server. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{conf_8h_a954fb82898f6f65217c7e9f9c11d18b1}\label{conf_8h_a954fb82898f6f65217c7e9f9c11d18b1}} 
+\#define \mbox{\hyperlink{conf_8h_a954fb82898f6f65217c7e9f9c11d18b1}{SCREE\+\_\+\+FLEX\+\_\+\+SERV\+\_\+\+IP}}~(203, 161, 60, 31)
+\begin{DoxyCompactList}\small\item\em IP address of the production server. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{conf_8h_aff8698a88f6d35f02985e90c6b806959}\label{conf_8h_aff8698a88f6d35f02985e90c6b806959}} 
+\#define \mbox{\hyperlink{conf_8h_aff8698a88f6d35f02985e90c6b806959}{SCREE\+\_\+\+FLEX\+\_\+\+SERV\+\_\+\+PORT}}~3500
+\begin{DoxyCompactList}\small\item\em Port number of the production server. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{conf_8h_a28d06fc286f28044ed3380969700ff3f}{SERVER\+\_\+\+IP}}~\mbox{\hyperlink{conf_8h_a954fb82898f6f65217c7e9f9c11d18b1}{SCREE\+\_\+\+FLEX\+\_\+\+SERV\+\_\+\+IP}}
+\begin{DoxyCompactList}\small\item\em Selects server IP and port based on {\ttfamily My\+Serv}. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{conf_8h_ac42367fe5c999ec6650de83e9d72fe8c}{SERVER\+\_\+\+PORT}}~\mbox{\hyperlink{conf_8h_aff8698a88f6d35f02985e90c6b806959}{SCREE\+\_\+\+FLEX\+\_\+\+SERV\+\_\+\+PORT}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const uint8\+\_\+t \mbox{\hyperlink{conf_8h_a41ea83b4c8015d9806f8282b6d5d941f}{target\+MAC}} \mbox{[}$\,$\mbox{]} = \{0x00, 0xe0, 0x4c, 0x38, 0xcd, 0xc2\}
+\begin{DoxyCompactList}\small\item\em $<$ Software version module \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Project configuration header file. 
+
+This file contains project configurations used at build time.
+\begin{DoxyItemize}
+\item Enable/\+Disable OTA
+\item Enable/\+Disable Wi\+Fi
+\item Enable/\+Disable Ethernet
+\item Select test server or production server
+\item Set Wi\+Fi SSID And PAsswords \begin{DoxyAuthor}{Author}
+Moktar SELLAMI 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2025-\/02-\/16 
+\end{DoxyDate}
+
+\end{DoxyItemize}
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{conf_8h_aef03c419ce0d8465f60f684b95b78eed}\label{conf_8h_aef03c419ce0d8465f60f684b95b78eed}} 
+\index{conf.h@{conf.h}!DISABLE\_ETHERNET@{DISABLE\_ETHERNET}}
+\index{DISABLE\_ETHERNET@{DISABLE\_ETHERNET}!conf.h@{conf.h}}
+\doxysubsubsection{\texorpdfstring{DISABLE\_ETHERNET}{DISABLE\_ETHERNET}}
+{\footnotesize\ttfamily \#define DISABLE\+\_\+\+ETHERNET~0}
+
+
+
+Flag to enable or disable Ethernet. 
+
+\begin{DoxyNote}{Note}
+1 to disable, 0 to enable. 
+\end{DoxyNote}
+\mbox{\Hypertarget{conf_8h_a069cace8124fbff2bca1b7f7986d173e}\label{conf_8h_a069cace8124fbff2bca1b7f7986d173e}} 
+\index{conf.h@{conf.h}!ENABLE\_OTA@{ENABLE\_OTA}}
+\index{ENABLE\_OTA@{ENABLE\_OTA}!conf.h@{conf.h}}
+\doxysubsubsection{\texorpdfstring{ENABLE\_OTA}{ENABLE\_OTA}}
+{\footnotesize\ttfamily \#define ENABLE\+\_\+\+OTA~1}
+
+
+
+Flag to enable or disable Over-\/the-\/\+Air (OTA) updates. 
+
+\begin{DoxyNote}{Note}
+1 to enable, 0 to disable. 
+\end{DoxyNote}
+\mbox{\Hypertarget{conf_8h_a81720996cdc4653ddeccf5811a6f8976}\label{conf_8h_a81720996cdc4653ddeccf5811a6f8976}} 
+\index{conf.h@{conf.h}!ENABLE\_WIFI@{ENABLE\_WIFI}}
+\index{ENABLE\_WIFI@{ENABLE\_WIFI}!conf.h@{conf.h}}
+\doxysubsubsection{\texorpdfstring{ENABLE\_WIFI}{ENABLE\_WIFI}}
+{\footnotesize\ttfamily \#define ENABLE\+\_\+\+WIFI~0}
+
+
+
+Flag to enable or disable Wi\+Fi. 
+
+\begin{DoxyNote}{Note}
+1 to enable, 0 to disable. 
+\end{DoxyNote}
+\mbox{\Hypertarget{conf_8h_a6d6f309542d06680928f1a2a74cd780c}\label{conf_8h_a6d6f309542d06680928f1a2a74cd780c}} 
+\index{conf.h@{conf.h}!MyServ@{MyServ}}
+\index{MyServ@{MyServ}!conf.h@{conf.h}}
+\doxysubsubsection{\texorpdfstring{MyServ}{MyServ}}
+{\footnotesize\ttfamily \#define My\+Serv~0}
+
+
+
+Flag to select the server. 
+
+\begin{DoxyNote}{Note}
+1 = Test Server, 0 = Production Server. 
+\end{DoxyNote}
+\mbox{\Hypertarget{conf_8h_a6d93a72d158d954e0c48473f5a09e5c4}\label{conf_8h_a6d93a72d158d954e0c48473f5a09e5c4}} 
+\index{conf.h@{conf.h}!OTA\_WIFI\_ETH@{OTA\_WIFI\_ETH}}
+\index{OTA\_WIFI\_ETH@{OTA\_WIFI\_ETH}!conf.h@{conf.h}}
+\doxysubsubsection{\texorpdfstring{OTA\_WIFI\_ETH}{OTA\_WIFI\_ETH}}
+{\footnotesize\ttfamily \#define OTA\+\_\+\+WIFI\+\_\+\+ETH~0}
+
+
+
+Flag to select Wi\+Fi or Ethernet for OTA. 
+
+\begin{DoxyNote}{Note}
+1 = Wi\+Fi, 0 = Ethernet. 
+\end{DoxyNote}
+\mbox{\Hypertarget{conf_8h_a28d06fc286f28044ed3380969700ff3f}\label{conf_8h_a28d06fc286f28044ed3380969700ff3f}} 
+\index{conf.h@{conf.h}!SERVER\_IP@{SERVER\_IP}}
+\index{SERVER\_IP@{SERVER\_IP}!conf.h@{conf.h}}
+\doxysubsubsection{\texorpdfstring{SERVER\_IP}{SERVER\_IP}}
+{\footnotesize\ttfamily \#define SERVER\+\_\+\+IP~\mbox{\hyperlink{conf_8h_a954fb82898f6f65217c7e9f9c11d18b1}{SCREE\+\_\+\+FLEX\+\_\+\+SERV\+\_\+\+IP}}}
+
+
+
+Selects server IP and port based on {\ttfamily My\+Serv}. 
+
+If {\ttfamily My\+Serv == 1}, the server IP and port are assigned from {\ttfamily MYSERV\+\_\+\+IP} and {\ttfamily MYSERV\+\_\+\+PORT}, respectively. Otherwise, they are assigned from {\ttfamily SCREE\+\_\+\+FLEX\+\_\+\+SERV\+\_\+\+IP} and {\ttfamily SCREE\+\_\+\+FLEX\+\_\+\+SERV\+\_\+\+PORT}. Default Server IP \mbox{\Hypertarget{conf_8h_ac42367fe5c999ec6650de83e9d72fe8c}\label{conf_8h_ac42367fe5c999ec6650de83e9d72fe8c}} 
+\index{conf.h@{conf.h}!SERVER\_PORT@{SERVER\_PORT}}
+\index{SERVER\_PORT@{SERVER\_PORT}!conf.h@{conf.h}}
+\doxysubsubsection{\texorpdfstring{SERVER\_PORT}{SERVER\_PORT}}
+{\footnotesize\ttfamily \#define SERVER\+\_\+\+PORT~\mbox{\hyperlink{conf_8h_aff8698a88f6d35f02985e90c6b806959}{SCREE\+\_\+\+FLEX\+\_\+\+SERV\+\_\+\+PORT}}}
+
+Default Server Port 
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{conf_8h_a41ea83b4c8015d9806f8282b6d5d941f}\label{conf_8h_a41ea83b4c8015d9806f8282b6d5d941f}} 
+\index{conf.h@{conf.h}!targetMAC@{targetMAC}}
+\index{targetMAC@{targetMAC}!conf.h@{conf.h}}
+\doxysubsubsection{\texorpdfstring{targetMAC}{targetMAC}}
+{\footnotesize\ttfamily const uint8\+\_\+t target\+MAC\mbox{[}$\,$\mbox{]} = \{0x00, 0xe0, 0x4c, 0x38, 0xcd, 0xc2\}}
+
+
+
+$<$ Software version module 
+
+$<$ Arduino library $<$ IP address library
+
+Target MAC address for Wake-\/on-\/\+LAN. 

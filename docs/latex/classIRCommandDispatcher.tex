@@ -1,0 +1,66 @@
+\hypertarget{classIRCommandDispatcher}{}\doxysection{IRCommand\+Dispatcher Class Reference}
+\label{classIRCommandDispatcher}\index{IRCommandDispatcher@{IRCommandDispatcher}}
+
+
+Collaboration diagram for IRCommand\+Dispatcher\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIRCommandDispatcher_ad68d5fcdbe439e175cfe1c8b9107d0db}\label{classIRCommandDispatcher_ad68d5fcdbe439e175cfe1c8b9107d0db}} 
+void {\bfseries init} ()
+\item 
+\mbox{\Hypertarget{classIRCommandDispatcher_a386ede9bb66907a5cc8adc0bfe9e304e}\label{classIRCommandDispatcher_a386ede9bb66907a5cc8adc0bfe9e304e}} 
+void {\bfseries print\+IRInfo} (\mbox{\hyperlink{classPrint}{Print}} $\ast$a\+Serial)
+\item 
+\mbox{\Hypertarget{classIRCommandDispatcher_a145197a073497acc6af758edd53fde13}\label{classIRCommandDispatcher_a145197a073497acc6af758edd53fde13}} 
+bool {\bfseries check\+And\+Run\+Non\+Blocking\+Commands} ()
+\item 
+\mbox{\Hypertarget{classIRCommandDispatcher_a62d3944d8e464859f17fa3ddc00168c7}\label{classIRCommandDispatcher_a62d3944d8e464859f17fa3ddc00168c7}} 
+bool {\bfseries check\+And\+Run\+Suspended\+Blocking\+Commands} ()
+\item 
+\mbox{\Hypertarget{classIRCommandDispatcher_a121e95355ab9fbc931eecb7d00c0540b}\label{classIRCommandDispatcher_a121e95355ab9fbc931eecb7d00c0540b}} 
+void {\bfseries set\+Next\+Blocking\+Command} (uint8\+\_\+t a\+Blocking\+Command\+To\+Run\+Next)
+\item 
+\mbox{\Hypertarget{classIRCommandDispatcher_a1d82fe08011229b1cc358dfab1904cf5}\label{classIRCommandDispatcher_a1d82fe08011229b1cc358dfab1904cf5}} 
+bool {\bfseries delay\+And\+Check\+For\+Stop} (uint16\+\_\+t a\+Delay\+Millis)
+\item 
+\mbox{\Hypertarget{classIRCommandDispatcher_aed3b40ff7afbcae900829027cfe7fb00}\label{classIRCommandDispatcher_aed3b40ff7afbcae900829027cfe7fb00}} 
+void {\bfseries check\+And\+Call\+Command} (bool a\+Call\+Blocking\+Command\+Immediately)
+\item 
+\mbox{\Hypertarget{classIRCommandDispatcher_a1bea564c18a8e6bceb9cd4601a6d5cda}\label{classIRCommandDispatcher_a1bea564c18a8e6bceb9cd4601a6d5cda}} 
+void {\bfseries print\+IRCommand\+String} (\mbox{\hyperlink{classPrint}{Print}} $\ast$a\+Serial)
+\item 
+\mbox{\Hypertarget{classIRCommandDispatcher_ac659a618dcd5cb7d6068a9b50058c2b9}\label{classIRCommandDispatcher_ac659a618dcd5cb7d6068a9b50058c2b9}} 
+void {\bfseries set\+Request\+To\+Stop\+Received} (bool a\+Request\+To\+Stop\+Received=true)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIRCommandDispatcher_ae2569e80e2c03d4f9483dd8b6d1e81ef}\label{classIRCommandDispatcher_ae2569e80e2c03d4f9483dd8b6d1e81ef}} 
+uint8\+\_\+t {\bfseries current\+Blocking\+Command\+Called} = COMMAND\+\_\+\+EMPTY
+\item 
+\mbox{\Hypertarget{classIRCommandDispatcher_ac0f99ef75773f82843abab4d27e9b022}\label{classIRCommandDispatcher_ac0f99ef75773f82843abab4d27e9b022}} 
+uint8\+\_\+t {\bfseries last\+Blocking\+Command\+Called} = COMMAND\+\_\+\+EMPTY
+\item 
+\mbox{\Hypertarget{classIRCommandDispatcher_abcd19ab6bf352a41b5e5db42930fb2f2}\label{classIRCommandDispatcher_abcd19ab6bf352a41b5e5db42930fb2f2}} 
+uint8\+\_\+t {\bfseries Blocking\+Command\+To\+Run\+Next} = COMMAND\+\_\+\+EMPTY
+\item 
+\mbox{\Hypertarget{classIRCommandDispatcher_aca80d0e3db5cadaf8ba7951572d8f076}\label{classIRCommandDispatcher_aca80d0e3db5cadaf8ba7951572d8f076}} 
+bool {\bfseries just\+Called\+Blocking\+Command} = false
+\item 
+\mbox{\Hypertarget{classIRCommandDispatcher_a313bcae5a6fff14e6ca725dff4751454}\label{classIRCommandDispatcher_a313bcae5a6fff14e6ca725dff4751454}} 
+volatile bool {\bfseries request\+To\+Stop\+Received}
+\item 
+\mbox{\Hypertarget{classIRCommandDispatcher_a5214f344ec32f7d60e19f638a482f73e}\label{classIRCommandDispatcher_a5214f344ec32f7d60e19f638a482f73e}} 
+bool {\bfseries do\+Not\+Use\+Dispatcher} = false
+\item 
+\mbox{\Hypertarget{classIRCommandDispatcher_a53e11d63aef8f7bb2c6445f84ac94a2e}\label{classIRCommandDispatcher_a53e11d63aef8f7bb2c6445f84ac94a2e}} 
+struct \mbox{\hyperlink{structIRDataForCommandDispatcherStruct}{IRData\+For\+Command\+Dispatcher\+Struct}} {\bfseries IRReceived\+Data}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+Arduino-\/\+IRremote/examples/\+IRDispatcher\+Demo/IRCommand\+Dispatcher.\+h\item 
+lib/\+Arduino-\/\+IRremote/examples/\+IRDispatcher\+Demo/IRCommand\+Dispatcher.\+hpp\end{DoxyCompactItemize}

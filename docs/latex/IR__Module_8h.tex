@@ -1,0 +1,78 @@
+\hypertarget{IR__Module_8h}{}\doxysection{include/\+IR\+\_\+\+Module.h File Reference}
+\label{IR__Module_8h}\index{include/IR\_Module.h@{include/IR\_Module.h}}
+
+
+Infrared (IR) module for handling IR communication.  
+
+
+{\ttfamily \#include $<$IRremote\+Int.\+h$>$}\newline
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+{\ttfamily \#include $<$Little\+FS.\+h$>$}\newline
+{\ttfamily \#include $<$Arduino\+Json.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Mylog.\+h\char`\"{}}\newline
+Include dependency graph for IR\+\_\+\+Module.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{IR__Module_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structMyIRData}{My\+IRData}}
+\begin{DoxyCompactList}\small\item\em Structure to store received IR data. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classIRHandler}{IRHandler}}
+\begin{DoxyCompactList}\small\item\em Class for handling IR communication. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{IR__Module_8h_a740aad5b7fad7d33e3764808ab2fd954}\label{IR__Module_8h_a740aad5b7fad7d33e3764808ab2fd954}} 
+\#define {\bfseries MY\+\_\+\+IR\+\_\+\+MODULE\+\_\+\+H\+\_\+}
+\item 
+\mbox{\Hypertarget{IR__Module_8h_a7a51ed112e9b79f89e3e70beb8db8bf5}\label{IR__Module_8h_a7a51ed112e9b79f89e3e70beb8db8bf5}} 
+\#define \mbox{\hyperlink{IR__Module_8h_a7a51ed112e9b79f89e3e70beb8db8bf5}{f}}~\char`\"{}/settings.\+json\char`\"{}
+\begin{DoxyCompactList}\small\item\em File path for storing settings. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{IR__Module_8h_a8a5f16fc2aafb11e54f636987b094744}{Files}} \{ \mbox{\hyperlink{IR__Module_8h_a8a5f16fc2aafb11e54f636987b094744a791d9eb7befc60d57208c85043e99e2a}{settings}}
+, \mbox{\hyperlink{IR__Module_8h_a8a5f16fc2aafb11e54f636987b094744a7892114007876bc0ad6bd6cf1f411d2d}{jsettings}}
+ \}
+\begin{DoxyCompactList}\small\item\em Defines file types used in the system. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Infrared (IR) module for handling IR communication. 
+
+This module provides functionality to receive, send, store, and process IR signals. It utilizes the IRremote library to interact with IR hardware components.
+
+\begin{DoxyAuthor}{Author}
+Moktar SELLAMI 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2025-\/02-\/16 
+\end{DoxyDate}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{IR__Module_8h_a8a5f16fc2aafb11e54f636987b094744}\label{IR__Module_8h_a8a5f16fc2aafb11e54f636987b094744}} 
+\index{IR\_Module.h@{IR\_Module.h}!Files@{Files}}
+\index{Files@{Files}!IR\_Module.h@{IR\_Module.h}}
+\doxysubsubsection{\texorpdfstring{Files}{Files}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{IR__Module_8h_a8a5f16fc2aafb11e54f636987b094744}{Files}}}
+
+
+
+Defines file types used in the system. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{settings@{settings}!IR\_Module.h@{IR\_Module.h}}\index{IR\_Module.h@{IR\_Module.h}!settings@{settings}}}\mbox{\Hypertarget{IR__Module_8h_a8a5f16fc2aafb11e54f636987b094744a791d9eb7befc60d57208c85043e99e2a}\label{IR__Module_8h_a8a5f16fc2aafb11e54f636987b094744a791d9eb7befc60d57208c85043e99e2a}} 
+settings&Standard settings file. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{jsettings@{jsettings}!IR\_Module.h@{IR\_Module.h}}\index{IR\_Module.h@{IR\_Module.h}!jsettings@{jsettings}}}\mbox{\Hypertarget{IR__Module_8h_a8a5f16fc2aafb11e54f636987b094744a7892114007876bc0ad6bd6cf1f411d2d}\label{IR__Module_8h_a8a5f16fc2aafb11e54f636987b094744a7892114007876bc0ad6bd6cf1f411d2d}} 
+jsettings&JSON settings file. \\
+\hline
+
+\end{DoxyEnumFields}

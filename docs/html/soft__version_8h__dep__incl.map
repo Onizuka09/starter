@@ -1,0 +1,5 @@
+<map id="include/soft_version.h" name="include/soft_version.h">
+<area shape="rect" id="node1" title="This file defines the software versioning and product information for the firmware." alt="" coords="13,5,177,32"/>
+<area shape="rect" id="node2" href="$conf_8h.html" title="Project configuration header file." alt="" coords="39,80,151,107"/>
+<area shape="rect" id="node3" href="$network__stack_8h.html" title="Network stack for handling Ethernet, Wi&#45;Fi, OTA updates, and server communication." alt="" coords="5,155,185,181"/>
+</map>

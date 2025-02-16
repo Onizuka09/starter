@@ -2,21 +2,20 @@
 #include "HardwareSerial.h"
 #include "RtcDateTime.h"
 
-#define DAT 21 
+#define DAT 21
 #define CLK 22
-#define RST 14 
-  ThreeWire wire(DAT,CLK,RST); 
-  RtcDS1302<ThreeWire> Rtc(wire); 
+#define RST 14
+ThreeWire wire(DAT, CLK, RST);
+RtcDS1302<ThreeWire> Rtc(wire);
 
-
-
-
- void  RTC_Module::RTC_Timer(uint32_t seconds) {
-    duration_seconds = seconds;
-    start_time = Rtc.GetDateTime();
-  }
-void RTC_Module::RTC_Module_init(){
-       Serial.print("compiled: ");
+void RTC_Module::RTC_Timer(uint32_t seconds)
+{
+  duration_seconds = seconds;
+  start_time = Rtc.GetDateTime();
+}
+void RTC_Module::RTC_Module_init()
+{
+  Serial.print("compiled: ");
   Serial.print(__DATE__);
   Serial.println(__TIME__);
 
@@ -26,7 +25,8 @@ void RTC_Module::RTC_Module_init(){
   printDateTime(compiled);
   Serial.println();
 
-  if (!Rtc.IsDateTimeValid()) {
+  if (!Rtc.IsDateTimeValid())
+  {
     // Common Causes:
     //    1) first time you ran and the device wasn't running yet
     //    2) the battery on the device is low or even missing
@@ -35,12 +35,14 @@ void RTC_Module::RTC_Module_init(){
     Rtc.SetDateTime(compiled);
   }
 
-  if (Rtc.GetIsWriteProtected()) {
+  if (Rtc.GetIsWriteProtected())
+  {
     Serial.println("RTC was write protected, enabling writing now");
     Rtc.SetIsWriteProtected(false);
   }
 
-  if (!Rtc.GetIsRunning()) {
+  if (!Rtc.GetIsRunning())
+  {
     Serial.println("RTC was not actively running, starting now");
     Rtc.SetIsRunning(true);
   }
@@ -51,32 +53,37 @@ void RTC_Module::RTC_Module_init(){
   Serial.println("Comparing times ");
   Serial.println("================================== ");
   Serial.println("Current time ");
-  printDateTime(now); 
+  printDateTime(now);
   Serial.println("Compiled Time ");
-  printDateTime(compiled); 
+  printDateTime(compiled);
   Serial.println("RTC is older than compile time!  (Updating DateTime)");
   // Rtc.SetDateTime(compiled);
-  if (now < compiled) {
+  if (now < compiled)
+  {
     Serial.println("RTC is older than compile time!  (Updating DateTime)");
     Rtc.SetDateTime(compiled);
-  } else if (now > compiled) {
+  }
+  else if (now > compiled)
+  {
     Serial.println("RTC is newer than compile time. (this is expected)");
-  } else if (now == compiled) {
+  }
+  else if (now == compiled)
+  {
     Serial.println("RTC is the same as compile time! (not expected but all is fine)");
   }
+}
+/*
+RtcDateTime RTCGetDateTime() {
+  RtcDateTime dt = RTC_getDateTime();
+  if (!dt.IsValid()){
+    Serial.println("Error: Lost confidence in RTC");
+    // create an Erro func that would notify the USER like setting an Error flag
+  }
+  return dt ;
 
-   }
-/* 
-RtcDateTime RTCGetDateTime() { 
-  RtcDateTime dt = RTC_getDateTime(); 
-	if (!dt.IsValid()){
-		Serial.println("Error: Lost confidence in RTC"); 
-		// create an Erro func that would notify the USER like setting an Error flag 
-	}
-  return dt ; 
-
-}*/ 
-void RTC_Module::printDateTime(RtcDateTime& dt) {
+}*/
+void RTC_Module::printDateTime(RtcDateTime &dt)
+{
   char datestring[20];
 
   snprintf_P(datestring,
@@ -91,60 +98,62 @@ void RTC_Module::printDateTime(RtcDateTime& dt) {
   Serial.println(datestring);
 }
 
-
-  bool RTC_Module::isElapsed() {
-    RtcDateTime current_time = Rtc.GetDateTime();
-   uint32_t elapsed_seconds ;// = current_time - start_time;
-    return elapsed_seconds >= duration_seconds;
-  }
-  
-RtcDateTime RTC_Module::RTC_getDateTime(){
-	RtcDateTime now = Rtc.GetDateTime(); 
-	if (!now.IsValid()){
-		Serial.println("Error: Lost confidence in RTC"); 
-		// create an Erro func that would notify the USER like setting an Error flag 
-	}
-	return now; 
+bool RTC_Module::isElapsed()
+{
+  RtcDateTime current_time = Rtc.GetDateTime();
+  uint32_t elapsed_seconds; // = current_time - start_time;
+  return elapsed_seconds >= duration_seconds;
 }
-bool  RTC_Module::RTC_SetTimer_min( ) {  
-  // timer=true  ; 
-  int duration = 10 ; // seconds 
-  RtcDateTime start = Rtc.GetDateTime(); 
-  // RtcDateTime prev; 
-  // setup  timer 
-  start_min = (int )start.Second();
-  if ( timer == false) { 
-  prev_min = start_min + duration; 
-  if ( prev_min >= 60 ){ 
-     prev_min = prev_min - 60;  
-     time_func = true; 
+
+RtcDateTime RTC_Module::RTC_getDateTime()
+{
+  RtcDateTime now = Rtc.GetDateTime();
+  if (!now.IsValid())
+  {
+    Serial.println("Error: Lost confidence in RTC");
+    // create an Erro func that would notify the USER like setting an Error flag
   }
-     timer = true ; 
+  return now;
+}
+bool RTC_Module::RTC_SetTimer_min()
+{
+  // timer=true  ;
+  int duration = 10; // seconds
+  RtcDateTime start = Rtc.GetDateTime();
+  // RtcDateTime prev;
+  // setup  timer
+  start_min = (int)start.Second();
+  if (timer == false)
+  {
+    prev_min = start_min + duration;
+    if (prev_min >= 60)
+    {
+      prev_min = prev_min - 60;
+      time_func = true;
+    }
+    timer = true;
   }
-  if (start_min == 0 ) { 
-    time_func = false ; 
-  } 
+  if (start_min == 0)
+  {
+    time_func = false;
+  }
   Serial.println(time_func);
   Serial.println(prev_min);
-  Serial.println(start.Second(),DEC);
-  
-  if ( !time_func && start_min >= prev_min ) { 
-        Serial.println( " Stoping timer now" ); 
-        prev_min = 0 ;
-          return false ;
-      
- 
-}else if ( time_func && start_min <= prev_min ) { 
-        Serial.println( " Stoping timer now" ); 
-        prev_min = 0 ;
-        time_func =false ; 
-          return false ;
-      }
+  Serial.println(start.Second(), DEC);
 
+  if (!time_func && start_min >= prev_min)
+  {
+    Serial.println(" Stoping timer now");
+    prev_min = 0;
+    return false;
+  }
+  else if (time_func && start_min <= prev_min)
+  {
+    Serial.println(" Stoping timer now");
+    prev_min = 0;
+    time_func = false;
+    return false;
+  }
 
-  return true ;
-} 
-
-
-
-
+  return true;
+}

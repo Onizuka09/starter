@@ -1,0 +1,12 @@
+<map id="lib/Arduino&#45;IRremote/src/IRremoteInt.h" name="lib/Arduino&#45;IRremote/src/IRremoteInt.h">
+<area shape="rect" id="node1" title="Contains all declarations required for the interface to IRremote. Could not be named IRremote...." alt="" coords="235,5,393,47"/>
+<area shape="rect" id="node2" href="$Arduino_8h_source.html" title=" " alt="" coords="215,95,299,121"/>
+<area shape="rect" id="node10" href="$IRProtocol_8h.html" title="Common declarations for receiving and sending." alt="" coords="323,95,423,121"/>
+<area shape="rect" id="node3" href="$Print_8h_source.html" title=" " alt="" coords="91,169,179,196"/>
+<area shape="rect" id="node7" href="$Stream_8h_source.html" title=" " alt="" coords="204,169,309,196"/>
+<area shape="rect" id="node8" href="$String_8h_source.html" title=" " alt="" coords="334,169,430,196"/>
+<area shape="rect" id="node4" title=" " alt="" coords="5,244,76,271"/>
+<area shape="rect" id="node5" title=" " alt="" coords="100,244,171,271"/>
+<area shape="rect" id="node6" title=" " alt="" coords="195,244,265,271"/>
+<area shape="rect" id="node9" title=" " alt="" coords="353,244,411,271"/>
+</map>

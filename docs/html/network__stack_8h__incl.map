@@ -1,0 +1,11 @@
+<map id="include/network_stack.h" name="include/network_stack.h">
+<area shape="rect" id="node1" title="Network stack for handling Ethernet, Wi&#45;Fi, OTA updates, and server communication." alt="" coords="139,5,319,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="152,155,236,181"/>
+<area shape="rect" id="node3" title=" " alt="" coords="26,80,109,107"/>
+<area shape="rect" id="node4" title=" " alt="" coords="133,80,215,107"/>
+<area shape="rect" id="node5" title=" " alt="" coords="239,80,328,107"/>
+<area shape="rect" id="node6" title=" " alt="" coords="353,80,459,107"/>
+<area shape="rect" id="node7" href="$conf_8h.html" title="Project configuration header file." alt="" coords="483,80,545,107"/>
+<area shape="rect" id="node8" title=" " alt="" coords="400,155,497,181"/>
+<area shape="rect" id="node9" href="$soft__version_8h.html" title="This file defines the software versioning and product information for the firmware." alt="" coords="521,155,635,181"/>
+</map>

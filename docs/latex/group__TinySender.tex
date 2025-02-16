@@ -1,0 +1,35 @@
+\hypertarget{group__TinySender}{}\doxysection{Minimal sender for NEC and FAST protocol}
+\label{group__TinySender}\index{Minimal sender for NEC and FAST protocol@{Minimal sender for NEC and FAST protocol}}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__TinySender_ga4cb394b3b749f9302940902fb05bd920}\label{group__TinySender_ga4cb394b3b749f9302940902fb05bd920}} 
+\#define {\bfseries IR\+\_\+\+SEND\+\_\+\+PIN}~3
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__TinySender_ga1cc15240b7357116480a33cbc5ff4a06}\label{group__TinySender_ga1cc15240b7357116480a33cbc5ff4a06}} 
+void {\bfseries send\+Mark} (uint8\+\_\+t a\+Send\+Pin, unsigned int a\+Mark\+Micros)
+\item 
+\mbox{\Hypertarget{group__TinySender_gaff8e9e20a15795c5e211407f62166637}\label{group__TinySender_gaff8e9e20a15795c5e211407f62166637}} 
+void {\bfseries send\+ONKYO} (uint8\+\_\+t a\+Send\+Pin, uint16\+\_\+t a\+Address, uint16\+\_\+t a\+Command, uint\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats, bool a\+Send\+NEC2\+Repeats)
+\item 
+\mbox{\Hypertarget{group__TinySender_ga693e3c08170e163489b7c73c595c060e}\label{group__TinySender_ga693e3c08170e163489b7c73c595c060e}} 
+void {\bfseries send\+NECMinimal} (uint8\+\_\+t a\+Send\+Pin, uint16\+\_\+t a\+Address, uint16\+\_\+t a\+Command, uint\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats)
+\item 
+\mbox{\Hypertarget{group__TinySender_ga0a4a942fdd78fd7e5f6a54b0c7251ff7}\label{group__TinySender_ga0a4a942fdd78fd7e5f6a54b0c7251ff7}} 
+void {\bfseries send\+NEC} (uint8\+\_\+t a\+Send\+Pin, uint16\+\_\+t a\+Address, uint16\+\_\+t a\+Command, uint\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats, bool a\+Send\+NEC2\+Repeats)
+\item 
+\mbox{\Hypertarget{group__TinySender_ga397e1b9d2e6457c3707ea35e85008415}\label{group__TinySender_ga397e1b9d2e6457c3707ea35e85008415}} 
+void {\bfseries send\+Extended\+NEC} (uint8\+\_\+t a\+Send\+Pin, uint16\+\_\+t a\+Address, uint16\+\_\+t a\+Command, uint\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats, bool a\+Send\+NEC2\+Repeats)
+\item 
+\mbox{\Hypertarget{group__TinySender_gac2a48685f769fa815bb473f6c97c9677}\label{group__TinySender_gac2a48685f769fa815bb473f6c97c9677}} 
+void {\bfseries send\+Fast8\+Bit\+And\+Parity} (uint8\+\_\+t a\+Send\+Pin, uint8\+\_\+t a\+Command, uint\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats)
+\item 
+\mbox{\Hypertarget{group__TinySender_ga03e7b24211df9d9b321032bf11449df8}\label{group__TinySender_ga03e7b24211df9d9b321032bf11449df8}} 
+void {\bfseries send\+FAST} (uint8\+\_\+t a\+Send\+Pin, uint16\+\_\+t a\+Command, uint\+\_\+fast8\+\_\+t a\+Number\+Of\+Repeats)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}

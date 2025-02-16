@@ -1,0 +1,118 @@
+\hypertarget{Mylog_8h}{}\doxysection{include/\+Mylog.h File Reference}
+\label{Mylog_8h}\index{include/Mylog.h@{include/Mylog.h}}
+
+
+Logging module for debugging and informational messages.  
+
+
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+Include dependency graph for Mylog.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=174pt]{Mylog_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=195pt]{Mylog_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{Mylog_8h_aca1fd1d8935433e6ba2e3918214e07f9}{Log\+Level}} \{ \mbox{\hyperlink{Mylog_8h_aca1fd1d8935433e6ba2e3918214e07f9a748005382152808a72b1a9177d9dc806}{INFO}}
+, \mbox{\hyperlink{Mylog_8h_aca1fd1d8935433e6ba2e3918214e07f9a2fd6f336d08340583bd620a7f5694c90}{ERROR}}
+, \mbox{\hyperlink{Mylog_8h_aca1fd1d8935433e6ba2e3918214e07f9a0593585da9181e972974c1274d8f2b4f}{DEBUG}}
+ \}
+\begin{DoxyCompactList}\small\item\em Defines different levels of logging severity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{Mylog_8h_ab488e813e11c6ae6bff28da60e865cca}{My\+Log}} (\mbox{\hyperlink{Mylog_8h_aca1fd1d8935433e6ba2e3918214e07f9}{Log\+Level}} level, const char $\ast$message)
+\begin{DoxyCompactList}\small\item\em Logs a message with a given log level. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Mylog_8h_a0f59d9fc408639b039c55b0f01f44f0d}{My\+LogF}} (\mbox{\hyperlink{Mylog_8h_aca1fd1d8935433e6ba2e3918214e07f9}{Log\+Level}} level, const char $\ast$format,...)
+\begin{DoxyCompactList}\small\item\em Logs a formatted message with a given log level. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Logging module for debugging and informational messages. 
+
+This module provides functions for logging messages with different logging levels. It supports formatted and plain-\/text logging.
+
+\begin{DoxyAuthor}{Author}
+Moktar SELLAMI 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2025-\/02-\/16 
+\end{DoxyDate}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{Mylog_8h_aca1fd1d8935433e6ba2e3918214e07f9}\label{Mylog_8h_aca1fd1d8935433e6ba2e3918214e07f9}} 
+\index{Mylog.h@{Mylog.h}!LogLevel@{LogLevel}}
+\index{LogLevel@{LogLevel}!Mylog.h@{Mylog.h}}
+\doxysubsubsection{\texorpdfstring{LogLevel}{LogLevel}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{Mylog_8h_aca1fd1d8935433e6ba2e3918214e07f9}{Log\+Level}}}
+
+
+
+Defines different levels of logging severity. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INFO@{INFO}!Mylog.h@{Mylog.h}}\index{Mylog.h@{Mylog.h}!INFO@{INFO}}}\mbox{\Hypertarget{Mylog_8h_aca1fd1d8935433e6ba2e3918214e07f9a748005382152808a72b1a9177d9dc806}\label{Mylog_8h_aca1fd1d8935433e6ba2e3918214e07f9a748005382152808a72b1a9177d9dc806}} 
+INFO&Informational messages \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ERROR@{ERROR}!Mylog.h@{Mylog.h}}\index{Mylog.h@{Mylog.h}!ERROR@{ERROR}}}\mbox{\Hypertarget{Mylog_8h_aca1fd1d8935433e6ba2e3918214e07f9a2fd6f336d08340583bd620a7f5694c90}\label{Mylog_8h_aca1fd1d8935433e6ba2e3918214e07f9a2fd6f336d08340583bd620a7f5694c90}} 
+ERROR&Error messages \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DEBUG@{DEBUG}!Mylog.h@{Mylog.h}}\index{Mylog.h@{Mylog.h}!DEBUG@{DEBUG}}}\mbox{\Hypertarget{Mylog_8h_aca1fd1d8935433e6ba2e3918214e07f9a0593585da9181e972974c1274d8f2b4f}\label{Mylog_8h_aca1fd1d8935433e6ba2e3918214e07f9a0593585da9181e972974c1274d8f2b4f}} 
+DEBUG&Debugging messages \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{Mylog_8h_ab488e813e11c6ae6bff28da60e865cca}\label{Mylog_8h_ab488e813e11c6ae6bff28da60e865cca}} 
+\index{Mylog.h@{Mylog.h}!MyLog@{MyLog}}
+\index{MyLog@{MyLog}!Mylog.h@{Mylog.h}}
+\doxysubsubsection{\texorpdfstring{MyLog()}{MyLog()}}
+{\footnotesize\ttfamily void My\+Log (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{Mylog_8h_aca1fd1d8935433e6ba2e3918214e07f9}{Log\+Level}}}]{level,  }\item[{const char $\ast$}]{message }\end{DoxyParamCaption})}
+
+
+
+Logs a message with a given log level. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em level} & The severity level of the log message. \\
+\hline
+{\em message} & The message to log. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Mylog_8h_a0f59d9fc408639b039c55b0f01f44f0d}\label{Mylog_8h_a0f59d9fc408639b039c55b0f01f44f0d}} 
+\index{Mylog.h@{Mylog.h}!MyLogF@{MyLogF}}
+\index{MyLogF@{MyLogF}!Mylog.h@{Mylog.h}}
+\doxysubsubsection{\texorpdfstring{MyLogF()}{MyLogF()}}
+{\footnotesize\ttfamily void My\+LogF (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{Mylog_8h_aca1fd1d8935433e6ba2e3918214e07f9}{Log\+Level}}}]{level,  }\item[{const char $\ast$}]{format,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Logs a formatted message with a given log level. 
+
+This function supports formatted output similar to printf.
+
+
+\begin{DoxyParams}{Parameters}
+{\em level} & The severity level of the log message. \\
+\hline
+{\em format} & The format string (printf-\/style). \\
+\hline
+{\em ...} & Additional arguments for formatting. \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,14 @@
+digraph "lib" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_97aefd0d527b934f1d99a682da8fe6a9 {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_97aefd0d527b934f1d99a682da8fe6a9.html"];
+    dir_97aefd0d527b934f1d99a682da8fe6a9 [shape=plaintext label="lib"];
+  dir_68d3614a5c655cc1084e46e96220bcc7 [shape=box label="Arduino-IRremote" fillcolor="white" style="filled" color="red" URL="dir_68d3614a5c655cc1084e46e96220bcc7.html"];
+  dir_c4dedaf980b01a3cd7652d05d949c8d7 [shape=box label="ArduinoJson" fillcolor="white" style="filled" color="red" URL="dir_c4dedaf980b01a3cd7652d05d949c8d7.html"];
+  dir_fdee3db3a8379ab67ae8dad4cff2214e [shape=box label="Ethernet" fillcolor="white" style="filled" color="red" URL="dir_fdee3db3a8379ab67ae8dad4cff2214e.html"];
+  dir_994e2be07389483b965a5577d7da1adf [shape=box label="Rtc" fillcolor="white" style="filled" color="red" URL="dir_994e2be07389483b965a5577d7da1adf.html"];
+  dir_9d581c3cfbe3a1614a9426ea2fa28e9c [shape=box label="WakeOnLan" fillcolor="white" style="filled" color="red" URL="dir_9d581c3cfbe3a1614a9426ea2fa28e9c.html"];
+  }
+}

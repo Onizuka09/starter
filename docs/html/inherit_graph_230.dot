@@ -1,0 +1,8 @@
+digraph "Graphical Class Hierarchy"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node0 [label="EepromAt24c32\< T_WIRE\l_METHOD \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classEepromAt24c32.html",tooltip=" "];
+}

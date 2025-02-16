@@ -1,0 +1,143 @@
+\hypertarget{classRTC__Module}{}\doxysection{RTC\+\_\+\+Module Class Reference}
+\label{classRTC__Module}\index{RTC\_Module@{RTC\_Module}}
+
+
+Class for managing and interacting with the RTC (Real-\/\+Time Clock) module.  
+
+
+
+
+{\ttfamily \#include $<$RTC\+\_\+module.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRTC__Module_a763bef9389cf8512e52b0835794aaa68}\label{classRTC__Module_a763bef9389cf8512e52b0835794aaa68}} 
+\mbox{\hyperlink{classRTC__Module_a763bef9389cf8512e52b0835794aaa68}{RTC\+\_\+\+Module}} ()
+\begin{DoxyCompactList}\small\item\em Constructor for the \mbox{\hyperlink{classRTC__Module}{RTC\+\_\+\+Module}} class. Initializes the starting and previous minutes and the time function flag. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRTC__Module_a3185c1784bdbfdb946e8e4ff0929edda}{RTC\+\_\+\+Timer}} (uint32\+\_\+t seconds)
+\begin{DoxyCompactList}\small\item\em Sets the timer for the specified duration in seconds. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classRTC__Module_af1eaeb94998d21a5afa37f8f3c55e5e9}\label{classRTC__Module_af1eaeb94998d21a5afa37f8f3c55e5e9}} 
+void \mbox{\hyperlink{classRTC__Module_af1eaeb94998d21a5afa37f8f3c55e5e9}{RTC\+\_\+\+Module\+\_\+init}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the RTC module and sets up the required pins. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRTC__Module_ab31cf6ace9f0a552d71799453ad42c7c}{print\+Date\+Time}} (Rtc\+Date\+Time \&dt)
+\begin{DoxyCompactList}\small\item\em Prints the current date and time from the RTC module. \end{DoxyCompactList}\item 
+Rtc\+Date\+Time \mbox{\hyperlink{classRTC__Module_a74e5c07b9e66ce7861034ccfd4674064}{RTC\+\_\+get\+Date\+Time}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the current date and time from the RTC. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classRTC__Module_a2e21d38654de903dd3ffe86be653dd53}{is\+Elapsed}} ()
+\begin{DoxyCompactList}\small\item\em Checks if the specified duration has elapsed based on the timer. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classRTC__Module_a10e023d434a083411e6654e427e56e4f}{RTC\+\_\+\+Set\+Timer\+\_\+min}} ()
+\begin{DoxyCompactList}\small\item\em Sets the timer based on the minute value, called periodically. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classRTC__Module_a3d5547fec26b634fc91b228630beac22}{start\+\_\+min}}
+\item 
+int \mbox{\hyperlink{classRTC__Module_a9fe455d8715b534051e77c3e9a856a8d}{prev\+\_\+min}}
+\item 
+bool \mbox{\hyperlink{classRTC__Module_a7b6e3e0b78644eaf3e7cfe4e3138322e}{timer}} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for managing and interacting with the RTC (Real-\/\+Time Clock) module. 
+
+This class allows setting a timer, initializing the RTC, and retrieving the current date and time from the RTC module. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classRTC__Module_a2e21d38654de903dd3ffe86be653dd53}\label{classRTC__Module_a2e21d38654de903dd3ffe86be653dd53}} 
+\index{RTC\_Module@{RTC\_Module}!isElapsed@{isElapsed}}
+\index{isElapsed@{isElapsed}!RTC\_Module@{RTC\_Module}}
+\doxysubsubsection{\texorpdfstring{isElapsed()}{isElapsed()}}
+{\footnotesize\ttfamily bool RTC\+\_\+\+Module\+::is\+Elapsed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Checks if the specified duration has elapsed based on the timer. 
+
+\begin{DoxyReturn}{Returns}
+True if the timer duration has elapsed, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRTC__Module_ab31cf6ace9f0a552d71799453ad42c7c}\label{classRTC__Module_ab31cf6ace9f0a552d71799453ad42c7c}} 
+\index{RTC\_Module@{RTC\_Module}!printDateTime@{printDateTime}}
+\index{printDateTime@{printDateTime}!RTC\_Module@{RTC\_Module}}
+\doxysubsubsection{\texorpdfstring{printDateTime()}{printDateTime()}}
+{\footnotesize\ttfamily void RTC\+\_\+\+Module\+::print\+Date\+Time (\begin{DoxyParamCaption}\item[{Rtc\+Date\+Time \&}]{dt }\end{DoxyParamCaption})}
+
+
+
+Prints the current date and time from the RTC module. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & The date and time object to be printed. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRTC__Module_a74e5c07b9e66ce7861034ccfd4674064}\label{classRTC__Module_a74e5c07b9e66ce7861034ccfd4674064}} 
+\index{RTC\_Module@{RTC\_Module}!RTC\_getDateTime@{RTC\_getDateTime}}
+\index{RTC\_getDateTime@{RTC\_getDateTime}!RTC\_Module@{RTC\_Module}}
+\doxysubsubsection{\texorpdfstring{RTC\_getDateTime()}{RTC\_getDateTime()}}
+{\footnotesize\ttfamily Rtc\+Date\+Time RTC\+\_\+\+Module\+::\+RTC\+\_\+get\+Date\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the current date and time from the RTC. 
+
+\begin{DoxyReturn}{Returns}
+The current date and time as an Rtc\+Date\+Time object. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRTC__Module_a10e023d434a083411e6654e427e56e4f}\label{classRTC__Module_a10e023d434a083411e6654e427e56e4f}} 
+\index{RTC\_Module@{RTC\_Module}!RTC\_SetTimer\_min@{RTC\_SetTimer\_min}}
+\index{RTC\_SetTimer\_min@{RTC\_SetTimer\_min}!RTC\_Module@{RTC\_Module}}
+\doxysubsubsection{\texorpdfstring{RTC\_SetTimer\_min()}{RTC\_SetTimer\_min()}}
+{\footnotesize\ttfamily bool RTC\+\_\+\+Module\+::\+RTC\+\_\+\+Set\+Timer\+\_\+min (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Sets the timer based on the minute value, called periodically. 
+
+\begin{DoxyReturn}{Returns}
+True if the timer was set successfully, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRTC__Module_a3185c1784bdbfdb946e8e4ff0929edda}\label{classRTC__Module_a3185c1784bdbfdb946e8e4ff0929edda}} 
+\index{RTC\_Module@{RTC\_Module}!RTC\_Timer@{RTC\_Timer}}
+\index{RTC\_Timer@{RTC\_Timer}!RTC\_Module@{RTC\_Module}}
+\doxysubsubsection{\texorpdfstring{RTC\_Timer()}{RTC\_Timer()}}
+{\footnotesize\ttfamily void RTC\+\_\+\+Module\+::\+RTC\+\_\+\+Timer (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{seconds }\end{DoxyParamCaption})}
+
+
+
+Sets the timer for the specified duration in seconds. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em seconds} & The duration of the timer in seconds. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classRTC__Module_a9fe455d8715b534051e77c3e9a856a8d}\label{classRTC__Module_a9fe455d8715b534051e77c3e9a856a8d}} 
+\index{RTC\_Module@{RTC\_Module}!prev\_min@{prev\_min}}
+\index{prev\_min@{prev\_min}!RTC\_Module@{RTC\_Module}}
+\doxysubsubsection{\texorpdfstring{prev\_min}{prev\_min}}
+{\footnotesize\ttfamily int RTC\+\_\+\+Module\+::prev\+\_\+min}
+
+The previous minute value to track changes. \mbox{\Hypertarget{classRTC__Module_a3d5547fec26b634fc91b228630beac22}\label{classRTC__Module_a3d5547fec26b634fc91b228630beac22}} 
+\index{RTC\_Module@{RTC\_Module}!start\_min@{start\_min}}
+\index{start\_min@{start\_min}!RTC\_Module@{RTC\_Module}}
+\doxysubsubsection{\texorpdfstring{start\_min}{start\_min}}
+{\footnotesize\ttfamily int RTC\+\_\+\+Module\+::start\+\_\+min}
+
+The starting minute for the timer. \mbox{\Hypertarget{classRTC__Module_a7b6e3e0b78644eaf3e7cfe4e3138322e}\label{classRTC__Module_a7b6e3e0b78644eaf3e7cfe4e3138322e}} 
+\index{RTC\_Module@{RTC\_Module}!timer@{timer}}
+\index{timer@{timer}!RTC\_Module@{RTC\_Module}}
+\doxysubsubsection{\texorpdfstring{timer}{timer}}
+{\footnotesize\ttfamily bool RTC\+\_\+\+Module\+::timer = false}
+
+Flag indicating whether the timer is running. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{RTC__module_8h}{RTC\+\_\+module.\+h}}\item 
+src/RTC\+\_\+module.\+cpp\end{DoxyCompactItemize}

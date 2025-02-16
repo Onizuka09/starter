@@ -1,0 +1,8 @@
+digraph "Graphical Class Hierarchy"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node0 [label="ARDUINOJSON_NAMESPACE\l::Reader\< TSource, typename\l enable_if\< is_base_of\< std\l::istream, TSource \>::value\l \>::type \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structARDUINOJSON__NAMESPACE_1_1Reader_3_01TSource_00_01typename_01enable__if_3_01is__base__of_30170c1e3dbfab204e2914fd25d993083.html",tooltip=" "];
+}

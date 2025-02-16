@@ -1,0 +1,102 @@
+\hypertarget{classRGBModule}{}\doxysection{RGBModule Class Reference}
+\label{classRGBModule}\index{RGBModule@{RGBModule}}
+
+
+Class for controlling an RGB LED.  
+
+
+
+
+{\ttfamily \#include $<$RGBModule.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRGBModule_ada3b4c648e0972add55bea3e95cf4d7f}{RGBModule}} (int rpin, int gpin, int bpin)
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{classRGBModule}{RGBModule}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classRGBModule_a7588455393a078d63cfab0193b4cb7de}\label{classRGBModule_a7588455393a078d63cfab0193b4cb7de}} 
+void \mbox{\hyperlink{classRGBModule_a7588455393a078d63cfab0193b4cb7de}{RGBInit}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the RGB LED pins. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRGBModule_ab8502de5f12006c3bc9d42fa5aaa07de}{set\+Color}} (int red\+Value, int green\+Value, int blue\+Value)
+\begin{DoxyCompactList}\small\item\em Sets the RGB LED to a specific color. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classRGBModule_a0c91d31f259a4fc9e3192f1afd5627b6}\label{classRGBModule_a0c91d31f259a4fc9e3192f1afd5627b6}} 
+void \mbox{\hyperlink{classRGBModule_a0c91d31f259a4fc9e3192f1afd5627b6}{run\+RGBTask}} ()
+\begin{DoxyCompactList}\small\item\em Starts the RGB task for blinking. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classRGBModule_a7a28486693bb8ea6928e408d647a4914}\label{classRGBModule_a7a28486693bb8ea6928e408d647a4914}} 
+void \mbox{\hyperlink{classRGBModule_a7a28486693bb8ea6928e408d647a4914}{stop\+RGBTask}} ()
+\begin{DoxyCompactList}\small\item\em Stops the RGB blinking task. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classRGBModule_a754274aaa5c72e4ea85d2694f033932d}\label{classRGBModule_a754274aaa5c72e4ea85d2694f033932d}} 
+void \mbox{\hyperlink{classRGBModule_a754274aaa5c72e4ea85d2694f033932d}{kill\+RGBTask}} ()
+\begin{DoxyCompactList}\small\item\em Kills the RGB task. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRGBModule_af6466d456b83dcef18051d242bb650f3}{set\+Blinking\+Status}} (\mbox{\hyperlink{RGBModule_8h_ae10cb58b12d14aa3cbc1050fdc8f8d4e}{LED\+\_\+\+STATUS\+\_\+\+COLOR}} s)
+\begin{DoxyCompactList}\small\item\em Sets the blinking status of the LED. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for controlling an RGB LED. 
+
+This class provides functionality to initialize, set colors, and control the blinking of an RGB LED using the specified pin numbers for red, green, and blue. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classRGBModule_ada3b4c648e0972add55bea3e95cf4d7f}\label{classRGBModule_ada3b4c648e0972add55bea3e95cf4d7f}} 
+\index{RGBModule@{RGBModule}!RGBModule@{RGBModule}}
+\index{RGBModule@{RGBModule}!RGBModule@{RGBModule}}
+\doxysubsubsection{\texorpdfstring{RGBModule()}{RGBModule()}}
+{\footnotesize\ttfamily RGBModule\+::\+RGBModule (\begin{DoxyParamCaption}\item[{int}]{rpin,  }\item[{int}]{gpin,  }\item[{int}]{bpin }\end{DoxyParamCaption})}
+
+
+
+Constructor for \mbox{\hyperlink{classRGBModule}{RGBModule}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rpin} & Pin number for the red LED. \\
+\hline
+{\em gpin} & Pin number for the green LED. \\
+\hline
+{\em bpin} & Pin number for the blue LED. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classRGBModule_af6466d456b83dcef18051d242bb650f3}\label{classRGBModule_af6466d456b83dcef18051d242bb650f3}} 
+\index{RGBModule@{RGBModule}!setBlinkingStatus@{setBlinkingStatus}}
+\index{setBlinkingStatus@{setBlinkingStatus}!RGBModule@{RGBModule}}
+\doxysubsubsection{\texorpdfstring{setBlinkingStatus()}{setBlinkingStatus()}}
+{\footnotesize\ttfamily void RGBModule\+::set\+Blinking\+Status (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{RGBModule_8h_ae10cb58b12d14aa3cbc1050fdc8f8d4e}{LED\+\_\+\+STATUS\+\_\+\+COLOR}}}]{s }\end{DoxyParamCaption})}
+
+
+
+Sets the blinking status of the LED. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & The color status to be used for blinking. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRGBModule_ab8502de5f12006c3bc9d42fa5aaa07de}\label{classRGBModule_ab8502de5f12006c3bc9d42fa5aaa07de}} 
+\index{RGBModule@{RGBModule}!setColor@{setColor}}
+\index{setColor@{setColor}!RGBModule@{RGBModule}}
+\doxysubsubsection{\texorpdfstring{setColor()}{setColor()}}
+{\footnotesize\ttfamily void RGBModule\+::set\+Color (\begin{DoxyParamCaption}\item[{int}]{red\+Value,  }\item[{int}]{green\+Value,  }\item[{int}]{blue\+Value }\end{DoxyParamCaption})}
+
+
+
+Sets the RGB LED to a specific color. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em red\+Value} & Value for the red color (0-\/255). \\
+\hline
+{\em green\+Value} & Value for the green color (0-\/255). \\
+\hline
+{\em blue\+Value} & Value for the blue color (0-\/255). \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{RGBModule_8h}{RGBModule.\+h}}\item 
+src/RGBModule.\+cpp\end{DoxyCompactItemize}

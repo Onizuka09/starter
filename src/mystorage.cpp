@@ -3,24 +3,22 @@
 //  *
 //  *       Filename:  JsonFileManager.cpp
 //  *
-//  *    Description:  
+//  *    Description:
 //  *
 //  *        Version:  1.0
 //  *        Created:  04/17/2024 05:50:39 AM
 //  *       Revision:  none
 //  *       Compiler:  gcc
 //  *
-//  *         Author:  YOUR NAME (), 
-//  *   Organization:  
+//  *         Author:  YOUR NAME (),
+//  *   Organization:
 //  *
 //  * =====================================================================================
 //  */
 
 #include "mystorage.h"
 
-
 // String file_names[] = {"/settings.txt"};
-
 
 /*
 
@@ -35,7 +33,7 @@
 
 
 // void stop_littlefs(){
-//      LittleFS.end(); 
+//      LittleFS.end();
 // }
 // bool isDataAvailable(Files f) {
 //     File file = LittleFS.open(file_names[f], "r");
@@ -109,28 +107,36 @@
 // }
 
 */
-void listDir(fs::FS &fs, const char *dirname, uint8_t levels) {
+void listDir(fs::FS &fs, const char *dirname, uint8_t levels)
+{
   Serial.printf("Listing directory: %s\r\n", dirname);
 
   File root = fs.open(dirname);
-  if (!root) {
+  if (!root)
+  {
     Serial.println("- failed to open directory");
     return;
   }
-  if (!root.isDirectory()) {
+  if (!root.isDirectory())
+  {
     Serial.println(" - not a directory");
     return;
   }
 
   File file = root.openNextFile();
-  while (file) {
-    if (file.isDirectory()) {
+  while (file)
+  {
+    if (file.isDirectory())
+    {
       Serial.print("  DIR : ");
       Serial.println(file.name());
-      if (levels) {
+      if (levels)
+      {
         listDir(fs, file.path(), levels - 1);
       }
-    } else {
+    }
+    else
+    {
       Serial.print("  FILE: ");
       Serial.print(file.name());
       Serial.print("\tSIZE: ");
@@ -140,19 +146,22 @@ void listDir(fs::FS &fs, const char *dirname, uint8_t levels) {
   }
 }
 
-void Dump_file(fs::FS &fs, const char *path) {
+void Dump_file(fs::FS &fs, const char *path)
+{
   Serial.printf("Reading file: %s\r\n", path);
 
   File file = fs.open(path);
-  if (!file || file.isDirectory()) {
+  if (!file || file.isDirectory())
+  {
     Serial.println("- failed to open file for reading");
     return;
   }
 
   Serial.println("- read from file:");
-  while (file.available()) {
+  while (file.available())
+  {
     Serial.write(file.read());
-    Serial.println(); 
+    Serial.println();
   }
   file.close();
 }
@@ -204,7 +213,7 @@ void dump_file_IR(Files f ) {
 //   }
 
 //   Serial.println(); // Optional: Add newline after dumping file content
- 
+
 // }
 
 <<<<<<< HEAD

@@ -1,0 +1,41 @@
+\hypertarget{structirparams__struct}{}\doxysection{irparams\+\_\+struct Struct Reference}
+\label{structirparams__struct}\index{irparams\_struct@{irparams\_struct}}
+
+
+{\ttfamily \#include $<$IRremote\+Int.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structirparams__struct_aea7300a6d0cd2e463887a8595c6c1e2e}\label{structirparams__struct_aea7300a6d0cd2e463887a8595c6c1e2e}} 
+volatile uint8\+\_\+t \mbox{\hyperlink{structirparams__struct_aea7300a6d0cd2e463887a8595c6c1e2e}{State\+For\+ISR}}
+\begin{DoxyCompactList}\small\item\em State Machine state. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structirparams__struct_a6a7570065b3dac05690883865c757752}\label{structirparams__struct_a6a7570065b3dac05690883865c757752}} 
+uint\+\_\+fast8\+\_\+t \mbox{\hyperlink{structirparams__struct_a6a7570065b3dac05690883865c757752}{IRReceive\+Pin}}
+\begin{DoxyCompactList}\small\item\em Pin connected to IR data from detector. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structirparams__struct_a6cac39f89a3e3105e68618d61b87eec6}\label{structirparams__struct_a6cac39f89a3e3105e68618d61b87eec6}} 
+volatile uint\+\_\+fast16\+\_\+t \mbox{\hyperlink{structirparams__struct_a6cac39f89a3e3105e68618d61b87eec6}{Tick\+Counter\+For\+ISR}}
+\begin{DoxyCompactList}\small\item\em Counts 50uS ticks. The value is copied into the rawbuf array on every transition. Counting is independent of state or resume(). \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structirparams__struct_aa757c43a8f222a808bb4d7813103f48e}\label{structirparams__struct_aa757c43a8f222a808bb4d7813103f48e}} 
+void($\ast$ \mbox{\hyperlink{structirparams__struct_aa757c43a8f222a808bb4d7813103f48e}{Receive\+Complete\+Callback\+Function}} )(void)
+\begin{DoxyCompactList}\small\item\em The function to call if a protocol message has arrived, i.\+e. State\+For\+ISR changed to IR\+\_\+\+REC\+\_\+\+STATE\+\_\+\+STOP. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structirparams__struct_add9591d883df748c9ceeb46fa0de1ebc}\label{structirparams__struct_add9591d883df748c9ceeb46fa0de1ebc}} 
+bool \mbox{\hyperlink{structirparams__struct_add9591d883df748c9ceeb46fa0de1ebc}{Overflow\+Flag}}
+\begin{DoxyCompactList}\small\item\em Raw buffer Overflow\+Flag occurred. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structirparams__struct_a6f87b63c5050c6772c2ad16eaf3946a0}\label{structirparams__struct_a6f87b63c5050c6772c2ad16eaf3946a0}} 
+IRRawlen\+Type \mbox{\hyperlink{structirparams__struct_a6f87b63c5050c6772c2ad16eaf3946a0}{rawlen}}
+\begin{DoxyCompactList}\small\item\em counter of entries in rawbuf \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structirparams__struct_a50a57eb866b5b1653495cf7b67286bf5}\label{structirparams__struct_a50a57eb866b5b1653495cf7b67286bf5}} 
+uint16\+\_\+t \mbox{\hyperlink{structirparams__struct_a50a57eb866b5b1653495cf7b67286bf5}{initial\+Gap\+Ticks}}
+\begin{DoxyCompactList}\small\item\em Tick counts of the length of the gap between previous and current IR frame. Pre 4.\+4\+: rawbuf\mbox{[}0\mbox{]}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structirparams__struct_a4443f92de2555d35ad9948dbe72267af}\label{structirparams__struct_a4443f92de2555d35ad9948dbe72267af}} 
+IRRawbuf\+Type \mbox{\hyperlink{structirparams__struct_a4443f92de2555d35ad9948dbe72267af}{rawbuf}} \mbox{[}\mbox{\hyperlink{IRremoteInt_8h_a589aa40429eeb37b6e83a2c09854a47b}{RAW\+\_\+\+BUFFER\+\_\+\+LENGTH}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em raw data / tick counts per mark/space. With 8 bit we can only store up to 12.\+7 ms. First entry is empty to be backwards compatible. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This struct contains the data and control used for receiver static functions and the ISR (interrupt service routine) Only State\+For\+ISR needs to be volatile. All the other fields are not written by ISR after data available and before start/resume. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+Arduino-\/\+IRremote/src/\mbox{\hyperlink{IRremoteInt_8h}{IRremote\+Int.\+h}}\end{DoxyCompactItemize}

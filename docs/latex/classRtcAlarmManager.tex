@@ -1,0 +1,55 @@
+\hypertarget{classRtcAlarmManager}{}\doxysection{Rtc\+Alarm\+Manager$<$ V\+\_\+\+CALLBACK $>$ Class Template Reference}
+\label{classRtcAlarmManager}\index{RtcAlarmManager$<$ V\_CALLBACK $>$@{RtcAlarmManager$<$ V\_CALLBACK $>$}}
+
+
+Collaboration diagram for Rtc\+Alarm\+Manager$<$ V\+\_\+\+CALLBACK $>$\+:
+% FIG 0
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structRtcAlarmManager_1_1Alarm}{Alarm}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRtcAlarmManager_a83ae998516355aecd83cff277adeef30}\label{classRtcAlarmManager_a83ae998516355aecd83cff277adeef30}} 
+{\bfseries Rtc\+Alarm\+Manager} (uint8\+\_\+t count)
+\item 
+\mbox{\Hypertarget{classRtcAlarmManager_a7aa96a736dd0ba30e8148ff45cad2d65}\label{classRtcAlarmManager_a7aa96a736dd0ba30e8148ff45cad2d65}} 
+int32\+\_\+t {\bfseries Sync} (const \mbox{\hyperlink{classRtcDateTime}{Rtc\+Date\+Time}} \&now)
+\item 
+\mbox{\Hypertarget{classRtcAlarmManager_acf43fd67ef8796b8765001f7e3f61372}\label{classRtcAlarmManager_acf43fd67ef8796b8765001f7e3f61372}} 
+\mbox{\hyperlink{classRtcDateTime}{Rtc\+Date\+Time}} {\bfseries Now} () const
+\item 
+\mbox{\Hypertarget{classRtcAlarmManager_a44fa6ac9e2a98f783c6dd6f84525af84}\label{classRtcAlarmManager_a44fa6ac9e2a98f783c6dd6f84525af84}} 
+int8\+\_\+t {\bfseries Add\+Alarm} (const \mbox{\hyperlink{classRtcDateTime}{Rtc\+Date\+Time}} \&when, uint32\+\_\+t period)
+\item 
+\mbox{\Hypertarget{classRtcAlarmManager_ac01f0adf5b059f49fd1206a846dfc170}\label{classRtcAlarmManager_ac01f0adf5b059f49fd1206a846dfc170}} 
+void {\bfseries Remove\+Alarm} (uint8\+\_\+t id)
+\item 
+\mbox{\Hypertarget{classRtcAlarmManager_a867763823523e0a62621f61c8a3e55b6}\label{classRtcAlarmManager_a867763823523e0a62621f61c8a3e55b6}} 
+bool {\bfseries Is\+Alarm\+Active} (uint8\+\_\+t id)
+\item 
+\mbox{\Hypertarget{classRtcAlarmManager_aed4a4d3ca36f6449f8feb6e5ef616c88}\label{classRtcAlarmManager_aed4a4d3ca36f6449f8feb6e5ef616c88}} 
+void {\bfseries Process\+Alarms} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRtcAlarmManager_a00dc6ca25f279725baaa15f87566e5fc}\label{classRtcAlarmManager_a00dc6ca25f279725baaa15f87566e5fc}} 
+\mbox{\hyperlink{structRtcAlarmManager_1_1Alarm}{Alarm}} $\ast$ {\bfseries \+\_\+alarms}
+\item 
+\mbox{\Hypertarget{classRtcAlarmManager_a16e951c44c7bb8588f34b10901e978a0}\label{classRtcAlarmManager_a16e951c44c7bb8588f34b10901e978a0}} 
+uint8\+\_\+t {\bfseries \+\_\+alarms\+Count}
+\item 
+\mbox{\Hypertarget{classRtcAlarmManager_a5c8e90fbda4b650f55596dec9ae793ba}\label{classRtcAlarmManager_a5c8e90fbda4b650f55596dec9ae793ba}} 
+uint32\+\_\+t {\bfseries \+\_\+ms\+Last}
+\item 
+\mbox{\Hypertarget{classRtcAlarmManager_ad55878023c461937a54ad542a9085b22}\label{classRtcAlarmManager_ad55878023c461937a54ad542a9085b22}} 
+uint32\+\_\+t {\bfseries \+\_\+seconds}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+Rtc/src/Rtc\+Alarm\+Manager.\+h\end{DoxyCompactItemize}

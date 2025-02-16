@@ -1,0 +1,117 @@
+=== decoding for LG A/C ====
+\begin{DoxyItemize}
+\item 1) remote of LG AC has two type of HDR mark/space, 8000/4000 and 3100/10000
+\item 2) HDR 8000/4000 is decoded using decode\+LG(\+IRrecv\+Dump\+V2) without problem
+\item 3) for HDR 3100/10000, use Analys\+IR\textquotesingle{}s code \+: \href{http://www.analysir.com/blog/2014/03/19/air-conditioners-problems-recording-long-infrared-remote-control-signals-arduino/}{\texttt{ http\+://www.\+analysir.\+com/blog/2014/03/19/air-\/conditioners-\/problems-\/recording-\/long-\/infrared-\/remote-\/control-\/signals-\/arduino/}}
+\item 4) for bin output based on Analys\+IR\textquotesingle{}s code \+: \href{https://gist.github.com/chaeplin/a3a4b4b6b887c663bfe8}{\texttt{ https\+://gist.\+github.\+com/chaeplin/a3a4b4b6b887c663bfe8}}
+\item 5) remove first two byte(11)
+\item 6) sample rawcode with bin output \+: \href{https://gist.github.com/chaeplin/134d232e0b8cfb898860}{\texttt{ https\+://gist.\+github.\+com/chaeplin/134d232e0b8cfb898860}}
+\end{DoxyItemize}
+
+=== $\ast$$\ast$$\ast$ ===
+\begin{DoxyItemize}
+\item 1) Sample raw code \+: \href{https://gist.github.com/chaeplin/ab2a7ad1533c41260f0d}{\texttt{ https\+://gist.\+github.\+com/chaeplin/ab2a7ad1533c41260f0d}}
+\item 2) send raw code \+: \href{https://gist.github.com/chaeplin/7c800d3166463bb51be4}{\texttt{ https\+://gist.\+github.\+com/chaeplin/7c800d3166463bb51be4}}
+\end{DoxyItemize}
+
+=== $\ast$$\ast$$\ast$ ===
+\begin{DoxyItemize}
+\item (0) \+: Cooling or Heating
+\item (1) \+: fixed address
+\item (2) \+: fixed address
+\item (3) \+: special(power, swing, air clean)
+\item (4) \+: change air flow, temperature, cooling(0)/heating(4)
+\item (5) \+: temperature ( 15 + (5) = )
+\item (6) \+: air flow
+\item (7) \+: checksum ( 3 + 4 + 5 + 6 ) \& B00001111
+\end{DoxyItemize}
+
+°F = °C × 1.\+8 + 32~\newline
+ °C = (°F -\/ 32) / 1.\+8
+
+=== $\ast$$\ast$$\ast$ ===
+\begin{DoxyItemize}
+\item remote / Korea / without heating
+\end{DoxyItemize}
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{9}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ status   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ (0)   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ (1)   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ (2)   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ (3)   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ (4)   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ (5)   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ (6)   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ (7)    }\\\cline{1-9}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ status   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ (0)   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ (1)   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ (2)   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ (3)   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ (4)   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ (5)   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ (6)   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ (7)    }\\\cline{1-9}
+\endhead
+on / 25 / mid   &C   &1000   &1000   &0000   &0000   &1010   &0010   &1100    \\\cline{1-9}
+on / 26 / mid   &C   &1000   &1000   &0000   &0000   &1011   &0010   &1101    \\\cline{1-9}
+on / 27 / mid   &C   &1000   &1000   &0000   &0000   &1100   &0010   &1110    \\\cline{1-9}
+on / 28 / mid   &C   &1000   &1000   &0000   &0000   &1101   &0010   &1111    \\\cline{1-9}
+on / 25 / high   &C   &1000   &1000   &0000   &0000   &1010   &0100   &1110    \\\cline{1-9}
+on / 26 / high   &C   &1000   &1000   &0000   &0000   &1011   &0100   &1111    \\\cline{1-9}
+on / 27 / high   &C   &1000   &1000   &0000   &0000   &1100   &0100   &0000    \\\cline{1-9}
+on / 28 / high   &C   &1000   &1000   &0000   &0000   &1101   &0100   &0001    \\\cline{1-9}
+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---   &---   &-\/---   &-\/---   &-\/---   &-\/---   &-\/---   &-\/---   &-\/---    \\\cline{1-9}
+1 up   &C   &1000   &1000   &0000   &1000   &1101   &0100   &1001    \\\cline{1-9}
+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---   &---   &-\/---   &-\/---   &-\/---   &-\/---   &-\/---   &-\/---   &-\/---    \\\cline{1-9}
+Cool power   &C   &1000   &1000   &0001   &0000   &0000   &1100   &1101    \\\cline{1-9}
+energy saving   &C   &1000   &1000   &0001   &0000   &0000   &0100   &0101    \\\cline{1-9}
+power   &C   &1000   &1000   &0001   &0000   &0000   &1000   &1001    \\\cline{1-9}
+flow/up/down   &C   &1000   &1000   &0001   &0011   &0001   &0100   &1001    \\\cline{1-9}
+up/down off   &C   &1000   &1000   &0001   &0011   &0001   &0101   &1010    \\\cline{1-9}
+flow/left/right   &C   &1000   &1000   &0001   &0011   &0001   &0110   &1011    \\\cline{1-9}
+left/right off   &C   &1000   &1000   &0001   &0011   &0001   &0111   &1100    \\\cline{1-9}
+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---   &---   &-\/---   &-\/---   &-\/---   &-\/---   &-\/---   &-\/---   &-\/---    \\\cline{1-9}
+Air clean   &C   &1000   &1000   &1100   &0000   &0000   &0000   &1100    \\\cline{1-9}
+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---   &---   &-\/---   &-\/---   &-\/---   &-\/---   &-\/---   &-\/---   &-\/---    \\\cline{1-9}
+off   &C   &1000   &1000   &1100   &0000   &0000   &0101   &0001   \\\cline{1-9}
+\end{longtabu}
+
+
+
+\begin{DoxyItemize}
+\item remote / with heating
+\item converted using raw code at \href{https://github.com/chaeplin/RaspAC/blob/master/lircd.conf}{\texttt{ https\+://github.\+com/chaeplin/\+Rasp\+AC/blob/master/lircd.\+conf}}
+\end{DoxyItemize}
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{9}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ status   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ (0)   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ (1)   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ (2)   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ (3)   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ (4)   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ (5)   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ (6)   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ (7)    }\\\cline{1-9}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ status   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ (0)   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ (1)   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ (2)   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ (3)   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ (4)   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ (5)   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ (6)   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ (7)    }\\\cline{1-9}
+\endhead
+on   &C   &1000   &1000   &0000   &0000   &1011   &0010   &1101    \\\cline{1-9}
+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---   &---   &-\/---   &-\/---   &-\/---   &-\/---   &-\/---   &-\/---   &-\/---    \\\cline{1-9}
+off   &C   &1000   &1000   &1100   &0000   &0000   &0101   &0001    \\\cline{1-9}
+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---   &---   &-\/---   &-\/---   &-\/---   &-\/---   &-\/---   &-\/---   &-\/---    \\\cline{1-9}
+64 / 18   &C   &1000   &1000   &0000   &0000   &0011   &0100   &0111    \\\cline{1-9}
+66 / 19   &C   &1000   &1000   &0000   &0000   &0100   &0100   &1000    \\\cline{1-9}
+68 / 20   &C   &1000   &1000   &0000   &0000   &0101   &0100   &1001    \\\cline{1-9}
+70 / 21   &C   &1000   &1000   &0000   &0000   &0110   &0100   &1010    \\\cline{1-9}
+72 / 22   &C   &1000   &1000   &0000   &0000   &0111   &0100   &1011    \\\cline{1-9}
+74 / 23   &C   &1000   &1000   &0000   &0000   &1000   &0100   &1100    \\\cline{1-9}
+76 / 25   &C   &1000   &1000   &0000   &0000   &1010   &0100   &1110    \\\cline{1-9}
+78 / 26   &C   &1000   &1000   &0000   &0000   &1011   &0100   &1111    \\\cline{1-9}
+80 / 27   &C   &1000   &1000   &0000   &0000   &1100   &0100   &0000    \\\cline{1-9}
+82 / 28   &C   &1000   &1000   &0000   &0000   &1101   &0100   &0001    \\\cline{1-9}
+84 / 29   &C   &1000   &1000   &0000   &0000   &1110   &0100   &0010    \\\cline{1-9}
+86 / 30   &C   &1000   &1000   &0000   &0000   &1111   &0100   &0011    \\\cline{1-9}
+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---   &---   &-\/---   &-\/---   &-\/---   &-\/---   &-\/---   &-\/---   &-\/---    \\\cline{1-9}
+heat64   &H   &1000   &1000   &0000   &0100   &0011   &0100   &1011    \\\cline{1-9}
+heat66   &H   &1000   &1000   &0000   &0100   &0100   &0100   &1100    \\\cline{1-9}
+heat68   &H   &1000   &1000   &0000   &0100   &0101   &0100   &1101    \\\cline{1-9}
+heat70   &H   &1000   &1000   &0000   &0100   &0110   &0100   &1110    \\\cline{1-9}
+heat72   &H   &1000   &1000   &0000   &0100   &0111   &0100   &1111    \\\cline{1-9}
+heat74   &H   &1000   &1000   &0000   &0100   &1000   &0100   &0000    \\\cline{1-9}
+heat76   &H   &1000   &1000   &0000   &0100   &1001   &0100   &0001    \\\cline{1-9}
+heat78   &H   &1000   &1000   &0000   &0100   &1011   &0100   &0011    \\\cline{1-9}
+heat80   &H   &1000   &1000   &0000   &0100   &1100   &0100   &0100    \\\cline{1-9}
+heat82   &H   &1000   &1000   &0000   &0100   &1101   &0100   &0101    \\\cline{1-9}
+heat84   &H   &1000   &1000   &0000   &0100   &1110   &0100   &0110    \\\cline{1-9}
+heat86   &H   &1000   &1000   &0000   &0100   &1111   &0100   &0111   \\\cline{1-9}
+\end{longtabu}

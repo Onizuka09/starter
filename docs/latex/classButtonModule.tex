@@ -1,0 +1,112 @@
+\hypertarget{classButtonModule}{}\doxysection{Button\+Module Class Reference}
+\label{classButtonModule}\index{ButtonModule@{ButtonModule}}
+
+
+A class to handle button-\/related functionalities.  
+
+
+
+
+{\ttfamily \#include $<$Button\+Module.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classButtonModule_a74e21eba5a6702e9c957278165760832}{Button\+Module}} (uint8\+\_\+t \+\_\+pinbtn)
+\begin{DoxyCompactList}\small\item\em Constructor to initialize the button module. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classButtonModule_a659de996b6762cb3cc15a5044a2b306c}\label{classButtonModule_a659de996b6762cb3cc15a5044a2b306c}} 
+void \mbox{\hyperlink{classButtonModule_a659de996b6762cb3cc15a5044a2b306c}{Init\+Button}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the button by setting up the pin mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classButtonModule_a343524404f5e7628e1b9221c00bb8936}{Handle\+Button\+\_\+5s}} ()
+\begin{DoxyCompactList}\small\item\em Handles button press detection for 5 seconds. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classButtonModule_a14f94f0145573316ba2511ee72f40a42}{is\+Long\+Pressed\+\_\+5s}} ()
+\begin{DoxyCompactList}\small\item\em Checks if the button is pressed for 5 seconds. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classButtonModule_a063c548957d226169edc721b2b5d0f56}{run\+Reset\+ESP32\+Task}} ()
+\begin{DoxyCompactList}\small\item\em Starts a task to reset the ESP32. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classButtonModule_a4780a93eefb3b152e49e48dc5b90face}{stop\+Reset\+ESP32\+Task}} ()
+\begin{DoxyCompactList}\small\item\em Stops the ESP32 reset task. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classButtonModule_aafbf0214accf880ebf1aac29baf58088}{kill\+Reset\+ESP32\+Task}} ()
+\begin{DoxyCompactList}\small\item\em Terminates and removes the ESP32 reset task. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class to handle button-\/related functionalities. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classButtonModule_a74e21eba5a6702e9c957278165760832}\label{classButtonModule_a74e21eba5a6702e9c957278165760832}} 
+\index{ButtonModule@{ButtonModule}!ButtonModule@{ButtonModule}}
+\index{ButtonModule@{ButtonModule}!ButtonModule@{ButtonModule}}
+\doxysubsubsection{\texorpdfstring{ButtonModule()}{ButtonModule()}}
+{\footnotesize\ttfamily Button\+Module\+::\+Button\+Module (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{\+\_\+pinbtn }\end{DoxyParamCaption})}
+
+
+
+Constructor to initialize the button module. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+pinbtn} & The GPIO pin number where the button is connected. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classButtonModule_a343524404f5e7628e1b9221c00bb8936}\label{classButtonModule_a343524404f5e7628e1b9221c00bb8936}} 
+\index{ButtonModule@{ButtonModule}!HandleButton\_5s@{HandleButton\_5s}}
+\index{HandleButton\_5s@{HandleButton\_5s}!ButtonModule@{ButtonModule}}
+\doxysubsubsection{\texorpdfstring{HandleButton\_5s()}{HandleButton\_5s()}}
+{\footnotesize\ttfamily void Button\+Module\+::\+Handle\+Button\+\_\+5s (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Handles button press detection for 5 seconds. 
+
+This function checks if the button is continuously pressed for 5 seconds and triggers the corresponding action. // Assuming active LOW button\mbox{\Hypertarget{classButtonModule_a14f94f0145573316ba2511ee72f40a42}\label{classButtonModule_a14f94f0145573316ba2511ee72f40a42}} 
+\index{ButtonModule@{ButtonModule}!isLongPressed\_5s@{isLongPressed\_5s}}
+\index{isLongPressed\_5s@{isLongPressed\_5s}!ButtonModule@{ButtonModule}}
+\doxysubsubsection{\texorpdfstring{isLongPressed\_5s()}{isLongPressed\_5s()}}
+{\footnotesize\ttfamily bool Button\+Module\+::is\+Long\+Pressed\+\_\+5s (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Checks if the button is pressed for 5 seconds. 
+
+\begin{DoxyReturn}{Returns}
+True if the button has been pressed for at least 5 seconds, otherwise false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classButtonModule_aafbf0214accf880ebf1aac29baf58088}\label{classButtonModule_aafbf0214accf880ebf1aac29baf58088}} 
+\index{ButtonModule@{ButtonModule}!killResetESP32Task@{killResetESP32Task}}
+\index{killResetESP32Task@{killResetESP32Task}!ButtonModule@{ButtonModule}}
+\doxysubsubsection{\texorpdfstring{killResetESP32Task()}{killResetESP32Task()}}
+{\footnotesize\ttfamily void Button\+Module\+::kill\+Reset\+ESP32\+Task (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Terminates and removes the ESP32 reset task. 
+
+This function forcefully deletes the reset task from Free\+RTOS. \mbox{\Hypertarget{classButtonModule_a063c548957d226169edc721b2b5d0f56}\label{classButtonModule_a063c548957d226169edc721b2b5d0f56}} 
+\index{ButtonModule@{ButtonModule}!runResetESP32Task@{runResetESP32Task}}
+\index{runResetESP32Task@{runResetESP32Task}!ButtonModule@{ButtonModule}}
+\doxysubsubsection{\texorpdfstring{runResetESP32Task()}{runResetESP32Task()}}
+{\footnotesize\ttfamily void Button\+Module\+::run\+Reset\+ESP32\+Task (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Starts a task to reset the ESP32. 
+
+This function creates a Free\+RTOS task that handles the ESP32 reset process, if the button was pressed for certain amount of time. \mbox{\Hypertarget{classButtonModule_a4780a93eefb3b152e49e48dc5b90face}\label{classButtonModule_a4780a93eefb3b152e49e48dc5b90face}} 
+\index{ButtonModule@{ButtonModule}!stopResetESP32Task@{stopResetESP32Task}}
+\index{stopResetESP32Task@{stopResetESP32Task}!ButtonModule@{ButtonModule}}
+\doxysubsubsection{\texorpdfstring{stopResetESP32Task()}{stopResetESP32Task()}}
+{\footnotesize\ttfamily void Button\+Module\+::stop\+Reset\+ESP32\+Task (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Stops the ESP32 reset task. 
+
+This function suspends or stops the reset task if it is running. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{ButtonModule_8h}{Button\+Module.\+h}}\item 
+src/Button\+Module.\+cpp\end{DoxyCompactItemize}
