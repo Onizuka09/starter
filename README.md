@@ -138,3 +138,17 @@ after testing you can move the test file in the test folder in comment out the b
 > **Note For commits** 
 
 please make your commits informative, that explains the changes that ypou have made. 
+
+
+## Testing Docker 
+- Building the Dockerfile
+
+```bash
+ sudo docker build -t starter-container . 
+```
+
+- Running the docker container 
+
+```bash 
+ sudo docker run -it starter-container
+```
