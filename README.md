@@ -1,5 +1,9 @@
 # Starter : 
 
+<div style="display: flex; justify-content: center;">
+  <img src="Images/Starter.png" alt="Image 2" style="width: 45%;"/>
+</div>
+
 ## Description:
 **starter**: is a smart automation system designed for publicity stations.
 
@@ -22,14 +26,16 @@ The system ensures seamless startup  of a marketing stand by automating the foll
 ---
 
 ## Architecture & design 
-- **Design**: 
+### **Design**: 
 
 <div style="display: flex; justify-content: center;">
   <img src="Images/Design.png" alt="Image 2" style="width: 45%;"/>
 </div>
 <!-- ![Design ](Images/Design.png) -->
 
-- **Arhitecture**: 
+---
+
+### **Arhitecture**: 
 
 <div style="display: flex; justify-content: center;">
   <img src="Images/Architecture.png" alt="Image 2" style="width: 45%;"/>
@@ -154,3 +160,5 @@ please make your commits informative, that explains the changes that ypou have m
 ```
 
 
+##  TODO
+I need to update the repo to be private to inforce a rulset when developping. 
