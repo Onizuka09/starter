@@ -31,9 +31,9 @@ RUN platformio platform install espressif32
 # set the working directory 
 WORKDIR /starter 
 
-COPY . /starter/firmware
+# COPY . /starter/firmware
 
-WORKDIR /starter/firmware
+# WORKDIR /starter/firmware
 
 
 # RUN bash 

@@ -3,9 +3,12 @@ jobs:
   build:
       runs-on: ubuntu-latest
       container:
-        image: onizuka09/starter-container:latest
+        image: onizuka09/starter-container:v1.0
       steps:
         - name: Checkout the repository 
           uses: actions/checkout@v3
-        - run: make build
-          
+          with:
+            submodules: true
+        - name: Build firmware 
+          run: make build 
+
